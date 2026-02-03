@@ -1,0 +1,60 @@
+@import "../../../color-variables";
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 20px;
+
+  padding: 20px 20px;
+
+  img {
+    height: auto;
+    width: 300px;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  .text {
+    text-align: center;
+    width: 100%;
+
+    h1 {
+      color: #1a150f;
+      font-family: 'Cinzel', serif;
+      font-size: 1.8rem;
+      border-top: 2px solid #1a150f;
+      border-bottom: 2px solid #1a150f;
+      padding: 5px 20px;
+      display: inline-block;
+      letter-spacing: 6px;
+      opacity: 0.9;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    img {
+      width: 200px;
+    }
+
+    .text {
+      h1 {
+        font-size: 1.3rem;
+        letter-spacing: 3px;
+      }
+
+      hr {
+        max-width: 80%;
+        margin: 10px auto;
+      }
+    }
+  }
+}

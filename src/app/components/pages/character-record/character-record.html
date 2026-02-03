@@ -1,0 +1,92 @@
+@if (character) {
+  <a class="btn-back" routerLink="/personagens">
+    <span class="pointer">←</span> VOLTAR
+  </a>
+
+  <div class="dossie-container">
+    <aside class="sidebar-identity">
+      <div class="photo-frame">
+        <div class="logo-lendas-small">
+          <img src="/logo.png" alt="">
+        </div>
+        <img [src]="character.imageURI" class="main-photo" alt="">
+        <div class="logo-lendas-small">
+          <img src="/logo.png" alt="">
+        </div>
+      </div>
+
+      <div class="id-info">
+        <span class="label">CODINOME:</span>
+        <h1 class="codename">{{ character.codename }}</h1>
+        <p class="name">{{ character.name }}</p>
+        <p class="meta-info"><strong>PAÍS:</strong> {{ character.country }}</p>
+        <p class="meta-info"><strong>IDADE:</strong> {{ character.age }} anos</p>
+        <p class="meta-info"><strong>ALTURA:</strong> {{ character.height }}m</p>
+      </div>
+
+      <div class="interpreted-by">
+        <img [src]="character.actor.imageURI" class="photo" alt="">
+        <div class="text">
+          <span>Interpretado por: <br></span>
+          <strong>{{ character.actor.name }}</strong>
+        </div>
+      </div>
+    </aside>
+
+    <main class="content-dossie">
+      <header class="dossie-header">
+        <h2>DOSSIÊ DO CAÇADOR</h2>
+      </header>
+
+      <div class="details">
+        <section class="scroll">
+          <div class="parchment">
+            <h3>DESCRIÇÃO</h3>
+            <p>{{ character.description }}</p>
+
+            <h3 class="mt-4">FEITOS</h3>
+            <ul>
+              @for (deed of character.deeds; track deed) {
+                <li>{{ deed }}</li>
+              }
+            </ul>
+          </div>
+        </section>
+
+        <section class="history-weapon-grid"> <div class="history-text">
+          <h3>HISTÓRIA</h3>
+          <div class="text">{{ character.history }}</div>
+        </div>
+
+          <div class="weapon-box">
+            <h3>EQUIPAMENTO PRINCIPAL</h3>
+            <div class="weapon-content">
+              <img src="{{character.weapons.imageURI}}" class="weapon-img">
+              <div class="weapon-info">
+                <h4>{{ character.weapons.name }}</h4>
+                <p>{{ character.weapons.description }}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="abilities">
+        <h3>HABILIDADES</h3>
+        <div class="habilidades-grid">
+          @for (ability of character.abilities; track ability) {
+            <div class="ability-card">
+              @if (ability.image) {
+                <img [src]="ability.image" [alt]="ability.name" class="ability-icon">
+              } @else {
+                <div class="habilidade-icon-placeholder"></div>
+              }
+              <h4>{{ ability.name }}</h4>
+              <p>{{ ability.description }}</p>
+            </div>
+          }
+        </div>
+      </section>
+    </main>
+  </div>
+}

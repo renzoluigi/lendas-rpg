@@ -1,0 +1,235 @@
+@import "../../../../color-variables";
+
+.btn-back {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #2c241a 0%, #1a150f 100%);
+  border: 1px solid $gold-accent;
+  color: $gold-accent;
+  text-decoration: none;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+
+  .pointer {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    box-shadow: 0 0 15px rgba(166, 138, 75, 0.4);
+    transform: scale(1.05);
+
+    .pointer {
+      transform: translateX(-5px);
+    }
+  }
+}
+
+.dossie-container {
+  display: flex;
+  gap: 30px;
+  padding: 40px;
+  background: url('/main-background.png') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  font-family: 'Cinzel', serif;
+  box-sizing: border-box;
+
+  .sidebar-identity {
+    flex: 0 0 380px;
+    display: flex;
+    flex-direction: column;
+    background: rgba(217, 197, 163, 0.4);
+    border: 2px solid #2c241a;
+    padding: 20px;
+    height: fit-content;
+
+    .photo-frame {
+      border: 4px solid #2c241a;
+      background: #000;
+
+      .logo-lendas-small {
+        position: absolute;
+        top: 515px;
+        transform: translateX(60%);
+        width: 150px;
+        z-index: 10;
+        filter: drop-shadow(0 4px 8px rgba(0,0,0,0.8));
+        img {
+          width: 100%; height: auto;
+        }
+      }
+
+      .main-photo {
+        width: 100%;
+        height: auto;
+        display: block;
+        filter: contrast(1.1) brightness(0.9);
+      }
+    }
+
+    .id-info {
+      padding: 20px 0;
+      text-align: left;
+
+      .label { font-size: 0.7rem; color: #5a4a35; }
+      .codename { font-size: 2rem; margin: 0; color: #1a150f; }
+      .name { font-size: 1.1rem; margin: 5px 0; color: #2c241a; }
+      .meta-info { font-size: 0.9rem; margin: 0; opacity: 0.8; }
+    }
+
+    .interpreted-by {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(0,0,0,0.1);
+
+      .photo {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: 2px solid #2c241a;
+        object-fit: cover;
+      }
+      .text {
+        font-size: 0.8rem;
+        strong { display: block; font-size: 1rem; }
+      }
+    }
+  }
+
+  .content-dossie {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .dossie-header {
+      border-bottom: 2px solid #a68a4b;
+      h2 {
+        margin: 0;
+        text-align: right;
+        color: #1a150f;
+        font-size: 1.5rem;
+      }
+    }
+
+    .details {
+      display: grid;
+      grid-template-columns: 350px 1fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    .scroll {
+      .parchment {
+        background: #f4e4bc;
+        padding: 25px;
+        border: 1px solid #d2b48c;
+        box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+        position: relative;
+        text-align: justify;
+        gap: 10px;
+        flex-direction: column;
+        display: flex;
+
+        h3 { font-size: 1.1rem; margin-top: 0; border-bottom: 1px solid #d2b48c; }
+        p { font-family: 'Cinzel', serif; font-size: 0.85rem; line-height: 1.4; }
+        ul { padding-left: 20px; font-size: 0.85rem; }
+      }
+    }
+
+    .history-weapon-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+
+      .weapon-box {
+        background: linear-gradient(135deg, #2c241a 0%, #3d3224 100%);
+        border: 2px solid $gold-accent;
+        padding: 20px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0; left: 0; width: 100%; height: 5px;
+          background: $gold-accent;
+        }
+
+        h3 {
+          color: $gold-accent;
+          font-size: 1rem;
+          margin-bottom: 15px;
+          border-bottom: 1px solid rgba(166, 138, 75, 0.3);
+        }
+
+        .weapon-content {
+          display: flex;
+          gap: 20px;
+          align-items: center;
+
+          .weapon-img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 5px $gold-accent);
+          }
+
+          .weapon-info {
+            h4 { color: #f4e4bc; margin: 0 0 5px 0; font-size: 1.1rem; }
+            p { color: #d2b48c; font-size: 0.85rem; margin: 0; font-style: italic; }
+          }
+        }
+      }
+    }
+
+    .abilities {
+      h3 { border-bottom: 1px solid #a68a4b; padding-bottom: 5px; }
+
+      .habilidades-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+
+        .ability-card {
+          background: rgba(255, 255, 255, 0.2);
+          border: 1px solid #a68a4b;
+          padding: 15px;
+          height: 100%;
+
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          text-align: justify;
+
+          .ability-icon {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+          }
+
+          h4 { margin: 0 0 10px 0; font-size: 0.9rem; color: #1a150f; text-align: center }
+          p { margin: 0; font-size: 0.75rem; line-height: 1.3; }
+        }
+      }
+    }
+  }
+}

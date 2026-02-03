@@ -1,0 +1,14 @@
+  <div class="character-grid">
+    @for (char of characters; track char) {
+      <a class="character-card" [routerLink]="['/personagens', char.codename]">
+        <div class="image-wrapper">
+          <img [src]="char.imageURI" [alt]="char.name">
+        </div>
+        <div class="info-box">
+          <h2 class="codename">{{ char.codename }}</h2>
+          <p class="nome">{{ char.name }}</p>
+          <p class="classe">{{ char.country }}</p>
+        </div>
+      </a>
+    }
+  </div>

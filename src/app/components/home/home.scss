@@ -1,0 +1,113 @@
+@import "../../../color-variables";
+
+body {
+  background-image: url("/main-background.png");
+  background-size: cover;
+  background-attachment: fixed;
+  margin: 0;
+}
+
+.sections {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+  box-sizing: border-box;
+
+  .top-sections, .bottom-sections {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 1100px;
+    gap: 30px;
+  }
+
+  .characters, .history, .gallery {
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+
+    border: 6px double $primary-color;
+    border-radius: 2px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), inset 0 0 100px rgba(0, 0, 0, 0.6);
+
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.3);
+      transition: background 0.3s ease;
+    }
+
+    h2 {
+      position: relative;
+      color: $secondary-color;
+      font-size: 2.2rem;
+      font-family: 'Cinzel', serif;
+      text-shadow: 2px 2px 8px #000;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      z-index: 2;
+    }
+
+    &:hover {
+      transform: translateY(-8px);
+      border-color: lighten($secondary-color, 20%);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
+
+      &::before {
+        background: rgba(0,0,0,0.7);
+      }
+
+      h2 {
+        transform: scale(1.1);
+        color: #fff;
+      }
+    }
+  }
+
+  .characters, .history {
+    flex: 1;
+    width: 100%;
+    min-height: 350px;
+    max-height: 40vh;
+  }
+
+  .gallery {
+    flex: 1;
+    width: 100%;
+    min-height: 350px;
+    max-height: 40vh;
+  }
+
+  .characters { background-image: url("/characters.png"); }
+  .history { background-image: url("/history.png"); }
+  .gallery { background-image: url("/gallery.png"); }
+}
+
+
+@media (max-width: 768px) {
+  .sections {
+    gap: 15px;
+
+    .top-sections {
+      flex-direction: column;
+    }
+  }
+
+  .characters, .history, .gallery {
+    height: 180px;
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+}
