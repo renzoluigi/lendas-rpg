@@ -42,18 +42,16 @@
 @media (max-width: 768px) {
   .header {
     img {
-      width: 200px;
+      width: 180px;
     }
-
     .text {
       h1 {
-        font-size: 1.3rem;
-        letter-spacing: 3px;
+        font-size: 1.2rem;
+        letter-spacing: 2px;
       }
-
       hr {
-        max-width: 80%;
         margin: 10px auto;
+        max-width: 70%;
       }
     }
   }
