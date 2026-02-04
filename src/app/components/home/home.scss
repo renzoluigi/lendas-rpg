@@ -1,7 +1,7 @@
 @import "../../../color-variables";
 
 body {
-  background-image: url("/main-background.png");
+  background-image: url("/main-background.webp");
   background-size: cover;
   background-attachment: fixed;
   margin: 0;
@@ -80,20 +80,20 @@ body {
   .characters, .history {
     flex: 1;
     width: 100%;
-    min-height: 350px;
+    min-height: 300px;
     max-height: 40vh;
   }
 
   .gallery {
     flex: 1;
     width: 100%;
-    min-height: 350px;
+    min-height: 300px;
     max-height: 40vh;
   }
 
-  .characters { background-image: url("/characters.png"); }
-  .history { background-image: url("/history.png"); }
-  .gallery { background-image: url("/gallery.png"); }
+  .characters { background-image: url("/characters.webp"); }
+  .history { background-image: url("/history.webp"); }
+  .gallery { background-image: url("/gallery.webp"); }
 }
 
 

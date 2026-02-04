@@ -7,8 +7,6 @@
 
   gap: 20px;
 
-  padding: 20px 20px;
-
   img {
     height: auto;
     width: 300px;
@@ -39,14 +37,46 @@
   }
 }
 
+@media (min-width: 1280px) {
+  .header {
+    gap: 26px;
+
+    img {
+      width: 420px;
+    }
+
+    .text h1 {
+      font-size: 2.4rem;
+      letter-spacing: 8px;
+      padding: 8px 28px;
+      border-top-width: 3px;
+      border-bottom-width: 3px;
+    }
+  }
+}
+
+@media (min-width: 1600px) {
+  .header {
+    padding: 20px;
+
+    img {
+      width: 400px;
+    }
+
+    .text h1 {
+      font-size: 2rem;
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .header {
     img {
-      width: 180px;
+      width: 300px;
     }
     .text {
       h1 {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         letter-spacing: 2px;
       }
       hr {
