@@ -1,5 +1,6 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, signal, inject } from '@angular/core';
+import { RouterOutlet, Router, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -9,4 +10,24 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
   protected readonly title = signal('lendas');
+  protected isNavigating = signal(false);
+
+  constructor() {
+    const router = inject(Router);
+
+    router.events.pipe(
+      filter(e =>
+        e instanceof NavigationStart ||
+        e instanceof NavigationEnd ||
+        e instanceof NavigationCancel ||
+        e instanceof NavigationError
+      )
+    ).subscribe(event => {
+      if (event instanceof NavigationStart) {
+        this.isNavigating.set(true);
+      } else {
+        setTimeout(() => this.isNavigating.set(false), 300);
+      }
+    });
+  }
 }
