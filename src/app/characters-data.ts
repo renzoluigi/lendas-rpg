@@ -169,11 +169,11 @@ export const CHARACTERS: Character[] = [
     }, {
       name:"Espírito indomavel",
       description:"Klaus se recusa a morrer em combate para uma lenda, durante o combate mesmo que o HP do jogador chegue a -5 Klaus se recusa a morrer, somente após o combate acabar Klaus é dado como oficialmente morto.",
-      image:"/fe.webp"
+      image:"/espirito-indomavel.webp"
     }, {
       name:"Fé",
       description:"Klaus acredita que é a cura desse mundo doentio e é obrigado a se vangloriar durante os combates a cada dano ou morte causada, caso não faça pode tomar 1d6 de dano pelo seu pacto restritivo.",
-      image:"/espirito-indomavel.webp"
+      image:"/fe.webp"
     },],
     history: "A vida de Klaus acabou no dia em que ele e sua família entraram inadvertidamente em um território de caça na Floresta Negra. Ele foi o único a sobreviver, forçado a assistir ao massacre de sua esposa e filhos por uma lenda local. A mente de Klaus quebrou, sendo reconstruída apenas com ódio puro. Ele se juntou à Federação não para salvar vidas, mas para ter permissão legal de torturar e massacrar o máximo de criaturas possível. Seu 'Pacto de Fé' é uma manifestação distorcida de seu trauma.",
     deeds: ["Nenhum até o momento."],

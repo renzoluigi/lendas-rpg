@@ -1,6 +1,6 @@
-import {Component, Input} from '@angular/core';
-import {NgOptimizedImage} from '@angular/common';
-import {RouterLink} from '@angular/router';
+import { Component, Input, ElementRef, OnInit, afterNextRender, PLATFORM_ID, inject } from '@angular/core';
+import { NgOptimizedImage, isPlatformBrowser } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -11,6 +11,15 @@ import {RouterLink} from '@angular/router';
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
-export class Header {
+export class Header implements OnInit {
   @Input() title: string = ""
+
+  private readonly el = inject(ElementRef);
+  private readonly platformId = inject(PLATFORM_ID);
+
+  ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.el.nativeElement.removeAttribute('title');
+    }
+  }
 }

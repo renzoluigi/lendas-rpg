@@ -4,8 +4,6 @@
 .page-wrapper {
   min-height: 100vh;
   position: relative;
-  background: url('/main-background.webp') no-repeat center center fixed;
-  background-size: cover;
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
@@ -95,6 +93,7 @@
         bottom: -22px;
         left: 50%;
         transform: translateX(-50%);
+        transform-origin: center center;
         width: clamp(110px, 14vw, 150px);
         z-index: 10;
         filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.85));

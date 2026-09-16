@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
-import {Character} from '../../model/character';
-import {CHARACTERS} from '../../characters-data';
-import {RouterLink} from '@angular/router';
+import { Component } from '@angular/core';
+import { Character } from '../../model/character';
+import { CHARACTERS } from '../../characters-data';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'characters-section',
@@ -11,6 +11,6 @@ import {RouterLink} from '@angular/router';
   templateUrl: './characters-section.html',
   styleUrl: './characters-section.scss',
 })
-export class CharactersSection{
+export class CharactersSection {
   characters: Character[] = CHARACTERS;
 }
