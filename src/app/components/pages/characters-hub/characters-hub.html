@@ -1,0 +1,123 @@
+<main class="hub-page">
+  <app-header></app-header>
+
+  <div class="hub-container">
+    <div class="nav-top">
+      <a class="btn-back" routerLink="/">
+        <span class="arrow">←</span> VOLTAR AO INÍCIO
+      </a>
+    </div>
+
+    <div class="hub-intro">
+      <div class="intro-tag">
+        <span class="diamond">◆</span>
+        <span>REGISTRO GERAL DA FEDERAÇÃO</span>
+        <span class="diamond">◆</span>
+      </div>
+      <h2 class="intro-title">CAMPANHAS & OPERAÇÕES</h2>
+      <p class="intro-description">
+        Selecione uma campanha ou operação para inspecionar os dossiês, atributos e habilidades dos caçadores registrados.
+      </p>
+    </div>
+
+    <div class="cards-grid">
+      <a class="hub-card card-completed" routerLink="/personagens/vida-e-morte">
+        <div class="card-bg-overlay"></div>
+        <div class="card-content">
+          <div class="card-top">
+            <span class="status-badge completed">
+              <span class="check-icon">✓</span>
+              FINALIZADO
+            </span>
+            <span class="classification">CAMPANHA #01</span>
+          </div>
+
+          <div class="card-body">
+            <span class="category-subtitle">CAMPANHA CONCLUÍDA</span>
+            <h3 class="card-title">VIDA E MORTE</h3>
+            <p class="card-desc">
+              A primeira saga onde os agentes enfrentaram os mistérios ancestrais entre a vida e a morte. Campanha encerrada e arquivada nos anais da Federação.
+            </p>
+          </div>
+
+          <div class="card-footer">
+            <div class="meta-stat">
+              <span class="stat-badge-label">HISTÓRICO</span>
+              <span class="stat-sub">Arquivo Selado</span>
+            </div>
+            <span class="action-btn-completed">
+              VER REGISTROS
+              <span class="btn-arrow">→</span>
+            </span>
+          </div>
+        </div>
+        <div class="card-border-glow"></div>
+      </a>
+
+      <a class="hub-card card-active" routerLink="/personagens/one-shot">
+        <div class="card-bg-overlay"></div>
+        <div class="card-content">
+          <div class="card-top">
+            <span class="status-badge available">
+              <span class="pulse-icon"></span>
+              DISPONÍVEL
+            </span>
+            <span class="classification">OPERAÇÃO #02</span>
+          </div>
+
+          <div class="card-body">
+            <span class="category-subtitle">SESSÃO ESPECIAL</span>
+            <h3 class="card-title">ONE-SHOT</h3>
+            <p class="card-desc">
+              Dossiês biográficos, armas espirituais, feitos notáveis e repertório de habilidades dos 8 caçadores convocados para a missão One-Shot.
+            </p>
+          </div>
+
+          <div class="card-footer">
+            <div class="meta-stat">
+              <span class="stat-number">8</span>
+              <span class="stat-label">Caçadores</span>
+            </div>
+            <span class="action-btn">
+              ACESSAR DOSSIÊS
+              <span class="btn-arrow">→</span>
+            </span>
+          </div>
+        </div>
+        <div class="card-border-glow"></div>
+      </a>
+
+      <div class="hub-card card-locked" aria-disabled="true">
+        <div class="card-bg-overlay"></div>
+        <div class="card-content">
+          <div class="card-top">
+            <span class="status-badge locked">
+              <span class="lock-icon">🔒</span>
+              EM BREVE
+            </span>
+            <span class="classification">CAMPANHA #03</span>
+          </div>
+
+          <div class="card-body">
+            <span class="category-subtitle">NOVA CAMPANHA</span>
+            <h3 class="card-title">[...]</h3>
+            <p class="card-desc">
+              Próxima grande campanha em desenvolvimento pelo Alto Comando. Fichas de agentes e novas ameaças folclóricas serão reveladas em breve.
+            </p>
+          </div>
+
+          <div class="card-footer">
+            <div class="meta-stat">
+              <span class="stat-badge-label">PLANEJADO</span>
+              <span class="stat-sub">Aguardando Início</span>
+            </div>
+            <span class="locked-label">
+              ACESSO RESTRITO
+            </span>
+          </div>
+        </div>
+        <div class="card-border-glow"></div>
+      </div>
+    </div>
+  </div>
+</main>

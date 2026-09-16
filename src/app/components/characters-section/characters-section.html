@@ -1,14 +1,29 @@
-  <div class="character-grid">
-    @for (char of characters; track char) {
-      <a class="character-card" [routerLink]="['/personagens', char.codename]">
-        <div class="image-wrapper">
-          <img [src]="char.imageURI" [alt]="char.name">
+<div class="character-grid">
+  @for (char of characters; track char.codename; let idx = $index) {
+    <a class="character-card" [routerLink]="['/personagens/one-shot', char.codename]">
+      <div class="image-wrapper">
+        <img [src]="char.imageURI" [alt]="char.name" loading="lazy">
+        <div class="image-overlay"></div>
+        <div class="card-badge">
+          <span class="dossier-num">#{{ idx + 1 < 10 ? '0' + (idx + 1) : idx + 1 }}</span>
+          <span class="country-pill">{{ char.country }}</span>
         </div>
-        <div class="info-box">
+      </div>
+      <div class="info-box">
+        <div class="names">
           <h2 class="codename">{{ char.codename }}</h2>
           <p class="nome">{{ char.name }}</p>
-          <p class="classe">{{ char.country }}</p>
         </div>
-      </a>
-    }
-  </div>
+        <div class="card-meta">
+          <span class="meta-item">{{ char.age }} anos</span>
+          <span class="meta-dot">•</span>
+          <span class="meta-item">{{ char.height }}m</span>
+        </div>
+        <div class="action-footer">
+          <span class="view-label">VER DOSSIÊ</span>
+          <span class="view-arrow">→</span>
+        </div>
+      </div>
+    </a>
+  }
+</div>

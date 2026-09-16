@@ -1,31 +1,27 @@
-import {RenderMode, ServerRoute} from '@angular/ssr';
-import {CHARACTERS} from './characters-data';
+import { RenderMode, ServerRoute } from '@angular/ssr';
+import { CHARACTERS } from './characters-data';
 
 export const serverRoutes: ServerRoute[] = [
   {
-
-    path: 'personagens/:codename',
-
+    path: 'personagens/one-shot/:codename',
     renderMode: RenderMode.Prerender,
-
     getPrerenderParams: async () => {
-
       return CHARACTERS.map(char => ({
-
         codename: char.codename
-
       }));
-
     }
-
   },
-
   {
-
+    path: 'personagens/:codename',
+    renderMode: RenderMode.Prerender,
+    getPrerenderParams: async () => {
+      return CHARACTERS.map(char => ({
+        codename: char.codename
+      }));
+    }
+  },
+  {
     path: '**',
-
     renderMode: RenderMode.Prerender
-
   }
-
 ];
