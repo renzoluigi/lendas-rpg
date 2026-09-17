@@ -15,4 +15,5 @@ export interface Character {
   actor: Actor;
   deeds: string[];
   weapons: Weapon;
+  campaign?: string;
 }

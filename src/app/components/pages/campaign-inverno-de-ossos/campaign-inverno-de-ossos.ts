@@ -3,20 +3,20 @@ import { isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Header } from '../../header/header';
 import { Character } from '../../../model/character';
-import { VIDA_E_MORTE_CHARACTERS } from '../../../characters-data';
+import { INVERNO_CHARACTERS } from '../../../characters-data';
 
 @Component({
-  selector: 'app-campaign-vida-e-morte',
+  selector: 'app-campaign-inverno-de-ossos',
   standalone: true,
   imports: [
     Header,
     RouterLink
   ],
-  templateUrl: './campaign-vida-e-morte.html',
-  styleUrl: './campaign-vida-e-morte.scss'
+  templateUrl: './campaign-inverno-de-ossos.html',
+  styleUrl: './campaign-inverno-de-ossos.scss'
 })
-export class CampaignVidaEMorte {
-  characters: Character[] = VIDA_E_MORTE_CHARACTERS;
+export class CampaignInvernoDeOssos {
+  characters: Character[] = INVERNO_CHARACTERS;
   private readonly platformId = inject(PLATFORM_ID);
 
   constructor() {
@@ -24,18 +24,18 @@ export class CampaignVidaEMorte {
       if (!isPlatformBrowser(this.platformId)) return;
       const { animateMini, inView } = await import('motion');
 
-      const archiveCard = document.querySelector('.archive-card');
-      if (archiveCard) {
-        (archiveCard as HTMLElement).style.opacity = '0';
-        (archiveCard as HTMLElement).style.transform = 'translateY(24px)';
+      const hero = document.querySelector('.campaign-hero');
+      if (hero) {
+        (hero as HTMLElement).style.opacity = '0';
+        (hero as HTMLElement).style.transform = 'translateY(24px)';
         animateMini(
-          archiveCard,
+          hero,
           { opacity: 1, transform: 'translateY(0px)' },
           { duration: 0.6, delay: 0.1, easing: [0.22, 1, 0.36, 1] } as any
         );
       }
 
-      const cards = document.querySelectorAll<HTMLElement>('.character-card');
+      const cards = document.querySelectorAll<HTMLElement>('.character-card, .recruit-card');
       cards.forEach((card, i) => {
         card.style.opacity = '0';
         card.style.transform = 'translateY(24px)';

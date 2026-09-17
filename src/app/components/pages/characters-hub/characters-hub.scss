@@ -208,6 +208,34 @@
           font-size: 0.75rem;
         }
       }
+
+      &.frost {
+        background: rgba(56, 189, 248, 0.16);
+        border: 1px solid rgba(125, 211, 252, 0.55);
+        color: #bae6fd;
+
+        .frost-pulse {
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background: #38bdf8;
+          box-shadow: 0 0 8px #38bdf8;
+        }
+      }
+
+      &.vida-morte {
+        background: rgba(127, 29, 29, 0.28);
+        border: 1px solid rgba(239, 68, 68, 0.6);
+        color: #fca5a5;
+
+        .blood-pulse {
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background: #ef4444;
+          box-shadow: 0 0 10px #dc2626;
+        }
+      }
     }
 
     .classification {
@@ -289,33 +317,61 @@
     }
   }
 
+  &.card-vida-morte,
   &.card-completed {
-    background: linear-gradient(145deg, #18130d 0%, #0f0c08 100%);
-    border: 2px solid rgba(166, 138, 75, 0.7);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8), inset 0 0 40px rgba(0, 0, 0, 0.6);
+    background: radial-gradient(circle at 50% 15%, rgba(185, 28, 28, 0.16) 0%, transparent 65%),
+                linear-gradient(145deg, #0e0406 0%, #060203 100%);
+    border: 2px solid rgba(220, 38, 38, 0.6);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.95), inset 0 0 50px rgba(127, 29, 29, 0.25);
     cursor: pointer;
 
     .card-bg-overlay {
       background-image: url('/history.webp');
-      opacity: 0.18;
+      opacity: 0.22;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .category-subtitle {
+      color: #f87171;
+      letter-spacing: 2px;
     }
 
     .card-title {
-      color: #e5d3b3;
+      color: #fef2f2;
+      text-shadow: 0 2px 14px rgba(239, 68, 68, 0.65), 0 0 25px rgba(185, 28, 28, 0.4);
     }
 
     .card-desc {
-      color: #bfae99;
+      color: #cbd5e1;
     }
 
+    .meta-stat {
+      .stat-number {
+        color: #f87171;
+      }
+
+      .stat-label {
+        color: #94a3b8;
+      }
+
+      .stat-badge-label {
+        color: #f87171;
+      }
+
+      .stat-sub {
+        color: #94a3b8;
+      }
+    }
+
+    .action-btn-vida-morte,
     .action-btn-completed {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 7px 14px;
-      background: rgba(166, 138, 75, 0.15);
-      border: 1px solid rgba(166, 138, 75, 0.6);
-      color: $secondary-color;
+      padding: 7px 15px;
+      background: rgba(127, 29, 29, 0.3);
+      border: 1px solid rgba(239, 68, 68, 0.65);
+      color: #fecaca;
       font-family: 'Cinzel', serif;
       font-size: 0.75rem;
       font-weight: 700;
@@ -330,22 +386,25 @@
 
     &:hover {
       transform: translateY(-6px);
-      border-color: $gold-accent;
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.9), 0 0 20px rgba(166, 138, 75, 0.3);
+      border-color: #ef4444;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.95), 0 0 30px rgba(220, 38, 38, 0.5);
 
       .card-bg-overlay {
-        opacity: 0.28;
+        opacity: 0.35;
         transform: scale(1.04);
       }
 
       .card-title {
         color: #ffffff;
+        text-shadow: 0 0 20px rgba(239, 68, 68, 0.85);
       }
 
+      .action-btn-vida-morte,
       .action-btn-completed {
-        background: $gold-accent;
-        color: #1a150f;
-        box-shadow: 0 0 10px rgba(166, 138, 75, 0.4);
+        background: #991b1b;
+        color: #ffffff;
+        border-color: #f87171;
+        box-shadow: 0 0 16px rgba(220, 38, 38, 0.7);
 
         .btn-arrow {
           transform: translateX(4px);
@@ -420,6 +479,89 @@
         background: $gold-accent;
         color: #1a150f;
         box-shadow: 0 0 12px rgba(166, 138, 75, 0.5);
+
+        .btn-arrow {
+          transform: translateX(4px);
+        }
+      }
+    }
+  }
+
+  &.card-inverno {
+    background: linear-gradient(145deg, #0d151e 0%, #080c12 100%);
+    border: 2px solid rgba(125, 185, 232, 0.6);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85), inset 0 0 50px rgba(10, 24, 40, 0.7);
+    cursor: pointer;
+
+    .card-bg-overlay {
+      background-image: url('/inverno-de-ossos.webp');
+      background-position: center 20%;
+      opacity: 0.26;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .category-subtitle {
+      color: #93c5fd;
+    }
+
+    .card-title {
+      color: #e0f2fe;
+      text-shadow: 0 2px 12px rgba(14, 165, 233, 0.4);
+    }
+
+    .card-desc {
+      color: #cbd5e1;
+    }
+
+    .meta-stat {
+      .stat-number {
+        color: #7dd3fc;
+      }
+
+      .stat-label {
+        color: #94a3b8;
+      }
+    }
+
+    .action-btn-frost {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: rgba(14, 116, 144, 0.2);
+      border: 1px solid rgba(125, 211, 252, 0.6);
+      color: #e0f2fe;
+      font-family: 'Cinzel', serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+
+      .btn-arrow {
+        transition: transform 0.3s ease;
+      }
+    }
+
+    &:hover {
+      transform: translateY(-6px);
+      border-color: #38bdf8;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.92), 0 0 30px rgba(56, 189, 248, 0.35);
+
+      .card-bg-overlay {
+        opacity: 0.42;
+        transform: scale(1.05);
+      }
+
+      .card-title {
+        color: #ffffff;
+        text-shadow: 0 0 16px rgba(56, 189, 248, 0.7);
+      }
+
+      .action-btn-frost {
+        background: #0284c7;
+        color: #ffffff;
+        box-shadow: 0 0 14px rgba(56, 189, 248, 0.6);
 
         .btn-arrow {
           transform: translateX(4px);

@@ -294,6 +294,180 @@ export const CHARACTERS: Character[] = [
       description: "Dante utiliza 2 chicotes espinhosos reforçados com energia folclórica."
     },
     age: 29,
-    height: 1.81
+    height: 1.81,
+    campaign: 'one-shot'
+  },
+  {
+    codename: 'Valko',
+    imageURI: '/valko.jpg',
+    name: 'Valko Morozov',
+    country: 'Sibéria / Rússia',
+    description: "Veterano calejado pelas neves eternas, Valko é um rastreador implacável de horrores sepultados no gelo. Silencioso como uma nevasca e mortal como o permafrost, ele empunha uma lâmina rúnica forjada em ferro frio para enfrentar abominações que a civilização moderna esqueceu sob o permafrost.",
+    actor: {
+      name: 'Rony Rustico',
+      imageURI: '/rony.webp',
+    },
+    abilities: [
+      {
+        name: "Sopro Glacial",
+        description: "Valko canaliza energia folclórica gélida ao redor de sua lâmina rúnica, desferindo um corte que congela os tecidos do adversário, reduzindo o deslocamento da criatura pela metade por 2 rodadas.",
+        image: "/corte-translucido.webp"
+      },
+      {
+        name: "Sobrevivência no Permafrost",
+        description: "Habituado a temperaturas extremas e terrenos inóspitos, Valko possui resistência sobrenatural a frio e fadiga, ignorando penalidades climáticas e ganhando +3 em testes de rastreamento na neve.",
+        image: "/espirito-indomavel.webp"
+      },
+      {
+        name: "Sentido dos Ossos",
+        description: "Consegue pressentir a aproximação de entidades e lendas soterradas sob o gelo num raio de até 1 quilômetro, identificando a natureza primordial da ameaça.",
+        image: "/ponto-fraco.webp"
+      },
+      {
+        name: "Quebra-Gelo Ancestral",
+        description: "Um golpe avassalador de duas mãos que quebra a carapaça ou barreiras místicas do inimigo, concedendo bônus crítico maciço.",
+        image: "/ruptura.webp"
+      }
+    ],
+    history: "Valko nasceu nas estepes congeladas que margeiam os cumes proibidos do norte. Sua guilda de caçadores ancestrais protegia os passos montanhosos onde criptas antigas guardavam os 'Inomináveis do Gelo'. Quando uma expedição clandestina rompeu o selo milenar de uma cidadela sepultada, trazendo o Inverno de Ossos de volta à vida, Valko foi convocado pela Federação como guia supremo e ponta de lança da expedição. Para ele, a neve nunca é silenciosa — ela sussurra os nomes daqueles que ela pretende devorar.",
+    deeds: [
+      "Sobreviveu à expedição da Cordilheira dos Esquecidos.",
+      "Mapeou as entradas das catacumbas congeladas da Cidadela."
+    ],
+    weapons: {
+      name: "Montante Rúnico de Ferro Frio",
+      imageURI: "/katana.webp",
+      description: "Uma lâmina colossal entalhada com runas que nunca descongelam, capaz de ceifar tanto carne quanto espíritos congelados."
+    },
+    age: 42,
+    height: 1.88,
+    campaign: 'inverno-de-ossos'
+  },
+  {
+    codename: 'Sen',
+    imageURI: '/sen.webp',
+    name: 'Sen',
+    country: 'Brasil / Japão',
+    description: "Pugilista excepcional com herança oriental e negra. Despertou suas habilidades de combate corporal supremo após uma severa exposição à energia folclórica no submundo das lutas clandestinas.",
+    actor: {
+      name: 'Rony Rustico',
+      imageURI: '/rony.webp',
+    },
+    abilities: [
+      {
+        name: "Mãos Elementais",
+        description: "Gastando 2 de EF, pode alterar a composição de suas próprias mãos, transmutando-as em minérios e rochas sólidas para aumentar consideravelmente o impacto dos ataques.",
+        image: "/punhos.webp"
+      },
+      {
+        name: "Vamos Ver Quem Aguenta Mais",
+        description: "Gastando 1 de EF, todo o dano recebido por Sen é dobrado, porém todo o dano causado por ele é triplicado em um frenesi marcial.",
+        image: "/pressao.webp"
+      },
+      {
+        name: "Alcance Sobre-Humano",
+        description: "Ao canalizar energia folclórica nos membros, consegue dobrar o alcance de seus ataques físicos. Pode ser usado uma vez por missão.",
+        image: "/pulso-predatorio.webp"
+      },
+      {
+        name: "Lutador",
+        description: "Postura marcial impecável. Concede +2 de ataque e +2 de dano sem custo de EF. Uso limitado a 1 vez por missão.",
+        image: "/quebra-de-postura.webp"
+      },
+      {
+        name: "Olhos de Odin",
+        description: "Sen retira seus óculos escuros, enxergando com clareza espiritual os pontos vitais das criaturas durante toda a luta (dano multiplicado por 1,5x). Ao término do combate, sofre fadiga visual (-2 em testes de ataque). Custa 1 EF.",
+        image: "/ponto-fraco.webp"
+      },
+      {
+        name: "Expansão de Domínio: Mano a Mano",
+        description: "Requer acertar o golpe Rolo Compressor com sucesso. Sen projeta um ringue dimensional de combate singular 1 contra 1. Todos os demais observam de fora, e dentro do domínio todos os seus golpes acertam infalivelmente e causam 1,5x de dano.",
+        image: "/campos-xibalba.webp"
+      }
+    ],
+    history: "Sen cresceu entre dojos tradicionais e ringues urbanos, combinando raízes orientais com a vivência brasileira. Ele dominava o boxe mundano até que, durante uma disputa nos circuitos proibidos, foi atingido por uma emanação brutal de energia folclórica. Em vez de ser consumido, sua determinação transmutou a radiação em poder: seus punhos se tornaram minerais vivos. Ingressou na saga Vida e Morte para testar os limites do corpo humano contra entidades que jamais sangraram em ringues mundanos.",
+    deeds: [
+      "Sobreviveu à exposição crítica de energia folclórica bruta.",
+      "Consagrou o Domínio 'Mano a Mano' nos registros de combate corpo a corpo da Federação."
+    ],
+    weapons: {
+      name: "Ataduras e Punhos Minerais",
+      imageURI: "/punhos.webp",
+      description: "Ataduras rúnicas reforçadas que contêm a transmutação mineral das Mãos Elementais e amplificam o impacto do pugilismo."
+    },
+    age: 26,
+    height: 1.82,
+    campaign: 'vida-e-morte'
+  },
+  {
+    codename: 'Josh',
+    imageURI: '/josh.webp',
+    name: 'Josh',
+    country: 'Brasil',
+    description: "Misterioso e imprevisível guerreiro que canaliza energia folclórica através de sangue e instintos totêmicos. Introvertido e temido em combate, domina rituais hematológicos e transfigurações animalescas.",
+    actor: {
+      name: 'Rony Rustico',
+      imageURI: '/rony.webp',
+    },
+    abilities: [
+      {
+        name: "Aprimoramento Corporal",
+        description: "Josh acelera o fluxo sanguíneo em suas veias, ampliando drasticamente força e reflexos. Gasta 1 EF e todos os ataques sob este efeito concedem +2 de dano.",
+        image: "/energia-vital.webp"
+      },
+      {
+        name: "Muralha de Sangue",
+        description: "Solidifica o próprio sangue externamente em uma barreira couraçada, aumentando seu CA (Classe de Armadura) em +2 por 3 turnos.",
+        image: "/casca-grossa.webp"
+      },
+      {
+        name: "Sangue Verdadeiro",
+        description: "Aplica efeito de sangramento ao acertar o alvo. Pode consumir ação para ativar efeito Corrosivo, causando dano contínuo que ignora armaduras.",
+        image: "/carnificina.webp"
+      },
+      {
+        name: "Dama Sangrenta",
+        description: "Traça um selo ritualístico gigante no solo com sangue à mercê. Inimigos selecionados sofrem -3 de debuff de dano e aliados recebem +2 de dano enquanto permanecerem na área.",
+        image: "/fe.webp"
+      },
+      {
+        name: "Vontade de Ferro",
+        description: "Seu corpo manifesta uma blindagem biológica férrea impenetrável. Gastando 3 EF, ignora todos os próximos ataques físicos por 2 turnos.",
+        image: "/espirito-indomavel.webp"
+      },
+      {
+        name: "Instinto Animal",
+        description: "Gastando de 1 a 5 de EF, transfigura seu corpo em animais ou lendas já derrotadas (desde aves e répteis até lobos, ursos pardos e feras brutais).",
+        image: "/animal-totemico.webp"
+      },
+      {
+        name: "Olhos de Tandera",
+        description: "Habilidade de percepção sobrenatural fora de combate; gasta 1 EF para ampliar sentidos e visão periférica além dos limites naturais.",
+        image: "/ler-o-futuro.webp"
+      },
+      {
+        name: "Expansão de Domínio: Lua Vermelha",
+        description: "Alimentado pelo sangue derramado pelo oponente. Ergue uma colossal esfera escarlate onde Josh manipula livremente todo o sangue ao redor, infligindo dano devastador relativo ao poder da criatura.",
+        image: "/destino.webp"
+      }
+    ],
+    history: "Com raízes profundas no Brasil e fluência em Tupi-Guarani, Josh sempre foi visto como uma anomalia pela Federação. Sua personalidade oscila entre a introspecção quieta e uma fúria visceral quando o sangue é derramado. Ele não caça por vaidade; sua conexão ancestral com o sangue e com as feras faz dele um predador implacável que enfrentou os horrores mais tenebrosos da campanha Vida e Morte.",
+    deeds: [
+      "Manifestou a Expansão de Domínio Lua Vermelha em combate mortal.",
+      "Dominou as transfigurações do Instinto Animal contra criaturas folclóricas primordiais."
+    ],
+    weapons: {
+      name: "Lâminas de Sangue e Machado Ritual",
+      imageURI: "/cutelo.webp",
+      description: "Machado e punhais de ferro forjado embebidos em sangue folclórico para canalizar a técnica corrosiva de Sangue Verdadeiro."
+    },
+    age: 24,
+    height: 1.78,
+    campaign: 'vida-e-morte'
   }
-]
+];
+
+export const ONE_SHOT_CHARACTERS: Character[] = CHARACTERS.filter(c => !c.campaign || c.campaign === 'one-shot');
+export const INVERNO_CHARACTERS: Character[] = CHARACTERS.filter(c => c.campaign === 'inverno-de-ossos');
+export const VIDA_E_MORTE_CHARACTERS: Character[] = CHARACTERS.filter(c => c.campaign === 'vida-e-morte');
+

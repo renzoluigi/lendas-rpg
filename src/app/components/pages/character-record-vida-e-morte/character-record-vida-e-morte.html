@@ -1,0 +1,196 @@
+@if (character) {
+  <div class="dossie-page">
+    <div class="page-container">
+      
+      <!-- Top Nav Bar -->
+      <nav class="top-nav">
+        <a class="btn-back-blood" [routerLink]="backUrl">
+          <span class="pointer">←</span> VOLTAR AO TOMO SELADO
+        </a>
+
+        <div class="nav-classification">
+          <span class="blood-pulse"></span>
+          <span class="tag">REGISTRO HISTÓRICO // VIDA E MORTE</span>
+        </div>
+      </nav>
+
+      <!-- Main Dossier Layout -->
+      <div class="dossie-grid">
+
+        <!-- Left Column: Identity Sidebar -->
+        <aside class="sidebar-identity">
+          <div class="portrait-container">
+            <div class="photo-frame">
+              <img [src]="character.imageURI" class="main-photo" [alt]="'Dossiê de ' + character.name">
+              <div class="photo-vignette"></div>
+              <div class="logo-lendas-seal">
+                <img src="/logo.webp" alt="Logo Lendas RPG">
+              </div>
+            </div>
+          </div>
+
+          <div class="identity-card">
+            <div class="seal-badge">
+              <span class="blood-pulse"></span>
+              <span>PIONEIRO SELADO #{{ character.codename === 'Sen' ? '01' : '02' }}</span>
+            </div>
+
+            <div class="name-block">
+              <span class="label">CODINOME OFICIAL</span>
+              <h1 class="codename">{{ character.codename }}</h1>
+              <p class="real-name">{{ character.name }}</p>
+            </div>
+
+            <div class="stats-grid">
+              <div class="stat-item">
+                <span class="stat-label">ORIGEM</span>
+                <span class="stat-value">{{ character.country }}</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">IDADE</span>
+                <span class="stat-value">{{ character.age }} anos</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">ESTATURA</span>
+                <span class="stat-value">{{ character.height }}m</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">CAMPANHA</span>
+                <span class="stat-value highlight">Vida e Morte</span>
+              </div>
+            </div>
+
+            <div class="actor-card">
+              <img [src]="character.actor.imageURI" class="actor-avatar" [alt]="character.actor.name">
+              <div class="actor-meta">
+                <span class="actor-label">INTERPRETADO POR:</span>
+                <strong class="actor-name">{{ character.actor.name }}</strong>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Right Column: Lore, Deeds, Weapon, Domain & Abilities -->
+        <main class="dossie-content">
+          
+          <header class="dossie-header">
+            <div class="header-ornament">
+              <span class="line"></span>
+              <span class="skull-icon">💀</span>
+              <span class="line"></span>
+            </div>
+            <h2>DOSSIÊ HISTÓRICO DO CAÇADOR</h2>
+            <p class="subtitle">Registros macabros e transcrições de combate da primeira expedição.</p>
+          </header>
+
+          <!-- Profile Description & Feats -->
+          <section class="lore-panel">
+            <div class="panel-section">
+              <div class="section-title-wrap">
+                <span class="diamond">◆</span>
+                <h3>ANÁLISE & COMPORTAMENTO</h3>
+              </div>
+              <p class="description-text">{{ character.description }}</p>
+            </div>
+
+            @if (character.deeds && character.deeds.length > 0) {
+              <div class="panel-section deeds-section">
+                <div class="section-title-wrap">
+                  <span class="diamond">◆</span>
+                  <h3>FEITOS HISTÓRICOS REGISTRADOS</h3>
+                </div>
+                <ul class="deeds-list">
+                  @for (deed of character.deeds; track deed) {
+                    <li>
+                      <span class="deed-marker">⬥</span>
+                      <span>{{ deed }}</span>
+                    </li>
+                  }
+                </ul>
+              </div>
+            }
+          </section>
+
+          <!-- History / Lore Section -->
+          <section class="history-panel">
+            <div class="section-title-wrap">
+              <span class="diamond">◆</span>
+              <h3>REGISTRO BIOGRÁFICO</h3>
+            </div>
+            <div class="history-text">
+              <p>{{ character.history }}</p>
+            </div>
+          </section>
+
+          <!-- Weapon / Relic Section -->
+          <section class="weapon-card">
+            <div class="weapon-header">
+              <span class="weapon-tag">EQUIPAMENTO & RELÍQUIA PRIMORDIAL</span>
+              <h3>{{ character.weapons.name }}</h3>
+            </div>
+            <div class="weapon-body">
+              <div class="weapon-img-frame">
+                <img [src]="character.weapons.imageURI" [alt]="character.weapons.name" class="weapon-img">
+              </div>
+              <div class="weapon-info">
+                <p class="weapon-desc">{{ character.weapons.description }}</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Domain Expansion Special Highlight -->
+          @if (domainExpansion) {
+            <section class="domain-expansion-card">
+              <div class="domain-badge-bar">
+                <span class="blood-pulse"></span>
+                <span class="domain-badge">TÉCNICA SUPREMA • EXPANSÃO DE DOMÍNIO</span>
+                <span class="blood-pulse"></span>
+              </div>
+              <div class="domain-content">
+                <div class="domain-icon-frame">
+                  @if (domainExpansion.image) {
+                    <img [src]="domainExpansion.image" [alt]="domainExpansion.name" class="domain-img">
+                  } @else {
+                    <span class="domain-fallback-icon">🩸</span>
+                  }
+                </div>
+                <div class="domain-text">
+                  <h3 class="domain-name">{{ domainExpansion.name }}</h3>
+                  <p class="domain-desc">{{ domainExpansion.description }}</p>
+                </div>
+              </div>
+            </section>
+          }
+
+          <!-- Regular Abilities Section -->
+          <section class="abilities-section">
+            <div class="section-title-wrap">
+              <span class="diamond">◆</span>
+              <h3>ARSENAL DE TÉCNICAS & HABILIDADES</h3>
+            </div>
+
+            <div class="techniques-grid">
+              @for (ability of regularAbilities; track ability.name) {
+                <div class="technique-card">
+                  <div class="card-top">
+                    @if (ability.image) {
+                      <div class="technique-icon-wrap">
+                        <img [src]="ability.image" [alt]="ability.name" class="technique-icon">
+                      </div>
+                    } @else {
+                      <div class="technique-icon-placeholder">✦</div>
+                    }
+                    <h4 class="technique-name">{{ ability.name }}</h4>
+                  </div>
+                  <p class="technique-desc">{{ ability.description }}</p>
+                </div>
+              }
+            </div>
+          </section>
+
+        </main>
+      </div>
+
+    </div>
+  </div>
+}

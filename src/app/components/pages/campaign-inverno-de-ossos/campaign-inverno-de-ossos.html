@@ -1,0 +1,120 @@
+<main class="inverno-page">
+  <app-header title="INVERNO DE OSSOS"></app-header>
+
+  <div class="inverno-container">
+    <div class="nav-bar">
+      <a class="btn-back" routerLink="/personagens">
+        <span class="arrow">←</span> VOLTAR PARA CAMPANHAS
+      </a>
+      <div class="campaign-breadcrumb">
+        <span class="campaign-name">CAMPANHAS</span>
+        <span class="separator">/</span>
+        <span class="sub-name">INVERNO DE OSSOS</span>
+      </div>
+    </div>
+
+    <!-- Campaign Hero Presentation -->
+    <section class="campaign-hero">
+      <div class="hero-poster-frame">
+        <img src="/inverno-de-ossos.webp" alt="Poster Oficial - Inverno de Ossos" class="hero-poster-img" />
+        <div class="poster-vignette"></div>
+      </div>
+
+      <div class="hero-details">
+        <div class="hero-tagline-badge">
+          <span class="frost-diamond">❖</span>
+          <span>CAMPANHA ORIGINAL PARA CAÇADORES</span>
+          <span class="frost-diamond">❖</span>
+        </div>
+
+        <h1 class="campaign-main-title">INVERNO DE OSSOS</h1>
+
+        <blockquote class="campaign-quote">
+          “Alguns segredos não devem ser enterrados... apenas esquecidos.”
+        </blockquote>
+
+        <p class="campaign-synopsis">
+          Nas profundezas gélidas das montanhas esquecidas, uma cidadela milenar sepultada sob neves eternas começou a despertar. 
+          Ruínas ancestrais guardam segredos de rituais proibidos que a Federação tentou ocultar dos anais da história. 
+          Agora, uma expedição de caçadores de elite foi mobilizada para desbravar o permafrost antes que as abominações do frio tomem o mundo da superfície.
+        </p>
+
+        <div class="campaign-stats-strip">
+          <div class="stat-pill">
+            <span class="stat-label">OPERAÇÃO</span>
+            <span class="stat-val">Campanha #03</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-label">STATUS</span>
+            <span class="stat-val highlight-frost">Em Andamento</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-label">TERRITÓRIO</span>
+            <span class="stat-val">Cordilheira dos Esquecidos</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-label">EFETIVO</span>
+            <span class="stat-val">{{ characters.length }} {{ characters.length === 1 ? 'Caçador' : 'Caçadores' }}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Characters Section -->
+    <section class="characters-section">
+      <div class="section-heading">
+        <div class="heading-ornament">
+          <span class="ornament-line"></span>
+          <span class="frost-diamond">❖</span>
+          <span class="ornament-line"></span>
+        </div>
+        <h2 class="section-title">CAÇADORES DA EXPEDIÇÃO</h2>
+        <p class="section-subtitle">Dossiês, armamentos rúnicos e habilidades dos combatentes designados para o fronte gélido.</p>
+      </div>
+
+      <div class="character-grid">
+        @for (char of characters; track char.codename; let idx = $index) {
+          <a class="character-card" [routerLink]="['/personagens/inverno-de-ossos', char.codename]">
+            <div class="image-wrapper">
+              <img [src]="char.imageURI" [alt]="char.name" loading="lazy">
+              <div class="image-overlay"></div>
+              <div class="card-badge">
+                <span class="dossier-num">#{{ idx + 1 < 10 ? '0' + (idx + 1) : idx + 1 }}</span>
+                <span class="country-pill">{{ char.country }}</span>
+              </div>
+            </div>
+            <div class="info-box">
+              <div class="names">
+                <h3 class="codename">{{ char.codename }}</h3>
+                <p class="nome">{{ char.name }}</p>
+              </div>
+              <div class="card-meta">
+                <span class="meta-item">{{ char.age }} anos</span>
+                <span class="meta-dot">•</span>
+                <span class="meta-item">{{ char.height }}m</span>
+              </div>
+              <div class="action-footer">
+                <span class="view-label">VER DOSSIÊ</span>
+                <span class="view-arrow">→</span>
+              </div>
+            </div>
+          </a>
+        }
+
+        <!-- Recruitment / Placeholder Card for more characters -->
+        <div class="recruit-card">
+          <div class="recruit-inner">
+            <div class="recruit-icon-box">
+              <span class="recruit-icon">+</span>
+            </div>
+            <h3 class="recruit-title">NOVA CONVOCAÇÃO</h3>
+            <p class="recruit-desc">
+              O Alto Comando está mobilizando novos caçadores para esta expedição. Registros e fichas de agentes serão integrados em breve.
+            </p>
+            <span class="recruit-badge">VAGA ABERTA</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>

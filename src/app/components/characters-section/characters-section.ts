@@ -1,7 +1,7 @@
 import { Component, PLATFORM_ID, inject, afterNextRender } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { Character } from '../../model/character';
-import { CHARACTERS } from '../../characters-data';
+import { ONE_SHOT_CHARACTERS } from '../../characters-data';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -14,7 +14,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './characters-section.scss',
 })
 export class CharactersSection {
-  characters: Character[] = CHARACTERS;
+  characters: Character[] = ONE_SHOT_CHARACTERS;
   private readonly platformId = inject(PLATFORM_ID);
 
   constructor() {

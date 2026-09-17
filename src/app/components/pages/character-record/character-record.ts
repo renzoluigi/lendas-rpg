@@ -1,7 +1,7 @@
 import { Component, inject, OnInit, PLATFORM_ID, afterNextRender } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { Character } from '../../../model/character';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CHARACTERS } from '../../../characters-data';
 
 @Component({
@@ -14,9 +14,11 @@ import { CHARACTERS } from '../../../characters-data';
 })
 export class CharacterRecord implements OnInit {
   private route = inject(ActivatedRoute);
+  private router = inject(Router);
   private readonly platformId = inject(PLATFORM_ID);
 
   character?: Character;
+  backUrl: string = '/personagens/one-shot';
 
   ngOnInit() {
     let codenameParam = this.route.snapshot.paramMap.get("codename");
@@ -24,6 +26,24 @@ export class CharacterRecord implements OnInit {
     if (codenameParam) {
       codenameParam = codenameParam.toLowerCase();
       this.character = CHARACTERS.find(char => char.codename.toLowerCase() == codenameParam);
+    }
+
+    const currentUrl = this.route.snapshot.pathFromRoot
+      .map(segment => segment.url.map(u => u.path).join('/'))
+      .filter(Boolean)
+      .join('/');
+
+    if (this.character?.campaign === 'vida-e-morte' && !currentUrl.includes('vida-e-morte')) {
+      this.router.navigate(['/personagens/vida-e-morte', this.character.codename]);
+      return;
+    }
+
+    if (currentUrl.includes('inverno-de-ossos') || this.character?.campaign === 'inverno-de-ossos') {
+      this.backUrl = '/personagens/inverno-de-ossos';
+    } else if (currentUrl.includes('vida-e-morte') || this.character?.campaign === 'vida-e-morte') {
+      this.backUrl = '/personagens/vida-e-morte';
+    } else {
+      this.backUrl = '/personagens/one-shot';
     }
   }
 

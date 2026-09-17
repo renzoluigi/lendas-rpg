@@ -1,4 +1,4 @@
-<main class="campaign-page">
+<main class="vida-e-morte-page">
   <app-header title="VIDA E MORTE"></app-header>
 
   <div class="campaign-container">
@@ -13,47 +13,102 @@
       </div>
     </div>
 
-    <section class="archive-card">
-      <div class="status-badge-container">
-        <span class="status-badge completed">
-          <span class="check-icon">✓</span>
-          CAMPANHA FINALIZADA
-        </span>
-      </div>
-
-      <h2 class="archive-title">ARQUIVO HISTÓRICO: VIDA E MORTE</h2>
-      
-      <div class="ornament">
-        <span class="line"></span>
-        <span class="diamond">◆</span>
-        <span class="line"></span>
-      </div>
-
-      <p class="archive-summary">
-        A campanha <strong>Vida e Morte</strong> foi oficialmente concluída nos registros da Federação. 
-        Os relatórios de missão, baixas, feitos heroicos e dossiês históricos dos agentes que participaram 
-        desta saga estão sendo catalogados para preservação no acervo digital.
-      </p>
-
-      <div class="archive-info-box">
-        <div class="info-item">
-          <span class="info-label">STATUS DA OPERAÇÃO</span>
-          <span class="info-value">Concluída & Selada</span>
-        </div>
-        <div class="info-item">
-          <span class="info-label">CLASSIFICAÇÃO</span>
-          <span class="info-value">Arquivo Histórico</span>
-        </div>
-        <div class="info-item">
-          <span class="info-label">PRÓXIMAS ATUALIZAÇÕES</span>
-          <span class="info-value">Disponibilização de fichas antigas</span>
+    <!-- Campaign Hero Presentation -->
+    <section class="campaign-hero">
+      <div class="hero-poster-frame">
+        <img src="/vida-e-morte.webp" alt="Poster Oficial - Vida e Morte" class="hero-poster-img" />
+        <div class="poster-vignette"></div>
+        <div class="poster-badge">
+          <span class="blood-pulse"></span>
+          <span>SAGA PRIMORDIAL</span>
         </div>
       </div>
 
-      <div class="action-row">
-        <a class="btn-action" routerLink="/personagens/one-shot">
-          VER CAÇADORES DA ONE-SHOT →
-        </a>
+      <div class="hero-details">
+        <div class="hero-tagline-badge">
+          <span class="blood-pulse"></span>
+          <span>ARQUIVO HISTÓRICO SELADO COM SANGUE</span>
+          <span class="blood-pulse"></span>
+        </div>
+
+        <div class="title-wrapper">
+          <span class="skull-icon">💀</span>
+          <h1 class="campaign-main-title">VIDA E MORTE</h1>
+        </div>
+
+        <blockquote class="campaign-quote">
+          “Onde a vida fraquejou, a morte exigiu seu tributo em sangue e almas.”
+        </blockquote>
+
+        <p class="campaign-synopsis">
+          A primeira grande saga da Federação mergulhou nos rincões mais aterrorizantes da existência, 
+          onde a linha que separa a centelha da vida das garras da morte foi rompida. 
+          Um registro macabro de pactos proibidos, sacrifícios cruéis e agentes que encararam abominações das trevas no limiar do submundo.
+        </p>
+
+        <div class="campaign-stats-strip">
+          <div class="stat-pill">
+            <span class="stat-label">CLASSIFICAÇÃO</span>
+            <span class="stat-val highlight-crimson">Tomo Proibido</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-label">AMEAÇA</span>
+            <span class="stat-val">Submundo & Necrose</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-label">STATUS</span>
+            <span class="stat-val highlight-danger">Baixas Severas</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-label">PIONEIROS</span>
+            <span class="stat-val">{{ characters.length }} {{ characters.length === 1 ? 'Pioneiro' : 'Pioneiros' }}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Characters Section -->
+    <section class="characters-section">
+      <div class="section-heading">
+        <div class="heading-ornament">
+          <span class="ornament-line"></span>
+          <span class="skull-icon">💀</span>
+          <span class="ornament-line"></span>
+        </div>
+        <h2 class="section-title">DOSSIÊS DOS PIONEIROS</h2>
+        <p class="section-subtitle">Dossiês confidenciais, expansões de domínio e habilidades dos caçadores que sangraram na campanha Vida e Morte.</p>
+      </div>
+
+      <div class="character-grid">
+        @for (char of characters; track char.codename; let idx = $index) {
+          <a class="character-card" [routerLink]="['/personagens/vida-e-morte', char.codename]">
+            <div class="image-wrapper">
+              <img [src]="char.imageURI" [alt]="char.name" loading="lazy">
+              <div class="image-overlay"></div>
+              <div class="card-badge">
+                <span class="dossier-num">#{{ idx + 1 < 10 ? '0' + (idx + 1) : idx + 1 }}</span>
+                <span class="country-pill">{{ char.country }}</span>
+              </div>
+            </div>
+            <div class="info-box">
+              <div class="names">
+                <span class="status-tag">PIONEIRO SELADO</span>
+                <h3 class="codename">{{ char.codename }}</h3>
+                <p class="nome">{{ char.name }}</p>
+              </div>
+              <div class="card-meta">
+                <span class="meta-item">{{ char.age }} anos</span>
+                <span class="meta-dot">•</span>
+                <span class="meta-item">{{ char.height }}m</span>
+              </div>
+              <div class="action-footer">
+                <span class="view-label">ACESSAR DOSSIÊ</span>
+                <span class="view-arrow">→</span>
+              </div>
+            </div>
+            <div class="card-border-glow"></div>
+          </a>
+        }
       </div>
     </section>
   </div>
