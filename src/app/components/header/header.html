@@ -1,11 +1,36 @@
-<div class="header">
-  <a routerLink="">
-    <img ngSrc="/logo.webp" alt="Logo do Lendas" height="493" width="1069">
-  </a>
+<header class="main-site-header">
+  <div class="logo-container">
+    <div class="logo-aura"></div>
+    <a routerLink="/" class="logo-link" aria-label="Ir para a página inicial">
+      <img ngSrc="/logo.webp" alt="Logo do Lendas RPG" height="493" width="1069" priority>
+    </a>
+  </div>
 
   @if (title) {
-    <div class="text">
-      <h1> {{title}} </h1>
+    <div class="slogan-container">
+      <span class="rune-diamond">❖</span>
+      <h1 class="header-slogan">{{ title }}</h1>
+      <span class="rune-diamond">❖</span>
     </div>
   }
-</div>
+
+  <nav class="nav-bar-wrapper" aria-label="Navegação Principal">
+    <div class="nav-track">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item">
+        <span class="nav-label">INÍCIO</span>
+      </a>
+      <span class="nav-sep">/</span>
+      <a routerLink="/personagens" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item">
+        <span class="nav-label">CAMPANHAS</span>
+      </a>
+      <span class="nav-sep">/</span>
+      <a routerLink="/personagens/inverno-de-ossos" routerLinkActive="active" class="nav-item nav-inverno">
+        <span class="nav-label">INVERNO DE OSSOS</span>
+      </a>
+      <span class="nav-sep">/</span>
+      <a routerLink="/personagens/vida-e-morte" routerLinkActive="active" class="nav-item nav-vida">
+        <span class="nav-label">VIDA E MORTE</span>
+      </a>
+    </div>
+  </nav>
+</header>

@@ -1,18 +1,106 @@
 <main class="home-container">
   <app-header title="UM UNIVERSO DE MITOS E LENDAS"></app-header>
-  <section class="sections">
-    <div class="top-sections">
-      <a class="characters" routerLink="/personagens">
-        <h2>Personagens</h2>
-      </a>
-      <a class="history">
-        <h2>História</h2>
-      </a>
+
+  <!-- Main Sectors Grid -->
+  <section class="sectors-grid">
+    <!-- Primary Sector: Operations & Characters Hub -->
+    <article class="sector-card sector-operations">
+      <div class="sector-bg-overlay"></div>
+      <div class="sector-content">
+        <div class="sector-tag">
+          <span class="diamond">◆</span>
+          <span>SETOR 01 // FRENTES OPERACIONAIS & CAMPANHAS</span>
+          <span class="diamond">◆</span>
+        </div>
+        <h2 class="sector-title">DOSSIÊS DE CAÇADORES</h2>
+        <p class="sector-desc">
+          Consulte as fichas confidenciais de agentes, armas rituais, técnicas amaldiçoadas e expansões de domínio em cada fronte de combate da Federação.
+        </p>
+
+        <div class="sector-actions">
+          <a class="btn-hub" routerLink="/personagens">
+            <span>EXPLORAR TODAS AS CAMPANHAS</span>
+            <span class="btn-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Secondary Row: History & Gallery -->
+    <div class="secondary-sectors-row">
+      <!-- Sector 02: Lore & History -->
+      <article class="sector-card sector-history">
+        <div class="sector-bg-overlay"></div>
+        <div class="sector-content">
+          <div class="sector-tag">
+            <span class="diamond">◆</span>
+            <span>SETOR 02 // REGISTRO CRONOLÓGICO</span>
+            <span class="diamond">◆</span>
+          </div>
+          <h2 class="sector-title">CRÔNICAS & HISTÓRIA</h2>
+          <p class="sector-desc">
+            A fundação da Federação, incidentes arquivados e as manifestações primordiais da energia folclórica ao redor do globo.
+          </p>
+          <div class="stamp-wrapper">
+            <span class="classified-stamp">ARQUIVO EM DESCRIPTOGRAFIA</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sector 03: Gallery & Artifacts -->
+      <article class="sector-card sector-gallery">
+        <div class="sector-bg-overlay"></div>
+        <div class="sector-content">
+          <div class="sector-tag">
+            <span class="diamond">◆</span>
+            <span>SETOR 03 // EVIDÊNCIAS VISUAIS</span>
+            <span class="diamond">◆</span>
+          </div>
+          <h2 class="sector-title">GALERIA & ARTEFATOS</h2>
+          <p class="sector-desc">
+            Fotografias de campo, armas rituais, relíquias folclóricas confiscadas e ilustrações oficiais do universo.
+          </p>
+          <div class="stamp-wrapper">
+            <span class="classified-stamp">EVIDÊNCIAS CONFIDENCIAIS</span>
+          </div>
+        </div>
+      </article>
     </div>
-    <div class="bottom-sections">
-      <a class="gallery">
-        <h2>Galeria</h2>
-      </a>
+  </section>
+
+  <!-- Hunter Recognition Roster Section -->
+  <section class="roster-section">
+    <div class="roster-header">
+      <div class="roster-title-box">
+        <div class="roster-tag">
+          <span class="diamond">❖</span>
+          <span>RECONHECIMENTO DE AGENTES // QUADRO ATUAL</span>
+          <span class="diamond">❖</span>
+        </div>
+        <h3 class="roster-title">CAÇADORES MOBILIZADOS</h3>
+      </div>
+      <p class="roster-subtitle">
+        Selecione qualquer agente registrado pela Federação para acessar seu dossiê confidencial direto.
+      </p>
+    </div>
+
+    <div class="roster-scroll-container">
+      @for (char of allCharacters; track char.codename) {
+        <a class="roster-card" [routerLink]="getCharacterLink(char)">
+          <div class="roster-avatar-frame">
+            <img [src]="char.imageURI" [alt]="char.name" loading="lazy">
+            <div class="roster-avatar-glow"></div>
+            <span class="roster-badge" [class]="getCampaignBadge(char).cssClass">
+              {{ getCampaignBadge(char).text }}
+            </span>
+          </div>
+          <div class="roster-info">
+            <h4 class="roster-codename">{{ char.codename }}</h4>
+            <p class="roster-fullname">{{ char.name }}</p>
+            <span class="roster-country">{{ char.country }}</span>
+          </div>
+        </a>
+      }
     </div>
   </section>
 </main>

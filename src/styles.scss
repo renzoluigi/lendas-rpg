@@ -4,7 +4,6 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-
   font-family: "Cinzel", sans-serif;
 }
 
@@ -16,12 +15,15 @@ html, body {
 }
 
 body {
-  background-color: #d9c5a3;
-  background-image: url("/main-background.webp");
+  background-color: #0b0907;
+  background-image: 
+    radial-gradient(ellipse at 50% 12%, rgba(212, 175, 55, 0.12) 0%, rgba(15, 12, 9, 0.82) 45%, #070504 100%),
+    url("/main-background.webp");
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  color: #1a150f;
+  background-blend-mode: multiply, normal;
+  color: #e5ded3;
   overflow-x: hidden;
 }

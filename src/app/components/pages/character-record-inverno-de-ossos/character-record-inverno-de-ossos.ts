@@ -28,7 +28,11 @@ export class CharacterRecordInvernoDeOssos implements OnInit {
 
     if (!codenameParam) {
       const path = this.route.snapshot.url.map(u => u.path).join('/').toLowerCase();
-      if (path.includes('valko')) codenameParam = 'valko';
+      if (path.includes('exodus')) codenameParam = 'exodus';
+      else if (path.includes('yusuf') || path.includes('fumegante')) codenameParam = 'yusuf';
+      else if (path.includes('franz')) codenameParam = 'franz';
+      else if (path.includes('andri')) codenameParam = 'andri';
+      else if (path.includes('pelucido')) codenameParam = 'pelucido';
     }
 
     if (codenameParam) {
@@ -38,7 +42,12 @@ export class CharacterRecordInvernoDeOssos implements OnInit {
 
     if (this.character) {
       this.signatureTechnique = this.character.abilities.find(a => 
-        a.name.toLowerCase().includes('quebra-gelo') ||
+        a.name.toLowerCase().includes('choshech') ||
+        a.name.toLowerCase().includes('trevas') ||
+        a.name.toLowerCase().includes('brasas') ||
+        a.name.toLowerCase().includes('sísmico') ||
+        a.name.toLowerCase().includes('xeque') ||
+        a.name.toLowerCase().includes('flechada') ||
         a.name.toLowerCase().includes('expansão') || 
         a.name.toLowerCase().includes('suprem')
       ) || (this.character.abilities.length > 3 ? this.character.abilities[this.character.abilities.length - 1] : undefined);

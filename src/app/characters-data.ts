@@ -298,49 +298,234 @@ export const CHARACTERS: Character[] = [
     campaign: 'one-shot'
   },
   {
-    codename: 'Valko',
-    imageURI: '/valko.jpg',
-    name: 'Valko Morozov',
-    country: 'Sibéria / Rússia',
-    description: "Veterano calejado pelas neves eternas, Valko é um rastreador implacável de horrores sepultados no gelo. Silencioso como uma nevasca e mortal como o permafrost, ele empunha uma lâmina rúnica forjada em ferro frio para enfrentar abominações que a civilização moderna esqueceu sob o permafrost.",
+    codename: 'Franz',
+    imageURI: '/Franz.webp',
+    name: 'Franz Blackwood',
+    country: 'Inglaterra',
+    description: "Caçador britânico da expedição Inverno de Ossos. Especialista em duelo e abordagem estratégica em frentes hostis. Dossiê em processo de compilação pelo Alto Comando.",
     actor: {
       name: 'Rony Rustico',
       imageURI: '/rony.webp',
     },
     abilities: [
       {
-        name: "Sopro Glacial",
-        description: "Valko canaliza energia folclórica gélida ao redor de sua lâmina rúnica, desferindo um corte que congela os tecidos do adversário, reduzindo o deslocamento da criatura pela metade por 2 rodadas.",
-        image: "/corte-translucido.webp"
-      },
-      {
-        name: "Sobrevivência no Permafrost",
-        description: "Habituado a temperaturas extremas e terrenos inóspitos, Valko possui resistência sobrenatural a frio e fadiga, ignorando penalidades climáticas e ganhando +3 em testes de rastreamento na neve.",
-        image: "/espirito-indomavel.webp"
-      },
-      {
-        name: "Sentido dos Ossos",
-        description: "Consegue pressentir a aproximação de entidades e lendas soterradas sob o gelo num raio de até 1 quilômetro, identificando a natureza primordial da ameaça.",
+        name: "Investigação Tática",
+        description: "Análise dedutiva rápida de padrões de ataque e fraquezas biomecânicas ou sobrenaturais dos oponentes.",
         image: "/ponto-fraco.webp"
       },
       {
-        name: "Quebra-Gelo Ancestral",
-        description: "Um golpe avassalador de duas mãos que quebra a carapaça ou barreiras místicas do inimigo, concedendo bônus crítico maciço.",
+        name: "Postura de Duelo",
+        description: "Técnica britânica de esgrima de alta velocidade com foco em contra-ataques precisos e estocadas letais.",
+        image: "/corte-translucido.webp"
+      },
+      {
+        name: "Frio Calculista",
+        description: "Controle emocional absoluto em momentos de crise, ignorando intimidações e penalidades climáticas severas.",
+        image: "/espirito-indomavel.webp"
+      },
+      {
+        name: "Xeque-Mate da Rainha",
+        description: "Estocada cirúrgica de energia concentrada que perfura pontos vitais com precisão milimétrica.",
         image: "/ruptura.webp"
       }
     ],
-    history: "Valko nasceu nas estepes congeladas que margeiam os cumes proibidos do norte. Sua guilda de caçadores ancestrais protegia os passos montanhosos onde criptas antigas guardavam os 'Inomináveis do Gelo'. Quando uma expedição clandestina rompeu o selo milenar de uma cidadela sepultada, trazendo o Inverno de Ossos de volta à vida, Valko foi convocado pela Federação como guia supremo e ponta de lança da expedição. Para ele, a neve nunca é silenciosa — ela sussurra os nomes daqueles que ela pretende devorar.",
+    history: "Franz Blackwood foi convocado para integrar as forças expedicionárias da Federação nas frentes polares da Cordilheira dos Esquecidos. De postura aristocrática e métodos cirúrgicos, seus relatórios de campo demonstram uma frieza inabalável mesmo diante de horrores que abalam mentes comuns.",
     deeds: [
-      "Sobreviveu à expedição da Cordilheira dos Esquecidos.",
-      "Mapeou as entradas das catacumbas congeladas da Cidadela."
+      "Convocado para o contingente da expedição Inverno de Ossos.",
+      "Comandou incursões de reconhecimento em zonas de permafrost."
     ],
     weapons: {
-      name: "Montante Rúnico de Ferro Frio",
+      name: "Sabre de Duelo e Bastão Oculto",
       imageURI: "/katana.webp",
-      description: "Uma lâmina colossal entalhada com runas que nunca descongelam, capaz de ceifar tanto carne quanto espíritos congelados."
+      description: "Armamento refinado em liga de aço temperado e prata, balanceado para precisão cirúrgica."
     },
-    age: 42,
-    height: 1.88,
+    age: 24,
+    height: 1.90,
+    campaign: 'inverno-de-ossos'
+  },
+  {
+    codename: 'Pelucido',
+    imageURI: '/pelucido.webp',
+    name: 'Pelucido Petrov',
+    country: 'Rússia',
+    description: "Jovem prodígio russo recrutado para a campanha Inverno de Ossos. Especialista em sobrevivência, reconhecimento furtivo e apoio tático no relevo congelado.",
+    actor: {
+      name: 'Rony Rustico',
+      imageURI: '/rony.webp',
+    },
+    abilities: [
+      {
+        name: "Passos Fantasmas",
+        description: "Movimenta-se com leveza sobrenatural sobre neve fofa e gelo fino sem deixar marcas ou emitir ruído perceptível.",
+        image: "/invisible-hunter.webp"
+      },
+      {
+        name: "Agilidade Ártica",
+        description: "Aproveita sua baixa estatura e flexibilidade incomum para esquivas acrobáticas e manobras em frestas estreitas.",
+        image: "/trap.webp"
+      },
+      {
+        name: "Olhar de Nevasca",
+        description: "Acuidade visual aguda que detecta calor e assinaturas de energia folclórica em meio a nevascas severas.",
+        image: "/ponto-fraco.webp"
+      },
+      {
+        name: "Flechada Perfurante do Alvorecer",
+        description: "Disparo concentrado em ponto cego que quebra escudos e congelamentos adversários com impacto massivo.",
+        image: "/corte-translucido.webp"
+      }
+    ],
+    history: "Nascido nas províncias geladas do leste russo, Pelucido Petrov demonstrou desde muito cedo uma agilidade impressionante e afinidade natural com as forças primordiais do inverno. Apesar da pouca idade e baixa estatura, sua coragem e tenacidade o garantiram na linha de frente da expedição polar.",
+    deeds: [
+      "Recrutado pelo comitê de reconhecimento para as frentes glaciais.",
+      "Sobreviveu a semanas de isolamento em tundra congelada."
+    ],
+    weapons: {
+      name: "Carabina de Precisão e Adaga Glacial",
+      imageURI: "/rifle-espiritual.webp",
+      description: "Armamento leve e compacto adaptado para condições árticas extremas e tiros de alta precisão."
+    },
+    age: 19,
+    height: 1.50,
+    campaign: 'inverno-de-ossos'
+  },
+  {
+    codename: 'Exodus',
+    imageURI: '/exodus.webp',
+    name: 'Amenhotep II',
+    country: 'Egito',
+    description: "O Rei do Sangue e da Cinza. Antigo faraó imortalizado como o receptáculo vivo das dez pragas do Egito, transformado em uma força de calamidade ambiental silenciosa e opressiva contra déspotas e entidades corrompidas.",
+    actor: {
+      name: 'Rony Rustico',
+      imageURI: '/rony.webp',
+    },
+    abilities: [
+      {
+        name: "O Sopro dos Gafanhotos e Moscas",
+        description: "Por frestas em sua armadura de linho negro e betume, projeta rajadas compactas de insetos necrófagos que cegam adversários, roem escudos de madeira e devoram correias de armaduras.",
+        image: "/pulso-predatorio.webp"
+      },
+      {
+        name: "A Ferida do Nilo",
+        description: "Ao ser cortado, seu sangue é uma gosma preta e espessa que corrompe imediatamente fontes de água doce, tornando-as veneno intragável e ácido contra inimigos.",
+        image: "/carnificina.webp"
+      },
+      {
+        name: "A Pústula e a Febre",
+        description: "O contato direto de sua pele enfaixada transmite dores lancinantes nas juntas e febres súbitas nos oponentes, minando severamente a força dos combatentes mais robustos.",
+        image: "/mutacao-genetica.webp"
+      },
+      {
+        name: "A Praga das Trevas (Choshech)",
+        description: "Técnica Suprema: Suprime a luz ao seu redor, criando uma penumbra espessa e asfixiante onde apenas ele consegue enxergar, simulando a nona praga que cegou o Egito por três dias.",
+        image: "/corte-translucido.webp"
+      }
+    ],
+    history: "Considerado um deus vivo na Terra, Amenhotep II governava o Egito com punho de ferro. Quando um profeta exigiu a libertação dos escravos em nome de um Deus desconhecido, o faraó recusou por orgulho, desafiando a divindade rival. Em resposta, as dez pragas arrasaram o império: águas vermelhas de sangue, enxames vorazes, tempestades de fogo, peste no gado e úlceras no povo. O golpe final foi a morte de todos os primogênitos — incluindo o próprio filho do faraó, seu único herdeiro e a única pessoa que amava. Em vez de morrer no colapso do Mar Vermelho, ele foi resgatado com vida, mas seus deuses haviam sido humilhados e o abandonaram. Como punição final, a divindade inimiga não permitiu que ele descansasse. O faraó tornou-se o receptáculo vivo das dez pragas: condenado à imortalidade para que jamais se esquecesse do preço de sua arrogância. Vestindo faixas de linho embebidas em betume negro e uma máscara mortuária de bronze corroído pelo fogo, ele não é um vilão caótico, mas um homem consumido pelo luto e pela vergonha que vaga caçando déspotas e horrores sobrenaturais numa tentativa desesperada de pagar uma dívida moral impossível de quitar.",
+    deeds: [
+      "Receptáculo imortal das dez pragas bíblicas.",
+      "Sobrevivente do colapso cataclísmico do Mar Vermelho.",
+      "Caçador penitente de tiranos e déspotas através dos milênios."
+    ],
+    weapons: {
+      name: "Khopesh Real de Bronze Enegrecido",
+      imageURI: "/katana.webp",
+      description: "A tradicional espada curva egípcia de bronze escurecido. A lâmina nunca foi limpa após os eventos do Êxodo; seu metal carrega o lodo ressecado do Nilo transformado em sangue, causando ferimentos que apodrecem instantaneamente."
+    },
+    age: 44,
+    height: 1.67,
+    campaign: 'inverno-de-ossos'
+  },
+  {
+    codename: 'Fumegant',
+    imageURI: '/yassuf.webp',
+    name: 'Yusuf ibn Khalil',
+    country: 'Marrocos',
+    description: "Conhecido como 'Fumegant'. Calmo, observador e enigmático. Nascido nas rotas caravaneiras do deserto, Yusuf domina os segredos da fumaça e canaliza os poderes de um narguilé ancestral herdado de sua linhagem.",
+    actor: {
+      name: 'Rony Rustico',
+      imageURI: '/rony.webp',
+    },
+    abilities: [
+      {
+        name: "Segredos da Fumaça",
+        description: "Manipula véus densos e aromáticos de fumaça que mascaram a presença do grupo, alteram o ar circundante e confundem a percepção sensorial dos adversários.",
+        image: "/invisible-hunter.webp"
+      },
+      {
+        name: "Ritual de Clareza",
+        description: "Acende seu narguilé ritual antes de qualquer decisão crucial, alcançando um estado transcendental de clareza mental e percepção tática aprimorada.",
+        image: "/ler-o-futuro.webp"
+      },
+      {
+        name: "Essências Proibidas",
+        description: "Queima misturas alquímicas raras de ervas sagradas que enfraquecem criaturas folclóricas e desfazem miasmas com vapores purificadores.",
+        image: "/energia-vital.webp"
+      },
+      {
+        name: "Espírito das Brasas e Fumaça",
+        description: "Técnica Suprema: Desperta a essência primordial do gênio contido no narguilé, projetando torrentes rodopiantes de fumaça incandescente e brasas vorazes.",
+        image: "/furia-interminavel.webp"
+      }
+    ],
+    history: "Nascido numa movimentada cidade de caravanas no deserto marroquino, cruzamento de rotas comerciais milenares, Yusuf cresceu em uma tradicional casa de chá onde viajantes de todos os reinos paravam para descansar, fumar narguilé e trocar histórias. Foi lá que aprendeu que a fumaça guarda segredos — dos aromas às formas voláteis que ela desenha no ar. Calmo, observador, fala pouco mas quando fala é para dizer algo com peso. Ele carrega um narguilé antigo, herdado de seu avô, que dizem ter pertencido a um gênio ou espírito do deserto, abastecido com ervas raras de origens lendárias.",
+    deeds: [
+      "Guardião do narguilé ancestral do espírito do deserto.",
+      "Navegador lendário das rotas de tempestade de areia do Saara."
+    ],
+    weapons: {
+      name: "Narguilé Ancestral do Espírito do Deserto",
+      imageURI: "/rifle-espiritual.webp",
+      description: "Artefato de latão trabalhado com filigranas e gemas do deserto. Serve tanto como canalizador de fumaça e essências quanto como arma contundente."
+    },
+    age: 23,
+    height: 1.79,
+    campaign: 'inverno-de-ossos'
+  },
+  {
+    codename: 'Andri',
+    imageURI: '/andri.webp',
+    name: 'Andri Ásgeirsson',
+    country: 'Islândia',
+    description: "Colosso nórdico de mais de dois metros de altura oriundo das terras vulcânicas e glaciais da Islândia. Combatente de impacto maciço que quebra as linhas de frente das entidades do permafrost.",
+    actor: {
+      name: 'Rony Rustico',
+      imageURI: '/rony.webp',
+    },
+    abilities: [
+      {
+        name: "Força dos Fiordes",
+        description: "Golpes pesados de impacto colossal que rompem carapaças de gelo maciço e desestabilizam o equilíbrio de adversários gigantescos.",
+        image: "/quebra-de-postura.webp"
+      },
+      {
+        name: "Casca de Gelo e Rocha",
+        description: "Sua compleição titânica forjada no frio extremo absorve impactos brutais e concede resistência natural contra intempéries árticas.",
+        image: "/casca-grossa.webp"
+      },
+      {
+        name: "Fúria do Norte",
+        description: "Canaliza a obstinação lendária dos antigos navegadores escandinavos, aumentando seu ímpeto à medida que o confronto se intensifica.",
+        image: "/furia-interminavel.webp"
+      },
+      {
+        name: "Impacto Glacial Sísmico",
+        description: "Técnica Suprema: Golpeteia o solo congelado com toda a sua massa, abrindo fissuras no gelo e arremessando fragmentos pontiagudos contra todos os inimigos.",
+        image: "/ruptura.webp"
+      }
+    ],
+    history: "Andri Ásgeirsson nasceu sob as auroras boreais nos fiordes mais inóspitos da Islândia. Com mais de dois metros de estatura, ele cresceu enfrentando nevascas e explorando geleiras milenares onde o homem comum sucumbiria em minutos. Convocado para a linha de vanguarda da expedição Inverno de Ossos, Andri atua como a âncora viva do esquadrão, capaz de encarar de frente qualquer titã sepultado sob o gelo.",
+    deeds: [
+      "Ponta de lança e pilar de vanguarda na expedição Inverno de Ossos.",
+      "Desbravador das geleiras esquecidas do Ártico."
+    ],
+    weapons: {
+      name: "Machado de Guerra de Ferro Islandês",
+      imageURI: "/cutelo.webp",
+      description: "Um machado de batalha pesado, balanceado para as mãos de um gigante e forjado para fender pedra e gelo com um único golpe."
+    },
+    age: 25,
+    height: 2.02,
     campaign: 'inverno-de-ossos'
   },
   {

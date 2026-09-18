@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import {Header} from '../../header/header';
 import {CharactersSection} from '../../characters-section/characters-section';
 
@@ -7,8 +6,7 @@ import {CharactersSection} from '../../characters-section/characters-section';
   selector: 'app-characters',
   imports: [
     Header,
-    CharactersSection,
-    RouterLink
+    CharactersSection
   ],
   templateUrl: './characters.html',
   styleUrl: './characters.scss',
