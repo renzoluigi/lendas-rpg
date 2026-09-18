@@ -583,6 +583,10 @@ export const CHARACTERS: Character[] = [
     age: 26,
     height: 1.82,
     campaign: 'vida-e-morte',
+    rank: 'A',
+    federation: 'Federação dos Guardiões da Selva',
+    physicalSpecialties: ['Força Colossal (Nível 2)', 'Passos do Relâmpago (Nível 2)'],
+    domainName: 'Mano a Mano',
     relations: [
       { role: 'Instruído por', targetCodename: 'Stateham', targetName: 'Professor Stateham' },
       { role: 'Aliado de Vanguarda de', targetCodename: 'Markus-Wolf', targetName: 'Markus Wolf' }
@@ -653,6 +657,10 @@ export const CHARACTERS: Character[] = [
     age: 24,
     height: 1.78,
     campaign: 'vida-e-morte',
+    rank: 'A',
+    federation: 'Federação dos Guardiões da Selva',
+    physicalSpecialties: ['Passos do Relâmpago (Nível 2)', 'Percepção Espiritual (Nível 2)'],
+    domainName: 'Lua Vermelha',
     relations: [
       { role: 'Instruído por', targetCodename: 'Stateham', targetName: 'Professor Stateham' },
       { role: 'Aliado de Vanguarda de', targetCodename: 'Markus-Wolf', targetName: 'Markus Wolf' }
@@ -671,6 +679,16 @@ export const CHARACTERS: Character[] = [
     isCanonical: true,
     campaign: 'vida-e-morte',
     appearanceCampaigns: ['vida-e-morte', 'canon-global'],
+    rank: 'SS',
+    federation: 'Comando Supremo da Federação Global',
+    physicalSpecialties: ['Força Mítica (Nível 3)', 'Visão Mítica (Nível 3)'],
+    domainName: 'Reino da Criação Infinita / Mundo Perfeito',
+    domainChant: [
+      '"Do pó ao ser, da mente à criação,',
+      'Neste domínio, sou pura ascensão.',
+      'Tudo que existe, moldo à minha mão,',
+      'Matéria e vida, em perfeita união."'
+    ],
     description: "Com 33 anos de idade e sem um nome oficial registrado, o Professor é considerado unanimemente o caçador mais forte da história. Desde o momento de seu nascimento, sua presença abalou o equilíbrio do mundo das lendas. Criaturas ancestrais despertaram, selos ruíram e antigas profecias passaram a citá-lo como um erro — ou uma correção — da realidade.",
     history: "Datado pela Federação como o indivíduo com a maior quantidade de Energia Folclórica já registrada, o Professor sempre viveu à frente de seu tempo. Para ele, o impossível nunca existiu. Missões que exigiriam esquadrões inteiros eram resolvidas sozinho, com uma frieza quase didática, como se estivesse apenas demonstrando uma lição.\n\nApesar de seu poder absoluto, nunca buscou cargos, títulos ou reconhecimento dentro da Federação de Caçadores. Recusou posições de comando, ignorou honrarias e permaneceu à margem das decisões políticas. Ninguém sabe ao certo o que ele pensa ou o que deseja. Alguns acreditam que ele luta apenas por curiosidade; outros dizem que ele observa o mundo como um experimento.\n\nO fato é que, embora tenha sido responsável pela eliminação de incontáveis criaturas de nível catastrófico, o Professor não é visto como um salvador. Para muitos, ele é uma ameaça maior do que qualquer lenda.",
     deeds: [
@@ -713,6 +731,9 @@ export const CHARACTERS: Character[] = [
     isCanonical: true,
     campaign: 'vida-e-morte',
     appearanceCampaigns: ['vida-e-morte', 'canon-global'],
+    rank: 'A',
+    federation: 'Círculo de Avalon',
+    physicalSpecialties: ['Percepção Espiritual (Nível 2)', 'Canalização Rítmica (Nível 2)'],
     description: "Homem de idade avançada, profundamente aficionado por relógios, cadência rítmica e mecanismos rúnicos. Embora rotulado por muitos como excêntrico e beirando a loucura, Stateham é detentor de uma genialidade incomparável na manipulação e ensino de energia folclórica.",
     history: "Professor Stateham foi o instrutor fundamental que ensinou o básico e forjou o alicerce de combate e canalização de Sen e Josh. Com métodos nada convencionais e uma paixão obsessiva pela precisão do tempo, moldou dois dos combatentes mais temidos da história.\n\nSua mente trabalha como uma intrincada caixa de engrenagens: enxerga conexões invisíveis no fluxo da batalha e decifra fraquezas que outros levariam anos para notar. Mesmo fora das linhas de frente ativas, seu conhecimento é considerado patrimônio vitalício da Federação.",
     deeds: [
@@ -755,6 +776,9 @@ export const CHARACTERS: Character[] = [
     isCanonical: true,
     campaign: 'vida-e-morte',
     appearanceCampaigns: ['vida-e-morte', 'canon-global'],
+    rank: 'B',
+    federation: 'Liga dos Titãs Esquecidos',
+    physicalSpecialties: ['Força Colossal (Nível 2)', 'Corpo de Aço (Nível 2)'],
     description: "Caçador destemido e veterano de incontáveis embates, Markus Wolf combateu na vanguarda mais impiedosa da Federação. Equipado com um poderoso arco de caça e protegido por uma couraça de armadura medieval, destacou-se por sua determinação implacável ao lado de Sen e Josh.",
     history: "Markus Wolf lutou lado a lado com Sen e Josh durante as horas mais desesperadoras da campanha Vida e Morte. Os arquivos centrais da Federação guardam poucos registros biográficos pregressos sobre ele — muitos documentos daquela época foram selados ou extraviados em combate.\n\nEntretanto, um dos seus maiores feitos reverbera com força entre os sobreviventes: Markus encarou e combateu diretamente uma colossal e desconhecida lenda de três cabeças, desferindo disparos críticos que abriram brechas vitais para a contenção da monstruosidade.",
     deeds: [

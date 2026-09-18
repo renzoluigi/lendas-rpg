@@ -53,8 +53,20 @@
               </div>
               <div class="stat-item">
                 <span class="stat-label">CAMPANHA</span>
-                <span class="stat-value highlight">One-Shot</span>
+                <span class="stat-value highlight">{{ character.campaign || 'One-Shot' }}</span>
               </div>
+              @if (character.rank) {
+                <div class="stat-item rank-stat-item">
+                  <span class="stat-label">PATENTE // RANK</span>
+                  <span class="stat-value rank-badge-inline" [attr.data-rank]="character.rank">RANK {{ character.rank }}</span>
+                </div>
+              }
+              @if (character.federation) {
+                <div class="stat-item fed-stat-item">
+                  <span class="stat-label">FEDERAÇÃO</span>
+                  <span class="stat-value">{{ character.federation }}</span>
+                </div>
+              }
             </div>
 
             @if (character.actor) {

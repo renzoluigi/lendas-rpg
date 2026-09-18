@@ -1,6 +1,7 @@
 import { Actor } from './actor';
 import { Ability } from './ability';
 import { Weapon } from './weapon';
+import { HunterRankId } from './archive';
 
 export interface CharacterRelation {
   role: string;
@@ -30,5 +31,10 @@ export interface Character {
   equipmentSummary?: string;
   appearanceCampaigns?: string[];
   relations?: CharacterRelation[];
+  rank?: HunterRankId;
+  federation?: string;
+  physicalSpecialties?: string[];
+  domainName?: string;
+  domainChant?: string[];
 }
 

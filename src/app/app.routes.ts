@@ -8,9 +8,11 @@ import { CharacterRecordInvernoDeOssos } from './components/pages/character-reco
 import { CampaignVidaEMorte } from './components/pages/campaign-vida-e-morte/campaign-vida-e-morte';
 import { CampaignInvernoDeOssos } from './components/pages/campaign-inverno-de-ossos/campaign-inverno-de-ossos';
 import { ArchiveCanon } from './components/pages/archive-canon/archive-canon';
+import { Archive } from './components/pages/archive/archive';
 
 export const routes: Routes = [
   { path: "", component: Home },
+  { path: "arquivo", component: Archive },
   { path: "personagens", component: CharactersHub },
   { path: "personagens/arquivo-geral", component: ArchiveCanon },
   { path: "personagens/arquivo-geral/:codename", component: CharacterRecordVidaEMorte },

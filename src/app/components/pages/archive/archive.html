@@ -1,0 +1,655 @@
+<main class="archive-page">
+  <app-header title="ARQUIVO DA FEDERAÇÃO"></app-header>
+
+  <div class="codex-container">
+
+    <!-- Tome Navigation Bar (Sacred Chapters Rail) -->
+    <nav class="tome-navigation" aria-label="Navegação pelos Tomos do Códice">
+      <div class="tome-track">
+        <button
+          type="button"
+          class="tome-tab-btn"
+          [class.active]="activeTab === 'diretrizes'"
+          (click)="setTab('diretrizes')">
+          <span class="tome-index">TOMO I</span>
+          <span class="tome-title">O VÉU & A ENERGIA</span>
+        </button>
+
+        <span class="tome-sep">❖</span>
+
+        <button
+          type="button"
+          class="tome-tab-btn"
+          [class.active]="activeTab === 'federacoes'"
+          (click)="setTab('federacoes')">
+          <span class="tome-index">TOMO II</span>
+          <span class="tome-title">AS 15 FEDERAÇÕES</span>
+        </button>
+
+        <span class="tome-sep">❖</span>
+
+        <button
+          type="button"
+          class="tome-tab-btn"
+          [class.active]="activeTab === 'ranks'"
+          (click)="setTab('ranks')">
+          <span class="tome-index">TOMO III</span>
+          <span class="tome-title">A ESCALA DA ASCENSÃO</span>
+        </button>
+
+        <span class="tome-sep">❖</span>
+
+        <button
+          type="button"
+          class="tome-tab-btn"
+          [class.active]="activeTab === 'sistemas'"
+          (click)="setTab('sistemas')">
+          <span class="tome-index">TOMO IV</span>
+          <span class="tome-title">REFORÇOS & ALQUIMIA</span>
+        </button>
+
+        <span class="tome-sep">❖</span>
+
+        <button
+          type="button"
+          class="tome-tab-btn"
+          [class.active]="activeTab === 'dominios'"
+          (click)="setTab('dominios')">
+          <span class="tome-index">TOMO V</span>
+          <span class="tome-title">DOMÍNIOS & PACTOS</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- =========================================================================
+         TOMO I: O VÉU & A ENERGIA FOLCLÓRICA
+         ========================================================================= -->
+    @if (activeTab === 'diretrizes') {
+      <section class="chapter-content fade-in" id="tomo-diretrizes">
+        <div class="chapter-header">
+          <div class="header-seal">
+            <span class="seal-line"></span>
+            <span class="seal-text">TOMO I // A ORDEM PRIMORDIAL</span>
+            <span class="seal-line"></span>
+          </div>
+          <h2 class="chapter-title">O DESPERTAR DO MITO E A QUEBRA DO VÉU</h2>
+          <blockquote class="prologue-quote">
+            “No dia em que o esquecimento ruiu, os deuses caídos lembraram-se da fome, e a humanidade foi forçada a erguer armas forjadas em suas próprias lendas.”
+          </blockquote>
+        </div>
+
+        <!-- Editorial Articles Grid -->
+        <div class="editorial-scroll-grid">
+          @for (sec of worldOverview.sections; track sec.title) {
+            <article class="scroll-manuscript-card">
+              <div class="manuscript-ribbon">
+                <span class="manuscript-tag">{{ sec.tag }}</span>
+              </div>
+              <h3 class="manuscript-title">{{ sec.title }}</h3>
+
+              <div class="manuscript-body">
+                @for (p of sec.content; track $index) {
+                  <p class="manuscript-p">{{ p }}</p>
+                }
+
+                @if (sec.highlight) {
+                  <div class="codex-highlight-box">
+                    <span class="highlight-glyph">✦</span>
+                    <p class="highlight-text">{{ sec.highlight }}</p>
+                  </div>
+                }
+              </div>
+            </article>
+          }
+        </div>
+
+        <!-- Sacred Power Triad Altar -->
+        <div class="power-triad-altar">
+          <div class="altar-header">
+            <span class="altar-glyph">❖</span>
+            <h3 class="altar-title">A TRÍADE DO SISTEMA DE PODER</h3>
+            <p class="altar-desc">Os três eixos cósmicos que governam a manifestação da Energia Folclórica na alma humana.</p>
+          </div>
+
+          <div class="altar-pillars">
+            <div class="altar-pillar">
+              <div class="pillar-medallion">
+                <span class="pillar-rune">01</span>
+              </div>
+              <h4 class="pillar-name">ELEMENTO PRIMORDIAL</h4>
+              <p class="pillar-text">
+                O conceito mítico fundamental ao qual a essência do Caçador se sintoniza — como chamas arcanas, correntes abissais, sombras do submundo ou cinzas de bravos.
+              </p>
+            </div>
+
+            <div class="altar-pillar">
+              <div class="pillar-medallion">
+                <span class="pillar-rune">02</span>
+              </div>
+              <h4 class="pillar-name">VARIAÇÃO PESSOAL</h4>
+              <p class="pillar-text">
+                O estilo tático e a assinatura marcial individual. Dois caçadores do mesmo elemento manifestam poderes inteiramente distintos através de suas técnicas e crenças.
+              </p>
+            </div>
+
+            <div class="altar-pillar">
+              <div class="pillar-medallion">
+                <span class="pillar-rune">03</span>
+              </div>
+              <h4 class="pillar-name">SINCRONIZAÇÃO</h4>
+              <p class="pillar-text">
+                O nível de profundidade e fusão harmônica com a Energia Folclórica. Quanto maior a ressonância espiritual, mais devastadora é a escala dos golpes infligidos.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    }
+
+    <!-- =========================================================================
+         TOMO II: AS 15 GRANDES FEDERAÇÕES
+         ========================================================================= -->
+    @if (activeTab === 'federacoes') {
+      <section class="chapter-content fade-in" id="tomo-federacoes">
+        <div class="chapter-header">
+          <div class="header-seal">
+            <span class="seal-line"></span>
+            <span class="seal-text">TOMO II // O PACTO GLOBAL</span>
+            <span class="seal-line"></span>
+          </div>
+          <h2 class="chapter-title">AS 15 GRANDES FEDERAÇÕES</h2>
+          <p class="chapter-lead">
+            As coalizões mundiais erguidas dos escombros da civilização. Cada federação guarda uma tradição mística e treina os Caçadores responsáveis por defender suas fronteiras.
+          </p>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="atlas-filter-bar">
+          <span class="filter-caption">FILTRAR POR REGIÃO:</span>
+          <div class="filter-tokens">
+            @for (reg of regions; track reg) {
+              <button
+                type="button"
+                class="atlas-token-btn"
+                [class.selected]="selectedRegion === reg"
+                (click)="selectedRegion = reg">
+                {{ reg }}
+              </button>
+            }
+          </div>
+        </div>
+
+        <!-- Federations Banners Grid -->
+        <div class="banners-grid">
+          @for (fed of filteredFederations; track fed.id) {
+            <article class="federation-banner-card" [attr.data-fed]="fed.id">
+              <div class="banner-top-ribbon">
+                <span class="fed-ordinal">FEDERAÇÃO #{{ fed.number < 10 ? '0' + fed.number : fed.number }}</span>
+                <span class="fed-myth-tag">{{ fed.mythologicalOrigin }}</span>
+              </div>
+
+              <!-- Heraldic Crest Medallion -->
+              <div class="heraldic-crest-wrapper">
+                <div class="crest-shield">
+                  <div class="crest-sigil-icon">❖</div>
+                  <span class="crest-label">{{ fed.sigilPlaceholderLabel }}</span>
+                </div>
+                <div class="crest-glow"></div>
+              </div>
+
+              <div class="banner-content">
+                <h3 class="banner-fed-title">{{ fed.name }}</h3>
+                <span class="banner-region">{{ fed.region }}</span>
+
+                <div class="territory-ribbons">
+                  @for (c of fed.countries; track c) {
+                    <span class="territory-chip">{{ c }}</span>
+                  }
+                </div>
+
+                <p class="banner-lore">{{ fed.description }}</p>
+
+                <div class="strategic-decree">
+                  <span class="decree-tag">DOUTRINA OPERACIONAL:</span>
+                  <p class="decree-text">{{ fed.strategicRole }}</p>
+                </div>
+              </div>
+            </article>
+          }
+        </div>
+      </section>
+    }
+
+    <!-- =========================================================================
+         TOMO III: A ESCALA DA ASCENSÃO (RANKS)
+         ========================================================================= -->
+    @if (activeTab === 'ranks') {
+      <section class="chapter-content fade-in" id="tomo-ranks">
+        <div class="chapter-header">
+          <div class="header-seal">
+            <span class="seal-line"></span>
+            <span class="seal-text">TOMO III // HIERARQUIA MILITAR MÍTICA</span>
+            <span class="seal-line"></span>
+          </div>
+          <h2 class="chapter-title">A ESCALA DA ASCENSÃO</h2>
+          <p class="chapter-lead">
+            Da sobrevivência dos recrutas até a transcendência dos deuses vivos. A patente de um Caçador dita a escala das lendas que ele é autorizado a enfrentar.
+          </p>
+        </div>
+
+        <!-- Interactive Throne Selector -->
+        <div class="rank-throne-rail" role="tablist" aria-label="Seletor de Patentes">
+          @for (rank of hunterRanks; track rank.id) {
+            <button
+              type="button"
+              class="throne-rank-card"
+              [class.active]="selectedRank.id === rank.id"
+              [class.rank-ss]="rank.id === 'SS'"
+              [style.--rank-accent]="rank.badgeColor"
+              (click)="selectRank(rank)">
+              <div class="rank-insignia">
+                <span class="insignia-letter">{{ rank.id }}</span>
+              </div>
+              <span class="rank-prestige-title">{{ rank.title }}</span>
+            </button>
+          }
+        </div>
+
+        <!-- Throne Spotlight Dossier -->
+        <div class="throne-spotlight-dossier" [style.--throne-color]="selectedRank.badgeColor">
+          <div class="spotlight-mantle">
+            <div class="mantle-badge">
+              <div class="mantle-insignia-circle">
+                <span>{{ selectedRank.id }}</span>
+              </div>
+              <div class="mantle-titles">
+                <span class="mantle-order">PATENTE OFICIAL DA FEDERAÇÃO</span>
+                <h3 class="mantle-name">RANK {{ selectedRank.id }} • {{ selectedRank.title | uppercase }}</h3>
+              </div>
+            </div>
+
+            <div class="mantle-threat-seal">
+              <span class="seal-caption">AMEAÇA COMPATÍVEL HOMOLOGADA:</span>
+              <span class="seal-threat-name">{{ selectedRank.threatLevel }}</span>
+            </div>
+          </div>
+
+          <div class="spotlight-manuscript">
+            <div class="spotlight-overview-block">
+              <h4 class="overview-title">DEFINIÇÃO DO ESCALÃO</h4>
+              <p class="overview-lead">{{ selectedRank.description }}</p>
+            </div>
+
+            <div class="spotlight-columns">
+              <div class="spotlight-col">
+                <span class="col-seal-tag">CAPACIDADES BIOMÉTRICAS & MÍSTICAS</span>
+                <p class="col-body-text">{{ selectedRank.abilities }}</p>
+              </div>
+
+              <div class="spotlight-col">
+                <span class="col-seal-tag">MISSÕES & INCURSÕES HOMOLOGADAS</span>
+                <p class="col-body-text">{{ selectedRank.missions }}</p>
+              </div>
+            </div>
+
+            @if (selectedRank.exampleProfile) {
+              <div class="exemplar-record-banner">
+                <span class="exemplar-label">PERFIL DE REFERÊNCIA HISTÓRICA:</span>
+                <strong class="exemplar-text">{{ selectedRank.exampleProfile }}</strong>
+              </div>
+            }
+          </div>
+        </div>
+
+        <!-- Visual Tier Groups (A Escala de Poder) -->
+        <div class="tier-progression-wrapper">
+          <h3 class="tier-section-title">OS QUATRO CÍRCULOS DA ASCENSÃO</h3>
+
+          <div class="tier-cards-row">
+            <!-- Tier 1: Iniciação -->
+            <div class="tier-bracket bracket-initiation">
+              <div class="bracket-header">
+                <span class="bracket-tag">CÍRCULO 01 // BRONZE & FERRO</span>
+                <h4 class="bracket-title">A INICIAÇÃO (RANKS F, E, D)</h4>
+              </div>
+              <p class="bracket-desc">
+                Agentes em aprendizado que encaram pequenas anomalias. Começam a estabilizar a Energia Folclórica e a catalogar os primeiros mitos no Caderno Alquímico.
+              </p>
+            </div>
+
+            <!-- Tier 2: Vanguarda -->
+            <div class="tier-bracket bracket-vanguard">
+              <div class="bracket-header">
+                <span class="bracket-tag">CÍRCULO 02 // PRATA & AÇO</span>
+                <h4 class="bracket-title">A VANGUARDA (RANKS C, B)</h4>
+              </div>
+              <p class="bracket-desc">
+                A espinha dorsal das Federações. Caçadores veteranos capazes de liderar esquadrões de campo, forjar armas com carcaças de monstros e usar reforços Nível 2.
+              </p>
+            </div>
+
+            <!-- Tier 3: Campeões Míticos -->
+            <div class="tier-bracket bracket-heroes">
+              <div class="bracket-header">
+                <span class="bracket-tag">CÍRCULO 03 // CARMESIM & FOGO</span>
+                <h4 class="bracket-title">OS CAMPEÕES (RANKS A, S)</h4>
+              </div>
+              <p class="bracket-desc">
+                Heróis cujos feitos decidem guerras existenciais. Mestres de múltiplos elementos, com acesso a técnicas lendárias, Expansões de Domínio e pactos astrais.
+              </p>
+            </div>
+
+            <!-- Tier 4: Transcendência Suprema -->
+            <div class="tier-bracket bracket-transcendent">
+              <div class="bracket-header">
+                <span class="bracket-tag">CÍRCULO 04 // AMETISTA & VAZIO</span>
+                <h4 class="bracket-title">O TRANSCENDENTE (RANK SS)</h4>
+              </div>
+              <p class="bracket-desc">
+                O ápice absoluto ocupado por <strong>O Professor</strong>. Indivíduos que superaram a biologia humana, capazes de criar e desintegrar matéria em nível atômico.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    }
+
+    <!-- =========================================================================
+         TOMO IV: REFORÇOS & O CADERNO ALQUÍMICO
+         ========================================================================= -->
+    @if (activeTab === 'sistemas') {
+      <section class="chapter-content fade-in" id="tomo-sistemas">
+        <div class="chapter-header">
+          <div class="header-seal">
+            <span class="seal-line"></span>
+            <span class="seal-text">TOMO IV // PROTOCOLOS BÉLICOS & ARTES RITUAIS</span>
+            <span class="seal-line"></span>
+          </div>
+          <h2 class="chapter-title">REFORÇOS FÍSICOS & ALQUIMIA MENTAL</h2>
+          <p class="chapter-lead">
+            Como a fisiologia humana é amplificada pela bioenergia folclórica, as regras da forja de lâminas rituais e o mistério dos cadernos de alquimia.
+          </p>
+        </div>
+
+        <!-- Physical Enhancements Pentagram -->
+        <div class="codex-block">
+          <div class="codex-block-header">
+            <span class="block-glyph">❖</span>
+            <div>
+              <h3 class="block-title-text">OS 5 REFORÇOS FÍSICOS FOLCLÓRICOS</h3>
+              <span class="block-sub-text">AMPLIFICAÇÃO DA BIOLOGIA HUMANA SOB PRESSÃO SOBRENATURAL</span>
+            </div>
+          </div>
+
+          <div class="golden-law-box">
+            <span class="law-diamond">◆</span>
+            <p class="law-text">
+              <strong>LEI DE ESPECIALIZAÇÃO DUPLA:</strong> Todo Caçador ingressante é capaz de manifestar o <strong>Nível 1</strong> nas 5 áreas corporais. Todavia, a barreira do corpo impõe um limite estrito: cada agente só pode <strong>se especializar em até 2 categorias</strong> para alcançar o <strong>Nível 2 ou Nível 3</strong>. O abuso continuado acarreta colapso bioenergético irreversível.
+            </p>
+          </div>
+
+          <div class="enhancements-pentagram-grid">
+            @for (enh of physicalEnhancements; track enh.id) {
+              <div class="enhancement-relic-card">
+                <div class="relic-head">
+                  <div class="relic-crest">
+                    <span class="relic-glyph">❖</span>
+                  </div>
+                  <div>
+                    <h4 class="relic-name">{{ enh.name }}</h4>
+                    <p class="relic-concept">{{ enh.concept }}</p>
+                  </div>
+                </div>
+
+                <!-- Interactive Level Selector -->
+                <div class="relic-level-switches">
+                  @for (lvl of [1, 2, 3]; track lvl) {
+                    <button
+                      type="button"
+                      class="level-switch-btn"
+                      [class.active]="getEnhancementLevel(enh.id) === lvl"
+                      (click)="setEnhancementLevel(enh.id, lvl)">
+                      NÍVEL {{ lvl }}
+                    </button>
+                  }
+                </div>
+
+                <!-- Display Level Info -->
+                @for (lvl of enh.levels; track lvl.levelNumber) {
+                  @if (getEnhancementLevel(enh.id) === lvl.levelNumber) {
+                    <div class="relic-level-dossier">
+                      <span class="dossier-level-badge">NÍVEL {{ lvl.levelNumber }} // {{ lvl.name | uppercase }}</span>
+                      <p class="dossier-level-desc">{{ lvl.description }}</p>
+                    </div>
+                  }
+                }
+              </div>
+            }
+          </div>
+        </div>
+
+        <!-- The Hunter's Alchemy Folio -->
+        <div class="codex-block alchemy-folio-block">
+          <div class="codex-block-header">
+            <span class="block-glyph">❖</span>
+            <div>
+              <h3 class="block-title-text">O CADERNO ALQUÍMICO & A CRIAÇÃO MENTAL</h3>
+              <span class="block-sub-text">O PROCESSO NÃO-MATERIAL DE INFUSÃO DE POÇÕES</span>
+            </div>
+          </div>
+
+          <div class="folio-parchment-sheet">
+            <div class="folio-header-stamp">
+              <span class="folio-seal-text">MANUAL DE INGRESSO DA FEDERAÇÃO // ARTIGO ALQUÍMICO</span>
+            </div>
+
+            <div class="folio-rules-triad">
+              <div class="folio-article">
+                <h4 class="article-heading">A FÓRMULA MENTAL</h4>
+                <p class="article-content">{{ alchemySystem.creationMethod }}</p>
+              </div>
+
+              <div class="folio-article">
+                <h4 class="article-heading">O CADERNO PESSOAL</h4>
+                <p class="article-content">{{ alchemySystem.notebookRule }}</p>
+              </div>
+
+              <div class="folio-article">
+                <h4 class="article-heading">VÍNCULO EXCLUSIVO</h4>
+                <p class="article-content">{{ alchemySystem.limitations }}</p>
+              </div>
+            </div>
+
+            <!-- Potion Categories -->
+            <div class="potion-families-section">
+              <h4 class="families-header-title">AS 3 FAMÍLIAS DE POÇÕES RITUAIS</h4>
+
+              <div class="families-grid">
+                @for (cat of alchemySystem.categories; track cat.title) {
+                  <div class="potion-family-card">
+                    <div class="family-accent-bar"></div>
+                    <h5 class="family-name">{{ cat.title }}</h5>
+                    <p class="family-summary">{{ cat.description }}</p>
+                    <div class="family-examples">
+                      <span class="examples-tag">ELIXIRES DOCUMENTADOS:</span>
+                      <div class="example-pills">
+                        @for (ex of cat.examples; track ex) {
+                          <span class="elixir-pill">{{ ex }}</span>
+                        }
+                      </div>
+                    </div>
+                  </div>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Federal Forge & Drops of Legends -->
+        <div class="codex-block forge-block">
+          <div class="codex-block-header">
+            <span class="block-glyph">❖</span>
+            <div>
+              <h3 class="block-title-text">A FORJA DA FEDERAÇÃO & DROPS DE LENDAS</h3>
+              <span class="block-sub-text">METALURGIA MÍSTICA CONTRA ENTIDADES ANCESTRAIS</span>
+            </div>
+          </div>
+
+          <div class="forge-decrees-grid">
+            @for (rule of weaponRules.rules; track rule.title) {
+              <div class="forge-decree-card">
+                <div class="decree-seal-badge">
+                  <span class="decree-diamond">⬥</span>
+                  <span class="decree-title">{{ rule.title }}</span>
+                </div>
+                <p class="decree-body">{{ rule.description }}</p>
+              </div>
+            }
+          </div>
+        </div>
+      </section>
+    }
+
+    <!-- =========================================================================
+         TOMO V: DOMÍNIOS & PACTOS COM CONSTELAÇÕES
+         ========================================================================= -->
+    @if (activeTab === 'dominios') {
+      <section class="chapter-content fade-in" id="tomo-dominios">
+        <div class="chapter-header">
+          <div class="header-seal">
+            <span class="seal-line"></span>
+            <span class="seal-text">TOMO V // O ESOTÉRICO & O PROIBIDO</span>
+            <span class="seal-line"></span>
+          </div>
+          <h2 class="chapter-title">EXPANSÕES DE DOMÍNIO & CONSTELAÇÕES ASTRAIS</h2>
+          <p class="chapter-lead">
+            O ápice da vontade que dobra as leis do espaço tangível e as aterrorizantes barganhas celestes que exigem a sanidade em troca de milagres.
+          </p>
+        </div>
+
+        <!-- Domain Overview & The 5 Master Decrees -->
+        <div class="domain-commandments-block">
+          <div class="commandments-head">
+            <h3 class="commandments-title">EXPANSÃO DE DOMÍNIO</h3>
+            <p class="commandments-concept">{{ domainRules.concept }}</p>
+          </div>
+
+          <div class="decrees-scroll">
+            <h4 class="decrees-scroll-title">OS 5 MANDAMENTOS CANÔNICOS DE UM DOMÍNIO</h4>
+            <div class="decrees-items">
+              @for (rule of domainRules.rulesForHunters; track rule) {
+                <div class="decree-item-row">
+                  <span class="row-glyph">❖</span>
+                  <p class="row-text">{{ rule }}</p>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+
+        <!-- The Monument of the Supreme Domain: O Mais Forte -->
+        <div class="supreme-monument-tablet">
+          <div class="monument-glow-halo"></div>
+          
+          <div class="tablet-header">
+            <span class="tablet-order-seal">REGISTRO MÍSTICO DE ESCALÃO ÔMEGA</span>
+            <h3 class="tablet-domain-name">{{ domainRules.supremeExample.title }}</h3>
+            <span class="tablet-bearer">PORTADOR: {{ domainRules.supremeExample.bearer }}</span>
+          </div>
+
+          <div class="tablet-core-content">
+            <div class="supreme-ability-banner">
+              <span class="ability-tag">HABILIDADE SUPREMA:</span>
+              <h4 class="ability-heading">{{ domainRules.supremeExample.supremeAbility }}</h4>
+              <p class="ability-lore">{{ domainRules.supremeExample.description }}</p>
+            </div>
+
+            <!-- The Sacred Chant Inscription Tablet -->
+            <div class="ancient-chant-tablet">
+              <div class="tablet-ornament">
+                <span class="ornament-line"></span>
+                <span class="chant-label">CANTO RITUAL DE ATIVAÇÃO</span>
+                <span class="ornament-line"></span>
+              </div>
+              <div class="chant-verses">
+                @for (line of domainRules.supremeExample.activationChant; track line) {
+                  <p class="verse-line">{{ line }}</p>
+                }
+              </div>
+            </div>
+
+            <!-- Intrinsic Domain Weaknesses -->
+            <div class="tablet-vulnerabilities-block">
+              <h4 class="vulnerabilities-title">LIMITAÇÕES & TRIBUTOS INTRÍNSECOS</h4>
+              <ul class="vulnerabilities-list">
+                @for (w of domainRules.supremeExample.weaknesses; track w) {
+                  <li class="vulnerability-item">{{ w }}</li>
+                }
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Constellations & Pacts Section -->
+        <div class="constellations-stellar-vault">
+          <div class="vault-header">
+            <span class="vault-glyph">✦</span>
+            <h3 class="vault-title">CONSTELAÇÕES LENDÁRIAS & O PREÇO DA BARGANHA</h3>
+            <p class="vault-lead">
+              Entidades celestes atemporais que observam o mundo humano do alto do firmamento. Elas jamais praticam caridade: qualquer milagre concedido é cobrado com memórias essenciais, juízo e parcelas da própria alma.
+            </p>
+          </div>
+
+          <div class="stellar-vault-grid">
+            @for (c of constellations; track c.id) {
+              <article class="constellation-vault-card">
+                <div class="stellar-card-mantle">
+                  <div class="stellar-icon-orbit">
+                    <span class="orbit-glyph">✦</span>
+                  </div>
+                  <div>
+                    <span class="entity-order">ENTIDADE CELESTE CATALOGADA</span>
+                    <h4 class="entity-name">{{ c.name }}</h4>
+                    <span class="entity-cognomen">{{ c.title }}</span>
+                  </div>
+                </div>
+
+                <div class="stellar-card-body">
+                  <p class="entity-chronicle">{{ c.lore }}</p>
+
+                  <div class="karmic-toll-box">
+                    <span class="toll-header-tag">PREÇO CÁRMICO EXIGIDO:</span>
+                    <p class="toll-body-text">{{ c.priceDemanded }}</p>
+                  </div>
+
+                  <div class="granted-powers-block">
+                    <span class="powers-header-tag">PODERES OUTORGADOS:</span>
+                    <ul class="powers-items-list">
+                      @for (pow of c.powersOffered; track pow) {
+                        <li>{{ pow }}</li>
+                      }
+                    </ul>
+                  </div>
+                </div>
+              </article>
+            }
+          </div>
+        </div>
+      </section>
+    }
+
+    <!-- Codex Navigation Footer -->
+    <footer class="codex-footer">
+      <div class="footer-ornament">
+        <span class="ornament-line"></span>
+        <span class="rune-glyph">❖</span>
+        <span class="ornament-line"></span>
+      </div>
+      <a routerLink="/personagens" class="btn-dossiers-link">
+        <span>CONSULTAR DOSSIÊS DE CAÇADORES MOBILIZADOS</span>
+        <span class="arrow-glyph">→</span>
+      </a>
+    </footer>
+
+  </div>
+</main>

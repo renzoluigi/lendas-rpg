@@ -89,25 +89,9 @@
     max-width: 780px;
   }
 
-  &:hover {
-    border-color: rgba(241, 213, 146, 0.7);
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.9), 0 0 24px rgba(166, 138, 75, 0.2);
-
-    .sector-bg-overlay {
-      background: linear-gradient(135deg, rgba(14, 11, 8, 0.88) 0%, rgba(26, 21, 15, 0.78) 60%, rgba(14, 11, 8, 0.9) 100%);
-    }
-  }
-}
-
-/* Primary Sector: Operations Hub */
-.sector-operations {
-  background-image: url("/characters.webp");
-  border-width: 2px;
-  border-color: rgba(166, 138, 75, 0.6);
-
   .sector-actions {
     display: flex;
-    justify-content: flex-end;
+    margin-top: 14px;
 
     .btn-hub {
       display: inline-flex;
@@ -122,17 +106,19 @@
       font-size: 0.86rem;
       font-weight: 700;
       letter-spacing: 2px;
-      text-decoration: none;
+      text-decoration: none !important;
       transition: all 0.3s ease;
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
 
       .btn-arrow {
+        display: inline-block;
         transition: transform 0.25s ease;
       }
 
       &:hover {
         background: $gold-accent;
         color: #1a150f;
+        text-decoration: none !important;
         transform: translateY(-2px);
         box-shadow: 0 6px 20px rgba(166, 138, 75, 0.4);
 
@@ -141,6 +127,26 @@
         }
       }
     }
+  }
+
+  &:hover {
+    border-color: rgba(241, 213, 146, 0.7);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.9), 0 0 24px rgba(166, 138, 75, 0.2);
+
+    .sector-bg-overlay {
+      background: linear-gradient(135deg, rgba(14, 11, 8, 0.88) 0%, rgba(26, 21, 15, 0.78) 60%, rgba(14, 11, 8, 0.90) 100%);
+    }
+  }
+}
+
+/* Primary Sector: Operations Hub */
+.sector-operations {
+  background-image: url("/characters.webp");
+  border-width: 2px;
+  border-color: rgba(166, 138, 75, 0.6);
+
+  .sector-actions {
+    justify-content: flex-end;
   }
 }
 
@@ -152,6 +158,16 @@
 
   .sector-history {
     background-image: url("/history.webp");
+
+    .sector-actions {
+      margin-top: 18px;
+      justify-content: flex-start;
+
+      .btn-archive-access {
+        font-size: 0.82rem;
+        padding: 9px 20px;
+      }
+    }
   }
 
   .sector-gallery {
