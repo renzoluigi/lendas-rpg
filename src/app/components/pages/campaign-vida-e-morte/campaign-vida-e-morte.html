@@ -107,5 +107,61 @@
         }
       </div>
     </section>
+
+    <!-- Canonical & Historical Figures Section -->
+    <section class="historical-section">
+      <div class="section-heading">
+        <div class="heading-ornament">
+          <span class="ornament-line"></span>
+          <span class="blood-diamond">❖</span>
+          <span class="ornament-line"></span>
+        </div>
+        <h2 class="section-title">REGISTROS CLASSIFICADOS // FIGURAS CENTRAIS</h2>
+        <p class="section-subtitle">Agentes extraordinários, mentores e combatentes de vanguarda cujas ações marcaram a saga Vida e Morte e transcendem para o cânone geral.</p>
+      </div>
+
+      <div class="historical-grid">
+        @for (char of canonCharacters; track char.codename; let idx = $index) {
+          <a class="historical-card card-{{ char.codename.toLowerCase() }}" [routerLink]="['/personagens/vida-e-morte', char.codename]">
+            <div class="image-wrapper">
+              <img [src]="char.imageURI" [alt]="char.name" loading="lazy">
+              <div class="image-overlay"></div>
+              <div class="card-badge">
+                <span class="dossier-num">HIST #0{{ idx + 1 }}</span>
+                <span class="country-pill">{{ char.classification || 'CÂNONE' }}</span>
+              </div>
+            </div>
+            <div class="info-box">
+              <div class="names">
+                <span class="status-tag">{{ char.title }}</span>
+                <h3 class="codename">{{ char.codename === 'Professor' ? 'O Professor' : (char.codename === 'Stateham' ? 'Prof. Stateham' : char.name) }}</h3>
+                <p class="nome">{{ char.name }}</p>
+              </div>
+
+              @if (char.relations && char.relations.length > 0) {
+                <div class="relations-badge-row">
+                  @for (rel of char.relations; track rel.targetCodename) {
+                    <span class="rel-chip">{{ rel.role }} {{ rel.targetName }}</span>
+                  }
+                </div>
+              }
+
+              <div class="card-meta">
+                <span class="meta-item">{{ char.age ? char.age + ' anos' : 'Registro Oculto' }}</span>
+                <span class="meta-dot">•</span>
+                <span class="meta-item">{{ char.threatLevel || 'Cânone Global' }}</span>
+              </div>
+
+              <div class="action-footer">
+                <span class="view-label">ACESSAR DOSSIÊ HISTÓRICO</span>
+                <span class="view-arrow">→</span>
+              </div>
+            </div>
+            <div class="card-border-glow"></div>
+          </a>
+        }
+      </div>
+    </section>
+
   </div>
 </main>

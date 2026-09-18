@@ -5,12 +5,12 @@
       <!-- Top Nav Bar -->
       <nav class="top-nav">
         <a class="btn-back-blood" [routerLink]="backUrl">
-          <span class="pointer">←</span> VOLTAR AO TOMO SELADO
+          <span class="pointer">←</span> {{ backUrl.includes('arquivo-geral') ? 'VOLTAR AO ARQUIVO GERAL' : 'VOLTAR AO TOMO SELADO' }}
         </a>
 
         <div class="nav-classification">
           <span class="blood-pulse"></span>
-          <span class="tag">REGISTRO HISTÓRICO // VIDA E MORTE</span>
+          <span class="tag">{{ character.isCanonical ? 'REGISTRO CANÔNICO // FEDERAÇÃO GLOBAL' : 'REGISTRO HISTÓRICO // VIDA E MORTE' }}</span>
         </div>
       </nav>
 
@@ -23,21 +23,18 @@
             <div class="photo-frame">
               <img [src]="character.imageURI" class="main-photo" [alt]="'Dossiê de ' + character.name">
               <div class="photo-vignette"></div>
-              <div class="logo-lendas-seal">
-                <img src="/logo.webp" alt="Logo Lendas RPG">
-              </div>
             </div>
           </div>
 
           <div class="identity-card">
-            <div class="seal-badge">
+            <div class="seal-badge" [class.canon-seal]="character.isCanonical">
               <span class="blood-pulse"></span>
-              <span>PIONEIRO SELADO #{{ character.codename === 'Sen' ? '01' : '02' }}</span>
+              <span>{{ character.isCanonical ? (character.classification || 'REGISTRO CANÔNICO') : ('PIONEIRO SELADO #' + (character.codename === 'Sen' ? '01' : '02')) }}</span>
             </div>
 
             <div class="name-block">
-              <span class="label">CODINOME OFICIAL</span>
-              <h1 class="codename">{{ character.codename }}</h1>
+              <span class="label">{{ character.isCanonical ? 'DESIGNAÇÃO OFICIAL' : 'CODINOME OFICIAL' }}</span>
+              <h1 class="codename">{{ character.codename === 'Professor' ? 'O Professor' : (character.codename === 'Stateham' ? 'Prof. Stateham' : (character.codename === 'Markus-Wolf' ? 'Markus Wolf' : character.codename)) }}</h1>
               <p class="real-name">{{ character.name }}</p>
             </div>
 
@@ -48,25 +45,41 @@
               </div>
               <div class="stat-item">
                 <span class="stat-label">IDADE</span>
-                <span class="stat-value">{{ character.age }} anos</span>
+                <span class="stat-value">{{ character.age ? character.age + ' anos' : 'Não Catalogada' }}</span>
               </div>
               <div class="stat-item">
                 <span class="stat-label">ESTATURA</span>
-                <span class="stat-value">{{ character.height }}m</span>
+                <span class="stat-value">{{ character.height ? character.height + 'm' : 'Não Catalogada' }}</span>
               </div>
               <div class="stat-item">
                 <span class="stat-label">CAMPANHA</span>
-                <span class="stat-value highlight">Vida e Morte</span>
+                <span class="stat-value highlight">{{ character.isCanonical ? 'Cânone Global' : 'Vida e Morte' }}</span>
               </div>
             </div>
 
-            <div class="actor-card">
-              <img [src]="character.actor.imageURI" class="actor-avatar" [alt]="character.actor.name">
-              <div class="actor-meta">
-                <span class="actor-label">INTERPRETADO POR:</span>
-                <strong class="actor-name">{{ character.actor.name }}</strong>
+            @if (character.relations && character.relations.length > 0) {
+              <div class="relations-sidebar-card">
+                <span class="relations-label">VÍNCULOS CANÔNICOS:</span>
+                <div class="relations-items">
+                  @for (rel of character.relations; track rel.targetCodename) {
+                    <a class="relation-link" [routerLink]="['/personagens/vida-e-morte', rel.targetCodename]">
+                      <span class="rel-role-text">{{ rel.role }}</span>
+                      <strong class="rel-target-text">{{ rel.targetName }} →</strong>
+                    </a>
+                  }
+                </div>
               </div>
-            </div>
+            }
+
+            @if (character.actor) {
+              <div class="actor-card">
+                <img [src]="character.actor.imageURI" class="actor-avatar" [alt]="character.actor.name">
+                <div class="actor-meta">
+                  <span class="actor-label">INTERPRETADO POR:</span>
+                  <strong class="actor-name">{{ character.actor.name }}</strong>
+                </div>
+              </div>
+            }
           </div>
         </aside>
 
@@ -79,9 +92,15 @@
               <span class="blood-diamond">❖</span>
               <span class="line"></span>
             </div>
-            <h2>DOSSIÊ HISTÓRICO DO CAÇADOR</h2>
-            <p class="subtitle">Registros macabros e transcrições de combate da primeira expedição.</p>
+            <h2>{{ character.isCanonical ? 'DOSSIÊ CANÔNICO DA FEDERAÇÃO' : 'DOSSIÊ HISTÓRICO DO CAÇADOR' }}</h2>
+            <p class="subtitle">{{ character.isCanonical ? 'Transcrições de inteligência, técnicas absolutas e impacto cósmico nas campanhas.' : 'Registros macabros e transcrições de combate da primeira expedição.' }}</p>
           </header>
+
+          @if (character.quote) {
+            <div class="quote-card">
+              <blockquote class="dossie-quote">“{{ character.quote }}”</blockquote>
+            </div>
+          }
 
           <!-- Profile Description & Feats -->
           <section class="lore-panel">
@@ -123,20 +142,24 @@
           </section>
 
           <!-- Weapon / Relic Section -->
-          <section class="weapon-card">
-            <div class="weapon-header">
-              <span class="weapon-tag">EQUIPAMENTO & RELÍQUIA PRIMORDIAL</span>
-              <h3>{{ character.weapons.name }}</h3>
-            </div>
-            <div class="weapon-body">
-              <div class="weapon-img-frame">
-                <img [src]="character.weapons.imageURI" [alt]="character.weapons.name" class="weapon-img">
+          @if (character.weapons) {
+            <section class="weapon-card">
+              <div class="weapon-header">
+                <span class="weapon-tag">{{ character.isCanonical ? 'EQUIPAMENTO // ARTEFATO HISTÓRICO' : 'EQUIPAMENTO & RELÍQUIA PRIMORDIAL' }}</span>
+                <h3>{{ character.weapons.name }}</h3>
               </div>
-              <div class="weapon-info">
-                <p class="weapon-desc">{{ character.weapons.description }}</p>
+              <div class="weapon-body">
+                @if (character.weapons.imageURI) {
+                  <div class="weapon-img-frame">
+                    <img [src]="character.weapons.imageURI" [alt]="character.weapons.name" class="weapon-img">
+                  </div>
+                }
+                <div class="weapon-info">
+                  <p class="weapon-desc">{{ character.weapons.description }}</p>
+                </div>
               </div>
-            </div>
-          </section>
+            </section>
+          }
 
           <!-- Domain Expansion Special Highlight -->
           @if (domainExpansion) {

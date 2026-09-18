@@ -23,9 +23,6 @@
             <div class="photo-frame">
               <img [src]="character.imageURI" class="main-photo" [alt]="'Dossiê de ' + character.name">
               <div class="photo-vignette"></div>
-              <div class="logo-lendas-seal">
-                <img src="/logo.webp" alt="Logo Lendas RPG">
-              </div>
             </div>
           </div>
 
@@ -60,13 +57,15 @@
               </div>
             </div>
 
-            <div class="actor-card">
-              <img [src]="character.actor.imageURI" class="actor-avatar" [alt]="character.actor.name">
-              <div class="actor-meta">
-                <span class="actor-label">INTERPRETADO POR:</span>
-                <strong class="actor-name">{{ character.actor.name }}</strong>
+            @if (character.actor) {
+              <div class="actor-card">
+                <img [src]="character.actor.imageURI" class="actor-avatar" [alt]="character.actor.name">
+                <div class="actor-meta">
+                  <span class="actor-label">INTERPRETADO POR:</span>
+                  <strong class="actor-name">{{ character.actor.name }}</strong>
+                </div>
               </div>
-            </div>
+            }
           </div>
         </aside>
 
@@ -123,20 +122,22 @@
           </section>
 
           <!-- Weapon / Relic Section -->
-          <section class="weapon-card">
-            <div class="weapon-header">
-              <span class="weapon-tag">EQUIPAMENTO & RELÍQUIA FORJADA NO GELO</span>
-              <h3>{{ character.weapons.name }}</h3>
-            </div>
-            <div class="weapon-body">
-              <div class="weapon-img-frame">
-                <img [src]="character.weapons.imageURI" [alt]="character.weapons.name" class="weapon-img">
+          @if (character.weapons) {
+            <section class="weapon-card">
+              <div class="weapon-header">
+                <span class="weapon-tag">EQUIPAMENTO & RELÍQUIA FORJADA NO GELO</span>
+                <h3>{{ character.weapons.name }}</h3>
               </div>
-              <div class="weapon-info">
-                <p class="weapon-desc">{{ character.weapons.description }}</p>
+              <div class="weapon-body">
+                <div class="weapon-img-frame">
+                  <img [src]="character.weapons.imageURI" [alt]="character.weapons.name" class="weapon-img">
+                </div>
+                <div class="weapon-info">
+                  <p class="weapon-desc">{{ character.weapons.description }}</p>
+                </div>
               </div>
-            </div>
-          </section>
+            </section>
+          }
 
           <!-- Signature Technique Special Highlight -->
           @if (signatureTechnique) {

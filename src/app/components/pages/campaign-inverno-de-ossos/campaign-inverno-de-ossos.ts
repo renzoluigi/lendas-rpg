@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 import { Header } from '../../header/header';
 import { Character } from '../../../model/character';
 import { INVERNO_CHARACTERS } from '../../../characters-data';
+import { prefersReducedMotion } from '../../../utils/reduced-motion';
 
 @Component({
   selector: 'app-campaign-inverno-de-ossos',
@@ -21,7 +22,7 @@ export class CampaignInvernoDeOssos {
 
   constructor() {
     afterNextRender(async () => {
-      if (!isPlatformBrowser(this.platformId)) return;
+      if (!isPlatformBrowser(this.platformId) || prefersReducedMotion()) return;
       const { animateMini, inView } = await import('motion');
 
       const hero = document.querySelector('.campaign-hero');

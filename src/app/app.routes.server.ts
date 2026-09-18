@@ -12,6 +12,15 @@ export const serverRoutes: ServerRoute[] = [
     }
   },
   {
+    path: 'personagens/arquivo-geral/:codename',
+    renderMode: RenderMode.Prerender,
+    getPrerenderParams: async () => {
+      return CHARACTERS.map(char => ({
+        codename: char.codename
+      }));
+    }
+  },
+  {
     path: 'personagens/one-shot/:codename',
     renderMode: RenderMode.Prerender,
     getPrerenderParams: async () => {

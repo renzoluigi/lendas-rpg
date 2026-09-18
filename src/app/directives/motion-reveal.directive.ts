@@ -8,6 +8,7 @@ import {
   inject,
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { prefersReducedMotion } from '../utils/reduced-motion';
 
 @Directive({
   selector: '[motionReveal]',
@@ -25,7 +26,7 @@ export class MotionRevealDirective implements OnDestroy {
 
   constructor() {
     afterNextRender(() => {
-      if (!isPlatformBrowser(this.platformId)) return;
+      if (!isPlatformBrowser(this.platformId) || prefersReducedMotion()) return;
       this.init();
     });
   }

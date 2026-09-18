@@ -1,92 +1,173 @@
 @if (character) {
-  <div class="page-wrapper">
-    <a class="btn-back" [routerLink]="backUrl">
-      <span class="pointer">←</span> VOLTAR
-    </a>
+  <div class="dossie-page">
+    <div class="page-container">
+      
+      <!-- Top Nav Bar -->
+      <nav class="top-nav">
+        <a class="btn-back-gold" [routerLink]="backUrl">
+          <span class="pointer">←</span> VOLTAR À LISTA
+        </a>
 
-    <div class="dossie-container">
-      <aside class="sidebar-identity">
-        <div class="photo-frame">
-          <img [src]="character.imageURI" class="main-photo" alt="Imagem do personagem">
-          <div class="logo-lendas-small">
-            <img src="/logo.webp" alt="Logo do lendas">
-          </div>
+        <div class="nav-classification">
+          <span class="gold-pulse"></span>
+          <span class="tag">REGISTRO TÁTICO // ARQUIVO ONE-SHOT</span>
         </div>
+      </nav>
 
-        <div class="id-info">
-          <span class="label">CODINOME:</span>
-          <h1 class="codename">{{ character.codename }}</h1>
-          <p class="name">{{ character.name }}</p>
-          <p class="meta-info"><strong>PAÍS:</strong> {{ character.country }}</p>
-          <p class="meta-info"><strong>IDADE:</strong> {{ character.age }} anos</p>
-          <p class="meta-info"><strong>ALTURA:</strong> {{ character.height }}m</p>
-        </div>
+      <!-- Main Dossier Layout -->
+      <div class="dossie-grid">
 
-        <div class="interpreted-by">
-          <img [src]="character.actor.imageURI" class="photo" alt="Imagem do ator">
-          <div class="text">
-            <span>Interpretado por: <br></span>
-            <strong>{{ character.actor.name }}</strong>
-          </div>
-        </div>
-      </aside>
-
-      <main class="content-dossie">
-        <header class="dossie-header">
-          <h2>DOSSIÊ DO CAÇADOR</h2>
-        </header>
-
-        <div class="details">
-          <section class="scroll">
-            <div class="parchment">
-              <h3>DESCRIÇÃO</h3>
-              <p>{{ character.description }}</p>
-
-              <h3 class="mt-4">FEITOS</h3>
-              <ul>
-                @for (deed of character.deeds; track deed) {
-                  <li>{{ deed }}</li>
-                }
-              </ul>
+        <!-- Left Column: Identity Sidebar -->
+        <aside class="sidebar-identity">
+          <div class="portrait-container">
+            <div class="photo-frame">
+              <img [src]="character.imageURI" class="main-photo" [alt]="'Dossiê de ' + character.name">
+              <div class="photo-vignette"></div>
             </div>
-          </section>
+          </div>
 
-          <section class="history-weapon-grid">
-            <div class="history-text">
-              <h3>HISTÓRIA</h3>
-              <div class="text">{{ character.history }}</div>
+          <div class="identity-card">
+            <div class="seal-badge">
+              <span class="gold-pulse"></span>
+              <span>DOSSIÊ CLASSIFICADO // ARQUIVO #01</span>
             </div>
 
-            <div class="weapon-box">
-              <h3>EQUIPAMENTO PRINCIPAL</h3>
-              <div class="weapon-content">
-                <img [src]="character.weapons.imageURI" class="weapon-img" [alt]="character.weapons.name">
-                <div class="weapon-info">
-                  <h4>{{ character.weapons.name }}</h4>
-                  <p>{{ character.weapons.description }}</p>
-                </div>
+            <div class="name-block">
+              <span class="label">CODINOME OFICIAL</span>
+              <h1 class="codename">{{ character.codename }}</h1>
+              <p class="real-name">{{ character.name }}</p>
+            </div>
+
+            <div class="stats-grid">
+              <div class="stat-item">
+                <span class="stat-label">ORIGEM</span>
+                <span class="stat-value">{{ character.country }}</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">IDADE</span>
+                <span class="stat-value">{{ character.age }} anos</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">ESTATURA</span>
+                <span class="stat-value">{{ character.height }}m</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">CAMPANHA</span>
+                <span class="stat-value highlight">One-Shot</span>
               </div>
             </div>
-          </section>
-        </div>
 
-        <section class="abilities">
-          <h3>HABILIDADES</h3>
-          <div class="habilidades-grid">
-            @for (ability of character.abilities; track ability) {
-              <div class="ability-card">
-                @if (ability.image) {
-                  <img [src]="ability.image" [alt]="ability.name" class="ability-icon">
-                } @else {
-                  <div class="habilidade-icon-placeholder"></div>
-                }
-                <h4>{{ ability.name }}</h4>
-                <p>{{ ability.description }}</p>
+            @if (character.actor) {
+              <div class="actor-card">
+                <img [src]="character.actor.imageURI" class="actor-avatar" [alt]="character.actor.name">
+                <div class="actor-meta">
+                  <span class="actor-label">INTERPRETADO POR:</span>
+                  <strong class="actor-name">{{ character.actor.name }}</strong>
+                </div>
               </div>
             }
           </div>
-        </section>
-      </main>
+        </aside>
+
+        <!-- Right Column: Dossier Content -->
+        <main class="dossie-content">
+          
+          <header class="dossie-header">
+            <div class="header-ornament">
+              <span class="line"></span>
+              <span class="gold-diamond">❖</span>
+              <span class="line"></span>
+            </div>
+            <h2>DOSSIÊ TÁTICO DO CAÇADOR</h2>
+            <p class="subtitle">Registros de combate, crônicas de campo e relatório confidencial da Federação.</p>
+          </header>
+
+          <!-- Profile Description & Feats -->
+          <section class="lore-panel">
+            <div class="panel-section">
+              <div class="section-title-wrap">
+                <span class="gold-diamond">❖</span>
+                <h3>ANÁLISE & CONDUTA DE COMBATE</h3>
+              </div>
+              <p class="description-text">{{ character.description }}</p>
+            </div>
+
+            @if (character.deeds && character.deeds.length > 0) {
+              <div class="panel-section deeds-section">
+                <div class="section-title-wrap">
+                  <span class="gold-diamond">❖</span>
+                  <h3>FEITOS HISTÓRICOS RECONHECIDOS</h3>
+                </div>
+                <ul class="deeds-list">
+                  @for (deed of character.deeds; track deed) {
+                    <li>
+                      <span class="deed-marker">❖</span>
+                      <span>{{ deed }}</span>
+                    </li>
+                  }
+                </ul>
+              </div>
+            }
+          </section>
+
+          <!-- History / Lore Section -->
+          <section class="history-panel">
+            <div class="section-title-wrap">
+              <span class="gold-diamond">❖</span>
+              <h3>CRÔNICA DO CAÇADOR</h3>
+            </div>
+            <div class="history-text">
+              <p>{{ character.history }}</p>
+            </div>
+          </section>
+
+          <!-- Weapon / Relic Section -->
+          @if (character.weapons) {
+            <section class="weapon-card">
+              <div class="weapon-header">
+                <span class="weapon-tag">EQUIPAMENTO & RELÍQUIA SAGRADA</span>
+                <h3>{{ character.weapons.name }}</h3>
+              </div>
+              <div class="weapon-body">
+                <div class="weapon-img-frame">
+                  <img [src]="character.weapons.imageURI" [alt]="character.weapons.name" class="weapon-img">
+                </div>
+                <div class="weapon-info">
+                  <p class="weapon-desc">{{ character.weapons.description }}</p>
+                </div>
+              </div>
+            </section>
+          }
+
+          <!-- Abilities Section -->
+          <section class="abilities-section">
+            <div class="section-title-wrap">
+              <span class="gold-diamond">❖</span>
+              <h3>ARSENAL DE TÉCNICAS & HABILIDADES</h3>
+            </div>
+
+            <div class="techniques-grid">
+              @for (ability of character.abilities; track ability.name) {
+                <div class="technique-card">
+                  <div class="card-top">
+                    @if (ability.image) {
+                      <div class="technique-icon-wrap">
+                        <img [src]="ability.image" [alt]="ability.name" class="technique-icon">
+                      </div>
+                    } @else {
+                      <div class="technique-icon-placeholder">❖</div>
+                    }
+                    <h4 class="technique-name">{{ ability.name }}</h4>
+                  </div>
+                  <p class="technique-desc">{{ ability.description }}</p>
+                </div>
+              }
+            </div>
+          </section>
+
+        </main>
+      </div>
+
     </div>
   </div>
 }

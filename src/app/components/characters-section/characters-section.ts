@@ -3,6 +3,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { Character } from '../../model/character';
 import { ONE_SHOT_CHARACTERS } from '../../characters-data';
 import { RouterLink } from '@angular/router';
+import { prefersReducedMotion } from '../../utils/reduced-motion';
 
 @Component({
   selector: 'characters-section',
@@ -19,7 +20,7 @@ export class CharactersSection {
 
   constructor() {
     afterNextRender(async () => {
-      if (!isPlatformBrowser(this.platformId)) return;
+      if (!isPlatformBrowser(this.platformId) || prefersReducedMotion()) return;
       const { animateMini, inView } = await import('motion');
 
       const cards = document.querySelectorAll<HTMLElement>('.character-card');

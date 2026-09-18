@@ -3,7 +3,8 @@ import { isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Header } from '../../header/header';
 import { Character } from '../../../model/character';
-import { VIDA_E_MORTE_CHARACTERS } from '../../../characters-data';
+import { VIDA_E_MORTE_CHARACTERS, VIDA_E_MORTE_CANON_CHARACTERS } from '../../../characters-data';
+import { prefersReducedMotion } from '../../../utils/reduced-motion';
 
 @Component({
   selector: 'app-campaign-vida-e-morte',
@@ -17,11 +18,12 @@ import { VIDA_E_MORTE_CHARACTERS } from '../../../characters-data';
 })
 export class CampaignVidaEMorte {
   characters: Character[] = VIDA_E_MORTE_CHARACTERS;
+  canonCharacters: Character[] = VIDA_E_MORTE_CANON_CHARACTERS;
   private readonly platformId = inject(PLATFORM_ID);
 
   constructor() {
     afterNextRender(async () => {
-      if (!isPlatformBrowser(this.platformId)) return;
+      if (!isPlatformBrowser(this.platformId) || prefersReducedMotion()) return;
       const { animateMini, inView } = await import('motion');
 
       const archiveCard = document.querySelector('.archive-card');

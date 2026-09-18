@@ -4,6 +4,7 @@ import { Character } from '../../../model/character';
 import { Ability } from '../../../model/ability';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CHARACTERS } from '../../../characters-data';
+import { prefersReducedMotion } from '../../../utils/reduced-motion';
 
 @Component({
   selector: 'app-character-record-inverno-de-ossos',
@@ -59,6 +60,8 @@ export class CharacterRecordInvernoDeOssos implements OnInit {
   constructor() {
     afterNextRender(async () => {
       if (!isPlatformBrowser(this.platformId)) return;
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      if (prefersReducedMotion()) return;
       const { animateMini, inView } = await import('motion');
 
       const sidebar = document.querySelector('.sidebar-identity');

@@ -561,6 +561,241 @@
   }
 }
 
+/* Historical & Canonical Section */
+.historical-section {
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(220, 38, 38, 0.25);
+}
+
+.historical-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  gap: 26px;
+  width: 100%;
+}
+
+.historical-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(160deg, #100508 0%, #060204 100%);
+  border: 1px solid rgba(220, 38, 38, 0.45);
+  border-radius: 6px;
+  overflow: hidden;
+  text-decoration: none;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.85);
+  transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+  .image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: #000;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform 0.5s ease;
+    }
+
+    .image-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 30%, rgba(6, 2, 4, 0.9) 100%);
+    }
+
+    .card-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      right: 12px;
+      display: flex;
+      justify-content: space-between;
+      z-index: 2;
+
+      .dossier-num {
+        font-family: 'Cinzel', serif;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: #fca5a5;
+        background: rgba(127, 29, 29, 0.6);
+        border: 1px solid rgba(239, 68, 68, 0.5);
+        padding: 3px 8px;
+        border-radius: 2px;
+      }
+
+      .country-pill {
+        font-family: 'Cinzel', serif;
+        font-size: 0.68rem;
+        letter-spacing: 1px;
+        color: #fecaca;
+        background: rgba(18, 3, 7, 0.75);
+        border: 1px solid rgba(220, 38, 38, 0.4);
+        padding: 3px 8px;
+        border-radius: 2px;
+      }
+    }
+  }
+
+  .info-box {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+
+    .names {
+      margin-bottom: 12px;
+
+      .status-tag {
+        display: block;
+        font-family: 'Cinzel', serif;
+        font-size: 0.68rem;
+        letter-spacing: 1.5px;
+        color: #f87171;
+        margin-bottom: 4px;
+      }
+
+      .codename {
+        font-family: 'Cinzel', serif;
+        font-size: 1.4rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        color: #fff;
+        margin: 0 0 4px 0;
+        transition: color 0.25s ease;
+      }
+
+      .nome {
+        font-size: 0.85rem;
+        color: #cbd5e1;
+        margin: 0;
+      }
+    }
+
+    .relations-badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 14px;
+
+      .rel-chip {
+        font-size: 0.74rem;
+        color: #fecaca;
+        background: rgba(127, 29, 29, 0.35);
+        border: 1px solid rgba(239, 68, 68, 0.35);
+        padding: 3px 8px;
+        border-radius: 2px;
+      }
+    }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      color: #94a3b8;
+      margin-bottom: 16px;
+
+      .meta-dot {
+        color: rgba(239, 68, 68, 0.6);
+      }
+    }
+
+    .action-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+      padding-top: 12px;
+      border-top: 1px solid rgba(220, 38, 38, 0.25);
+
+      .view-label {
+        font-family: 'Cinzel', serif;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        color: #f87171;
+        transition: color 0.25s ease;
+      }
+
+      .view-arrow {
+        font-size: 1rem;
+        color: #ef4444;
+        transition: transform 0.25s ease;
+      }
+    }
+  }
+
+  .card-border-glow {
+    position: absolute;
+    inset: 0;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    transition: all 0.35s ease;
+    pointer-events: none;
+  }
+
+  &:hover {
+    transform: translateY(-6px);
+    border-color: #ef4444;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.95), 0 0 24px rgba(239, 68, 68, 0.45);
+
+    .image-wrapper img {
+      transform: scale(1.05);
+    }
+
+    .info-box {
+      .names .codename {
+        color: #fca5a5;
+        text-shadow: 0 0 12px rgba(239, 68, 68, 0.8);
+      }
+
+      .action-footer {
+        .view-label {
+          color: #ffffff;
+        }
+        .view-arrow {
+          transform: translateX(4px);
+        }
+      }
+    }
+
+    .card-border-glow {
+      border-color: rgba(239, 68, 68, 0.5);
+    }
+  }
+
+  &.card-professor {
+    border-color: rgba(168, 85, 247, 0.5);
+    &:hover {
+      border-color: #c084fc;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.95), 0 0 26px rgba(168, 85, 247, 0.45);
+      .info-box .names .codename {
+        color: #f3e8ff;
+        text-shadow: 0 0 12px rgba(192, 132, 252, 0.8);
+      }
+    }
+  }
+
+  &.card-stateham {
+    border-color: rgba(234, 179, 8, 0.45);
+    &:hover {
+      border-color: #facc15;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.95), 0 0 26px rgba(234, 179, 8, 0.4);
+      .info-box .names .codename {
+        color: #fef08a;
+        text-shadow: 0 0 12px rgba(250, 204, 21, 0.8);
+      }
+    }
+  }
+}
+
 .blood-pulse {
   display: inline-block;
   width: 7px;

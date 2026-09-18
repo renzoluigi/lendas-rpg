@@ -4,6 +4,7 @@ import { Character } from '../../../model/character';
 import { Ability } from '../../../model/ability';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CHARACTERS } from '../../../characters-data';
+import { prefersReducedMotion } from '../../../utils/reduced-motion';
 
 @Component({
   selector: 'app-character-record-vida-e-morte',
@@ -26,11 +27,20 @@ export class CharacterRecordVidaEMorte implements OnInit {
   ngOnInit() {
     let codenameParam = this.route.snapshot.paramMap.get("codename");
 
+    const path = this.route.snapshot.url.map(u => u.path).join('/').toLowerCase();
+    
+    if (path.includes('arquivo-geral')) {
+      this.backUrl = '/personagens/arquivo-geral';
+    } else {
+      this.backUrl = '/personagens/vida-e-morte';
+    }
+
     if (!codenameParam) {
-      // Check if URL directly contains josh or sen
-      const path = this.route.snapshot.url.map(u => u.path).join('/').toLowerCase();
       if (path.includes('josh')) codenameParam = 'josh';
       else if (path.includes('sen')) codenameParam = 'sen';
+      else if (path.includes('professor')) codenameParam = 'professor';
+      else if (path.includes('stateham')) codenameParam = 'stateham';
+      else if (path.includes('markus')) codenameParam = 'markus-wolf';
     }
 
     if (codenameParam) {
@@ -49,6 +59,8 @@ export class CharacterRecordVidaEMorte implements OnInit {
   constructor() {
     afterNextRender(async () => {
       if (!isPlatformBrowser(this.platformId)) return;
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      if (prefersReducedMotion()) return;
       const { animateMini, inView } = await import('motion');
 
       const sidebar = document.querySelector('.sidebar-identity');

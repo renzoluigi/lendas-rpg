@@ -1,0 +1,140 @@
+<main class="archive-canon-page">
+  <app-header></app-header>
+
+  <div class="archive-container">
+    <div class="nav-bar">
+      <div class="archive-breadcrumb">
+        <a routerLink="/personagens" class="crumb-link">CAMPANHAS</a>
+        <span class="separator">/</span>
+        <span class="sub-name">ARQUIVO GERAL DA FEDERAÇÃO</span>
+      </div>
+    </div>
+
+    <!-- Hero Presentation -->
+    <section class="archive-hero">
+      <div class="hero-details">
+        <div class="hero-tagline-badge">
+          <span class="canon-pulse"></span>
+          <span>REGISTRO CONFIDENCIAL // CÂNONE TRANSVERSAL</span>
+          <span class="canon-pulse"></span>
+        </div>
+
+        <div class="title-wrapper">
+          <h1 class="archive-main-title">ARQUIVO GERAL DA FEDERAÇÃO</h1>
+        </div>
+
+        <blockquote class="archive-quote">
+          “Figuras fundamentais cujo poder, mentoria e feitos em combate ecoam por todas as eras do mundo das lendas.”
+        </blockquote>
+
+        <p class="archive-synopsis">
+          Dossiês reservados de inteligência da Federação de Caçadores. 
+          Estes registros reúnem agentes de risco existencial, mestres primordiais e veteranos de linha de frente que intervieram diretamente na saga <strong>Vida e Morte</strong> e permanecem como pedras angulares do cânone de todas as histórias.
+        </p>
+
+        <div class="archive-stats-strip">
+          <div class="stat-pill">
+            <span class="stat-label">CLASSIFICAÇÃO</span>
+            <span class="stat-val highlight-purple">Tomo Confidencial Nível Ômega</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-label">ORIGEM & PARTICIPAÇÃO</span>
+            <span class="stat-val highlight-crimson">Saga Vida e Morte</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-label">REGISTROS CATALOGADOS</span>
+            <span class="stat-val">{{ characters.length }} Figuras Centrais</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-label">STATUS</span>
+            <span class="stat-val highlight-gold">Cânone Ativo</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Canon Cards Section -->
+    <section class="characters-section">
+      <div class="section-heading">
+        <div class="heading-ornament">
+          <span class="ornament-line"></span>
+          <span class="purple-diamond">❖</span>
+          <span class="ornament-line"></span>
+        </div>
+        <h2 class="section-title">DOSSIÊS DAS FIGURAS CENTRAIS</h2>
+        <p class="section-subtitle">Registros biográficos, mestrias extraordinárias e laços canônicos com a primeira expedição.</p>
+      </div>
+
+      <div class="canon-grid">
+        @for (char of characters; track char.codename; let idx = $index) {
+          <a class="canon-card card-{{ char.codename.toLowerCase() }}" [routerLink]="['/personagens/arquivo-geral', char.codename]">
+            <div class="image-wrapper">
+              <img [src]="char.imageURI" [alt]="char.name" loading="lazy">
+              <div class="image-overlay"></div>
+              
+              <div class="card-badge">
+                <span class="dossier-num">REG #0{{ idx + 1 }}</span>
+                <span class="country-pill">{{ char.classification || 'CÂNONE' }}</span>
+              </div>
+
+              @if (char.quote) {
+                <div class="card-quote-preview">
+                  <p>“{{ char.quote }}”</p>
+                </div>
+              }
+            </div>
+
+            <div class="info-box">
+              <div class="names">
+                <span class="status-tag">{{ char.title }}</span>
+                <h3 class="codename">{{ char.codename === 'Professor' ? 'O Professor' : (char.codename === 'Stateham' ? 'Prof. Stateham' : char.name) }}</h3>
+                <p class="nome">{{ char.name }}</p>
+              </div>
+
+              @if (char.relations && char.relations.length > 0) {
+                <div class="relations-strip">
+                  <span class="rel-label">VÍNCULO:</span>
+                  <div class="rel-tags">
+                    @for (rel of char.relations; track rel.targetCodename) {
+                      <span class="rel-tag">{{ rel.role }} {{ rel.targetName }}</span>
+                    }
+                  </div>
+                </div>
+              }
+
+              <div class="card-meta">
+                <span class="meta-item">{{ char.age ? char.age + ' anos' : 'Idade Oculta' }}</span>
+                <span class="meta-dot">•</span>
+                <span class="meta-item">{{ char.threatLevel || 'Ameaça Registrada' }}</span>
+              </div>
+
+              <div class="action-footer">
+                <span class="view-label">ACESSAR DOSSIÊ HISTÓRICO</span>
+                <span class="view-arrow">→</span>
+              </div>
+            </div>
+            <div class="card-border-glow"></div>
+          </a>
+        }
+      </div>
+    </section>
+
+    <!-- Context Banner -->
+    <section class="context-banner">
+      <div class="banner-inner">
+        <div class="banner-icon">❖</div>
+        <div class="banner-content">
+          <h4>PRESENÇA EM VIDA E MORTE & EXPANSÃO CANÔNICA</h4>
+          <p>
+            Embora catalogados no Arquivo Geral por sua relevância perene, estes agentes desempenharam papéis cruciais na campanha pioneira: 
+            O Professor aniquilou a divindade Anúbis; Professor Stateham forjou as técnicas basilares de Sen e Josh; e Markus Wolf susteve a linha de frente contra a monstruosidade de três cabeças.
+          </p>
+        </div>
+        <a routerLink="/personagens/vida-e-morte" class="btn-banner-link">
+          VER EXPEDIÇÃO VIDA E MORTE →
+        </a>
+      </div>
+    </section>
+
+  </div>
+</main>

@@ -1,489 +1,677 @@
 @use "sass:color";
-@import "../../../../color-variables";
+@use "../../../../color-variables" as vars;
 
-.page-wrapper {
+:host {
+  display: block;
   min-height: 100vh;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  overflow-x: hidden;
   width: 100%;
+  background-color: #080604;
+  background-image: 
+    radial-gradient(ellipse at 50% 0%, rgba(212, 175, 55, 0.25) 0%, transparent 60%),
+    radial-gradient(circle at 10% 30%, rgba(166, 138, 75, 0.16) 0%, transparent 45%),
+    radial-gradient(circle at 90% 70%, rgba(240, 208, 128, 0.1) 0%, transparent 50%),
+    linear-gradient(180deg, #090705 0%, #120e0a 40%, #060503 100%);
+  background-attachment: fixed;
+  background-size: cover;
+  color: #f5ecd7;
+  position: relative;
+  overflow-x: hidden;
+  font-family: 'Cinzel', serif;
+
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at center, transparent 35%, rgba(0, 0, 0, 0.85) 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
 }
 
-.btn-back {
-  position: absolute;
-  top: 24px;
-  left: 28px;
-  z-index: 100;
+.dossie-page {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  padding: 30px 20px 80px;
+  box-sizing: border-box;
+}
 
-  display: inline-flex;
+.page-container {
+  max-width: 1540px;
+  margin: 0 auto;
+}
+
+/* Top Nav */
+.top-nav {
+  display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 30px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
 
-  padding: 10px 22px;
-  background: linear-gradient(135deg, #2c241a 0%, #1a150f 100%);
-  border: 1px solid $gold-accent;
-  color: $gold-accent;
-  text-decoration: none;
-  font-family: 'Cinzel', serif;
-  font-size: clamp(0.85rem, 1.1vw, 0.95rem);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
-  min-height: 48px;
-
-  .pointer {
-    font-size: 1.25rem;
-    transition: transform 0.25s ease;
-  }
-
-  &:hover {
-    box-shadow: 0 0 16px rgba(166, 138, 75, 0.45);
-    transform: translateY(-2px);
+  .btn-back-gold {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    background: rgba(22, 17, 12, 0.9);
+    border: 1px solid rgba(212, 175, 55, 0.6);
+    color: #f5ecd7;
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.8);
 
     .pointer {
-      transform: translateX(-4px);
+      font-size: 1.1rem;
+      transition: transform 0.25s ease;
+      color: #d4af37;
     }
+
+    &:hover {
+      background: #a68a4b;
+      color: #0b0907;
+      border-color: #f0d080;
+      transform: translateX(-4px);
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.45);
+
+      .pointer {
+        color: #0b0907;
+        transform: translateX(-3px);
+      }
+    }
+  }
+
+  .nav-classification {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(18, 14, 10, 0.85);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    padding: 8px 16px;
+    border-radius: 2px;
+    font-size: 0.78rem;
+    letter-spacing: 2px;
+    color: #e5ded3;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
   }
 }
 
-.dossie-container {
-  max-width: 1600px;
-  width: 100%;
-  margin: 0 auto;
+.gold-pulse {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #d4af37;
+  box-shadow: 0 0 10px #d4af37, 0 0 20px #a68a4b;
+  animation: goldPulse 2s infinite ease-in-out;
+}
+
+@keyframes goldPulse {
+  0%, 100% {
+    transform: scale(0.9);
+    opacity: 0.7;
+    box-shadow: 0 0 6px #d4af37;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 1;
+    box-shadow: 0 0 16px #d4af37, 0 0 24px #f0d080;
+  }
+}
+
+/* Dossier Grid Layout */
+.dossie-grid {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+/* Sidebar: Identity */
+.sidebar-identity {
   display: flex;
-  gap: clamp(20px, 2.5vw, 36px);
-  padding: 85px clamp(16px, 3vw, 40px) 40px clamp(16px, 3vw, 40px);
-  min-height: 100vh;
-  font-family: 'Cinzel', serif;
-  box-sizing: border-box;
-  align-items: stretch;
-  flex: 1;
+  flex-direction: column;
+  gap: 22px;
+  position: sticky;
+  top: 30px;
 
-  .sidebar-identity {
-    flex: 0 0 clamp(290px, 25vw, 370px);
-    width: clamp(290px, 25vw, 370px);
-    display: flex;
-    flex-direction: column;
-    background: rgba(217, 197, 163, 0.45);
-    backdrop-filter: blur(4px);
-    border: 2px solid #2c241a;
-    padding: clamp(16px, 1.8vw, 22px);
-    height: auto;
-    align-self: stretch;
-    justify-content: flex-start;
-    box-sizing: border-box;
+  .portrait-container {
+    background: linear-gradient(145deg, #18120b 0%, #0c0906 100%);
+    border: 2px solid rgba(212, 175, 55, 0.45);
+    padding: 12px;
+    border-radius: 4px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.85), inset 0 0 30px rgba(166, 138, 75, 0.15);
+    position: relative;
+    overflow: hidden;
 
-    .photo-frame {
-      position: relative;
-      border: 4px solid #2c241a;
-      background: #000;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      pointer-events: none;
+      margin: 4px;
+    }
+  }
 
-      .main-photo {
-        width: 100%;
-        height: auto;
-        display: block;
-        filter: contrast(1.05) brightness(0.95);
-      }
+  .photo-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    border-radius: 2px;
+    background: #020202;
 
-      .logo-lendas-small {
-        position: absolute;
-        bottom: -22px;
-        left: 50%;
-        transform: translateX(-50%);
-        transform-origin: center center;
-        width: clamp(110px, 14vw, 150px);
-        z-index: 10;
-        filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.85));
-        pointer-events: none;
+    .main-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      filter: contrast(1.08) brightness(0.96);
+      transition: transform 0.6s ease, filter 0.6s ease;
 
-        img {
-          width: 100%;
-          height: auto;
-          display: block;
-        }
+      &:hover {
+        transform: scale(1.03);
+        filter: contrast(1.12) brightness(1.02);
       }
     }
 
-    .id-info {
-      padding: clamp(30px, 3vw, 38px) 4px 16px 4px;
-      text-align: left;
+    .photo-vignette {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(circle at center, transparent 40%, rgba(0, 0, 0, 0.75) 100%);
+      pointer-events: none;
+    }
+  }
+
+  .identity-card {
+    background: linear-gradient(145deg, #16110b 0%, #0b0805 100%);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-radius: 3px;
+    padding: 24px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.85);
+
+    .seal-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(166, 138, 75, 0.15);
+      border: 1px solid rgba(212, 175, 55, 0.45);
+      padding: 5px 12px;
+      border-radius: 2px;
+      font-size: 0.72rem;
+      letter-spacing: 2px;
+      font-weight: 700;
+      color: #f0d080;
+      margin-bottom: 18px;
+    }
+
+    .name-block {
+      margin-bottom: 22px;
 
       .label {
-        font-size: clamp(0.8rem, 1.1vw, 0.95rem);
-        color: #5a4a35;
-        letter-spacing: 1.5px;
-        font-weight: 600;
+        font-size: 0.7rem;
+        letter-spacing: 2px;
+        color: #a89f8d;
         display: block;
+        margin-bottom: 4px;
       }
 
       .codename {
-        font-size: clamp(1.8rem, 3vw, 2.5rem);
-        margin: 2px 0 6px 0;
-        color: #1a150f;
-        font-weight: 700;
-        line-height: 1.15;
-        word-break: break-word;
+        font-size: 2.5rem;
+        font-weight: 800;
+        letter-spacing: 3px;
+        margin: 0;
+        color: #fdf6e2;
+        text-shadow: 0 0 18px rgba(212, 175, 55, 0.6), 0 2px 8px rgba(0, 0, 0, 0.9);
       }
 
-      .name {
-        font-size: clamp(1.1rem, 1.6vw, 1.35rem);
-        margin: 0 0 10px 0;
-        color: #2c241a;
-        font-weight: 600;
-        opacity: 0.95;
-      }
-
-      .meta-info {
-        font-size: clamp(0.9rem, 1.25vw, 1.05rem);
-        margin: 4px 0;
-        opacity: 0.9;
-        line-height: 1.45;
-        color: #2c241a;
+      .real-name {
+        font-size: 1.05rem;
+        letter-spacing: 1.5px;
+        color: #e5ded3;
+        margin: 6px 0 0 0;
       }
     }
 
-    .interpreted-by {
-      margin-top: auto;
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(212, 175, 55, 0.2);
+      margin-bottom: 22px;
+
+      .stat-item {
+        background: rgba(26, 20, 14, 0.6);
+        border: 1px solid rgba(212, 175, 55, 0.2);
+        padding: 10px;
+        border-radius: 2px;
+
+        .stat-label {
+          display: block;
+          font-size: 0.68rem;
+          letter-spacing: 1.5px;
+          color: #a89f8d;
+          margin-bottom: 4px;
+        }
+
+        .stat-value {
+          font-size: 0.95rem;
+          font-weight: 700;
+          color: #f5ecd7;
+
+          &.highlight {
+            color: #d4af37;
+          }
+        }
+      }
+    }
+
+    .actor-card {
       display: flex;
       align-items: center;
       gap: 14px;
-      padding-top: 18px;
-      border-top: 1px solid rgba(44, 36, 26, 0.25);
+      padding: 12px 14px;
+      background: rgba(26, 20, 14, 0.5);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 2px;
 
-      .photo {
-        width: clamp(48px, 5vw, 60px);
-        height: clamp(48px, 5vw, 60px);
+      .actor-avatar {
+        width: 44px;
+        height: 44px;
         border-radius: 50%;
-        border: 2px solid #2c241a;
         object-fit: cover;
-        flex-shrink: 0;
+        border: 1px solid rgba(212, 175, 55, 0.6);
+        box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
       }
 
-      .text {
-        font-size: clamp(0.85rem, 1.1vw, 0.95rem);
-        color: #2c241a;
-        line-height: 1.3;
-
-        strong {
-          display: block;
-          font-size: clamp(0.95rem, 1.3vw, 1.15rem);
-          color: #1a150f;
-          margin-top: 2px;
-        }
-      }
-    }
-  }
-
-  .content-dossie {
-    flex: 1;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    gap: clamp(20px, 2.5vw, 30px);
-
-    .dossie-header {
-      border-bottom: 2px solid #a68a4b;
-      padding-bottom: 8px;
-
-      h2 {
-        margin: 0;
-        text-align: right;
-        color: #1a150f;
-        font-size: clamp(1.2rem, 2vw, 1.6rem);
-        letter-spacing: 2px;
-      }
-    }
-
-    .details {
-      display: grid;
-      grid-template-columns: minmax(280px, 350px) minmax(0, 1fr);
-      gap: clamp(16px, 2vw, 28px);
-      align-items: start;
-    }
-
-    .scroll {
-      min-width: 0;
-
-      .parchment {
-        background: #f4e4bc;
-        padding: clamp(16px, 2vw, 24px);
-        border: 1px solid #d2b48c;
-        box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.12);
-        position: relative;
+      .actor-meta {
         display: flex;
         flex-direction: column;
-        gap: 12px;
 
-        h3 {
-          font-size: clamp(1.15rem, 1.6vw, 1.35rem);
-          margin: 0 0 6px 0;
-          border-bottom: 1px solid #d2b48c;
-          padding-bottom: 6px;
-          color: #1a150f;
+        .actor-label {
+          font-size: 0.68rem;
+          letter-spacing: 1.5px;
+          color: #a89f8d;
+        }
+
+        .actor-name {
+          font-size: 0.92rem;
+          color: #f5ecd7;
           letter-spacing: 1px;
-        }
-
-        p {
-          font-size: clamp(0.9rem, 1.2vw, 1rem);
-          line-height: 1.6;
-          color: #2c241a;
-          text-align: justify;
-          text-justify: inter-word;
-          hyphens: auto;
-          word-break: break-word;
-        }
-
-        ul {
-          padding-left: 20px;
-          font-size: clamp(0.9rem, 1.2vw, 1rem);
-          line-height: 1.5;
-          color: #2c241a;
         }
       }
     }
+  }
+}
 
-    .history-weapon-grid {
+/* Right Column: Dossier Content */
+.dossie-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Dossier Header */
+.dossie-header {
+  text-align: center;
+  padding-bottom: 10px;
+
+  .header-ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 12px;
+
+    .line {
+      height: 1px;
+      width: 120px;
+      background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.7), transparent);
+    }
+
+    .gold-diamond {
+      color: #d4af37;
+      font-size: 1.3rem;
+      filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.8));
+    }
+  }
+
+  h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin: 0 0 8px 0;
+    color: #fdf6e2;
+    text-shadow: 0 0 16px rgba(212, 175, 55, 0.5), 0 2px 10px rgba(0, 0, 0, 0.9);
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+    letter-spacing: 1.5px;
+    color: #a89f8d;
+    margin: 0;
+  }
+}
+
+/* General Section Title Wrap */
+.section-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+
+  .gold-diamond {
+    color: #d4af37;
+    font-size: 1.1rem;
+    text-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
+  }
+
+  h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #fdf6e2;
+    margin: 0;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+  }
+}
+
+/* Lore Panel */
+.lore-panel {
+  background: linear-gradient(145deg, #15110b 0%, #0b0805 100%);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 3px;
+  padding: 26px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.85);
+
+  .description-text {
+    font-size: 1.02rem;
+    line-height: 1.7;
+    color: #e5ded3;
+    margin: 0;
+    font-family: 'Cinzel', serif;
+  }
+
+  .deeds-section {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+
+    .deeds-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
       display: flex;
       flex-direction: column;
-      gap: clamp(16px, 2vw, 24px);
-      min-width: 0;
+      gap: 12px;
 
-      .history-text {
-        background: rgba(244, 228, 188, 0.94);
-        border: 1px solid #d2b48c;
-        box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.12);
-        padding: clamp(16px, 2vw, 24px);
-        position: relative;
+      li {
+        display: flex;
+        align-items: baseline;
+        gap: 12px;
+        font-size: 0.98rem;
+        line-height: 1.6;
+        color: #f5ecd7;
 
-        h3 {
-          font-size: clamp(1.15rem, 1.6vw, 1.35rem);
-          margin: 0 0 10px 0;
-          border-bottom: 1px solid #d2b48c;
-          padding-bottom: 6px;
-          color: #1a150f;
-          letter-spacing: 1px;
-        }
-
-        .text {
-          font-size: clamp(0.9rem, 1.2vw, 1.02rem);
-          line-height: 1.65;
-          color: #2c241a;
-          white-space: pre-line;
-          text-align: justify;
-          text-justify: inter-word;
-          hyphens: auto;
-          word-break: break-word;
-        }
-      }
-
-      .weapon-box {
-        background: linear-gradient(135deg, #2c241a 0%, #3d3224 100%);
-        border: 2px solid $gold-accent;
-        padding: clamp(16px, 2vw, 22px);
-        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
-        position: relative;
-        overflow: hidden;
-
-        &::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 4px;
-          background: $gold-accent;
-        }
-
-        h3 {
-          color: $gold-accent;
-          font-size: clamp(1.15rem, 1.6vw, 1.35rem);
-          margin-bottom: 14px;
-          border-bottom: 1px solid rgba(166, 138, 75, 0.35);
-          padding-bottom: 6px;
-          letter-spacing: 1px;
-        }
-
-        .weapon-content {
-          display: flex;
-          gap: clamp(14px, 2vw, 20px);
-          align-items: center;
-
-          .weapon-img {
-            width: clamp(64px, 7vw, 84px);
-            height: clamp(64px, 7vw, 84px);
-            object-fit: contain;
-            filter: drop-shadow(0 0 6px rgba(166, 138, 75, 0.6));
-            flex-shrink: 0;
-          }
-
-          .weapon-info {
-            h4 {
-              color: #f4e4bc;
-              margin: 0 0 4px 0;
-              font-size: clamp(1.1rem, 1.5vw, 1.3rem);
-            }
-
-            p {
-              color: #d2b48c;
-              font-size: clamp(0.88rem, 1.1vw, 0.98rem);
-              margin: 0;
-              line-height: 1.45;
-              font-style: italic;
-            }
-          }
-        }
-      }
-    }
-
-    .abilities {
-      h3 {
-        border-bottom: 1px solid #a68a4b;
-        padding-bottom: 6px;
-        color: #1a150f;
-        font-size: clamp(1.15rem, 1.6vw, 1.35rem);
-        letter-spacing: 1px;
-      }
-
-      .habilidades-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(clamp(200px, 22vw, 260px), 1fr));
-        gap: clamp(14px, 1.8vw, 22px);
-
-        .ability-card {
-          background: rgba(255, 255, 255, 0.25);
-          backdrop-filter: blur(3px);
-          border: 1px solid #a68a4b;
-          padding: clamp(14px, 1.8vw, 20px);
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-          box-sizing: border-box;
-
-          .ability-icon {
-            width: clamp(70px, 8vw, 95px);
-            height: clamp(70px, 8vw, 95px);
-            object-fit: contain;
-            margin-bottom: 10px;
-          }
-
-          .habilidade-icon-placeholder {
-            width: clamp(70px, 8vw, 95px);
-            height: clamp(70px, 8vw, 95px);
-            margin-bottom: 10px;
-            background: rgba(166, 138, 75, 0.15);
-            border: 1px dashed $gold-accent;
-          }
-
-          h4 {
-            margin: 0 0 8px 0;
-            font-size: clamp(1.05rem, 1.4vw, 1.25rem);
-            color: #1a150f;
-          }
-
-          p {
-            margin: 0;
-            font-size: clamp(0.85rem, 1.1vw, 0.95rem);
-            line-height: 1.45;
-            color: #2c241a;
-          }
+        .deed-marker {
+          color: #d4af37;
+          font-size: 0.85rem;
+          flex-shrink: 0;
+          text-shadow: 0 0 6px rgba(212, 175, 55, 0.8);
         }
       }
     }
   }
 }
 
-@media (max-width: 1180px) {
-  .dossie-container {
-    .content-dossie {
-      .details {
-        grid-template-columns: 1fr;
-      }
+/* History Panel */
+.history-panel {
+  background: linear-gradient(145deg, #15110b 0%, #0b0805 100%);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 3px;
+  padding: 26px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.85);
+
+  .history-text {
+    p {
+      font-size: 1.02rem;
+      line-height: 1.8;
+      color: #e5ded3;
+      margin: 0;
+      font-family: 'Cinzel', serif;
     }
   }
 }
 
-@media (max-width: 920px) {
-  .page-wrapper {
-    .btn-back {
-      position: static;
-      margin: 18px 20px 0 20px;
-      align-self: flex-start;
-      min-height: 46px;
+/* Weapon Card */
+.weapon-card {
+  background: linear-gradient(145deg, #18130c 0%, #0c0906 100%);
+  border: 2px solid rgba(212, 175, 55, 0.45);
+  border-radius: 4px;
+  padding: 26px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.9), inset 0 0 40px rgba(166, 138, 75, 0.12);
+
+  .weapon-header {
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+
+    .weapon-tag {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 2px;
+      color: #d4af37;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    h3 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #fdf6e2;
+      margin: 0;
+      text-shadow: 0 0 14px rgba(212, 175, 55, 0.5);
     }
   }
 
-  .dossie-container {
-    flex-direction: column;
-    padding: 16px 20px 36px 20px;
-    gap: 28px;
-
-    .sidebar-identity {
-      width: 100%;
-      max-width: 440px;
-      margin: 0 auto;
-      flex: none;
-    }
-
-    .content-dossie {
-      .dossie-header h2 {
-        text-align: left;
-      }
-    }
-  }
-}
-
-@media (max-width: 540px) {
-  .page-wrapper {
-    .btn-back {
-      margin: 14px 14px 0 14px;
-      padding: 8px 16px;
-      font-size: 0.85rem;
-      letter-spacing: 1px;
-      min-height: 42px;
-
-      .pointer {
-        font-size: 1.1rem;
-      }
-    }
-  }
-
-  .dossie-container {
-    padding: 12px 14px 28px 14px;
+  .weapon-body {
+    display: grid;
+    grid-template-columns: 140px 1fr;
     gap: 22px;
+    align-items: center;
 
-    .sidebar-identity {
-      padding: 14px;
-      max-width: 100%;
+    .weapon-img-frame {
+      width: 140px;
+      height: 140px;
+      background: #020202;
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      border-radius: 3px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.7);
 
-      .id-info {
-        padding-top: 28px;
+      .weapon-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: contrast(1.08);
+        transition: transform 0.5s ease;
+
+        &:hover {
+          transform: scale(1.06);
+        }
       }
     }
 
-    .content-dossie {
-      .history-weapon-grid {
-        .weapon-box {
-          .weapon-content {
-            flex-direction: column;
-            text-align: center;
+    .weapon-info {
+      .weapon-desc {
+        font-size: 1rem;
+        line-height: 1.7;
+        color: #e5ded3;
+        margin: 0;
+        font-family: 'Cinzel', serif;
+      }
+    }
+  }
+}
 
-            .weapon-img {
-              margin-bottom: 4px;
-            }
+/* Abilities Section */
+.abilities-section {
+  .techniques-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+
+    .technique-card {
+      background: linear-gradient(145deg, #15110b 0%, #0a0805 100%);
+      border: 1px solid rgba(212, 175, 55, 0.28);
+      border-radius: 3px;
+      padding: 20px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.8);
+      transition: all 0.3s ease;
+
+      &:hover {
+        border-color: #d4af37;
+        transform: translateY(-4px);
+        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.9), 0 0 18px rgba(212, 175, 55, 0.25);
+
+        .technique-icon-wrap {
+          border-color: #f0d080;
+          box-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+        }
+      }
+
+      .card-top {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 14px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+
+        .technique-icon-wrap {
+          width: 50px;
+          height: 50px;
+          flex-shrink: 0;
+          border-radius: 3px;
+          overflow: hidden;
+          background: #020202;
+          border: 1px solid rgba(212, 175, 55, 0.4);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.3s ease;
+
+          .technique-icon {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
           }
         }
-      }
 
-      .abilities {
-        .habilidades-grid {
-          grid-template-columns: 1fr;
+        .technique-icon-placeholder {
+          width: 50px;
+          height: 50px;
+          flex-shrink: 0;
+          background: rgba(166, 138, 75, 0.15);
+          border: 1px solid rgba(212, 175, 55, 0.4);
+          border-radius: 3px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #d4af37;
+          font-size: 1.2rem;
+        }
+
+        .technique-name {
+          font-size: 1.15rem;
+          font-weight: 700;
+          letter-spacing: 1.5px;
+          color: #fdf6e2;
+          margin: 0;
         }
       }
+
+      .technique-desc {
+        font-size: 0.94rem;
+        line-height: 1.65;
+        color: #d5cbb8;
+        margin: 0;
+        font-family: 'Cinzel', serif;
+      }
     }
+  }
+}
+
+/* Responsive Rules */
+@media (max-width: 1100px) {
+  .dossie-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .sidebar-identity {
+    position: static;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+}
+
+@media (max-width: 768px) {
+  .dossie-page {
+    padding: 16px 12px 60px;
+  }
+
+  .top-nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    margin-bottom: 20px;
+
+    .btn-back-gold {
+      justify-content: center;
+    }
+
+    .nav-classification {
+      justify-content: center;
+    }
+  }
+
+  .sidebar-identity {
+    grid-template-columns: 1fr;
+  }
+
+  .weapon-card .weapon-body {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+
+    .weapon-img-frame {
+      width: 160px;
+      height: 160px;
+    }
+  }
+
+  .abilities-section .techniques-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dossie-header h2 {
+    font-size: 1.75rem;
   }
 }

@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 import { Header } from '../header/header';
 import { Character } from '../../model/character';
 import { CHARACTERS } from '../../characters-data';
+import { prefersReducedMotion } from '../../utils/reduced-motion';
 
 @Component({
   selector: 'app-home',
@@ -42,7 +43,7 @@ export class Home {
 
   constructor() {
     afterNextRender(async () => {
-      if (!isPlatformBrowser(this.platformId)) return;
+      if (!isPlatformBrowser(this.platformId) || prefersReducedMotion()) return;
       const { animateMini, inView } = await import('motion');
 
       const panels = document.querySelectorAll('.sector-card');

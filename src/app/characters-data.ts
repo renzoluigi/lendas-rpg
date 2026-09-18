@@ -582,7 +582,11 @@ export const CHARACTERS: Character[] = [
     },
     age: 26,
     height: 1.82,
-    campaign: 'vida-e-morte'
+    campaign: 'vida-e-morte',
+    relations: [
+      { role: 'Instruído por', targetCodename: 'Stateham', targetName: 'Professor Stateham' },
+      { role: 'Aliado de Vanguarda de', targetCodename: 'Markus-Wolf', targetName: 'Markus Wolf' }
+    ]
   },
   {
     codename: 'Josh',
@@ -648,11 +652,148 @@ export const CHARACTERS: Character[] = [
     },
     age: 24,
     height: 1.78,
-    campaign: 'vida-e-morte'
+    campaign: 'vida-e-morte',
+    relations: [
+      { role: 'Instruído por', targetCodename: 'Stateham', targetName: 'Professor Stateham' },
+      { role: 'Aliado de Vanguarda de', targetCodename: 'Markus-Wolf', targetName: 'Markus Wolf' }
+    ]
+  },
+  {
+    codename: 'Professor',
+    imageURI: '/professor.webp',
+    name: 'Sem registro oficial',
+    title: 'Agente de Risco Existencial Controlado',
+    country: 'Desconhecida // Federação Global',
+    age: 33,
+    classification: 'Ameaça Existencial // Nível Ômega',
+    threatLevel: 'Catastrófico / Incalculável',
+    quote: 'Para ele, o impossível nunca existiu. Para muitos, ele é uma ameaça maior do que qualquer lenda.',
+    isCanonical: true,
+    campaign: 'vida-e-morte',
+    appearanceCampaigns: ['vida-e-morte', 'canon-global'],
+    description: "Com 33 anos de idade e sem um nome oficial registrado, o Professor é considerado unanimemente o caçador mais forte da história. Desde o momento de seu nascimento, sua presença abalou o equilíbrio do mundo das lendas. Criaturas ancestrais despertaram, selos ruíram e antigas profecias passaram a citá-lo como um erro — ou uma correção — da realidade.",
+    history: "Datado pela Federação como o indivíduo com a maior quantidade de Energia Folclórica já registrada, o Professor sempre viveu à frente de seu tempo. Para ele, o impossível nunca existiu. Missões que exigiriam esquadrões inteiros eram resolvidas sozinho, com uma frieza quase didática, como se estivesse apenas demonstrando uma lição.\n\nApesar de seu poder absoluto, nunca buscou cargos, títulos ou reconhecimento dentro da Federação de Caçadores. Recusou posições de comando, ignorou honrarias e permaneceu à margem das decisões políticas. Ninguém sabe ao certo o que ele pensa ou o que deseja. Alguns acreditam que ele luta apenas por curiosidade; outros dizem que ele observa o mundo como um experimento.\n\nO fato é que, embora tenha sido responsável pela eliminação de incontáveis criaturas de nível catastrófico, o Professor não é visto como um salvador. Para muitos, ele é uma ameaça maior do que qualquer lenda.",
+    deeds: [
+      "Eliminou definitivamente a divindade primordial Anúbis durante a campanha Vida e Morte.",
+      "Registrado como o portador da maior quantidade de Energia Folclórica de toda a história.",
+      "Completou missões de nível catastrófico solitariamente com frieza estritamente didática.",
+      "Sua presença abalou selos milenares e despertou entidades ancestrais desde o nascimento."
+    ],
+    abilities: [
+      {
+        name: "Expansão de Domínio: Mundo Perfeito",
+        description: "Expande um domínio absoluto onde o usuário possui total controle sobre a matéria da criação. Permite manipular em nível atômico a criação e destruição de qualquer elemento e estrutura física. Na campanha Vida e Morte, utilizou este domínio para exterminar a divindade Anúbis.",
+        image: "/campos-xibalba.webp"
+      },
+      {
+        name: "Desintegração",
+        description: "Canalizando energia entrópica por meio de seu braço de antimatéria, projeta um raio colateral de destruição absoluta que decompõe e evapora qualquer matéria ou lenda instantaneamente.",
+        image: "/ruptura.webp"
+      }
+    ],
+    weapons: {
+      name: "Braço de Antimatéria",
+      imageURI: "/punhos.webp",
+      description: "Membro anômalo transmutado em condutor entrópico e gerador de aniquilação atômica."
+    },
+    equipmentSummary: "Braço de Antimatéria e Emissor de Desintegração",
+    relations: [
+      { role: 'Eliminou em Vida e Morte', targetCodename: 'Anubis', targetName: 'Divindade Anúbis' }
+    ]
+  },
+  {
+    codename: 'Stateham',
+    imageURI: '/professor-stateham.webp',
+    name: 'Professor Stateham',
+    title: 'Mentor Primordial & Artífice do Tempo',
+    country: 'Reino Unido // Federação Central',
+    classification: 'Instrutor Emérito // Cronometria Arcana',
+    threatLevel: 'Genialidade Tática Absoluta',
+    quote: 'O tempo é a única engrenagem que não tolera hesitações nem amadores.',
+    isCanonical: true,
+    campaign: 'vida-e-morte',
+    appearanceCampaigns: ['vida-e-morte', 'canon-global'],
+    description: "Homem de idade avançada, profundamente aficionado por relógios, cadência rítmica e mecanismos rúnicos. Embora rotulado por muitos como excêntrico e beirando a loucura, Stateham é detentor de uma genialidade incomparável na manipulação e ensino de energia folclórica.",
+    history: "Professor Stateham foi o instrutor fundamental que ensinou o básico e forjou o alicerce de combate e canalização de Sen e Josh. Com métodos nada convencionais e uma paixão obsessiva pela precisão do tempo, moldou dois dos combatentes mais temidos da história.\n\nSua mente trabalha como uma intrincada caixa de engrenagens: enxerga conexões invisíveis no fluxo da batalha e decifra fraquezas que outros levariam anos para notar. Mesmo fora das linhas de frente ativas, seu conhecimento é considerado patrimônio vitalício da Federação.",
+    deeds: [
+      "Mentor e instrutor responsável pela formação e sobrevivência inicial de Sen e Josh.",
+      "Criador de métodos de canalização energética fundamentados em cronometria e pulso rítmico.",
+      "Engenheiro responsável por calibrar relógios rúnicos de contenção durante crises de fissura dimensional."
+    ],
+    abilities: [
+      {
+        name: "Engenharia Cronometrada",
+        description: "Leitura analítica milimétrica dos intervalos e tempos de reação do oponente, prevendo golpes com precisão cronométrica.",
+        image: "/ler-o-futuro.webp"
+      },
+      {
+        name: "Didática Esotérica",
+        description: "Habilidade de diagnosticar e harmonizar o fluxo de energia folclórica de seus pupilos em tempo real, desbloqueando potência latente.",
+        image: "/genialidade.webp"
+      }
+    ],
+    weapons: {
+      name: "Mecanismo Cronológico Rúnico",
+      imageURI: "/rifle-espiritual.webp",
+      description: "Instrumento de precisão relojoeira com ponteiros arcanos afinados para medir ressonâncias folclóricas."
+    },
+    equipmentSummary: "Cronômetros Arcanos, Lentes de Precisão e Relógios de Bolso",
+    relations: [
+      { role: 'Mentor de', targetCodename: 'Sen', targetName: 'Sen' },
+      { role: 'Mentor de', targetCodename: 'Josh', targetName: 'Josh' }
+    ]
+  },
+  {
+    codename: 'Markus-Wolf',
+    imageURI: '/markus-wolf.webp',
+    name: 'Markus Wolf',
+    title: 'O Arqueiro da Vanguarda Medieval',
+    country: 'Alemanha // Federação Central',
+    classification: 'Veterano de Guerra // Linha de Frente',
+    threatLevel: 'Precisão Balística Pesada',
+    quote: 'Na escuridão da vanguarda, o arco não treme e a armadura não cede.',
+    isCanonical: true,
+    campaign: 'vida-e-morte',
+    appearanceCampaigns: ['vida-e-morte', 'canon-global'],
+    description: "Caçador destemido e veterano de incontáveis embates, Markus Wolf combateu na vanguarda mais impiedosa da Federação. Equipado com um poderoso arco de caça e protegido por uma couraça de armadura medieval, destacou-se por sua determinação implacável ao lado de Sen e Josh.",
+    history: "Markus Wolf lutou lado a lado com Sen e Josh durante as horas mais desesperadoras da campanha Vida e Morte. Os arquivos centrais da Federação guardam poucos registros biográficos pregressos sobre ele — muitos documentos daquela época foram selados ou extraviados em combate.\n\nEntretanto, um dos seus maiores feitos reverbera com força entre os sobreviventes: Markus encarou e combateu diretamente uma colossal e desconhecida lenda de três cabeças, desferindo disparos críticos que abriram brechas vitais para a contenção da monstruosidade.",
+    deeds: [
+      "Lutou diretamente ao lado de Sen e Josh na linha de frente da campanha Vida e Morte.",
+      "Enfrentou heroicamente em combate singular uma colossal lenda desconhecida de três cabeças.",
+      "Pioneiro no uso de armaduras de placas medievais reforçadas por encantamentos folclóricos."
+    ],
+    abilities: [
+      {
+        name: "Disparo Crítico de Vanguarda",
+        description: "Disparo com tensão máxima em seu arco medieval, canalizando energia folclórica perfurante capaz de quebrar couraças pesadas de abominações gigantes.",
+        image: "/corte-translucido.webp"
+      },
+      {
+        name: "Baluarte de Aço",
+        description: "Postura sólida sob a armadura de placas medieval, defletindo investidas titânicas e dispersando o impacto cinético de golpes colossais.",
+        image: "/casca-grossa.webp"
+      }
+    ],
+    weapons: {
+      name: "Arco Longo da Vanguarda & Armadura Medieval",
+      imageURI: "/rifle-espiritual.webp",
+      description: "Arco longo reforçado com fibras de alta resistência e couraça completa forjada para suportar impacto folclórico."
+    },
+    equipmentSummary: "Arco Longo de Guerra, Flechas Espirituais e Armadura Medieval",
+    relations: [
+      { role: 'Aliado de Combate de', targetCodename: 'Sen', targetName: 'Sen' },
+      { role: 'Aliado de Combate de', targetCodename: 'Josh', targetName: 'Josh' }
+    ]
   }
 ];
 
-export const ONE_SHOT_CHARACTERS: Character[] = CHARACTERS.filter(c => !c.campaign || c.campaign === 'one-shot');
-export const INVERNO_CHARACTERS: Character[] = CHARACTERS.filter(c => c.campaign === 'inverno-de-ossos');
-export const VIDA_E_MORTE_CHARACTERS: Character[] = CHARACTERS.filter(c => c.campaign === 'vida-e-morte');
+export const ONE_SHOT_CHARACTERS: Character[] = CHARACTERS.filter(c => !c.isCanonical && (!c.campaign || c.campaign === 'one-shot'));
+export const INVERNO_CHARACTERS: Character[] = CHARACTERS.filter(c => !c.isCanonical && c.campaign === 'inverno-de-ossos');
+export const VIDA_E_MORTE_CHARACTERS: Character[] = CHARACTERS.filter(c => !c.isCanonical && c.campaign === 'vida-e-morte');
+
+export const CANON_CHARACTERS: Character[] = CHARACTERS.filter(c => c.isCanonical);
+export const VIDA_E_MORTE_CANON_CHARACTERS: Character[] = CHARACTERS.filter(
+  c => c.isCanonical && (c.campaign === 'vida-e-morte' || c.appearanceCampaigns?.includes('vida-e-morte'))
+);
+
 

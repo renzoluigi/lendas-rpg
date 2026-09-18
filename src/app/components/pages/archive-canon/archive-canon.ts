@@ -2,19 +2,22 @@ import { Component, PLATFORM_ID, inject, afterNextRender } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Header } from '../../header/header';
+import { Character } from '../../../model/character';
+import { CANON_CHARACTERS } from '../../../characters-data';
 import { prefersReducedMotion } from '../../../utils/reduced-motion';
 
 @Component({
-  selector: 'app-characters-hub',
+  selector: 'app-archive-canon',
   standalone: true,
   imports: [
     Header,
     RouterLink
   ],
-  templateUrl: './characters-hub.html',
-  styleUrl: './characters-hub.scss',
+  templateUrl: './archive-canon.html',
+  styleUrl: './archive-canon.scss'
 })
-export class CharactersHub {
+export class ArchiveCanon {
+  characters: Character[] = CANON_CHARACTERS;
   private readonly platformId = inject(PLATFORM_ID);
 
   constructor() {
@@ -22,28 +25,28 @@ export class CharactersHub {
       if (!isPlatformBrowser(this.platformId) || prefersReducedMotion()) return;
       const { animateMini, inView } = await import('motion');
 
-      const introBanner = document.querySelector('.hub-intro');
-      if (introBanner) {
-        (introBanner as HTMLElement).style.opacity = '0';
-        (introBanner as HTMLElement).style.transform = 'translateY(20px)';
+      const hero = document.querySelector('.hero-details');
+      if (hero) {
+        (hero as HTMLElement).style.opacity = '0';
+        (hero as HTMLElement).style.transform = 'translateY(20px)';
         animateMini(
-          introBanner,
+          hero,
           { opacity: 1, transform: 'translateY(0px)' },
-          { duration: 0.55, delay: 0.1, easing: [0.22, 1, 0.36, 1] } as any
+          { duration: 0.6, delay: 0.05, easing: [0.22, 1, 0.36, 1] } as any
         );
       }
 
-      const hubCards = document.querySelectorAll<HTMLElement>('.hub-card');
-      hubCards.forEach((card, index) => {
+      const cards = document.querySelectorAll<HTMLElement>('.canon-card');
+      cards.forEach((card, i) => {
         card.style.opacity = '0';
-        card.style.transform = 'translateY(25px)';
+        card.style.transform = 'translateY(24px)';
         inView(card, () => {
           animateMini(
             card,
             { opacity: 1, transform: 'translateY(0px)' },
-            { duration: 0.5, delay: 0.15 + index * 0.1, easing: [0.22, 1, 0.36, 1] } as any
+            { duration: 0.5, delay: (i % 3) * 0.1, easing: [0.22, 1, 0.36, 1] } as any
           );
-        }, { amount: 0.1 });
+        }, { amount: 0.15 });
       });
     });
   }
