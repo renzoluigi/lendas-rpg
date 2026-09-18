@@ -1,7 +1,14 @@
 <main class="archive-page">
-  <app-header title="ARQUIVO DA FEDERAÇÃO"></app-header>
+  <app-header></app-header>
 
   <div class="codex-container">
+    <div class="nav-bar">
+      <div class="campaign-breadcrumb">
+        <span class="campaign-name">CÓDICE</span>
+        <span class="separator">/</span>
+        <span class="sub-name">ARQUIVO DA FEDERAÇÃO</span>
+      </div>
+    </div>
 
     <!-- Tome Navigation Bar (Sacred Chapters Rail) -->
     <nav class="tome-navigation" aria-label="Navegação pelos Tomos do Códice">
@@ -69,13 +76,26 @@
         <div class="chapter-header">
           <div class="header-seal">
             <span class="seal-line"></span>
-            <span class="seal-text">TOMO I // A ORDEM PRIMORDIAL</span>
+            <span class="seal-text">TOMO I</span>
             <span class="seal-line"></span>
           </div>
-          <h2 class="chapter-title">O DESPERTAR DO MITO E A QUEBRA DO VÉU</h2>
+          <h1 class="chapter-title">O VÉU & A ENERGIA FOLCLÓRICA</h1>
           <blockquote class="prologue-quote">
             “No dia em que o esquecimento ruiu, os deuses caídos lembraram-se da fome, e a humanidade foi forçada a erguer armas forjadas em suas próprias lendas.”
           </blockquote>
+        </div>
+
+        <!-- Chapter Hero Banner -->
+        <div class="chapter-hero-banner">
+          <div class="hero-banner-frame">
+            <img src="/tomo1.webp" alt="O Despertar do Mito e a Quebra do Véu" class="hero-banner-img" priority />
+            <div class="banner-vignette"></div>
+            <div class="banner-caption-strip">
+              <span class="caption-diamond">❖</span>
+              <span>REGISTRO HISTÓRICO VISUAL // O COLAPSO DO VÉU E A QUEBRA DAS FRONTEIRAS MÍTICAS</span>
+              <span class="caption-diamond">❖</span>
+            </div>
+          </div>
         </div>
 
         <!-- Editorial Articles Grid -->
@@ -154,10 +174,10 @@
         <div class="chapter-header">
           <div class="header-seal">
             <span class="seal-line"></span>
-            <span class="seal-text">TOMO II // O PACTO GLOBAL</span>
+            <span class="seal-text">TOMO II</span>
             <span class="seal-line"></span>
           </div>
-          <h2 class="chapter-title">AS 15 GRANDES FEDERAÇÕES</h2>
+          <h1 class="chapter-title">AS 15 GRANDES FEDERAÇÕES</h1>
           <p class="chapter-lead">
             As coalizões mundiais erguidas dos escombros da civilização. Cada federação guarda uma tradição mística e treina os Caçadores responsáveis por defender suas fronteiras.
           </p>
@@ -190,9 +210,13 @@
 
               <!-- Heraldic Crest Medallion -->
               <div class="heraldic-crest-wrapper">
-                <div class="crest-shield">
-                  <div class="crest-sigil-icon">❖</div>
-                  <span class="crest-label">{{ fed.sigilPlaceholderLabel }}</span>
+                <div class="crest-shield" [class.has-image]="!!fed.sigilImage">
+                  @if (fed.sigilImage) {
+                    <img [src]="fed.sigilImage" [alt]="'Brasão da ' + fed.name" class="crest-sigil-img" loading="lazy" />
+                  } @else {
+                    <div class="crest-sigil-icon">❖</div>
+                    <span class="crest-label">{{ fed.sigilPlaceholderLabel }}</span>
+                  }
                 </div>
                 <div class="crest-glow"></div>
               </div>
@@ -228,10 +252,10 @@
         <div class="chapter-header">
           <div class="header-seal">
             <span class="seal-line"></span>
-            <span class="seal-text">TOMO III // HIERARQUIA MILITAR MÍTICA</span>
+            <span class="seal-text">TOMO III</span>
             <span class="seal-line"></span>
           </div>
-          <h2 class="chapter-title">A ESCALA DA ASCENSÃO</h2>
+          <h1 class="chapter-title">A ESCALA DA ASCENSÃO</h1>
           <p class="chapter-lead">
             Da sobrevivência dos recrutas até a transcendência dos deuses vivos. A patente de um Caçador dita a escala das lendas que ele é autorizado a enfrentar.
           </p>
@@ -362,10 +386,10 @@
         <div class="chapter-header">
           <div class="header-seal">
             <span class="seal-line"></span>
-            <span class="seal-text">TOMO IV // PROTOCOLOS BÉLICOS & ARTES RITUAIS</span>
+            <span class="seal-text">TOMO IV</span>
             <span class="seal-line"></span>
           </div>
-          <h2 class="chapter-title">REFORÇOS FÍSICOS & ALQUIMIA MENTAL</h2>
+          <h1 class="chapter-title">REFORÇOS CORPORAIS & ALQUIMIA</h1>
           <p class="chapter-lead">
             Como a fisiologia humana é amplificada pela bioenergia folclórica, as regras da forja de lâminas rituais e o mistério dos cadernos de alquimia.
           </p>
@@ -438,6 +462,12 @@
             </div>
           </div>
 
+          <!-- Alchemy Visual Artifact Banner -->
+          <div class="block-visual-banner">
+            <img src="/tomo4-caderno-alquimico.webp" alt="O Caderno Alquímico e Fórmulas de Poções" class="block-banner-img" loading="lazy" />
+            <div class="banner-vignette"></div>
+          </div>
+
           <div class="folio-parchment-sheet">
             <div class="folio-header-stamp">
               <span class="folio-seal-text">MANUAL DE INGRESSO DA FEDERAÇÃO // ARTIGO ALQUÍMICO</span>
@@ -495,6 +525,12 @@
             </div>
           </div>
 
+          <!-- Forge Visual Artifact Banner -->
+          <div class="block-visual-banner">
+            <img src="/tomo4-forja-mistica.webp" alt="A Forja Mística da Federação e Criação de Lâminas" class="block-banner-img" loading="lazy" />
+            <div class="banner-vignette"></div>
+          </div>
+
           <div class="forge-decrees-grid">
             @for (rule of weaponRules.rules; track rule.title) {
               <div class="forge-decree-card">
@@ -518,10 +554,10 @@
         <div class="chapter-header">
           <div class="header-seal">
             <span class="seal-line"></span>
-            <span class="seal-text">TOMO V // O ESOTÉRICO & O PROIBIDO</span>
+            <span class="seal-text">TOMO V</span>
             <span class="seal-line"></span>
           </div>
-          <h2 class="chapter-title">EXPANSÕES DE DOMÍNIO & CONSTELAÇÕES ASTRAIS</h2>
+          <h1 class="chapter-title">DOMÍNIOS & PACTOS CELESTIAIS</h1>
           <p class="chapter-lead">
             O ápice da vontade que dobra as leis do espaço tangível e as aterrorizantes barganhas celestes que exigem a sanidade em troca de milagres.
           </p>
@@ -555,6 +591,12 @@
             <span class="tablet-order-seal">REGISTRO MÍSTICO DE ESCALÃO ÔMEGA</span>
             <h3 class="tablet-domain-name">{{ domainRules.supremeExample.title }}</h3>
             <span class="tablet-bearer">PORTADOR: {{ domainRules.supremeExample.bearer }}</span>
+          </div>
+
+          <!-- Supreme Domain Artwork -->
+          <div class="monument-visual-banner">
+            <img src="/mundo-perfeito.webp" alt="Expansão de Domínio: Mundo Perfeito" class="domain-banner-img" loading="lazy" />
+            <div class="banner-vignette"></div>
           </div>
 
           <div class="tablet-core-content">
@@ -603,6 +645,12 @@
           <div class="stellar-vault-grid">
             @for (c of constellations; track c.id) {
               <article class="constellation-vault-card">
+                <!-- Constellation Visual Artwork -->
+                <div class="constellation-visual-banner">
+                  <img src="/serpentae-lux.webp" alt="Constelação Serpentae Lux" class="constellation-banner-img" loading="lazy" />
+                  <div class="banner-vignette"></div>
+                </div>
+
                 <div class="stellar-card-mantle">
                   <div class="stellar-icon-orbit">
                     <span class="orbit-glyph">✦</span>

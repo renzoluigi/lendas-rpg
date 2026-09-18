@@ -16,7 +16,7 @@
   color: #e0f2fe;
   position: relative;
   overflow-x: hidden;
-  font-family: 'Cinzel', serif;
+  font-family: 'Cormorant Garamond', serif;
 
   &::before {
     content: '';
@@ -414,7 +414,8 @@
     line-height: 1.7;
     color: #cbd5e1;
     margin: 0;
-    font-family: 'Cinzel', serif;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
   }
 
   .deeds-section {
@@ -463,7 +464,8 @@
       line-height: 1.8;
       color: #cbd5e1;
       margin: 0;
-      font-family: 'Cinzel', serif;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
     }
   }
 }

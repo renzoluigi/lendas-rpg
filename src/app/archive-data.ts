@@ -64,7 +64,8 @@ export const FEDERATIONS_DATA: Federation[] = [
     countries: ['Noruega', 'Suécia', 'Dinamarca', 'Finlândia', 'Islândia'],
     description: 'Baluarte dos guerreiros do norte. Seus caçadores combinam runas rituais nórdicas, aço glacial e técnicas de frenesi controlado para caçar gigantes de gelo, trolls e espectros de bravos caídos.',
     strategicRole: 'Especialistas em contenção climática severa e combate de choque pesado.',
-    sigilPlaceholderLabel: 'BRASÃO VALQUÍRIA'
+    sigilPlaceholderLabel: 'BRASÃO VALQUÍRIA',
+    sigilImage: '/valquiria.webp'
   },
   {
     id: 'guardioes-olimpicos',
@@ -75,7 +76,8 @@ export const FEDERATIONS_DATA: Federation[] = [
     countries: ['Grécia', 'Itália', 'Chipre', 'Albânia', 'Bálcãs'],
     description: 'Fundada nas ruínas de santuários antigos. Seus combatentes são disciplinados em formações de falange tática mística, empunhando energias solares e armas forjadas com bronze celestial.',
     strategicRole: 'Comando estratégico, contenção de quimeras e divindades menores descontroladas.',
-    sigilPlaceholderLabel: 'BRASÃO OLÍMPICO'
+    sigilPlaceholderLabel: 'BRASÃO OLÍMPICO',
+    sigilImage: '/guardioes-greco.webp'
   },
   {
     id: 'sombras-do-deserto',
@@ -86,7 +88,8 @@ export const FEDERATIONS_DATA: Federation[] = [
     countries: ['Egito', 'Arábia Saudita', 'Irã', 'Emirados Árabes', 'Jordânia'],
     description: 'Guardiões das areias proibidas e criptas faraônicas. Mestres em ocultação por miragens folclóricas, neutralização de gênios antigos (Djinns) e manipulação de ventos abrasadores.',
     strategicRole: 'Operações de infiltração, rastreamento arqueológico e contenção de maldições arcanas.',
-    sigilPlaceholderLabel: 'BRASÃO SOMBRAS DO DESERTO'
+    sigilPlaceholderLabel: 'BRASÃO SOMBRAS DO DESERTO',
+    sigilImage: '/sombras-do-deserto.webp'
   },
   {
     id: 'mae-ursa',
@@ -97,7 +100,8 @@ export const FEDERATIONS_DATA: Federation[] = [
     countries: ['Rússia', 'Ucrânia', 'Polônia', 'Bielorrússia'],
     description: 'Resistentes e brutais como os invernos da taiga. Seus agentes canalizam a força feral das feras eslavas, espíritos das florestas antigas e ritos totêmicos de proteção inabalável.',
     strategicRole: 'Contenção de colossos florestais, anomalias de inverno perpétuo e defesas de cerco.',
-    sigilPlaceholderLabel: 'BRASÃO MÃE URSA'
+    sigilPlaceholderLabel: 'BRASÃO MÃE URSA',
+    sigilImage: '/mae-urso.webp'
   },
   {
     id: 'dragao-celestial',
@@ -108,7 +112,8 @@ export const FEDERATIONS_DATA: Federation[] = [
     countries: ['China', 'Japão', 'Coreia do Sul', 'Taiwan', 'Mongólia'],
     description: 'A vanguarda do equilíbrio entre chi elemental e bioengenharia espiritual. Mestres da esgrima sobrenatural, purificação de shikigamis e manipulação de fluxos energéticos de dragões celestes.',
     strategicRole: 'Combate de alta precisão veloz, purificação de miasmas e exorcismo de yokais.',
-    sigilPlaceholderLabel: 'BRASÃO DRAGÃO CELESTIAL'
+    sigilPlaceholderLabel: 'BRASÃO DRAGÃO CELESTIAL',
+    sigilImage: '/draga-celestial.webp'
   },
   {
     id: 'savana-eterna',
@@ -119,7 +124,8 @@ export const FEDERATIONS_DATA: Federation[] = [
     countries: ['África do Sul', 'Nigéria', 'Quênia', 'Gana', 'Angola'],
     description: 'Conectados às forças elementares ancestrais da terra e do trovão. Usam tambores de ressonância mística e infusão de espíritos guardiões para patrulhar imensas extensões territoriais.',
     strategicRole: 'Rastreamento sobrenatural de longa distância e neutralização de espíritos caóticos.',
-    sigilPlaceholderLabel: 'BRASÃO SAVANA ETERNA'
+    sigilPlaceholderLabel: 'BRASÃO SAVANA ETERNA',
+    sigilImage: '/savana-eterna.webp'
   },
   {
     id: 'circulo-de-avalon',
@@ -130,7 +136,8 @@ export const FEDERATIONS_DATA: Federation[] = [
     countries: ['Inglaterra', 'Escócia', 'Irlanda', 'País de Gales'],
     description: 'Ordens cavalheirescas místicas que protegem os círculos de pedra e os túmulos sagrados. Mestres em encantamentos de bruma, armas sagradas rituais e proteção contra o Povo das Fadas.',
     strategicRole: 'Contenção dimensional, cancelamento de ilusões e duelos rituais de honra.',
-    sigilPlaceholderLabel: 'BRASÃO AVALON'
+    sigilPlaceholderLabel: 'BRASÃO AVALON',
+    sigilImage: '/avalon.webp'
   },
   {
     id: 'aguias-do-amanhecer',
@@ -141,7 +148,8 @@ export const FEDERATIONS_DATA: Federation[] = [
     countries: ['Estados Unidos', 'Canadá'],
     description: 'Uma força militarizada altamente tecnológica que combina sensores espectrais avançados a relíquias tribais autênticas para deter anomalias criptozoológicas e wendigos.',
     strategicRole: 'Resposta rápida aeromóvel, apoio logístico pesado e contenção de criptídeos.',
-    sigilPlaceholderLabel: 'BRASÃO ÁGUIAS DO AMANHECER'
+    sigilPlaceholderLabel: 'BRASÃO ÁGUIAS DO AMANHECER',
+    sigilImage: '/aguias-amanhecer.webp'
   },
   {
     id: 'senhores-do-fogo',
@@ -152,7 +160,8 @@ export const FEDERATIONS_DATA: Federation[] = [
     countries: ['Tailândia', 'Vietnã', 'Indonésia', 'Filipinas', 'Malásia'],
     description: 'Especialistas em piromancia folclórica e combate em arquipélagos vulcânicos e selvas densas. Seus caçadores enfrentam nagas de fogo e espíritos vulcânicos destrutivos.',
     strategicRole: 'Guerra de guerrilha em terreno denso e controle de bioenergia térmica.',
-    sigilPlaceholderLabel: 'BRASÃO SENHORES DO FOGO'
+    sigilPlaceholderLabel: 'BRASÃO SENHORES DO FOGO',
+    sigilImage: '/conselho-do-fogo.webp'
   },
   {
     id: 'tempestades-do-pacifico',
@@ -163,7 +172,8 @@ export const FEDERATIONS_DATA: Federation[] = [
     countries: ['Austrália', 'Nova Zelândia', 'Fiji', 'Samoa', 'Polinésia'],
     description: 'Dominadores das correntes marítimas e do "Tempo do Sonho". Seus patrulheiros enfrentam monstros abissais dos oceanos profundos e protegem a barreira das marés cósmicas.',
     strategicRole: 'Vigilância naval profunda, contenção de leviatãs e manipulação das águas.',
-    sigilPlaceholderLabel: 'BRASÃO TEMPESTADES DO PACÍFICO'
+    sigilPlaceholderLabel: 'BRASÃO TEMPESTADES DO PACÍFICO',
+    sigilImage: '/tempestades-pacifico.webp'
   },
   {
     id: 'titas-esquecidos',
@@ -174,7 +184,8 @@ export const FEDERATIONS_DATA: Federation[] = [
     countries: ['Espanha', 'Portugal', 'França'],
     description: 'Vigilantes de antigas catacumbas e fortalezas medievais. Especializados em conter resquícios de titãs pré-olímpicos e lendas da península ibérica com armaduras pesadas encantadas.',
     strategicRole: 'Contenção de colossos subterrâneos e arquitetura defensiva anti-mítica.',
-    sigilPlaceholderLabel: 'BRASÃO TITÃS ESQUECIDOS'
+    sigilPlaceholderLabel: 'BRASÃO TITÃS ESQUECIDOS',
+    sigilImage: '/titas-esquecidos.webp'
   },
   {
     id: 'espiritos-nordicos',
@@ -185,7 +196,8 @@ export const FEDERATIONS_DATA: Federation[] = [
     countries: ['Canadá Ártico', 'Groenlândia', 'Islândia'],
     description: 'Operando nos desertos gélidos onde a sobrevivência humana já é um desafio extremo. Unem a espiritualidade xamânica inuit à resiliência dos clãs vikings do norte gelado.',
     strategicRole: 'Exploração em frio absoluto e guarda de portais das calotas polares.',
-    sigilPlaceholderLabel: 'BRASÃO ESPÍRITOS NÓRDICOS'
+    sigilPlaceholderLabel: 'BRASÃO ESPÍRITOS NÓRDICOS',
+    sigilImage: '/espiritos-nordicos.webp'
   },
   {
     id: 'guardioes-da-selva',
@@ -196,7 +208,8 @@ export const FEDERATIONS_DATA: Federation[] = [
     countries: ['Brasil', 'Peru', 'Colômbia', 'Venezuela', 'Bolívia'],
     description: 'Defensores da maior reserva de biodiversidade e energia folclórica viva do planeta. Lutam contra lendas colossais da floresta equatorial, curupiras, mapinguaris e entidades ancestrais dos rios.',
     strategicRole: 'Camuflagem botânica mística, guerra em biomas hostis e alquimia vegetal primordial.',
-    sigilPlaceholderLabel: 'BRASÃO GUARDIÕES DA SELVA'
+    sigilPlaceholderLabel: 'BRASÃO GUARDIÕES DA SELVA',
+    sigilImage: '/guardioes-da-selva.webp'
   },
   {
     id: 'ceus-de-jade',
@@ -207,7 +220,8 @@ export const FEDERATIONS_DATA: Federation[] = [
     countries: ['Índia', 'Nepal', 'Butão', 'Sri Lanka'],
     description: 'Mestres de mantras arcanos, chakras míticos e filosofia cósmica. Enfrentam asurs, rakshasas e entidades cósmicas guardadas nas alturas proibidas do Himalaia.',
     strategicRole: 'Combate psíquico superior, anulação de ilusões cósmicas e selamentos kármicos.',
-    sigilPlaceholderLabel: 'BRASÃO CÉUS DE JADE'
+    sigilPlaceholderLabel: 'BRASÃO CÉUS DE JADE',
+    sigilImage: '/ceus-de-jade.webp'
   },
   {
     id: 'ventos-austrais',
@@ -218,7 +232,8 @@ export const FEDERATIONS_DATA: Federation[] = [
     countries: ['Bases Antárticas Internacionais', 'Territórios Austrais'],
     description: 'A federação mais silenciosa e isolada da Terra. Vigia as profundezas congeladas do polo sul, onde seres cósmicos adormeceram muito antes do surgimento dos primeiros humanos.',
     strategicRole: 'Vigilância de horrores cósmicos ancestrais e quarentena de ruínas antárticas.',
-    sigilPlaceholderLabel: 'BRASÃO VENTOS AUSTRAIS'
+    sigilPlaceholderLabel: 'BRASÃO VENTOS AUSTRAIS',
+    sigilImage: '/ventos-austrais.webp'
   }
 ];
 

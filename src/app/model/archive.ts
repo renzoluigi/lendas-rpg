@@ -22,6 +22,7 @@ export interface Federation {
   description: string;
   strategicRole: string;
   sigilPlaceholderLabel: string;
+  sigilImage?: string;
 }
 
 export interface PhysicalEnhancementLevel {

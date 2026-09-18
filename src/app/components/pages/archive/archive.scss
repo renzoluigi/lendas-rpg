@@ -25,15 +25,49 @@
 }
 
 /* ==========================================================================
-   Grand Prologue Header
+   Navigation Bar & Breadcrumb
    ========================================================================== */
-.codex-prologue {
-  text-align: center;
-  padding: 28px 20px 20px;
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
   margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+
+  .campaign-breadcrumb {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 18px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    background: rgba(22, 17, 12, 0.9);
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    border-radius: 2px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
+
+    .campaign-name {
+      color: #f0d080;
+      font-weight: 700;
+    }
+
+    .separator {
+      color: #d4af37;
+    }
+
+    .sub-name {
+      color: #f5ecd7;
+      background: rgba(166, 138, 75, 0.25);
+      padding: 3px 10px;
+      border: 1px solid rgba(212, 175, 55, 0.45);
+      border-radius: 2px;
+      font-weight: 700;
+    }
+  }
 }
 
-.prologue-ornament,
 .chapter-header .header-seal,
 .tablet-ornament,
 .footer-ornament {
@@ -43,41 +77,22 @@
   gap: 14px;
   margin-bottom: 12px;
 
-  .ornament-line,
-  .seal-line {
+  .seal-line,
+  .ornament-line {
     width: 60px;
     height: 1px;
     background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.8), transparent);
   }
 
-  .rune-glyph,
-  .seal-text {
+  .seal-text,
+  .rune-glyph {
     font-family: 'Cinzel', serif;
-    font-size: 0.78rem;
+    font-size: 0.8rem;
     font-weight: 700;
-    letter-spacing: 2.5px;
+    letter-spacing: 3px;
     color: #d4af37;
     text-transform: uppercase;
   }
-}
-
-.codex-main-title {
-  font-family: 'Cinzel', serif;
-  font-size: clamp(1.9rem, 4.2vw, 2.8rem);
-  font-weight: 900;
-  letter-spacing: 3px;
-  color: #f6e8cc;
-  text-shadow: 0 0 20px rgba(212, 175, 55, 0.4), 0 3px 10px rgba(0, 0, 0, 0.95);
-  margin-bottom: 12px;
-}
-
-.codex-subtitle {
-  font-family: 'Cinzel', serif;
-  font-size: clamp(0.92rem, 1.8vw, 1.05rem);
-  color: #c9bda9;
-  max-width: 820px;
-  margin: 0 auto;
-  line-height: 1.65;
 }
 
 /* ==========================================================================
@@ -197,14 +212,74 @@
   }
 
   .prologue-quote {
-    font-family: 'Cinzel', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    font-size: 1rem;
+    font-size: 1.05rem;
     color: #f1d592;
     max-width: 760px;
     margin: 14px auto 0;
     line-height: 1.6;
     opacity: 0.95;
+  }
+}
+
+.chapter-hero-banner {
+  width: 100%;
+  margin: 0 0 40px;
+
+  .hero-banner-frame {
+    position: relative;
+    width: 100%;
+    height: 360px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9), inset 0 0 30px rgba(0, 0, 0, 0.8);
+
+    .hero-banner-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+      transition: transform 0.6s ease;
+    }
+
+    &:hover .hero-banner-img {
+      transform: scale(1.02);
+    }
+
+    .banner-vignette {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(14, 11, 8, 0.2) 0%, rgba(14, 11, 8, 0.3) 50%, rgba(12, 9, 6, 0.92) 100%);
+      pointer-events: none;
+    }
+
+    .banner-caption-strip {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 12px 18px;
+      background: rgba(12, 9, 6, 0.88);
+      border-top: 1px solid rgba(166, 138, 75, 0.45);
+      backdrop-filter: blur(6px);
+      font-family: 'Cinzel', serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      color: #f1d592;
+      text-transform: uppercase;
+
+      .caption-diamond {
+        font-size: 0.65rem;
+        color: #d4af37;
+      }
+    }
   }
 }
 
@@ -491,8 +566,8 @@
     align-items: center;
 
     .crest-shield {
-      width: 72px;
-      height: 82px;
+      width: 86px;
+      height: 96px;
       background: radial-gradient(circle, rgba(45, 32, 20, 0.95) 0%, rgba(18, 12, 8, 0.95) 100%);
       border: 2px solid rgba(212, 175, 55, 0.6);
       clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 50% 100%, 0% 75%);
@@ -503,6 +578,23 @@
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.8);
       padding: 6px;
       text-align: center;
+      overflow: hidden;
+      position: relative;
+      transition: all 0.3s ease;
+
+      &.has-image {
+        padding: 4px;
+        background: radial-gradient(circle, rgba(28, 20, 12, 0.95) 0%, rgba(10, 7, 5, 0.98) 100%);
+        border-color: rgba(212, 175, 55, 0.8);
+      }
+
+      .crest-sigil-img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.85));
+        transition: transform 0.35s ease, filter 0.35s ease;
+      }
 
       .crest-sigil-icon {
         font-size: 1.2rem;
@@ -1090,6 +1182,36 @@
   }
 }
 
+.block-visual-banner {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  border: 1px solid rgba(166, 138, 75, 0.4);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.8);
+
+  .block-banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+  }
+
+  &:hover .block-banner-img {
+    transform: scale(1.03);
+  }
+
+  .banner-vignette {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(18, 13, 9, 0.15) 0%, rgba(14, 10, 7, 0.75) 100%);
+    pointer-events: none;
+  }
+}
+
 .alchemy-folio-block {
   .folio-parchment-sheet {
     background: radial-gradient(circle at 50% 10%, rgba(35, 26, 17, 0.92) 0%, rgba(16, 12, 8, 0.98) 80%);
@@ -1382,6 +1504,36 @@
     }
   }
 
+  .monument-visual-banner {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 18px 0 24px;
+    border: 1px solid rgba(177, 151, 252, 0.5);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.85), 0 0 20px rgba(177, 151, 252, 0.25);
+
+    .domain-banner-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.5s ease;
+    }
+
+    &:hover .domain-banner-img {
+      transform: scale(1.03);
+    }
+
+    .banner-vignette {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(20, 10, 30, 0.2) 0%, rgba(14, 10, 18, 0.85) 100%);
+      pointer-events: none;
+    }
+  }
+
   .tablet-core-content {
     display: flex;
     flex-direction: column;
@@ -1541,6 +1693,33 @@
     border: 1px solid rgba(166, 138, 75, 0.35);
     border-radius: 4px;
     overflow: hidden;
+
+    .constellation-visual-banner {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(166, 138, 75, 0.35);
+
+      .constellation-banner-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        transition: transform 0.5s ease;
+      }
+
+      &:hover .constellation-banner-img {
+        transform: scale(1.03);
+      }
+
+      .banner-vignette {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, transparent 40%, rgba(14, 10, 7, 0.9) 100%);
+        pointer-events: none;
+      }
+    }
 
     .stellar-card-mantle {
       display: flex;

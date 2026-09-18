@@ -141,7 +141,9 @@
 
 /* Primary Sector: Operations Hub */
 .sector-operations {
-  background-image: url("/characters.webp");
+  background-image: url("/frentes-operacionais.png");
+  background-size: cover;
+  background-position: center 30%;
   border-width: 2px;
   border-color: rgba(166, 138, 75, 0.6);
 
@@ -157,7 +159,9 @@
   gap: 26px;
 
   .sector-history {
-    background-image: url("/history.webp");
+    background-image: url("/arquivo-da-federacao.png");
+    background-size: cover;
+    background-position: center;
 
     .sector-actions {
       margin-top: 18px;
@@ -171,7 +175,9 @@
   }
 
   .sector-gallery {
-    background-image: url("/gallery.webp");
+    background-image: url("/relatorios-de-campo.png");
+    background-size: cover;
+    background-position: center;
   }
 
   .stamp-wrapper {
