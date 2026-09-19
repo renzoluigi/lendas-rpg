@@ -5,6 +5,8 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CHARACTERS } from '../../../characters-data';
 import { prefersReducedMotion } from '../../../utils/reduced-motion';
 
+import { NavigationHistoryService } from '../../../services/navigation-history.service';
+
 @Component({
   selector: 'app-character-record',
   imports: [
@@ -17,9 +19,14 @@ export class CharacterRecord implements OnInit {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private readonly platformId = inject(PLATFORM_ID);
+  private navHistory = inject(NavigationHistoryService);
 
   character?: Character;
   backUrl: string = '/personagens/one-shot';
+
+  goBack(): void {
+    this.navHistory.goBack(this.backUrl);
+  }
 
   ngOnInit() {
     let codenameParam = this.route.snapshot.paramMap.get("codename");

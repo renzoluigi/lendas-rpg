@@ -4,9 +4,9 @@
       
       <!-- Top Nav Bar -->
       <nav class="top-nav">
-        <a class="btn-back-blood" [routerLink]="backUrl">
-          <span class="pointer">←</span> {{ backUrl.includes('arquivo-geral') ? 'VOLTAR AO ARQUIVO GERAL' : 'VOLTAR AO TOMO SELADO' }}
-        </a>
+        <button type="button" class="btn-back-blood" (click)="goBack()">
+          <span class="pointer">←</span> VOLTAR
+        </button>
 
         <div class="nav-classification">
           <span class="blood-pulse"></span>

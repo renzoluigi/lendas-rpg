@@ -4,9 +4,9 @@
       
       <!-- Top Nav Bar -->
       <nav class="top-nav">
-        <a class="btn-back-frost" [routerLink]="backUrl">
-          <span class="pointer">←</span> VOLTAR À EXPEDIÇÃO
-        </a>
+        <button type="button" class="btn-back-frost" (click)="goBack()">
+          <span class="pointer">←</span> VOLTAR
+        </button>
 
         <div class="nav-classification">
           <span class="frost-pulse"></span>

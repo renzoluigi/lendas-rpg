@@ -2,6 +2,8 @@ import { Component, signal, inject } from '@angular/core';
 import { RouterOutlet, Router, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
+import { NavigationHistoryService } from './services/navigation-history.service';
+
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet],
@@ -11,6 +13,7 @@ import { filter } from 'rxjs/operators';
 export class App {
   protected readonly title = signal('lendas');
   protected isNavigating = signal(false);
+  private navHistory = inject(NavigationHistoryService);
 
   constructor() {
     const router = inject(Router);

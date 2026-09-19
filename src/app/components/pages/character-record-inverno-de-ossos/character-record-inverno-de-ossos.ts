@@ -6,6 +6,8 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CHARACTERS } from '../../../characters-data';
 import { prefersReducedMotion } from '../../../utils/reduced-motion';
 
+import { NavigationHistoryService } from '../../../services/navigation-history.service';
+
 @Component({
   selector: 'app-character-record-inverno-de-ossos',
   standalone: true,
@@ -18,11 +20,16 @@ import { prefersReducedMotion } from '../../../utils/reduced-motion';
 export class CharacterRecordInvernoDeOssos implements OnInit {
   private route = inject(ActivatedRoute);
   private readonly platformId = inject(PLATFORM_ID);
+  private navHistory = inject(NavigationHistoryService);
 
   character?: Character;
   signatureTechnique?: Ability;
   regularAbilities: Ability[] = [];
   backUrl: string = '/personagens/inverno-de-ossos';
+
+  goBack(): void {
+    this.navHistory.goBack(this.backUrl);
+  }
 
   ngOnInit() {
     let codenameParam = this.route.snapshot.paramMap.get("codename");

@@ -248,7 +248,8 @@
     display: flex;
     gap: 16px;
     overflow-x: auto;
-    padding-bottom: 14px;
+    padding: 12px 6px 14px 6px;
+    margin-top: -8px;
     scroll-behavior: smooth;
 
     &::-webkit-scrollbar {

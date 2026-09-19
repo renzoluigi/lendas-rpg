@@ -6,6 +6,8 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CHARACTERS } from '../../../characters-data';
 import { prefersReducedMotion } from '../../../utils/reduced-motion';
 
+import { NavigationHistoryService } from '../../../services/navigation-history.service';
+
 @Component({
   selector: 'app-character-record-vida-e-morte',
   standalone: true,
@@ -18,11 +20,16 @@ import { prefersReducedMotion } from '../../../utils/reduced-motion';
 export class CharacterRecordVidaEMorte implements OnInit {
   private route = inject(ActivatedRoute);
   private readonly platformId = inject(PLATFORM_ID);
+  private navHistory = inject(NavigationHistoryService);
 
   character?: Character;
   domainExpansion?: Ability;
   regularAbilities: Ability[] = [];
   backUrl: string = '/personagens/vida-e-morte';
+
+  goBack(): void {
+    this.navHistory.goBack(this.backUrl);
+  }
 
   ngOnInit() {
     let codenameParam = this.route.snapshot.paramMap.get("codename");
