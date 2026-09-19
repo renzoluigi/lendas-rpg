@@ -14,142 +14,155 @@
       </p>
     </div>
 
-    <div class="cards-grid">
-      <!-- Campanha 01: Vida e Morte -->
-      <a class="hub-card card-vida-morte" routerLink="/personagens/vida-e-morte">
-        <div class="card-bg-overlay"></div>
-        <div class="card-content">
-          <div class="card-top">
-            <span class="status-badge vida-morte">
-              <span class="blood-pulse"></span>
-              ARQUIVO SELADO
-            </span>
-            <span class="classification">CAMPANHA #01</span>
-          </div>
+    <!-- Asymmetric Campaign Grid -->
+    <div class="campaign-grid">
 
-          <div class="card-body">
-            <span class="category-subtitle">SAGA PRIMORDIAL</span>
-            <h3 class="card-title">VIDA E MORTE</h3>
-            <p class="card-desc">
-              O despertar sombrio da Federação no limiar do submundo. Relatórios de sacrifícios, baixas terríveis e abominações que desafiaram a própria mortalidade.
-            </p>
-          </div>
-
-          <div class="card-footer">
-            <div class="meta-stat">
-              <span class="stat-number">2</span>
-              <span class="stat-label">Caçadores Selados</span>
-            </div>
-            <span class="action-btn-vida-morte">
-              ACESSAR DOSSIÊS
-              <span class="btn-arrow">→</span>
-            </span>
-          </div>
+      <!-- HERO CARD: Inverno de Ossos (Active Campaign) -->
+      <a class="hero-card" routerLink="/personagens/inverno-de-ossos">
+        <div class="hero-image-wrapper">
+          <img src="/inverno-de-ossos.webp" alt="Inverno de Ossos" class="hero-bg-img" loading="eager" />
+          <div class="hero-image-overlay"></div>
         </div>
-        <div class="card-border-glow"></div>
-      </a>
 
-      <!-- Operação 02: One-Shot -->
-      <a class="hub-card card-active" routerLink="/personagens/one-shot">
-        <div class="card-bg-overlay"></div>
-        <div class="card-content">
-          <div class="card-top">
-            <span class="status-badge available">
-              <span class="pulse-icon"></span>
-              MISSÕES AVULSAS
-            </span>
-            <span class="classification">OPERAÇÃO #02</span>
-          </div>
-
-          <div class="card-body">
-            <span class="category-subtitle">SESSÃO ESPECIAL</span>
-            <h3 class="card-title">ONE-SHOT</h3>
-            <p class="card-desc">
-              Dossiês biográficos, armas espirituais, feitos notáveis e repertório de habilidades dos caçadores convocados para missões pontuais da Federação.
-            </p>
-          </div>
-
-          <div class="card-footer">
-            <div class="meta-stat">
-              <span class="stat-number">4</span>
-              <span class="stat-label">Caçadores</span>
-            </div>
-            <span class="action-btn">
-              ACESSAR DOSSIÊS
-              <span class="btn-arrow">→</span>
-            </span>
-          </div>
-        </div>
-        <div class="card-border-glow"></div>
-      </a>
-
-      <!-- Campanha 03: Inverno de Ossos -->
-      <a class="hub-card card-inverno" routerLink="/personagens/inverno-de-ossos">
-        <div class="card-bg-overlay"></div>
-        <div class="card-content">
-          <div class="card-top">
-            <span class="status-badge frost">
-              <span class="pulse-icon frost-pulse"></span>
+        <div class="hero-content">
+          <div class="hero-top-bar">
+            <span class="hero-status-badge">
+              <span class="pulse-dot frost-pulse"></span>
               EXPEDIÇÃO ATIVA
             </span>
-            <span class="classification">CAMPANHA #03</span>
+            <span class="hero-classification">CAMPANHA #03</span>
           </div>
 
-          <div class="card-body">
-            <span class="category-subtitle">CAMPANHA ORIGINAL</span>
-            <h3 class="card-title">INVERNO DE OSSOS</h3>
-            <p class="card-desc">
+          <div class="hero-body">
+            <span class="hero-subtitle">CAMPANHA ORIGINAL</span>
+            <h3 class="hero-title">INVERNO DE OSSOS</h3>
+            <p class="hero-desc">
               Nas fortalezas esquecidas sob a névoa glacial, segredos ancestrais sepultados pelo gelo começam a despertar. Uma expedição sombria rumo à Cidadela Congelada.
             </p>
           </div>
 
-          <div class="card-footer">
-            <div class="meta-stat">
-              <span class="stat-number">5</span>
-              <span class="stat-label">Caçadores Mobilizados</span>
+          <div class="hero-footer">
+            <div class="hero-stats">
+              <div class="hero-stat">
+                <span class="stat-number">5</span>
+                <span class="stat-label">Caçadores</span>
+              </div>
+              <div class="hero-stat">
+                <span class="stat-number">◆</span>
+                <span class="stat-label">Em andamento</span>
+              </div>
             </div>
-            <span class="action-btn-frost">
+            <span class="hero-cta">
               ACESSAR DOSSIÊS
-              <span class="btn-arrow">→</span>
+              <span class="cta-arrow">→</span>
             </span>
           </div>
         </div>
-        <div class="card-border-glow"></div>
       </a>
 
-      <!-- Arquivo Geral da Federação: Personagens Canônicos -->
-      <a class="hub-card card-canon" routerLink="/personagens/arquivo-geral">
-        <div class="card-bg-overlay"></div>
-        <div class="card-content">
-          <div class="card-top">
-            <span class="status-badge canon">
-              <span class="canon-pulse"></span>
+      <!-- SIDE CARDS: Stacked on the right -->
+      <div class="side-cards">
+
+        <!-- Campanha 01: Vida e Morte -->
+        <a class="side-card card-vida-morte" routerLink="/personagens/vida-e-morte">
+          <div class="side-image-wrapper">
+            <img src="/vida-e-morte.webp" alt="Vida e Morte" class="side-bg-img" loading="lazy" />
+            <div class="side-image-overlay"></div>
+          </div>
+          <div class="side-content">
+            <div class="side-top">
+              <span class="side-badge vida-morte-badge">
+                <span class="pulse-dot blood-pulse"></span>
+                ARQUIVO SELADO
+              </span>
+              <span class="side-classification">CAMPANHA #01</span>
+            </div>
+            <div class="side-body">
+              <span class="side-subtitle">SAGA PRIMORDIAL</span>
+              <h3 class="side-title">VIDA E MORTE</h3>
+              <p class="side-desc">
+                O despertar sombrio da Federação no limiar do submundo. Relatórios de sacrifícios e abominações que desafiaram a própria mortalidade.
+              </p>
+            </div>
+            <div class="side-footer">
+              <div class="side-stat">
+                <span class="stat-number">2</span>
+                <span class="stat-label">Selados</span>
+              </div>
+              <span class="side-cta">
+                DOSSIÊS <span class="cta-arrow">→</span>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Operação 02: One-Shot -->
+        <a class="side-card card-oneshot" routerLink="/personagens/one-shot">
+          <div class="side-image-wrapper">
+            <img src="/characters.webp" alt="One-Shot" class="side-bg-img" loading="lazy" />
+            <div class="side-image-overlay"></div>
+          </div>
+          <div class="side-content">
+            <div class="side-top">
+              <span class="side-badge oneshot-badge">
+                <span class="pulse-dot green-pulse"></span>
+                MISSÕES AVULSAS
+              </span>
+              <span class="side-classification">OPERAÇÃO #02</span>
+            </div>
+            <div class="side-body">
+              <span class="side-subtitle">SESSÃO ESPECIAL</span>
+              <h3 class="side-title">ONE-SHOT</h3>
+              <p class="side-desc">
+                Dossiês biográficos e repertório de habilidades dos caçadores convocados para missões pontuais da Federação.
+              </p>
+            </div>
+            <div class="side-footer">
+              <div class="side-stat">
+                <span class="stat-number">4</span>
+                <span class="stat-label">Caçadores</span>
+              </div>
+              <span class="side-cta">
+                DOSSIÊS <span class="cta-arrow">→</span>
+              </span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Archive Banner (Full-Width) -->
+    <a class="archive-banner" routerLink="/personagens/arquivo-geral">
+      <div class="archive-banner-glow"></div>
+      <div class="archive-banner-content">
+        <div class="archive-banner-left">
+          <div class="archive-badge-row">
+            <span class="archive-status-badge">
+              <span class="pulse-dot canon-pulse"></span>
               REGISTRO GLOBAL
             </span>
-            <span class="classification">ARQUIVO CENTRAL</span>
+            <span class="archive-separator">•</span>
+            <span class="archive-class-tag">ARQUIVO CENTRAL</span>
           </div>
-
-          <div class="card-body">
-            <span class="category-subtitle">FIGURAS CENTRAIS // CÂNONE</span>
-            <h3 class="card-title">ARQUIVO GERAL</h3>
-            <p class="card-desc">
-              Dossiês confidenciais de agentes de risco existencial, mentores primordiais e combatentes históricos cujos legados transcendem expedições isoladas.
-            </p>
-          </div>
-
-          <div class="card-footer">
-            <div class="meta-stat">
-              <span class="stat-number">3</span>
-              <span class="stat-label">Registros Canônicos</span>
-            </div>
-            <span class="action-btn-canon">
-              ACESSAR ARQUIVO
-              <span class="btn-arrow">→</span>
-            </span>
-          </div>
+          <span class="archive-category">FIGURAS CENTRAIS // CÂNONE</span>
+          <h3 class="archive-title">ARQUIVO GERAL</h3>
+          <p class="archive-desc">
+            Dossiês confidenciais de agentes de risco existencial, mentores primordiais e combatentes históricos cujos legados transcendem expedições isoladas.
+          </p>
         </div>
-        <div class="card-border-glow"></div>
-      </a>
-    </div>
+        <div class="archive-banner-right">
+          <div class="archive-stat">
+            <span class="stat-number">3</span>
+            <span class="stat-label">Registros Canônicos</span>
+          </div>
+          <span class="archive-cta">
+            ACESSAR ARQUIVO
+            <span class="cta-arrow">→</span>
+          </span>
+        </div>
+      </div>
+    </a>
+
   </div>
 </main>

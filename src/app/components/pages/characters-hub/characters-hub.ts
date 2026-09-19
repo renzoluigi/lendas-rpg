@@ -33,7 +33,7 @@ export class CharactersHub {
         );
       }
 
-      const hubCards = document.querySelectorAll<HTMLElement>('.hub-card');
+      const hubCards = document.querySelectorAll<HTMLElement>('.hero-card, .side-card, .archive-banner');
       hubCards.forEach((card, index) => {
         card.style.opacity = '0';
         card.style.transform = 'translateY(25px)';
