@@ -1,7 +1,7 @@
 import { Component, inject, OnInit, PLATFORM_ID, afterNextRender } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { Character } from '../../../model/character';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CHARACTERS } from '../../../characters-data';
 import { prefersReducedMotion } from '../../../utils/reduced-motion';
 
@@ -9,9 +9,6 @@ import { NavigationHistoryService } from '../../../services/navigation-history.s
 
 @Component({
   selector: 'app-character-record',
-  imports: [
-    RouterLink
-  ],
   templateUrl: './character-record.html',
   styleUrl: './character-record.scss',
 })

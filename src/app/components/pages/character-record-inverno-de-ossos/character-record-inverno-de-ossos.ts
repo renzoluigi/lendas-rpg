@@ -2,7 +2,7 @@ import { Component, inject, OnInit, PLATFORM_ID, afterNextRender } from '@angula
 import { isPlatformBrowser } from '@angular/common';
 import { Character } from '../../../model/character';
 import { Ability } from '../../../model/ability';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { CHARACTERS } from '../../../characters-data';
 import { prefersReducedMotion } from '../../../utils/reduced-motion';
 
@@ -11,9 +11,6 @@ import { NavigationHistoryService } from '../../../services/navigation-history.s
 @Component({
   selector: 'app-character-record-inverno-de-ossos',
   standalone: true,
-  imports: [
-    RouterLink
-  ],
   templateUrl: './character-record-inverno-de-ossos.html',
   styleUrl: './character-record-inverno-de-ossos.scss',
 })
