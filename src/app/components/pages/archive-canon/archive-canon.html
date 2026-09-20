@@ -4,7 +4,7 @@
   <div class="archive-container">
     <div class="nav-bar">
       <div class="archive-breadcrumb">
-        <a routerLink="/personagens" class="crumb-link">CAMPANHAS</a>
+        <a routerLink="/campanhas" class="crumb-link">CAMPANHAS</a>
         <span class="separator">/</span>
         <span class="sub-name">ARQUIVO GERAL DA FEDERAÇÃO</span>
       </div>
@@ -35,7 +35,7 @@
         <div class="archive-stats-strip">
           <div class="stat-pill">
             <span class="stat-label">CLASSIFICAÇÃO</span>
-            <span class="stat-val highlight-purple">Tomo Confidencial Nível Ômega</span>
+            <span class="stat-val highlight-purple">Tomo Confidencial</span>
           </div>
           <div class="stat-pill">
             <span class="stat-label">ORIGEM & PARTICIPAÇÃO</span>
@@ -67,14 +67,14 @@
 
       <div class="canon-grid">
         @for (char of characters; track char.codename; let idx = $index) {
-          <a class="canon-card card-{{ char.codename.toLowerCase() }}" [routerLink]="['/personagens/arquivo-geral', char.codename]">
+          <a class="canon-card card-{{ char.codename.toLowerCase() }}" [routerLink]="['/campanhas/arquivo-geral', char.codename]">
             <div class="image-wrapper">
               <img [src]="char.imageURI" [alt]="char.name" loading="lazy">
               <div class="image-overlay"></div>
               
               <div class="card-badge">
                 <span class="dossier-num">REG #0{{ idx + 1 }}</span>
-                <span class="country-pill">{{ char.classification || 'CÂNONE' }}</span>
+                <span class="country-pill">RANK {{ char.rank || 'A' }}</span>
               </div>
 
               @if (char.quote) {
@@ -105,7 +105,7 @@
               <div class="card-meta">
                 <span class="meta-item">{{ char.age ? char.age + ' anos' : 'Idade Oculta' }}</span>
                 <span class="meta-dot">•</span>
-                <span class="meta-item">{{ char.threatLevel || 'Ameaça Registrada' }}</span>
+                <span class="meta-item">Patente Rank {{ char.rank || 'A' }}</span>
               </div>
 
               <div class="action-footer">
@@ -127,10 +127,10 @@
           <h4>PRESENÇA EM VIDA E MORTE & EXPANSÃO CANÔNICA</h4>
           <p>
             Embora catalogados no Arquivo Geral por sua relevância perene, estes agentes desempenharam papéis cruciais na campanha pioneira: 
-            O Professor aniquilou a divindade Anúbis; Professor Stateham forjou as técnicas basilares de Sen e Josh; e Markus Wolf susteve a linha de frente contra a monstruosidade de três cabeças.
+            O Professor aniquilou a divindade Anúbis; Mestre Stateham (ex-Pilar dos Cinco Punhos) forjou os fundamentos basilares de Sen e Josh; e Markus Wolf (o rastreador das fronteiras) susteve a linha de frente contra a monstruosidade de três cabeças.
           </p>
         </div>
-        <a routerLink="/personagens/vida-e-morte" class="btn-banner-link">
+        <a routerLink="/campanhas/vida-e-morte" class="btn-banner-link">
           VER EXPEDIÇÃO VIDA E MORTE →
         </a>
       </div>

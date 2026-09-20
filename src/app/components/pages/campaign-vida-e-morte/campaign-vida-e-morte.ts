@@ -1,9 +1,11 @@
 import { Component, PLATFORM_ID, inject, afterNextRender } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser, UpperCasePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Header } from '../../header/header';
 import { Character } from '../../../model/character';
 import { VIDA_E_MORTE_CHARACTERS, VIDA_E_MORTE_CANON_CHARACTERS } from '../../../characters-data';
+import { Mission } from '../../../model/mission';
+import { VIDA_E_MORTE_MISSIONS } from '../../../missions-data';
 import { prefersReducedMotion } from '../../../utils/reduced-motion';
 
 @Component({
@@ -11,7 +13,8 @@ import { prefersReducedMotion } from '../../../utils/reduced-motion';
   standalone: true,
   imports: [
     Header,
-    RouterLink
+    RouterLink,
+    UpperCasePipe
   ],
   templateUrl: './campaign-vida-e-morte.html',
   styleUrl: './campaign-vida-e-morte.scss'
@@ -19,7 +22,24 @@ import { prefersReducedMotion } from '../../../utils/reduced-motion';
 export class CampaignVidaEMorte {
   characters: Character[] = VIDA_E_MORTE_CHARACTERS;
   canonCharacters: Character[] = VIDA_E_MORTE_CANON_CHARACTERS;
+  missions: Mission[] = VIDA_E_MORTE_MISSIONS;
+
+  activeMissionModal: Mission | null = null;
   private readonly platformId = inject(PLATFORM_ID);
+
+  openMissionReader(mission: Mission): void {
+    this.activeMissionModal = mission;
+    if (isPlatformBrowser(this.platformId)) {
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  closeMissionReader(): void {
+    this.activeMissionModal = null;
+    if (isPlatformBrowser(this.platformId)) {
+      document.body.style.overflow = '';
+    }
+  }
 
   constructor() {
     afterNextRender(async () => {

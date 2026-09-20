@@ -1,6 +1,6 @@
 <div class="character-grid">
   @for (char of characters; track char.codename; let idx = $index) {
-    <a class="character-card" [routerLink]="['/personagens/one-shot', char.codename]">
+    <a class="character-card" [routerLink]="['/campanhas/one-shot', char.codename]">
       <div class="image-wrapper">
         <img [src]="char.imageURI" [alt]="char.name" loading="lazy">
         <div class="image-overlay"></div>

@@ -50,6 +50,15 @@ export const WORLD_OVERVIEW: WorldOverview = {
         'Porém, a exposição não controlada é altamente corrosiva. O chamado "Despertar Prematuro" ocorre quando mentes despreparadas são inundadas pela energia: a psique humana se dissolve no misticismo, causando loucura, colapso de identidade e, no estágio terminal, mutação aberrante em híbridos grotescos entre humano e monstro.'
       ],
       highlight: 'Tríade do Poder: Elemento (Afinidade primordial do conceito mítico) • Variação (Estilo e técnicas operacionais) • Nível de Sincronização (Ressonância e escala de poder).'
+    },
+    {
+      title: 'A Sede Viva da Federação',
+      tag: 'INFRAESTRUTURA // ARQUITETURA ENCANTADA',
+      content: [
+        'A sede central da Federação de Caçadores transcende as leis da engenharia humana convencional. Erguida com feitiçarias primordiais e circuitos rúnicos arcanos, o complexo é dotado de consciência bioenergética própria.',
+        'Móveis se reposicionam autonomamente, salas reorganizam sua distribuição espacial conforme a urgência das crises e corredores inteiros se metamorfoseiam enquanto os caçadores transitam por eles.',
+        'É nesse epicentro pulsante que jovens pupilos recebem seus primeiros briefings operacionais e onde os maiores combatentes da história cruzam seus caminhos.'
+      ]
     }
   ]
 };
@@ -86,7 +95,7 @@ export const FEDERATIONS_DATA: Federation[] = [
     mythologicalOrigin: 'Mitologia do Oriente Médio & Mesopotâmica',
     region: 'Oriente Médio & Norte da África',
     countries: ['Egito', 'Arábia Saudita', 'Irã', 'Emirados Árabes', 'Jordânia'],
-    description: 'Guardiões das areias proibidas e criptas faraônicas. Mestres em ocultação por miragens folclóricas, neutralização de gênios antigos (Djinns) e manipulação de ventos abrasadores.',
+    description: 'Guardiões das areias proibidas e criptas faraônicas. Mestres em ocultação por miragens folclóricas, neutralização de gênios antigos (Djinns) e manipulação de ventos abrasadores. Foi em seu território egípcio que ocorreu a histórica crise de Anúbis e o resgate da vila aprisionada.',
     strategicRole: 'Operações de infiltração, rastreamento arqueológico e contenção de maldições arcanas.',
     sigilPlaceholderLabel: 'BRASÃO SOMBRAS DO DESERTO',
     sigilImage: '/sombras-do-deserto.webp'
@@ -291,7 +300,7 @@ export const HUNTER_RANKS: HunterRank[] = [
     abilities: 'Especialização em até dois Reforços Físicos (Nível 2), manuseio de armas forjadas com drops de monstros e habilidades de alto impacto.',
     missions: 'Missões de alto risco, confronto direto contra lendas lendárias perigosas e incursões em territórios hostis.',
     threatLevel: 'Ameaça Crítica / Destruição Local',
-    exampleProfile: 'Markus-Wolf, Sen e veteranos de campanhas pesadas.'
+    exampleProfile: 'Markus-Wolf (Rastreador Implacável das Fronteiras), Sen e veteranos de operações táticas.'
   },
   {
     id: 'A',
@@ -302,7 +311,7 @@ export const HUNTER_RANKS: HunterRank[] = [
     abilities: 'Manipulação refinada de múltiplos elementos, Reforços Físicos em Nível 3, capacidade de firmar pactos com Constelações Lendárias.',
     missions: 'Confronto com entidades quase imortais, contenção de quebras catastróficas do Véu e missões de sobrevivência global.',
     threatLevel: 'Catástrofe Continental',
-    exampleProfile: 'Comandantes Supremos de Setor e agentes de intervenção tática.'
+    exampleProfile: 'Comandantes Supremos de Setor, mestres sêniores da Academia (como Prof. Stateham em sua docência) e agentes táticos.'
   },
   {
     id: 'S',
@@ -313,7 +322,7 @@ export const HUNTER_RANKS: HunterRank[] = [
     abilities: 'Domínio mítico total, desenvolvimento de Expansão de Domínio, autoridade sobre a vida e a morte em combate de escala titânica.',
     missions: 'Batalhas existenciais que decidem o futuro da civilização e aniquilação de divindades caídas.',
     threatLevel: 'Ameaça de Aniquilação Global',
-    exampleProfile: 'Campeões ancestrais reverenciados por todas as 15 federações.'
+    exampleProfile: 'Os Pilares da Federação (como Mestre Stateham em seu ápice nos Cinco Punhos) e campeões ancestrais.'
   },
   {
     id: 'SS',
@@ -489,7 +498,7 @@ export const WEAPON_FORGE_RULES = {
 };
 
 export const DOMAIN_EXPANSION_RULES: DomainExpansionRule = {
-  concept: 'A Expansão de Domínio é a manifestação mais sublime e aterrorizante que um caçador pode alcançar. Consiste em expandir o espaço inato de sua mente e alma mítica sobre o mundo real através de uma barreira energética imbuída de sua vontade absoluta.',
+  concept: 'A Expansão de Domínio é a manifestação mais sublime e aterrorizante que um caçador pode alcançar: expandir o espaço inato de sua alma sobre o mundo real através de uma barreira energética temporária imbuída de sua vontade absoluta. Diferencia-se categoricamente do "Domínio Inato" das Lendas divinas (como Anúbis), que não requer barreira de combate e age como uma extensão viva e permanente de sua própria existência sobre o território físico.',
   rulesForHunters: [
     '1. Conexão Narrativa Vital: A natureza da expansão deve fazer sentido íntimo com o passado, traumas e biografia do personagem, não apenas com o elemento que ele manipula.',
     '2. Habilidades de Domínio Negociadas: O domínio inicial deve conceder de 2 a 3 habilidades bem delimitadas, acordadas rigorosamente com o Mestre de Jogo.',

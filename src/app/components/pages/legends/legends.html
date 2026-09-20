@@ -1,0 +1,270 @@
+<main class="legends-page">
+  <app-header></app-header>
+
+  <div class="legends-container">
+    <div class="nav-bar">
+      <div class="legends-breadcrumb">
+        <a routerLink="/" class="crumb-link">CÓDICE</a>
+        <span class="separator">/</span>
+        <span class="sub-name">BESTIÁRIO // REGISTRO DE LENDAS</span>
+      </div>
+    </div>
+
+    <!-- Legends Hero Presentation -->
+    <section class="legends-hero">
+      <div class="hero-details">
+        <div class="hero-tagline-badge">
+          <span class="anubis-pulse"></span>
+          <span>ARQUIVO DE AMEAÇAS FOLCLÓRICAS // CLASSIFICAÇÃO EXISTENCIAL</span>
+          <span class="anubis-pulse"></span>
+        </div>
+
+        <div class="title-wrapper">
+          <h1 class="legends-main-title">REGISTRO DE LENDAS</h1>
+        </div>
+
+        <blockquote class="legends-quote">
+          “Quando o mito ganha carne e ossos, a realidade se curva. Conhecer a lenda é a única chance de sobrevivência de um caçador.”
+        </blockquote>
+
+        <p class="legends-synopsis">
+          Catálogo da Federação de Caçadores reunindo os dossiês de divindades, entidades e criaturas do folclore que ganharam vida no mundo real.
+        </p>
+      </div>
+    </section>
+
+    <!-- Filters Section -->
+    <div class="filter-bar">
+      <div class="filter-track">
+        <button
+          type="button"
+          class="filter-btn"
+          [class.active]="activeFilter === 'all'"
+          (click)="setFilter('all')">
+          TODAS AS LENDAS <span class="filter-count">({{ getFilterCount('all') }})</span>
+        </button>
+        <button
+          type="button"
+          class="filter-btn"
+          [class.active]="activeFilter === 'vida-e-morte'"
+          (click)="setFilter('vida-e-morte')">
+          SAGA VIDA E MORTE <span class="filter-count">({{ getFilterCount('vida-e-morte') }})</span>
+        </button>
+        <button
+          type="button"
+          class="filter-btn"
+          [class.active]="activeFilter === 'egípcia'"
+          (click)="setFilter('egípcia')">
+          MITOLOGIA EGÍPCIA <span class="filter-count">({{ getFilterCount('egípcia') }})</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Legends Grid Section -->
+    <section class="legends-grid-section">
+      <div class="legends-grid">
+        @for (legend of filteredLegends; track legend.id) {
+          <article class="legend-card" [class]="'legend-card ' + getMythologyClass(legend.mythology)" (click)="openLegend(legend)">
+            <div class="card-image-box">
+              <img [src]="legend.imageURI" [alt]="legend.name" class="legend-img" loading="lazy">
+              <div class="image-gradient-overlay"></div>
+              <div class="top-badges">
+                <span class="badge-status status-{{ legend.status.toLowerCase() }}">
+                  <span class="status-dot"></span>
+                  {{ legend.status }}
+                </span>
+                <span class="badge-myth">{{ legend.mythology }}</span>
+              </div>
+            </div>
+
+            <div class="card-content">
+              <div class="threat-indicator" [ngClass]="getThreatClass(legend.threatLevel)">
+                <span class="threat-dot"></span>
+                <span class="threat-label">CLASSIFICAÇÃO:</span>
+                <span class="threat-value">{{ legend.threatLevel }}</span>
+              </div>
+
+              <h2 class="legend-name">{{ legend.name }}</h2>
+              <p class="legend-title-sub">{{ legend.title }}</p>
+
+              <p class="legend-desc-short">{{ legend.description }}</p>
+
+              <div class="card-domain-badge">
+                <span class="domain-icon">❖</span>
+                <span class="domain-type-text">{{ legend.domain.type }}: {{ legend.domain.name }}</span>
+              </div>
+
+              <div class="card-footer-cta">
+                <span class="cta-label">ACESSAR DOSSIÊ COMPLETO</span>
+                <span class="cta-arrow">→</span>
+              </div>
+            </div>
+
+            <div class="card-gold-border"></div>
+          </article>
+        }
+      </div>
+
+      @if (filteredLegends.length === 0) {
+        <div class="grid-empty-state">
+          <span class="empty-rune">❖</span>
+          <p>Nenhum registro encontrado para este filtro.</p>
+        </div>
+      }
+    </section>
+
+    <div class="grid-upcoming">
+      <span class="upcoming-line"></span>
+      <span class="upcoming-text">NOVOS REGISTROS EM CATALOGAÇÃO</span>
+      <span class="upcoming-line"></span>
+    </div>
+
+    <!-- Legend Detailed Modal / Dossier -->
+    @if (selectedLegend) {
+      <div class="legend-modal-overlay" (click)="closeLegend()">
+        <div class="legend-modal-frame" (click)="$event.stopPropagation()">
+          <button type="button" class="modal-close-btn" (click)="closeLegend()" aria-label="Fechar Dossiê">✕</button>
+
+          <div class="modal-header-banner">
+            <div class="banner-image-wrap">
+              <img [src]="selectedLegend.imageURI" [alt]="selectedLegend.name" class="modal-banner-img">
+              <div class="banner-overlay"></div>
+            </div>
+
+            <div class="banner-text">
+              <div class="modal-status-badge status-{{ selectedLegend.status.toLowerCase() }}">
+                <span class="status-pulse"></span>
+                STATUS: {{ selectedLegend.status | uppercase }}
+              </div>
+              <h2 class="modal-legend-title">{{ selectedLegend.name }}</h2>
+              <p class="modal-legend-epithet">{{ selectedLegend.title }}</p>
+
+              <div class="modal-meta-row">
+                <span class="meta-tag"><strong>Mitologia:</strong> {{ selectedLegend.mythology }}</span>
+                <span class="meta-sep">•</span>
+                <span class="meta-tag"><strong>Território:</strong> {{ selectedLegend.federationTerritory }}</span>
+                <span class="meta-sep">•</span>
+                <span class="meta-tag"><strong>Campanha:</strong> {{ selectedLegend.campaignTitle }}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-body-scroll">
+            @if (selectedLegend.quote) {
+              <blockquote class="modal-quote">
+                “{{ selectedLegend.quote }}”
+              </blockquote>
+            }
+
+            <!-- Relato Histórico & Despertar -->
+            <div class="modal-section">
+              <div class="section-title-wrap">
+                <span class="gold-rune">❖</span>
+                <h3 class="section-heading">O DESPERTAR & RELATO DE ENFRENTAMENTO</h3>
+              </div>
+              <p class="section-paragraph-large">{{ selectedLegend.history }}</p>
+            </div>
+
+            <!-- Domínio Inato -->
+            <div class="modal-section domain-box">
+              <div class="section-title-wrap">
+                <span class="gold-rune">❖</span>
+                <h3 class="section-heading">{{ selectedLegend.domain.type | uppercase }}: {{ selectedLegend.domain.name }}</h3>
+              </div>
+              <div class="domain-concept-card">
+                <p class="domain-concept"><strong>Conceito Primordial:</strong> {{ selectedLegend.domain.concept }}</p>
+                <p class="domain-details">{{ selectedLegend.domain.description }}</p>
+                <div class="domain-area-badge">
+                  <span>Localização Mítica: {{ selectedLegend.domain.manifestationArea }}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Minions / Bestas de Guarda -->
+            @if (selectedLegend.minions && selectedLegend.minions.length > 0) {
+              <div class="modal-section">
+                <div class="section-title-wrap">
+                  <span class="gold-rune">❖</span>
+                  <h3 class="section-heading">LACAIOS & BESTAS DE GUARDA</h3>
+                </div>
+                <div class="minions-grid">
+                  @for (minion of selectedLegend.minions; track minion.name) {
+                    <div class="minion-card">
+                      <div class="minion-header">
+                        <h4 class="minion-name">{{ minion.name }}</h4>
+                        <span class="minion-threat">{{ minion.threat }}</span>
+                      </div>
+                      <p class="minion-desc">{{ minion.description }}</p>
+                    </div>
+                  }
+                </div>
+              </div>
+            }
+
+            <!-- Drops & Fragmentos Míticos -->
+            @if (selectedLegend.drops && selectedLegend.drops.length > 0) {
+              <div class="modal-section">
+                <div class="section-title-wrap">
+                  <span class="gold-rune">❖</span>
+                  <h3 class="section-heading">FRAGMENTOS MÍTICOS & MATERIAIS DE FORJA (DROPS)</h3>
+                </div>
+                <div class="drops-grid">
+                  @for (drop of selectedLegend.drops; track drop.name) {
+                    <div class="drop-card">
+                      <div class="drop-header">
+                        <span class="drop-icon">✦</span>
+                        <h4 class="drop-name">{{ drop.name }}</h4>
+                        <span class="drop-rarity">{{ drop.rarity }}</span>
+                      </div>
+                      <p class="drop-utility">{{ drop.utility }}</p>
+                    </div>
+                  }
+                </div>
+              </div>
+            }
+
+            <!-- Detalhes da Derrota -->
+            @if (selectedLegend.defeatDetails) {
+              <div class="modal-section defeat-card">
+                <div class="defeat-header">
+                  <span class="skull-icon">☠</span>
+                  <div>
+                    <span class="defeat-label">REGISTRO DE EXTERMÍNIO OFICIAL</span>
+                    <h4 class="defeat-by">{{ selectedLegend.defeatDetails.defeatedBy }}</h4>
+                  </div>
+                </div>
+                <p class="defeat-ability"><strong>Técnica Utilizada:</strong> {{ selectedLegend.defeatDetails.abilityUsed }}</p>
+                <p class="defeat-summary">{{ selectedLegend.defeatDetails.summary }}</p>
+              </div>
+            }
+
+            <!-- Caçadores Relacionados -->
+            @if (selectedLegend.relatedCharacters && selectedLegend.relatedCharacters.length > 0) {
+              <div class="modal-section">
+                <div class="section-title-wrap">
+                  <span class="gold-rune">❖</span>
+                  <h3 class="section-heading">CAÇADORES VINCULADOS AO CONFRONTO</h3>
+                </div>
+                <div class="related-chars-row">
+                  @for (char of selectedLegend.relatedCharacters; track char.codename) {
+                    <a [routerLink]="['/campanhas', char.campaign, char.codename]" class="char-chip-link" (click)="closeLegend()">
+                      <span class="chip-role">{{ char.role }}:</span>
+                      <span class="chip-name">{{ char.name }}</span>
+                      <span class="chip-arrow">↗</span>
+                    </a>
+                  }
+                </div>
+              </div>
+            }
+
+          </div>
+
+          <div class="modal-footer-bar">
+            <button type="button" class="btn-close-modal" (click)="closeLegend()">FECHAR DOSSIÊ</button>
+          </div>
+        </div>
+      </div>
+    }
+
+  </div>
+</main>

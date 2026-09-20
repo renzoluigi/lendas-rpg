@@ -570,10 +570,11 @@ export const CHARACTERS: Character[] = [
         image: "/campos-xibalba.webp"
       }
     ],
-    history: "Sen cresceu entre dojos tradicionais e ringues urbanos, combinando raízes orientais com a vivência brasileira. Ele dominava o boxe mundano até que, durante uma disputa nos circuitos proibidos, foi atingido por uma emanação brutal de energia folclórica. Em vez de ser consumido, sua determinação transmutou a radiação em poder: seus punhos se tornaram minerais vivos. Ingressou na saga Vida e Morte para testar os limites do corpo humano contra entidades que jamais sangraram em ringues mundanos.",
+    history: "Sen cresceu entre dojos tradicionais e ringues urbanos, combinando raízes orientais com a vivência brasileira. Ele dominava o boxe mundano até que, durante uma disputa nos circuitos proibidos, foi atingido por uma emanação brutal de energia folclórica. Em vez de ser consumido, sua determinação transmutou a radiação em poder: seus punhos se tornaram minerais vivos.\n\nDurante sua formação inicial na academia sob a tutela do Professor Stateham, foi pessoalmente escolhido pelo Caçador Mais Forte para sua primeira missão no Egito. Ao saltar na fenda dimensional da bacia do Nilo, Sen encarou de frente o aterrador Domínio Inato de Anúbis. Lutando lado a lado com Josh, usou seus punhos de pedra e determinação implacável para derrotar hordas de lacaios caninos da divindade, garantindo a sobrevivência de dezenas de civis inocentes aprisionados.",
     deeds: [
       "Sobreviveu à exposição crítica de energia folclórica bruta.",
-      "Consagrou o Domínio 'Mano a Mano' nos registros de combate corpo a corpo da Federação."
+      "Consagrou o Domínio 'Mano a Mano' nos registros de combate corpo a corpo da Federação.",
+      "Sobreviveu ao confronto no Domínio Inato de Anúbis no Egito, contendo os lacaios da divindade."
     ],
     weapons: {
       name: "Ataduras e Punhos Minerais",
@@ -588,7 +589,10 @@ export const CHARACTERS: Character[] = [
     physicalSpecialties: ['Força Colossal (Nível 2)', 'Passos do Relâmpago (Nível 2)'],
     domainName: 'Mano a Mano',
     relations: [
+      { role: 'Convocado por', targetCodename: 'Professor', targetName: 'O Mais Forte' },
+      { role: 'Sobreviveu ao Domínio de', targetCodename: 'Anubis', targetName: 'Divindade Anúbis' },
       { role: 'Instruído por', targetCodename: 'Stateham', targetName: 'Professor Stateham' },
+      { role: 'Irmão de Armas de', targetCodename: 'Josh', targetName: 'Josh' },
       { role: 'Aliado de Vanguarda de', targetCodename: 'Markus-Wolf', targetName: 'Markus Wolf' }
     ]
   },
@@ -644,10 +648,11 @@ export const CHARACTERS: Character[] = [
         image: "/destino.webp"
       }
     ],
-    history: "Com raízes profundas no Brasil e fluência em Tupi-Guarani, Josh sempre foi visto como uma anomalia pela Federação. Sua personalidade oscila entre a introspecção quieta e uma fúria visceral quando o sangue é derramado. Ele não caça por vaidade; sua conexão ancestral com o sangue e com as feras faz dele um predador implacável que enfrentou os horrores mais tenebrosos da campanha Vida e Morte.",
+    history: "Com raízes profundas no Brasil e fluência em Tupi-Guarani, Josh sempre foi visto como uma anomalia pela Federação. Sua personalidade oscila entre a introspecção quieta e uma fúria visceral quando o sangue é derramado. Ele não caça por vaidade; sua conexão ancestral com o sangue e com as feras faz dele um predador implacável.\n\nDurante uma aula teórica de alquimia com o Professor Stateham, foi surpreendido pela chegada do Caçador Mais Forte, que o escolheu ao lado de Sen para sua primeira missão em solo egípcio. No interior do Domínio Inato de Anúbis, Josh combateu no limite extremo de suas forças, erguendo muralhas de sangue e empregando rituais hematológicos corrosivos para massacrar os minions da divindade e proteger a vila de sobreviventes.",
     deeds: [
       "Manifestou a Expansão de Domínio Lua Vermelha em combate mortal.",
-      "Dominou as transfigurações do Instinto Animal contra criaturas folclóricas primordiais."
+      "Dominou as transfigurações do Instinto Animal contra criaturas folclóricas primordiais.",
+      "Combateu e expeliu os lacaios de Anúbis para defender a vila aprisionada no Egito."
     ],
     weapons: {
       name: "Lâminas de Sangue e Machado Ritual",
@@ -662,7 +667,10 @@ export const CHARACTERS: Character[] = [
     physicalSpecialties: ['Passos do Relâmpago (Nível 2)', 'Percepção Espiritual (Nível 2)'],
     domainName: 'Lua Vermelha',
     relations: [
+      { role: 'Convocado por', targetCodename: 'Professor', targetName: 'O Mais Forte' },
+      { role: 'Sobreviveu ao Domínio de', targetCodename: 'Anubis', targetName: 'Divindade Anúbis' },
       { role: 'Instruído por', targetCodename: 'Stateham', targetName: 'Professor Stateham' },
+      { role: 'Irmão de Armas de', targetCodename: 'Sen', targetName: 'Sen' },
       { role: 'Aliado de Vanguarda de', targetCodename: 'Markus-Wolf', targetName: 'Markus Wolf' }
     ]
   },
@@ -670,11 +678,9 @@ export const CHARACTERS: Character[] = [
     codename: 'Professor',
     imageURI: '/professor.webp',
     name: 'Sem registro oficial',
-    title: 'Agente de Risco Existencial Controlado',
+    title: 'O Mais Forte',
     country: 'Desconhecida // Federação Global',
     age: 33,
-    classification: 'Ameaça Existencial // Nível Ômega',
-    threatLevel: 'Catastrófico / Incalculável',
     quote: 'Para ele, o impossível nunca existiu. Para muitos, ele é uma ameaça maior do que qualquer lenda.',
     isCanonical: true,
     campaign: 'vida-e-morte',
@@ -690,9 +696,11 @@ export const CHARACTERS: Character[] = [
       'Matéria e vida, em perfeita união."'
     ],
     description: "Com 33 anos de idade e sem um nome oficial registrado, o Professor é considerado unanimemente o caçador mais forte da história. Desde o momento de seu nascimento, sua presença abalou o equilíbrio do mundo das lendas. Criaturas ancestrais despertaram, selos ruíram e antigas profecias passaram a citá-lo como um erro — ou uma correção — da realidade.",
-    history: "Datado pela Federação como o indivíduo com a maior quantidade de Energia Folclórica já registrada, o Professor sempre viveu à frente de seu tempo. Para ele, o impossível nunca existiu. Missões que exigiriam esquadrões inteiros eram resolvidas sozinho, com uma frieza quase didática, como se estivesse apenas demonstrando uma lição.\n\nApesar de seu poder absoluto, nunca buscou cargos, títulos ou reconhecimento dentro da Federação de Caçadores. Recusou posições de comando, ignorou honrarias e permaneceu à margem das decisões políticas. Ninguém sabe ao certo o que ele pensa ou o que deseja. Alguns acreditam que ele luta apenas por curiosidade; outros dizem que ele observa o mundo como um experimento.\n\nO fato é que, embora tenha sido responsável pela eliminação de incontáveis criaturas de nível catastrófico, o Professor não é visto como um salvador. Para muitos, ele é uma ameaça maior do que qualquer lenda.",
+    history: "Datado pela Federação como o indivíduo com a maior quantidade de Energia Folclórica já registrada, o Professor sempre viveu à frente de seu tempo. Aos 13 anos de idade, ainda um aprendiz recruta, acompanhou o então Pilar Mestre Stateham em uma missão rotineira contra um espírito ígneo. Dois dias após o prazo, retornaram: Stateham havia perdido a perna esquerda em um corte limpo e cauterizado, enquanto o garoto saiu do confronto sem um único arranhão ou marca de fuligem. O evento selou a aposentadoria silenciosa do mestre e prenunciou a ascensão avassaladora do jovem como 'O Mais Forte'.\n\nPara ele, o impossível nunca existiu. Missões que exigiriam esquadrões inteiros eram resolvidas sozinho, com uma frieza quase didática, como se estivesse apenas demonstrando uma lição.\n\nNa primeira missão da campanha Vida e Morte, entrou na sala de aula de seu antigo mestre Stateham e escolheu pessoalmente os novatos Sen e Josh. Conduziu-os através da Sede Viva da Federação até o Egito, onde desafiou diretamente a divindade Anúbis em seu próprio Domínio Inato. Em uma disputa de sobreposição territorial de domínios, sobrepôs a escuridão da morte com a exuberância atômica do 'Mundo Perfeito', desintegrando a lenda milenar.\n\nApesar de seu poder absoluto, nunca buscou cargos, títulos ou reconhecimento dentro da Federação de Caçadores. Recusou posições de comando, ignorou honrarias e permaneceu à margem das decisões políticas. Ninguém sabe ao certo o que ele pensa ou o que deseja. Para muitos, ele é uma ameaça maior do que qualquer lenda.",
     deeds: [
       "Eliminou definitivamente a divindade primordial Anúbis durante a campanha Vida e Morte.",
+      "Sobreviveu ileso à misteriosa missão dos 13 anos que custou a perna de Mestre Stateham.",
+      "Convocou e batizou em campo os novatos Sen e Josh na operação do Egito.",
       "Registrado como o portador da maior quantidade de Energia Folclórica de toda a história.",
       "Completou missões de nível catastrófico solitariamente com frieza estritamente didática.",
       "Sua presença abalou selos milenares e despertou entidades ancestrais desde o nascimento."
@@ -716,50 +724,54 @@ export const CHARACTERS: Character[] = [
     },
     equipmentSummary: "Braço de Antimatéria e Emissor de Desintegração",
     relations: [
-      { role: 'Eliminou em Vida e Morte', targetCodename: 'Anubis', targetName: 'Divindade Anúbis' }
+      { role: 'Eliminou em Vida e Morte', targetCodename: 'Anubis', targetName: 'Divindade Anúbis' },
+      { role: 'Antigo Pupilo de (aos 13 anos)', targetCodename: 'Stateham', targetName: 'Professor Stateham' },
+      { role: 'Convocou para 1ª Missão', targetCodename: 'Sen', targetName: 'Sen' },
+      { role: 'Convocou para 1ª Missão', targetCodename: 'Josh', targetName: 'Josh' }
     ]
   },
   {
     codename: 'Stateham',
     imageURI: '/professor-stateham.webp',
     name: 'Professor Stateham',
-    title: 'Mentor Primordial & Artífice do Tempo',
+    title: 'Ex-Pilar da Federação (Cinco Punhos) & Mentor da Academia',
     country: 'Reino Unido // Federação Central',
-    classification: 'Instrutor Emérito // Cronometria Arcana',
-    threatLevel: 'Genialidade Tática Absoluta',
-    quote: 'O tempo é a única engrenagem que não tolera hesitações nem amadores.',
+    quote: 'A paciência é uma dívida que se paga em silêncio. E o tempo... o tempo nunca esquece o que foi deixado para trás.',
     isCanonical: true,
     campaign: 'vida-e-morte',
     appearanceCampaigns: ['vida-e-morte', 'canon-global'],
     rank: 'A',
-    federation: 'Círculo de Avalon',
-    physicalSpecialties: ['Percepção Espiritual (Nível 2)', 'Canalização Rítmica (Nível 2)'],
-    description: "Homem de idade avançada, profundamente aficionado por relógios, cadência rítmica e mecanismos rúnicos. Embora rotulado por muitos como excêntrico e beirando a loucura, Stateham é detentor de uma genialidade incomparável na manipulação e ensino de energia folclórica.",
-    history: "Professor Stateham foi o instrutor fundamental que ensinou o básico e forjou o alicerce de combate e canalização de Sen e Josh. Com métodos nada convencionais e uma paixão obsessiva pela precisão do tempo, moldou dois dos combatentes mais temidos da história.\n\nSua mente trabalha como uma intrincada caixa de engrenagens: enxerga conexões invisíveis no fluxo da batalha e decifra fraquezas que outros levariam anos para notar. Mesmo fora das linhas de frente ativas, seu conhecimento é considerado patrimônio vitalício da Federação.",
+    federation: 'Conselho de Veteranos // Ex-Cinco Punhos',
+    physicalSpecialties: ['Percepção Espiritual (Nível 3)', 'Alquimia & Bioenergia Primordial (Nível 2)'],
+    description: "Antes de se aposentar, Mestre Stateham foi um dos Pilares da Federação — o topo absoluto da hierarquia de caçadores, integrando os lendários Cinco Punhos. Hoje com idade avançada e desprovido da perna esquerda, atua como instrutor na academia, ensinando aos novatos os fundamentos da sobrevivência, bioenergia e alquimia com uma paciência quase penitente, como quem paga uma dívida silenciosa que ninguém mais compreende.",
+    history: "No ápice de sua trajetória operacional, Stateham era reverenciado como um dos Cinco Punhos — a autoridade máxima em combate e contenção da Federação. Numa missão rotineira para exterminar um espírito ígneo menor capaz de queimar um vilarejo, levou consigo um aprendiz de apenas 13 anos.\n\nRetornaram dois dias depois do previsto. Stateham estava sem a perna esquerda — corte limpo, cauterizado, sem uma única marca de fogo em qualquer ponto do corpo. O garoto, por outro lado, não tinha um único arranhão nem fuligem nas vestes. Stateham nunca revelou o que ocorreu naquele santuário e jamais aceitou outra missão de campo. Aposentou-se em silêncio para treinar a nova geração, enquanto aquele aprendiz cresceu para se tornar a figura lendária conhecida em toda a Federação como 'O Mais Forte'.\n\nFoi na sala de aula de Stateham que Sen e Josh aprenderam os alicerces da alquimia e o controle refinado de energia folclórica antes de serem convocados pessoalmente pelo Caçador Mais Forte. Com métodos metódicos, obsessão por relógios e precisão matemática de intervalos, Stateham forjou alguns dos maiores sobreviventes da humanidade.",
     deeds: [
-      "Mentor e instrutor responsável pela formação e sobrevivência inicial de Sen e Josh.",
+      "Ex-integrante dos lendários Cinco Punhos — os Pilares supremos da Federação de Caçadores.",
+      "Sobreviveu à misteriosa missão do espírito ígneo junto ao jovem aprendiz que viria a se tornar O Mais Forte.",
+      "Mentor seminal responsável por forjar a base de combate, bioenergia e alquimia de Sen e Josh.",
       "Criador de métodos de canalização energética fundamentados em cronometria e pulso rítmico.",
       "Engenheiro responsável por calibrar relógios rúnicos de contenção durante crises de fissura dimensional."
     ],
     abilities: [
       {
-        name: "Engenharia Cronometrada",
-        description: "Leitura analítica milimétrica dos intervalos e tempos de reação do oponente, prevendo golpes com precisão cronométrica.",
-        image: "/ler-o-futuro.webp"
+        name: "Didática Penitente & Desbloqueio Latente",
+        description: "Diagnostica e harmoniza o fluxo de energia folclórica de seus pupilos em tempo real, desbloqueando potência latente e refinando o controle de bioenergia.",
+        image: "/genialidade.webp"
       },
       {
-        name: "Didática Esotérica",
-        description: "Habilidade de diagnosticar e harmonizar o fluxo de energia folclórica de seus pupilos em tempo real, desbloqueando potência latente.",
-        image: "/genialidade.webp"
+        name: "Engenharia Cronometrada & Leitura de Padrões",
+        description: "Leitura analítica milimétrica dos intervalos e tempos de reação do oponente, antecipando trajetórias e contra-golpes com precisão cronométrica de relojoeiro.",
+        image: "/ler-o-futuro.webp"
       }
     ],
     weapons: {
-      name: "Mecanismo Cronológico Rúnico",
+      name: "Bengala-Mecanismo Cronométrica & Prótese Rúnica",
       imageURI: "/rifle-espiritual.webp",
-      description: "Instrumento de precisão relojoeira com ponteiros arcanos afinados para medir ressonâncias folclóricas."
+      description: "Instrumento relojoeiro de precisão que serve como condutor arcano e apoio de marcha para compensar a perna esquerda amputada."
     },
-    equipmentSummary: "Cronômetros Arcanos, Lentes de Precisão e Relógios de Bolso",
+    equipmentSummary: "Bengala Cronométrica de Apoio, Relógios de Bolso Rúnicos, Lentes de Calibração e Caderno de Fórmulas Alquímicas",
     relations: [
+      { role: 'Ex-Mestre de (aos 13 anos)', targetCodename: 'Professor', targetName: 'O Professor' },
       { role: 'Mentor de', targetCodename: 'Sen', targetName: 'Sen' },
       { role: 'Mentor de', targetCodename: 'Josh', targetName: 'Josh' }
     ]
@@ -768,45 +780,50 @@ export const CHARACTERS: Character[] = [
     codename: 'Markus-Wolf',
     imageURI: '/markus-wolf.webp',
     name: 'Markus Wolf',
-    title: 'O Arqueiro da Vanguarda Medieval',
-    country: 'Alemanha // Federação Central',
-    classification: 'Veterano de Guerra // Linha de Frente',
-    threatLevel: 'Precisão Balística Pesada',
-    quote: 'Na escuridão da vanguarda, o arco não treme e a armadura não cede.',
+    title: 'O Rastreador das Fronteiras',
+    country: 'Montes Cárpatos & Territórios Nórdicos // Fronteira',
+    quote: 'Na floresta, a pressa é a primeira a morrer. A pergunta nunca é se você encontrou a lenda... é se ela deixou você encontrá-la.',
     isCanonical: true,
     campaign: 'vida-e-morte',
     appearanceCampaigns: ['vida-e-morte', 'canon-global'],
     rank: 'B',
-    federation: 'Liga dos Titãs Esquecidos',
-    physicalSpecialties: ['Força Colossal (Nível 2)', 'Corpo de Aço (Nível 2)'],
-    description: "Caçador destemido e veterano de incontáveis embates, Markus Wolf combateu na vanguarda mais impiedosa da Federação. Equipado com um poderoso arco de caça e protegido por uma couraça de armadura medieval, destacou-se por sua determinação implacável ao lado de Sen e Josh.",
-    history: "Markus Wolf lutou lado a lado com Sen e Josh durante as horas mais desesperadoras da campanha Vida e Morte. Os arquivos centrais da Federação guardam poucos registros biográficos pregressos sobre ele — muitos documentos daquela época foram selados ou extraviados em combate.\n\nEntretanto, um dos seus maiores feitos reverbera com força entre os sobreviventes: Markus encarou e combateu diretamente uma colossal e desconhecida lenda de três cabeças, desferindo disparos críticos que abriram brechas vitais para a contenção da monstruosidade.",
+    federation: 'Caçadores de Fronteira // Federação Central',
+    physicalSpecialties: ['Percepção Espiritual (Nível 2)', 'Rastreamento Sobrenatural & Precisão (Nível 2)'],
+    description: "Markus nunca foi dos mais fortes da Federação e sabe disso — mas construiu sua reputação em algo muito mais raro que força bruta: ele nunca perde um rastro. Classificado em nível médio/alto (Rank B), ele não vence lendas de topo sozinho, mas é frequentemente quem encontra as entidades que ninguém mais consegue localizar e quem sobrevive a caçadas que exigem paciência, não poder.",
+    history: "Filho de caçadores de fronteira nos ermos gelados dos Montes Cárpatos e territórios nórdicos, Markus cresceu rastreando predadores reais antes de perseguir sua primeira lenda. Sua técnica não nasceu em academias luxuosas ou treinos formais de guilda: veio da pura sobrevivência, aprendendo a ler sutilezas no vento, pegadas na neve e padrões de comportamento animal.\n\nEntrou para a Federação mais tarde, já na vida adulta, o que gerou um leve preconceito velado por parte de caçadores de carreira que o rotulavam como 'rústico' ou 'sortudo' — subestimando a genialidade sensorial por trás de cada passo.\n\nSua mentalidade foi para sempre moldada por uma ferida pessoal profunda: Markus perdeu seu parceiro de caça numa missão em que rastrearam uma criatura por semanas, apenas para descobrirem tarde demais que estavam sendo rastreados de volta. O trauma o tornou paranoico com o excesso de confiança: Markus opera sob a constante vigília de quem sempre questiona se é o predador ou a presa.\n\nDurante a campanha Vida e Morte, lutou na vanguarda ao lado de Sen e Josh. Quando uma colossal e desconhecida lenda de três cabeças emergiu, Markus utilizou sua precisão milimétrica e armadilhas de desgaste à distância para abrir brechas vitais na couraça da abominação, viabilizando a contenção da criatura.",
     deeds: [
-      "Lutou diretamente ao lado de Sen e Josh na linha de frente da campanha Vida e Morte.",
-      "Enfrentou heroicamente em combate singular uma colossal lenda desconhecida de três cabeças.",
-      "Pioneiro no uso de armaduras de placas medievais reforçadas por encantamentos folclóricos."
+      "Construiu a reputação lendária de jamais ter perdido o rastro de uma criatura designada.",
+      "Sobrevivente nato das fronteiras dos Cárpatos, desenvolvendo técnicas sensoriais a partir da fauna real.",
+      "Susteve a contenção de vanguarda e desferiu disparos críticos na colossal lenda de três cabeças na campanha Vida e Morte.",
+      "Pioneiro das técnicas bioenergéticas do Fio do Caçador e Flechas Marcadoras de longo alcance.",
+      "Especialista em emboscadas de desgaste extremo e sobrevivência prolongada em territórios hostis."
     ],
     abilities: [
       {
-        name: "Disparo Crítico de Vanguarda",
-        description: "Disparo com tensão máxima em seu arco medieval, canalizando energia folclórica perfurante capaz de quebrar couraças pesadas de abominações gigantes.",
-        image: "/corte-translucido.webp"
+        name: "Fio do Caçador",
+        description: "Conexão bioenergética sutil mantida com qualquer alvo ferido ao menos uma vez. Não rastreia por pegadas convencionais: persegue a assinatura da lenda ferida em tempo real, independente da distância ou terreno.",
+        image: "/pulso-predatorio.webp"
       },
       {
-        name: "Baluarte de Aço",
-        description: "Postura sólida sob a armadura de placas medieval, defletindo investidas titânicas e dispersando o impacto cinético de golpes colossais.",
-        image: "/casca-grossa.webp"
+        name: "Flechas Marcadoras (Radar Pessoal)",
+        description: "Flechas preparadas que carregam fragmentos de sua própria bioenergia. Cada flecha acertada deixa um marcador sensorial que Markus sente à distância, operando como um radar pessoal de posicionamento.",
+        image: "/invisible-hunter.webp"
+      },
+      {
+        name: "Emboscada de Desgaste (Trade-off Tático)",
+        description: "Vulnerável em combates corporais diretos e prolongados, Markus dita o ritmo da batalha através do desgaste paulatino, tiros de longa distância e armadilhas metódicas para abater o alvo sem se expor.",
+        image: "/trap.webp"
       }
     ],
     weapons: {
-      name: "Arco Longo da Vanguarda & Armadura Medieval",
+      name: "Arco Composto de Fronteira & Aljava Marcadora",
       imageURI: "/rifle-espiritual.webp",
-      description: "Arco longo reforçado com fibras de alta resistência e couraça completa forjada para suportar impacto folclórico."
+      description: "Arco artesanal reforçado para alta tração de longa distância, acompanhado de flechas entalhadas com canaletas para fixação de fragmentos bioenergéticos."
     },
-    equipmentSummary: "Arco Longo de Guerra, Flechas Espirituais e Armadura Medieval",
+    equipmentSummary: "Arco Composto de Fronteira, Flechas Marcadoras Bioenergéticas, Capas de Camuflagem Nórdica e Armadilhas de Contenção",
     relations: [
-      { role: 'Aliado de Combate de', targetCodename: 'Sen', targetName: 'Sen' },
-      { role: 'Aliado de Combate de', targetCodename: 'Josh', targetName: 'Josh' }
+      { role: 'Aliado de Vanguarda de', targetCodename: 'Sen', targetName: 'Sen' },
+      { role: 'Aliado de Vanguarda de', targetCodename: 'Josh', targetName: 'Josh' }
     ]
   }
 ];

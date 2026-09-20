@@ -19,7 +19,7 @@ export class CharacterRecord implements OnInit {
   private navHistory = inject(NavigationHistoryService);
 
   character?: Character;
-  backUrl: string = '/personagens/one-shot';
+  backUrl: string = '/campanhas/one-shot';
 
   goBack(): void {
     this.navHistory.goBack(this.backUrl);
@@ -39,16 +39,16 @@ export class CharacterRecord implements OnInit {
       .join('/');
 
     if (this.character?.campaign === 'vida-e-morte' && !currentUrl.includes('vida-e-morte')) {
-      this.router.navigate(['/personagens/vida-e-morte', this.character.codename]);
+      this.router.navigate(['/campanhas/vida-e-morte', this.character.codename]);
       return;
     }
 
     if (currentUrl.includes('inverno-de-ossos') || this.character?.campaign === 'inverno-de-ossos') {
-      this.backUrl = '/personagens/inverno-de-ossos';
+      this.backUrl = '/campanhas/inverno-de-ossos';
     } else if (currentUrl.includes('vida-e-morte') || this.character?.campaign === 'vida-e-morte') {
-      this.backUrl = '/personagens/vida-e-morte';
+      this.backUrl = '/campanhas/vida-e-morte';
     } else {
-      this.backUrl = '/personagens/one-shot';
+      this.backUrl = '/campanhas/one-shot';
     }
   }
 

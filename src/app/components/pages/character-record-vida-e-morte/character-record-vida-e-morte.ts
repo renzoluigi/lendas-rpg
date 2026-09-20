@@ -25,7 +25,7 @@ export class CharacterRecordVidaEMorte implements OnInit {
   character?: Character;
   domainExpansion?: Ability;
   regularAbilities: Ability[] = [];
-  backUrl: string = '/personagens/vida-e-morte';
+  backUrl: string = '/campanhas/vida-e-morte';
 
   goBack(): void {
     this.navHistory.goBack(this.backUrl);
@@ -37,9 +37,9 @@ export class CharacterRecordVidaEMorte implements OnInit {
     const path = this.route.snapshot.url.map(u => u.path).join('/').toLowerCase();
     
     if (path.includes('arquivo-geral')) {
-      this.backUrl = '/personagens/arquivo-geral';
+      this.backUrl = '/campanhas/arquivo-geral';
     } else {
-      this.backUrl = '/personagens/vida-e-morte';
+      this.backUrl = '/campanhas/vida-e-morte';
     }
 
     if (!codenameParam) {

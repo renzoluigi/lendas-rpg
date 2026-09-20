@@ -4,7 +4,7 @@
   <div class="inverno-container">
     <div class="nav-bar">
       <div class="campaign-breadcrumb">
-        <span class="campaign-name">CAMPANHAS</span>
+        <a routerLink="/campanhas" class="campaign-link">CAMPANHAS</a>
         <span class="separator">/</span>
         <span class="sub-name">INVERNO DE OSSOS</span>
       </div>
@@ -71,7 +71,7 @@
 
       <div class="character-grid">
         @for (char of characters; track char.codename; let idx = $index) {
-          <a class="character-card" [routerLink]="['/personagens/inverno-de-ossos', char.codename]">
+          <a class="character-card" [routerLink]="['/campanhas/inverno-de-ossos', char.codename]">
             <div class="image-wrapper">
               <img [src]="char.imageURI" [alt]="char.name" loading="lazy">
               <div class="image-overlay"></div>

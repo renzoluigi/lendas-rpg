@@ -29,7 +29,7 @@
           <div class="identity-card">
             <div class="seal-badge" [class.canon-seal]="character.isCanonical">
               <span class="blood-pulse"></span>
-              <span>{{ character.isCanonical ? (character.classification || 'REGISTRO CANÔNICO') : ('PIONEIRO SELADO #' + (character.codename === 'Sen' ? '01' : '02')) }}</span>
+              <span>PATENTE OFICIAL // RANK {{ character.rank || 'A' }}</span>
             </div>
 
             <div class="name-block">
@@ -74,7 +74,7 @@
                 <span class="relations-label">VÍNCULOS CANÔNICOS:</span>
                 <div class="relations-items">
                   @for (rel of character.relations; track rel.targetCodename) {
-                    <a class="relation-link" [routerLink]="['/personagens/vida-e-morte', rel.targetCodename]">
+                    <a class="relation-link" [routerLink]="['/campanhas/vida-e-morte', rel.targetCodename]">
                       <span class="rel-role-text">{{ rel.role }}</span>
                       <strong class="rel-target-text">{{ rel.targetName }} →</strong>
                     </a>

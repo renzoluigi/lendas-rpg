@@ -313,55 +313,60 @@
   }
 }
 
-/* Characters Section */
-.characters-section {
-  .section-heading {
-    text-align: center;
-    margin-bottom: 36px;
+/* Section Headings (Shared) */
+.section-heading {
+  text-align: center;
+  margin-bottom: 36px;
 
-    .heading-ornament {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      margin-bottom: 12px;
+  .heading-ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 12px;
 
-      .ornament-line {
-        height: 1px;
-        width: 80px;
-        background: linear-gradient(90deg, transparent, #dc2626);
+    .ornament-line {
+      display: inline-block;
+      height: 1px;
+      width: 80px;
+      background: linear-gradient(90deg, transparent, #dc2626);
 
-        &:last-child {
-          background: linear-gradient(90deg, #dc2626, transparent);
-        }
-      }
-
-      .skull-icon {
-        font-size: 1.4rem;
-        filter: drop-shadow(0 0 10px rgba(239, 68, 68, 0.8));
+      &:last-child {
+        background: linear-gradient(90deg, #dc2626, transparent);
       }
     }
 
-    .section-title {
-      font-family: 'Cinzel', serif;
-      font-size: 1.8rem;
-      font-weight: 700;
-      letter-spacing: 3px;
-      color: #ffffff;
-      margin: 0 0 8px;
-      text-shadow: 0 0 15px rgba(220, 38, 38, 0.6);
-    }
-
-    .section-subtitle {
-      font-family: 'Cinzel', serif;
-      font-size: 0.9rem;
-      color: #fca5a5;
-      max-width: 600px;
-      margin: 0 auto;
-      line-height: 1.5;
+    .blood-diamond,
+    .skull-icon {
+      color: #ef4444;
+      font-size: 1.2rem;
+      line-height: 1;
+      filter: drop-shadow(0 0 10px rgba(239, 68, 68, 0.8));
     }
   }
 
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #ffffff;
+    margin: 0 0 8px;
+    text-shadow: 0 0 15px rgba(220, 38, 38, 0.6);
+  }
+
+  .section-subtitle {
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    color: #fca5a5;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+}
+
+/* Characters Section */
+.characters-section {
   .character-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -853,5 +858,500 @@
   .character-grid {
     grid-template-columns: 1fr;
     max-width: 340px;
+  }
+}
+
+/* =========================================================================
+   MISSÕES DA SAGA & LENDAS ENFRENTADAS
+   ========================================================================= */
+.campaign-breadcrumb {
+  .campaign-link {
+    color: #9ca3af;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    &:hover { color: #f87171; }
+  }
+}
+
+.missions-section {
+  margin-top: 5rem;
+}
+
+.missions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.mission-card {
+  background: rgba(18, 5, 8, 0.85);
+  border: 1px solid rgba(220, 38, 38, 0.35);
+  border-radius: 12px;
+  padding: 1.75rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+
+  &:hover {
+    border-color: #ef4444;
+    box-shadow: 0 12px 35px rgba(220, 38, 38, 0.25);
+    transform: translateY(-4px);
+  }
+
+  .mission-card-header {
+    border-bottom: 1px solid rgba(239, 68, 68, 0.2);
+    padding-bottom: 1rem;
+    margin-bottom: 1.25rem;
+
+    .mission-top-badges {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+
+      .badge-code {
+        font-family: 'Cinzel', serif;
+        font-size: 0.75rem;
+        letter-spacing: 1.5px;
+        color: #fca5a5;
+        background: rgba(127, 29, 29, 0.5);
+        padding: 3px 8px;
+        border-radius: 4px;
+        border: 1px solid rgba(239, 68, 68, 0.3);
+      }
+
+      .badge-status {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        padding: 3px 10px;
+        border-radius: 20px;
+        background: rgba(34, 197, 94, 0.15);
+        color: #4ade80;
+        border: 1px solid rgba(34, 197, 94, 0.4);
+
+        .dot {
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background: #4ade80;
+          box-shadow: 0 0 6px #4ade80;
+        }
+      }
+    }
+
+    .mission-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #fff;
+      margin: 0 0 0.25rem;
+      letter-spacing: 0.05em;
+    }
+
+    .mission-subtitle {
+      font-size: 0.85rem;
+      color: #fca5a5;
+      margin: 0;
+    }
+  }
+
+  .mission-card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+
+    .mission-info-strip {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+
+      .info-item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+
+        .info-label {
+          font-size: 0.65rem;
+          color: #9ca3af;
+          letter-spacing: 1px;
+        }
+        .info-val {
+          font-size: 0.82rem;
+          color: #fff;
+          font-weight: 600;
+
+          &.highlight-target {
+            color: #f87171;
+          }
+        }
+      }
+    }
+
+    .mission-summary-text {
+      font-size: 0.9rem;
+      color: #d1d5db;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .mission-participants-wrap {
+      .part-title {
+        font-size: 0.7rem;
+        letter-spacing: 1.5px;
+        color: #9ca3af;
+        display: block;
+        margin-bottom: 0.6rem;
+      }
+
+      .part-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+
+        .part-chip {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          background: rgba(255, 255, 255, 0.03);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          padding: 0.35rem 0.65rem;
+          border-radius: 6px;
+
+          .part-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid rgba(239, 68, 68, 0.4);
+          }
+
+          .part-info {
+            display: flex;
+            flex-direction: column;
+            .part-name { font-size: 0.78rem; font-weight: 700; color: #fff; }
+            .part-role { font-size: 0.65rem; color: #9ca3af; }
+          }
+        }
+      }
+    }
+  }
+
+  .mission-card-footer {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+    .btn-read-mission {
+      width: 100%;
+      background: linear-gradient(135deg, rgba(220, 38, 38, 0.25) 0%, rgba(127, 29, 29, 0.4) 100%);
+      border: 1px solid rgba(239, 68, 68, 0.5);
+      color: #fff;
+      padding: 0.8rem 1.25rem;
+      border-radius: 6px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      transition: all 0.25s ease;
+
+      &:hover {
+        background: #dc2626;
+        box-shadow: 0 0 20px rgba(220, 38, 38, 0.6);
+        transform: translateY(-2px);
+      }
+    }
+  }
+}
+
+
+/* Mission Reader Modal */
+.mission-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.mission-modal-frame {
+  background: #0d0709;
+  border: 1px solid rgba(239, 68, 68, 0.5);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(220, 38, 38, 0.3);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 950px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.mission-modal-header {
+  padding: 2rem 2.5rem 1.5rem;
+  border-bottom: 1px solid rgba(239, 68, 68, 0.25);
+  background: linear-gradient(180deg, rgba(30, 8, 12, 0.9) 0%, rgba(13, 7, 9, 0.95) 100%);
+
+  .modal-code-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.72rem;
+    letter-spacing: 1.5px;
+    color: #fca5a5;
+    background: rgba(127, 29, 29, 0.4);
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    margin-bottom: 0.75rem;
+
+    .seal-diamond { color: #ef4444; }
+  }
+
+  .modal-mission-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fff;
+    margin: 0 0 0.25rem;
+    letter-spacing: 1px;
+  }
+
+  .modal-mission-subtitle {
+    font-size: 0.95rem;
+    color: #fca5a5;
+    margin: 0 0 1rem;
+  }
+
+  .modal-header-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.85rem;
+    color: #9ca3af;
+
+    .meta-sep { color: rgba(255, 255, 255, 0.2); }
+    strong { color: #fff; }
+
+    .status-pill {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: rgba(34, 197, 94, 0.2);
+      color: #4ade80;
+      border: 1px solid rgba(34, 197, 94, 0.4);
+    }
+  }
+}
+
+.mission-modal-body {
+  padding: 2rem 2.5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  .tactic-briefing-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: 10px;
+    padding: 1.25rem;
+
+    .briefing-col {
+      .brief-label {
+        font-size: 0.68rem;
+        letter-spacing: 1.5px;
+        color: #fca5a5;
+        font-weight: 700;
+        display: block;
+        margin-bottom: 0.4rem;
+      }
+      .brief-text {
+        font-size: 0.88rem;
+        color: #d1d5db;
+        line-height: 1.55;
+        margin: 0;
+
+        &.highlight-anom { color: #f87171; }
+      }
+    }
+  }
+
+  .section-divider-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #fca5a5;
+    margin: 0 0 1.25rem;
+
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: rgba(239, 68, 68, 0.25);
+    }
+  }
+
+  .modal-participants-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+
+    .modal-part-card {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 0.65rem 0.9rem;
+      border-radius: 8px;
+
+      .part-photo {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 1px solid rgba(239, 68, 68, 0.5);
+      }
+
+      .part-name {
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: #fff;
+        margin: 0;
+      }
+      .part-role {
+        font-size: 0.7rem;
+        color: #9ca3af;
+        margin: 0;
+      }
+    }
+  }
+
+  .chronicle-section {
+    .chapters-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+
+      .chronicle-chapter {
+        background: rgba(20, 6, 10, 0.5);
+        border: 1px solid rgba(220, 38, 38, 0.2);
+        border-radius: 10px;
+        padding: 1.5rem;
+
+        .chapter-title {
+          font-family: 'Cinzel', serif;
+          font-size: 1.15rem;
+          font-weight: 800;
+          color: #fca5a5;
+          margin: 0 0 1rem;
+          letter-spacing: 1px;
+          border-bottom: 1px solid rgba(239, 68, 68, 0.2);
+          padding-bottom: 0.5rem;
+        }
+
+        .chapter-paragraphs {
+          display: flex;
+          flex-direction: column;
+          gap: 0.9rem;
+
+          .chronicle-p {
+            font-size: 0.95rem;
+            color: #e5e7eb;
+            line-height: 1.75;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .outcome-box {
+    background: rgba(34, 197, 94, 0.05);
+    border: 1px solid rgba(34, 197, 94, 0.25);
+    border-radius: 10px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    .outcome-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+
+      .out-label {
+        font-size: 0.68rem;
+        letter-spacing: 1px;
+        color: #4ade80;
+        font-weight: 700;
+      }
+
+      .out-val {
+        font-size: 0.9rem;
+        color: #d1d5db;
+        line-height: 1.5;
+
+        &.highlight-success {
+          color: #4ade80;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+
+.mission-modal-footer {
+  padding: 1.25rem 2.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: flex-end;
+  background: rgba(0, 0, 0, 0.4);
+
+  .btn-close-reader {
+    background: #dc2626;
+    border: none;
+    color: #fff;
+    padding: 0.65rem 1.5rem;
+    border-radius: 6px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+
+    &:hover { background: #b91c1c; }
   }
 }

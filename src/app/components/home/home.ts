@@ -23,12 +23,12 @@ export class Home {
 
   getCharacterLink(char: Character): string[] {
     if (char.campaign === 'inverno-de-ossos') {
-      return ['/personagens/inverno-de-ossos', char.codename];
+      return ['/campanhas/inverno-de-ossos', char.codename];
     }
     if (char.campaign === 'vida-e-morte') {
-      return ['/personagens/vida-e-morte', char.codename];
+      return ['/campanhas/vida-e-morte', char.codename];
     }
-    return ['/personagens/one-shot', char.codename];
+    return ['/campanhas/one-shot', char.codename];
   }
 
   getCampaignBadge(char: Character): { text: string; cssClass: string } {

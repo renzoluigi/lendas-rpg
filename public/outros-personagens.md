@@ -32,18 +32,16 @@ Com seu braço de antimateria disparia um raio de destruição que evapora qualq
 imagem:professor.webp
 
 --------
-professor stateham (outro personasgem)
+professor stateham (ver prof-stateham.md para detalhes completos)
 
-professor stateham ensinou o sen e o josh o basico (podemos desenvolver um pouco isso, sem inventar muitas coisas), ele eh um homem velho, ficcionado em relogios, meio maluco porem extremamente genial
+Ex-Pilar da Federação (Cinco Punhos). Perdeu a perna esquerda numa missão misteriosa com um aprendiz de 13 anos (que viria a se tornar O Mais Forte). Ensinou o básico de combate, bioenergia e alquimia para Sen e Josh. Homem de idade avançada, aficionado por relógios, manco, genial e de paciência quase penitente.
 
 imagem: professor-stateham.webp
 
 
 --------
-markus wolf (outro personagem)
+markus wolf (ver markus-wolf.md para detalhes completos)
 
-markus wolf era um caçador que lutou junto a sen e josh, lutava com um arco e tinha uma armadura medieval, um dos seus grandes feitos foi enfrentar uma grande lenda desconhecida com 3 cabecas
-
-sem mais informacoes registradas
+O Rastreador das Fronteiras (Cárpatos/territórios nórdicos). Especialista em rastreamento sensorial, percepção e paciência (Fio do Caçador e Flechas Marcadoras). Fraco em combate direto prolongado. Enfrentou a lenda de três cabeças ao lado de Sen e Josh.
 
 imagem: markus-wolf.webp

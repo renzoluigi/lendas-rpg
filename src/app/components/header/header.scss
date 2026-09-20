@@ -143,6 +143,17 @@
         box-shadow: 0 0 12px rgba(166, 138, 75, 0.45);
       }
 
+      &.nav-lendas:hover {
+        color: #fde68a;
+        background: rgba(245, 158, 11, 0.18);
+      }
+
+      &.nav-lendas.active {
+        color: #1a1205;
+        background: #f59e0b;
+        box-shadow: 0 0 14px rgba(245, 158, 11, 0.55);
+      }
+
       &.nav-inverno:hover {
         color: #7dd3fc;
         background: rgba(56, 189, 248, 0.18);

@@ -22,7 +22,7 @@ export class CharacterRecordInvernoDeOssos implements OnInit {
   character?: Character;
   signatureTechnique?: Ability;
   regularAbilities: Ability[] = [];
-  backUrl: string = '/personagens/inverno-de-ossos';
+  backUrl: string = '/campanhas/inverno-de-ossos';
 
   goBack(): void {
     this.navHistory.goBack(this.backUrl);
