@@ -143,6 +143,17 @@
         box-shadow: 0 0 12px rgba(166, 138, 75, 0.45);
       }
 
+      &.nav-como-jogar:hover {
+        color: #ffd700;
+        background: rgba(212, 175, 55, 0.22);
+      }
+
+      &.nav-como-jogar.active {
+        color: #1a1205;
+        background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        box-shadow: 0 0 14px rgba(245, 158, 11, 0.55);
+      }
+
       &.nav-lendas:hover {
         color: #fde68a;
         background: rgba(245, 158, 11, 0.18);

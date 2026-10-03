@@ -13,9 +13,13 @@ import { CampaignMapInverno } from './components/pages/campaign-map-inverno/camp
 import { ArchiveCanon } from './components/pages/archive-canon/archive-canon';
 import { Archive } from './components/pages/archive/archive';
 import { Legends } from './components/pages/legends/legends';
+import { HowToPlay } from './components/pages/how-to-play/how-to-play';
 
 export const routes: Routes = [
   { path: "", component: Home },
+  { path: "como-jogar", component: HowToPlay },
+  { path: "guia", redirectTo: "como-jogar", pathMatch: "full" },
+  { path: "regras", redirectTo: "como-jogar", pathMatch: "full" },
   { path: "arquivo", component: Archive },
   { path: "lendas", component: Legends },
 

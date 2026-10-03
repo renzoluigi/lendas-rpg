@@ -3,47 +3,82 @@
 
   <!-- Main Sectors Grid -->
   <section class="sectors-grid">
-    <!-- Primary Sector: Conheça a Federação (Featured Highlight) -->
-    <article class="sector-card sector-federation">
-      <div class="sector-bg-overlay"></div>
-      <div class="sector-content">
-        <div class="sector-tag">
-          <span class="diamond">◆</span>
-          <span>SETOR 01 // DIRETRIZES GLOBAIS & O CÓDICE</span>
-          <span class="diamond">◆</span>
-        </div>
-        <h2 class="sector-title">CONHEÇA A FEDERAÇÃO</h2>
-        <p class="sector-desc">
-          Mergulhe no universo onde as lendas ganharam vida: a quebra das fronteiras míticas, o rompimento do Véu, a Energia Folclórica, as 15 Grandes Federações Mundiais, patentes de caçadores (Ranks F a SS), cadernos alquímicos e expansões de domínio.
-        </p>
+    <!-- Top Row: Conheça a Federação & Como Jogar -->
+    <div class="sectors-dual-row">
+      <!-- Sector 01: Conheça a Federação -->
+      <article class="sector-card sector-federation">
+        <div class="sector-bg-overlay"></div>
+        <div class="sector-content">
+          <div class="sector-tag">
+            <span class="diamond">◆</span>
+            <span>SETOR 01 // DIRETRIZES GLOBAIS & O CÓDICE</span>
+            <span class="diamond">◆</span>
+          </div>
+          <h2 class="sector-title">CONHEÇA A FEDERAÇÃO</h2>
+          <p class="sector-desc">
+            Mergulhe no universo onde as lendas ganharam vida: a quebra das fronteiras míticas, o rompimento do Véu, a Energia Folclórica, as 15 Grandes Federações Mundiais, patentes de caçadores (Ranks F a SS), cadernos alquímicos e expansões de domínio.
+          </p>
 
-        <div class="sector-actions">
-          <a class="btn-hub btn-federation-access" routerLink="/arquivo">
-            <span class="btn-corner top-left"></span>
-            <span class="btn-corner top-right"></span>
-            <span class="btn-corner bottom-left"></span>
-            <span class="btn-corner bottom-right"></span>
-            <span class="btn-glint"></span>
-            <span class="btn-label">EXPLORAR A FEDERAÇÃO</span>
-            <span class="btn-symbol">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2L14.8 9.2L22 12L14.8 14.8L12 22L9.2 14.8L2 12L9.2 9.2L12 2Z"/>
-              </svg>
-            </span>
-          </a>
+          <div class="sector-actions">
+            <a class="btn-hub btn-federation-access" routerLink="/arquivo">
+              <span class="btn-corner top-left"></span>
+              <span class="btn-corner top-right"></span>
+              <span class="btn-corner bottom-left"></span>
+              <span class="btn-corner bottom-right"></span>
+              <span class="btn-glint"></span>
+              <span class="btn-label">EXPLORAR A FEDERAÇÃO</span>
+              <span class="btn-symbol">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2L14.8 9.2L22 12L14.8 14.8L12 22L9.2 14.8L2 12L9.2 9.2L12 2Z"/>
+                </svg>
+              </span>
+            </a>
+          </div>
         </div>
-      </div>
-    </article>
+      </article>
+
+      <!-- Sector 02: Como Jogar - Guia do Caçador -->
+      <article class="sector-card sector-how-to-play">
+        <div class="sector-bg-overlay"></div>
+        <div class="sector-content">
+          <div class="sector-tag">
+            <span class="diamond">◆</span>
+            <span>SETOR 02 // MANUAL DE CAMPO & REGRAS</span>
+            <span class="diamond">◆</span>
+          </div>
+          <h2 class="sector-title">COMO JOGAR</h2>
+          <p class="sector-desc">
+            Guia completo para novos caçadores: criação de personagens (D&D 5.5), as 6 Funções táticas, os 14 Cernes arcanos, sistema de combate (Tormenta20), o Broche do Crepúsculo, Expansões de Domínio e pactos cósmicos com Constelações.
+          </p>
+
+          <div class="sector-actions">
+            <a class="btn-hub btn-how-to-play-access" routerLink="/como-jogar">
+              <span class="btn-corner top-left"></span>
+              <span class="btn-corner top-right"></span>
+              <span class="btn-corner bottom-left"></span>
+              <span class="btn-corner bottom-right"></span>
+              <span class="btn-glint"></span>
+              <span class="btn-label">GUIA DO CAÇADOR</span>
+              <span class="btn-symbol">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2L14.8 9.2L22 12L14.8 14.8L12 22L9.2 14.8L2 12L9.2 9.2L12 2Z"/>
+                </svg>
+              </span>
+            </a>
+          </div>
+        </div>
+      </article>
+    </div>
 
     <!-- Secondary Row: Caçadores & Lendas -->
     <div class="secondary-sectors-row">
-      <!-- Sector 02: Caçadores & Campanhas -->
+      <!-- Sector 03: Caçadores & Campanhas -->
       <article class="sector-card sector-operations">
         <div class="sector-bg-overlay"></div>
         <div class="sector-content">
           <div class="sector-tag">
             <span class="diamond">◆</span>
-            <span>SETOR 02 // FRENTES OPERACIONAIS</span>
+            <span>SETOR 03 // FRENTES OPERACIONAIS</span>
             <span class="diamond">◆</span>
           </div>
           <h2 class="sector-title">CAMPANHAS</h2>
@@ -68,13 +103,13 @@
         </div>
       </article>
 
-      <!-- Sector 03: Bestiário & Registro de Lendas -->
+      <!-- Sector 04: Bestiário & Registro de Lendas -->
       <article class="sector-card sector-legends">
         <div class="sector-bg-overlay"></div>
         <div class="sector-content">
           <div class="sector-tag">
             <span class="diamond">◆</span>
-            <span>SETOR 03 // AMEAÇAS FOLCLÓRICAS</span>
+            <span>SETOR 04 // AMEAÇAS FOLCLÓRICAS</span>
             <span class="diamond">◆</span>
           </div>
           <h2 class="sector-title">REGISTRO DE LENDAS</h2>

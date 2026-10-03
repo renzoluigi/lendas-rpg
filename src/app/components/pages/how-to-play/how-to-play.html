@@ -1,0 +1,1099 @@
+<main class="how-to-play-page">
+  <app-header title="MANUAL DO CAÇADOR // REGRAS & INTRODUÇÃO"></app-header>
+
+  <div class="guide-container">
+    <!-- Breadcrumb -->
+    <div class="nav-bar">
+      <div class="campaign-breadcrumb">
+        <span class="campaign-name">MANUAL DE CAMPO</span>
+        <span class="separator">/</span>
+        <span class="sub-name">GUIA DE INTRODUÇÃO E MECÂNICAS</span>
+      </div>
+    </div>
+
+    <!-- Hero Header Banner with Image Placeholder IMG-01 -->
+    <header class="guide-hero-card">
+      <div class="hero-badge">
+        <span class="diamond">❖</span>
+        <span>DOCUMENTO DE MESA // USO INTERNO DA FEDERAÇÃO</span>
+        <span class="diamond">❖</span>
+      </div>
+      <h1 class="guide-main-title">CAÇADORES DE LENDAS</h1>
+      <p class="guide-main-subtitle">
+        Guia de Introdução ao Mundo e Mecânicas de Jogo · Baseado no Sistema Tormenta20 & D&D 5.5
+      </p>
+
+      <blockquote class="guide-quote">
+        “Isso aqui não é medalha. É lembrete. Quem usa esquece o que é, o que puxa a espada esquece o porquê. Não esqueçam.”
+        <span class="quote-author">— Provérbio de Juramento da Federação</span>
+      </blockquote>
+
+      <!-- Placeholder IMG-01 -->
+      <div class="image-slot-container hero-slot">
+        <div class="image-slot-card">
+          <div class="slot-badge">
+            <span class="pulse-dot"></span>
+            <span>ESPAÇO PARA ADIÇÃO VISUAL FUTURA // ID: IMG-01</span>
+          </div>
+          <div class="slot-body">
+            <div class="slot-icon-box">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21 19V5C21 3.9 20.1 3 19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19ZM8.5 13.5L11 16.51L14.5 12L19 18H5L8.5 13.5Z"/>
+              </svg>
+            </div>
+            <div class="slot-details">
+              <h3 class="slot-title">{{ imagePlaceholders[0].title }}</h3>
+              <p class="slot-meta">
+                <strong>Local:</strong> {{ imagePlaceholders[0].location }} · 
+                <strong>Formato Sugerido:</strong> {{ imagePlaceholders[0].aspectRatio }}
+              </p>
+              <p class="slot-concept">
+                <em>Conceito:</em> {{ imagePlaceholders[0].concept }}
+              </p>
+            </div>
+          </div>
+          <div class="slot-actions">
+            <button type="button" class="btn-copy-prompt" (click)="copyPrompt(imagePlaceholders[0])">
+              <span class="btn-icon">
+                @if (copiedPromptId() === imagePlaceholders[0].id) {
+                  ✓
+                } @else {
+                  📋
+                }
+              </span>
+              <span>
+                @if (copiedPromptId() === imagePlaceholders[0].id) {
+                  PROMPT COPIADO COM SUCESSO!
+                } @else {
+                  COPIAR PROMPT PARA GERAÇÃO EXTERNA
+                }
+              </span>
+            </button>
+            <span class="prompt-preview">{{ imagePlaceholders[0].promptEn }}</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Navigation Rail of Chapters -->
+    <nav class="chapters-navigation" aria-label="Navegação dos Capítulos do Guia">
+      <div class="chapters-track">
+        <button
+          type="button"
+          class="chapter-tab-btn"
+          [class.active]="activeTab() === 'mundo'"
+          (click)="setTab('mundo')">
+          <span class="tab-index">CAP. I</span>
+          <span class="tab-title">O MUNDO & TOM</span>
+        </button>
+        <span class="tab-sep">❖</span>
+
+        <button
+          type="button"
+          class="chapter-tab-btn"
+          [class.active]="activeTab() === 'federacoes'"
+          (click)="setTab('federacoes')">
+          <span class="tab-index">CAP. II</span>
+          <span class="tab-title">15 FEDERAÇÕES</span>
+        </button>
+        <span class="tab-sep">❖</span>
+
+        <button
+          type="button"
+          class="chapter-tab-btn"
+          [class.active]="activeTab() === 'broche'"
+          (click)="setTab('broche')">
+          <span class="tab-index">CAP. III</span>
+          <span class="tab-title">O BROCHE</span>
+        </button>
+        <span class="tab-sep">❖</span>
+
+        <button
+          type="button"
+          class="chapter-tab-btn"
+          [class.active]="activeTab() === 'criacao'"
+          (click)="setTab('criacao')">
+          <span class="tab-index">CAP. IV</span>
+          <span class="tab-title">CRIAÇÃO & FUNÇÕES</span>
+        </button>
+        <span class="tab-sep">❖</span>
+
+        <button
+          type="button"
+          class="chapter-tab-btn"
+          [class.active]="activeTab() === 'combate'"
+          (click)="setTab('combate')">
+          <span class="tab-index">CAP. V</span>
+          <span class="tab-title">COMBATE (T20)</span>
+        </button>
+        <span class="tab-sep">❖</span>
+
+        <button
+          type="button"
+          class="chapter-tab-btn"
+          [class.active]="activeTab() === 'cerne'"
+          (click)="setTab('cerne')">
+          <span class="tab-index">CAP. VI</span>
+          <span class="tab-title">O CERNE & TÉCNICAS</span>
+        </button>
+        <span class="tab-sep">❖</span>
+
+        <button
+          type="button"
+          class="chapter-tab-btn"
+          [class.active]="activeTab() === 'dominio'"
+          (click)="setTab('dominio')">
+          <span class="tab-index">CAP. VII</span>
+          <span class="tab-title">EXPANSÃO DE DOMÍNIO</span>
+        </button>
+        <span class="tab-sep">❖</span>
+
+        <button
+          type="button"
+          class="chapter-tab-btn"
+          [class.active]="activeTab() === 'constelacoes'"
+          (click)="setTab('constelacoes')">
+          <span class="tab-index">CAP. VIII</span>
+          <span class="tab-title">CONSTELAÇÕES & PACTOS</span>
+        </button>
+        <span class="tab-sep">❖</span>
+
+        <button
+          type="button"
+          class="chapter-tab-btn tab-prompts"
+          [class.active]="activeTab() === 'prompts'"
+          (click)="setTab('prompts')">
+          <span class="tab-index">CATÁLOGO</span>
+          <span class="tab-title">PROMPTS DE IMAGEM</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- =========================================================================
+         CAPÍTULO I: O MUNDO & TOM DE MESA
+         ========================================================================= -->
+    @if (activeTab() === 'mundo') {
+      <section class="chapter-content fade-in" id="cap-mundo">
+        <div class="chapter-header">
+          <div class="header-seal">
+            <span class="seal-line"></span>
+            <span class="seal-text">CAPÍTULO I</span>
+            <span class="seal-line"></span>
+          </div>
+          <h2 class="chapter-title">O MUNDO & O TOM DE MESA</h2>
+          <p class="chapter-lead">
+            Lendas se passa em nosso próprio mundo, no mapa-múndi que todos conhecemos. A diferença essencial é simples e devastadora: <strong>toda lenda e todo folclore, de qualquer cultura, de qualquer canto do globo, é real. Não metáfora, não superstição de aldeia — real, com presas e com fome.</strong>
+          </p>
+        </div>
+
+        <div class="lore-grid-two">
+          <div class="lore-card">
+            <div class="card-badge">A MANIFESTAÇÃO</div>
+            <h3>Ondes os Mitos Ganham Vida</h3>
+            <p>
+              Noivas que não envelhecem, espíritos de florestas intocadas, lobos que vestem pele de homem: todos se manifestam onde a crença e o pavor humano foram fortes o bastante para lhes dar contorno e densidade física. E onde há manifestação folclórica, há sangue e perigo iminente.
+            </p>
+          </div>
+
+          <div class="lore-card">
+            <div class="card-badge">A FEDERAÇÃO</div>
+            <h3>Contenção, Estudo e Neutralização</h3>
+            <p>
+              Os personagens são caçadores vinculados a uma guilda internacional conhecida apenas como <strong>a Federação</strong>. A Federação não julga as lendas moralmente; ela as contém. Seus caçadores aprendem cedo que poucos monstros se veem como monstros, e que isso raramente torna a lâmina mais leve. Ao todo existem quinze federações autônomas espalhadas pelo globo.
+            </p>
+          </div>
+        </div>
+
+        <div class="quote-callout">
+          <span class="callout-symbol">⚡</span>
+          <p>
+            “Vocês não estão indo caçar um monstro. Estão indo lidar com uma lenda que aprendeu a sangrar gente de verdade.”
+          </p>
+        </div>
+
+        <div class="pillars-container">
+          <h3 class="pillars-title">Pilares do Tom de Mesa</h3>
+          <div class="pillars-grid">
+            <div class="pillar-box">
+              <span class="pillar-num">01</span>
+              <h4>Dark Fantasy Folclórico</h4>
+              <p>O perigo é constante, letal e visceral. Não há super-heróis imunes à dor ou ao cansaço.</p>
+            </div>
+            <div class="pillar-box">
+              <span class="pillar-num">02</span>
+              <h4>Peso Moral & Dilemas</h4>
+              <p>A vilania raramente é pura. Os melhores momentos nascem da pergunta: o que fazer quando a ameaça acredita, sinceramente, que está protegendo alguém?</p>
+            </div>
+            <div class="pillar-box">
+              <span class="pillar-num">03</span>
+              <h4>Energia & Domínios</h4>
+              <p>Toda pessoa carrega um resquício de energia folclórica, mas poucos aprendem a moldá-la em Técnicas pessoais ou nas lendárias Expansões de Domínio.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="axiom-banner">
+          <div class="axiom-item">TODA LENDA GUARDA UM NOME ESQUECIDO</div>
+          <div class="axiom-sep">◆</div>
+          <div class="axiom-item">QUEM CAÇA LENDAS TORNA-SE UMA</div>
+          <div class="axiom-sep">◆</div>
+          <div class="axiom-item">NEM TODO MONSTRO SABE QUE É MONSTRO</div>
+        </div>
+      </section>
+    }
+
+    <!-- =========================================================================
+         CAPÍTULO II: AS 15 FEDERAÇÕES
+         ========================================================================= -->
+    @if (activeTab() === 'federacoes') {
+      <section class="chapter-content fade-in" id="cap-federacoes">
+        <div class="chapter-header">
+          <div class="header-seal">
+            <span class="seal-line"></span>
+            <span class="seal-text">CAPÍTULO II</span>
+            <span class="seal-line"></span>
+          </div>
+          <h2 class="chapter-title">AS QUINZE FEDERAÇÕES GLOBAIS</h2>
+          <p class="chapter-lead">
+            Cada federação opera como um braço regional autônomo, com doutrina, equipamento e cultura de caça próprios — moldados pelo folclore ancestral que protegem e combatem em seu território.
+          </p>
+        </div>
+
+        <div class="federations-grid">
+          @for (fed of federations; track fed.id) {
+            <div class="fed-guide-card">
+              <div class="fed-card-top">
+                <span class="fed-number">{{ fed.number }}</span>
+                <span class="fed-mythology">{{ fed.mythology }}</span>
+              </div>
+              <h3 class="fed-name">{{ fed.name }}</h3>
+              <p class="fed-regions">
+                <strong>Território:</strong> {{ fed.regions }}
+              </p>
+              <p class="fed-desc">{{ fed.description }}</p>
+              <div class="fed-doctrine">
+                <span class="doctrine-label">Doutrina Operacional:</span>
+                <span class="doctrine-text">{{ fed.doctrine }}</span>
+              </div>
+            </div>
+          }
+        </div>
+      </section>
+    }
+
+    <!-- =========================================================================
+         CAPÍTULO III: O BROCHE DO CREPÚSCULO
+         ========================================================================= -->
+    @if (activeTab() === 'broche') {
+      <section class="chapter-content fade-in" id="cap-broche">
+        <div class="chapter-header">
+          <div class="header-seal">
+            <span class="seal-line"></span>
+            <span class="seal-text">CAPÍTULO III</span>
+            <span class="seal-line"></span>
+          </div>
+          <h2 class="chapter-title">O BROCHE DO CREPÚSCULO</h2>
+          <p class="chapter-lead">
+            Todo caçador recebe, em cerimônia solene de juramento, um <strong>Broche do Crepúsculo</strong>: um círculo quebrado de prata enegrecida, com um olho esculpido ao centro.
+          </p>
+        </div>
+
+        <!-- Image Placeholder IMG-02 -->
+        <div class="image-slot-container">
+          <div class="image-slot-card">
+            <div class="slot-badge">
+              <span class="pulse-dot"></span>
+              <span>ESPAÇO PARA ADIÇÃO VISUAL // ID: IMG-02</span>
+            </div>
+            <div class="slot-body">
+              <div class="slot-icon-box">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                </svg>
+              </div>
+              <div class="slot-details">
+                <h3 class="slot-title">{{ imagePlaceholders[1].title }}</h3>
+                <p class="slot-meta">
+                  <strong>Local:</strong> {{ imagePlaceholders[1].location }} · 
+                  <strong>Formato:</strong> {{ imagePlaceholders[1].aspectRatio }}
+                </p>
+                <p class="slot-concept">
+                  <em>Conceito:</em> {{ imagePlaceholders[1].concept }}
+                </p>
+              </div>
+            </div>
+            <div class="slot-actions">
+              <button type="button" class="btn-copy-prompt" (click)="copyPrompt(imagePlaceholders[1])">
+                <span class="btn-icon">{{ copiedPromptId() === imagePlaceholders[1].id ? '✓' : '📋' }}</span>
+                <span>{{ copiedPromptId() === imagePlaceholders[1].id ? 'PROMPT COPIADO!' : 'COPIAR PROMPT DESTA IMAGEM' }}</span>
+              </button>
+              <span class="prompt-preview">{{ imagePlaceholders[1].promptEn }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="symbolic-significance">
+          <div class="significance-card">
+            <div class="card-icon">⭕</div>
+            <h3>O Círculo Partido</h3>
+            <p>
+              O círculo partido representa o próprio ofício da Federação: nunca é um ciclo fechado e perfeito. É sempre algo interrompido a tempo — ou tarde demais.
+            </p>
+          </div>
+
+          <div class="significance-card">
+            <div class="card-icon">👁️</div>
+            <h3>O Olho Vigilante</h3>
+            <p>
+              O olho central simboliza a vigília perpétua. Ele lembra que o caçador deve enxergar a verdade por trás do mito antes de erguer o ferro.
+            </p>
+          </div>
+
+          <div class="significance-card">
+            <div class="card-icon">⚔️</div>
+            <h3>Os Cinco Punhos da Federação</h3>
+            <p>
+              No ápice da hierarquia estão os Cinco Punhos: os raros veteranos vivos que alcançaram maestria absoluta e manifestaram uma Expansão de Domínio própria.
+            </p>
+          </div>
+        </div>
+
+        <div class="mechanic-note">
+          <span class="note-tag">REGRA DE JOGO</span>
+          <p>
+            Todo personagem começa a campanha com o Broche do Crepúsculo. Trata-se de um item simbólico, sem bônus numérico direto, porém <strong>inegociável</strong> para quem pertence à Federação.
+          </p>
+        </div>
+      </section>
+    }
+
+    <!-- =========================================================================
+         CAPÍTULO IV: CRIAÇÃO DE PERSONAGEM & AS 6 FUNÇÕES
+         ========================================================================= -->
+    @if (activeTab() === 'criacao') {
+      <section class="chapter-content fade-in" id="cap-criacao">
+        <div class="chapter-header">
+          <div class="header-seal">
+            <span class="seal-line"></span>
+            <span class="seal-text">CAPÍTULO IV</span>
+            <span class="seal-line"></span>
+          </div>
+          <h2 class="chapter-title">CRIAÇÃO DE PERSONAGEM</h2>
+          <p class="chapter-lead">
+            A criação une a versatilidade de atributos do <strong>D&D 5.5</strong> à agilidade mecânica e funções de combate do <strong>Tormenta20</strong>.
+          </p>
+        </div>
+
+        <!-- Creation Rules Summary -->
+        <div class="creation-steps-grid">
+          <div class="step-box">
+            <span class="step-num">PASSO 1</span>
+            <h3>Atributos (D&D 5.5)</h3>
+            <p>
+              Role <strong>4d6 e descarte o menor resultado</strong>. Repita o processo 6 vezes para preencher Força, Destreza, Constituição, Inteligência, Sabedoria e Carisma. Se o conjunto total ficar insatisfatório, a rolagem pode ser refeita até três vezes.
+            </p>
+          </div>
+
+          <div class="step-box">
+            <span class="step-num">PASSO 2</span>
+            <h3>Origem & Raça</h3>
+            <p>
+              Lendas se passa no mundo contemporâneo. Seu personagem pode ter nascido em qualquer país do planeta. Todos os caçadores são prioritariamente <strong>Humanos</strong>.
+            </p>
+          </div>
+
+          <div class="step-box">
+            <span class="step-num">PASSO 3</span>
+            <h3>Perícias Treinadas (4)</h3>
+            <p>
+              Cada personagem escolhe <strong>4 perícias treinadas</strong>. Uma delas é <em>obrigatória</em> (determinada pela Função escolhida). As outras 3 são de escolha totalmente livre.
+            </p>
+          </div>
+        </div>
+
+        <!-- Image Placeholder IMG-03 -->
+        <div class="image-slot-container">
+          <div class="image-slot-card">
+            <div class="slot-badge">
+              <span class="pulse-dot"></span>
+              <span>ESPAÇO PARA ADIÇÃO VISUAL // ID: IMG-03</span>
+            </div>
+            <div class="slot-body">
+              <div class="slot-icon-box">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                </svg>
+              </div>
+              <div class="slot-details">
+                <h3 class="slot-title">{{ imagePlaceholders[2].title }}</h3>
+                <p class="slot-meta">
+                  <strong>Local:</strong> {{ imagePlaceholders[2].location }} · 
+                  <strong>Formato:</strong> {{ imagePlaceholders[2].aspectRatio }}
+                </p>
+                <p class="slot-concept">
+                  <em>Conceito:</em> {{ imagePlaceholders[2].concept }}
+                </p>
+              </div>
+            </div>
+            <div class="slot-actions">
+              <button type="button" class="btn-copy-prompt" (click)="copyPrompt(imagePlaceholders[2])">
+                <span class="btn-icon">{{ copiedPromptId() === imagePlaceholders[2].id ? '✓' : '📋' }}</span>
+                <span>{{ copiedPromptId() === imagePlaceholders[2].id ? 'PROMPT COPIADO!' : 'COPIAR PROMPT DESTA IMAGEM' }}</span>
+              </button>
+              <span class="prompt-preview">{{ imagePlaceholders[2].promptEn }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comparative Functions Table -->
+        <div class="functions-section">
+          <div class="section-title-wrap">
+            <span class="diamond">❖</span>
+            <h3 class="section-sub">AS SEIS FUNÇÕES DE COMBATE</h3>
+            <span class="diamond">❖</span>
+          </div>
+          <p class="table-intro">
+            Em Lendas não existem classes clássicas como 'mago' ou 'guerreiro'. Os caçadores operam sob <strong>Funções</strong> especializadas que determinam seus Pontos de Vida (resistência física) e Energia Folclórica (combustível para técnicas).
+          </p>
+
+          <div class="table-responsive">
+            <table class="functions-table">
+              <thead>
+                <tr>
+                  <th>Função</th>
+                  <th>Perícia Obrigatória</th>
+                  <th>Vida (Criação)</th>
+                  <th>Vida (por Nível)</th>
+                  <th>Energia (Criação)</th>
+                  <th>Energia (por Nível)</th>
+                  <th>Atributo-Chave</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (fn of functions; track fn.name) {
+                  <tr [class.selected-row]="selectedFunction().name === fn.name" (click)="selectFunction(fn)">
+                    <td><strong>{{ fn.name }}</strong></td>
+                    <td><span class="tag-skill">{{ fn.mandatorySkill }}</span></td>
+                    <td>{{ fn.initialHp }}</td>
+                    <td>{{ fn.levelHp }}</td>
+                    <td>{{ fn.initialEnergy }}</td>
+                    <td>{{ fn.levelEnergy }}</td>
+                    <td><span class="tag-attr">{{ fn.energyKeyAttr }}</span></td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Function Detail Inspector -->
+          <div class="function-inspector-card">
+            <div class="inspector-header">
+              <div class="inspector-title-group">
+                <span class="inspector-role">{{ selectedFunction().role }}</span>
+                <h4 class="inspector-name">{{ selectedFunction().name }}</h4>
+              </div>
+              <div class="inspector-stats">
+                <div class="stat-pill">
+                  <span class="stat-label">Vida Inicial:</span>
+                  <span class="stat-val">{{ selectedFunction().initialHp }}</span>
+                </div>
+                <div class="stat-pill">
+                  <span class="stat-label">Energia Inicial:</span>
+                  <span class="stat-val">{{ selectedFunction().initialEnergy }}</span>
+                </div>
+              </div>
+            </div>
+
+            <p class="inspector-concept">{{ selectedFunction().concept }}</p>
+
+            <div class="inspector-equipment">
+              <h5>Equipamento Padrão de Campo:</h5>
+              <ul>
+                @for (eq of selectedFunction().equipment; track eq) {
+                  <li>{{ eq }}</li>
+                }
+              </ul>
+            </div>
+
+            @if (selectedFunction().specialMechanic) {
+              <div class="special-mechanic-box">
+                <div class="mechanic-header">
+                  <span class="flame-icon">🧪</span>
+                  <h5>{{ selectedFunction().specialMechanic?.name }}</h5>
+                </div>
+                <p>{{ selectedFunction().specialMechanic?.description }}</p>
+              </div>
+            }
+          </div>
+        </div>
+      </section>
+    }
+
+    <!-- =========================================================================
+         CAPÍTULO V: MECÂNICAS DE COMBATE (TORMENTA20)
+         ========================================================================= -->
+    @if (activeTab() === 'combate') {
+      <section class="chapter-content fade-in" id="cap-combate">
+        <div class="chapter-header">
+          <div class="header-seal">
+            <span class="seal-line"></span>
+            <span class="seal-text">CAPÍTULO V</span>
+            <span class="seal-line"></span>
+          </div>
+          <h2 class="chapter-title">MECÂNICAS DE COMBATE</h2>
+          <p class="chapter-lead">
+            O combate em Caçadores de Lendas adota a estrutura consagrada do <strong>Tormenta20</strong>, combinando velocidade tática, decisões ágeis e combate visceral.
+          </p>
+        </div>
+
+        <div class="combat-mechanics-grid">
+          <!-- Turn Economy -->
+          <div class="combat-card">
+            <div class="card-tag">ESTRUTURA DE TURNO</div>
+            <h3>Economia de Ações</h3>
+            <p>Em seu turno, cada caçador tem direito a exatamente:</p>
+            <div class="action-duo">
+              <div class="action-box">
+                <span class="action-name">1 Ação de Movimento</span>
+                <span class="action-desc">Mover-se até o deslocamento base OU usar uma técnica que não seja de Ataque (Defesa, Passiva ou utilitária).</span>
+              </div>
+              <div class="action-box">
+                <span class="action-name">1 Ação de Ataque</span>
+                <span class="action-desc">Atacar corpo a corpo ou à distância OU usar uma técnica de Ataque.</span>
+              </div>
+            </div>
+            <div class="rule-alert">
+              <strong>Regra de Ouro:</strong> É proibido usar duas Técnicas de Ataque no mesmo turno, assim como não é permitido se mover duas vezes utilizando a ação de ataque.
+            </div>
+          </div>
+
+          <!-- Attack & Defense -->
+          <div class="combat-card">
+            <div class="card-tag">RESOLUÇÃO DE GOLPES</div>
+            <h3>Teste de Ataque & Defesa</h3>
+            <div class="formula-box">
+              <span class="formula-title">Teste de Ataque:</span>
+              <code>1d20 + Bônus de Ataque (Atributo + Treino) vs Defesa</code>
+            </div>
+            <div class="formula-box">
+              <span class="formula-title">Cálculo da Defesa:</span>
+              <code>Defesa = 10 + Mod. Destreza + Armadura / Escudo + Outros</code>
+            </div>
+            <p>Se o teste igualar ou superar a Defesa do alvo, o ataque acerta.</p>
+          </div>
+
+          <!-- Damage & Critical -->
+          <div class="combat-card">
+            <div class="card-tag">DANO & CRÍTICO</div>
+            <h3>Letalidade</h3>
+            <ul class="combat-list">
+              <li><strong>Dano de Armas:</strong> Dado da arma + Força (corpo a corpo) ou Destreza (distância/armas leves).</li>
+              <li><strong>Dano de Técnicas:</strong> Usa o atributo-chave de Energia da função do caçador.</li>
+              <li><strong>Acerto Crítico:</strong> Um resultado <strong>20 natural</strong> no d20 dobra todos os dados de dano rolados (modificadores numéricos não dobram).</li>
+            </ul>
+          </div>
+
+          <!-- Initiative & Saves -->
+          <div class="combat-card">
+            <div class="card-tag">RESISTÊNCIAS (T20)</div>
+            <h3>Iniciativa & Testes de Resistência</h3>
+            <ul class="combat-list">
+              <li><strong>Iniciativa:</strong> <code>1d20 + Modificador de Destreza</code> no início do confronto.</li>
+              <li><strong>Fortitude:</strong> Resistência física a venenos, miasmas, exaustão e paralisia.</li>
+              <li><strong>Reflexos:</strong> Esquiva de explosões em área, desmoronamentos e armadilhas.</li>
+              <li><strong>Vontade:</strong> Resistência mental a medo folclórico, ilusões, domínio e fascínio.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Interactive Turn Simulator -->
+        <div class="interactive-simulator-box">
+          <div class="sim-header">
+            <span class="sim-tag">SIMULADOR DIDÁTICO</span>
+            <h3>Validador de Combinações de Turno</h3>
+            <p>Teste as ações que você pretende realizar no mesmo turno e veja se as regras da Federação permitem:</p>
+          </div>
+
+          <div class="sim-controls">
+            <div class="control-group">
+              <label>Sua Ação de Movimento:</label>
+              <select (change)="selectedMoveAction.set($any($event.target).value)">
+                <option value="deslocamento">Deslocamento físico comum (andar/correr)</option>
+                <option value="tecnica_defesa">Usar Técnica de Defesa (substituindo movimento)</option>
+                <option value="tecnica_passiva">Ativar Habilidade Passiva / Utilitária</option>
+                <option value="tecnica_ataque">Tentar usar Técnica de Ataque como Movimento</option>
+              </select>
+            </div>
+
+            <div class="control-group">
+              <label>Sua Ação de Ataque:</label>
+              <select (change)="selectedAttackAction.set($any($event.target).value)">
+                <option value="ataque_arma">Ataque com Arma (espada, machado, arco)</option>
+                <option value="tecnica_ataque">Usar Técnica de Ataque do Cerne</option>
+                <option value="deslocamento">Tentar se mover novamente</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="sim-result" [class.valid]="getTurnVerdict().valid" [class.invalid]="!getTurnVerdict().valid">
+            <span class="result-icon">{{ getTurnVerdict().valid ? '🛡️' : '⚠️' }}</span>
+            <span class="result-text">{{ getTurnVerdict().message }}</span>
+          </div>
+        </div>
+      </section>
+    }
+
+    <!-- =========================================================================
+         CAPÍTULO VI: O CERNE E AS TÉCNICAS
+         ========================================================================= -->
+    @if (activeTab() === 'cerne') {
+      <section class="chapter-content fade-in" id="cap-cerne">
+        <div class="chapter-header">
+          <div class="header-seal">
+            <span class="seal-line"></span>
+            <span class="seal-text">CAPÍTULO VI</span>
+            <span class="seal-line"></span>
+          </div>
+          <h2 class="chapter-title">O CERNE & AS TÉCNICAS</h2>
+          <p class="chapter-lead">
+            O Cerne não é uma classe nem um atributo numérico — é a <strong>semente simbólica e narrativa</strong> de onde brota a energia de cada caçador.
+          </p>
+        </div>
+
+        <div class="cerne-explanation-card">
+          <p>
+            Dois Vanguardas com Cernes diferentes lutam de formas visualmente e tematicamente distintas, mesmo utilizando a mesma ficha mecânica. Um Vanguarda com <em>Cerne de Sangue</em> luta com veias enegrecidas e sacrifício carnal, enquanto outro com <em>Cerne de Pedra</em> finca as bases no solo como uma montanha milenar.
+          </p>
+        </div>
+
+        <!-- Image Placeholder IMG-04 -->
+        <div class="image-slot-container">
+          <div class="image-slot-card">
+            <div class="slot-badge">
+              <span class="pulse-dot"></span>
+              <span>ESPAÇO PARA ADIÇÃO VISUAL // ID: IMG-04</span>
+            </div>
+            <div class="slot-body">
+              <div class="slot-icon-box">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+              </div>
+              <div class="slot-details">
+                <h3 class="slot-title">{{ imagePlaceholders[3].title }}</h3>
+                <p class="slot-meta">
+                  <strong>Local:</strong> {{ imagePlaceholders[3].location }} · 
+                  <strong>Formato:</strong> {{ imagePlaceholders[3].aspectRatio }}
+                </p>
+                <p class="slot-concept">
+                  <em>Conceito:</em> {{ imagePlaceholders[3].concept }}
+                </p>
+              </div>
+            </div>
+            <div class="slot-actions">
+              <button type="button" class="btn-copy-prompt" (click)="copyPrompt(imagePlaceholders[3])">
+                <span class="btn-icon">{{ copiedPromptId() === imagePlaceholders[3].id ? '✓' : '📋' }}</span>
+                <span>{{ copiedPromptId() === imagePlaceholders[3].id ? 'PROMPT COPIADO!' : 'COPIAR PROMPT DESTA IMAGEM' }}</span>
+              </button>
+              <span class="prompt-preview">{{ imagePlaceholders[3].promptEn }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- The 14 Cernes Grid -->
+        <div class="cernes-section">
+          <div class="section-title-wrap">
+            <span class="diamond">❖</span>
+            <h3 class="section-sub">OS 14 CERNES DA ENERGIA FOLCLÓRICA</h3>
+            <span class="diamond">❖</span>
+          </div>
+
+          <div class="cernes-grid">
+            @for (c of cernes; track c.name) {
+              <div
+                class="cerne-card"
+                [class.active-cerne]="selectedCerne().name === c.name"
+                (click)="selectCerne(c)">
+                <div class="cerne-icon">{{ c.icon }}</div>
+                <h4 class="cerne-name">{{ c.name }}</h4>
+                <p class="cerne-theme">{{ c.theme }}</p>
+              </div>
+            }
+          </div>
+
+          <!-- Cerne Inspector -->
+          <div class="cerne-inspector">
+            <div class="cerne-inspector-header">
+              <span class="cerne-ins-icon">{{ selectedCerne().icon }}</span>
+              <div>
+                <span class="cerne-ins-badge">CERNE SELECIONADO</span>
+                <h4 class="cerne-ins-name">{{ selectedCerne().name }}</h4>
+              </div>
+            </div>
+
+            <div class="cerne-ins-block">
+              <h5>Manifestação Sensorial no Caçador:</h5>
+              <p>{{ selectedCerne().manifestation }}</p>
+            </div>
+
+            <div class="cerne-ins-block">
+              <h5>Técnica Típica Exemplar: <span class="technique-name">{{ selectedCerne().sampleTechnique }}</span></h5>
+              <p>{{ selectedCerne().techniqueDesc }}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Techniques, Tiers & Progression -->
+        <div class="progression-box">
+          <div class="section-title-wrap">
+            <span class="diamond">❖</span>
+            <h3 class="section-sub">TIERS, PONTOS DE LENDA & LIMITE DE 7 TÉCNICAS</h3>
+            <span class="diamond">❖</span>
+          </div>
+
+          <div class="tiers-grid">
+            <div class="tier-card tier-selada">
+              <span class="tier-tag">TIER I</span>
+              <h4>SELADA</h4>
+              <p class="tier-rep">Efeito pontual, controlado e de pequeno porte.</p>
+              <span class="tier-freq">Uso: Várias vezes por sessão</span>
+            </div>
+
+            <div class="tier-card tier-desperta">
+              <span class="tier-tag">TIER II</span>
+              <h4>DESPERTA</h4>
+              <p class="tier-rep">Efeito ampliado: maior alcance, intensidade ou duração.</p>
+              <span class="tier-freq">Uso: Algumas vezes por combate</span>
+            </div>
+
+            <div class="tier-card tier-plena">
+              <span class="tier-tag">TIER III</span>
+              <h4>PLENA</h4>
+              <p class="tier-rep">A expressão máxima da técnica para mortais, quase cerimonial.</p>
+              <span class="tier-freq">Uso: Normalmente 1 vez por combate</span>
+            </div>
+          </div>
+
+          <div class="progression-rules-card">
+            <h4>Regras de Evolução por Ponto de Lenda:</h4>
+            <ul>
+              <li>Todo caçador <strong>inicia com 3 técnicas</strong> criadas no tier inicial (Selada), aprovadas pelo mestre.</li>
+              <li>A cada nível seguinte, ganha-se <strong>1 Ponto de Lenda</strong>: para criar uma técnica nova (em Selada) OU evoluir uma existente para o próximo tier.</li>
+              <li><strong>Limite de 7 Técnicas:</strong> Um caçador pode ter no máximo 7 técnicas totais. Ao atingir 7, os Pontos de Lenda passam a ser usados exclusivamente para elevar o tier das técnicas existentes.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    }
+
+    <!-- =========================================================================
+         CAPÍTULO VII: EXPANSÃO DE DOMÍNIO
+         ========================================================================= -->
+    @if (activeTab() === 'dominio') {
+      <section class="chapter-content fade-in" id="cap-dominio">
+        <div class="chapter-header">
+          <div class="header-seal">
+            <span class="seal-line"></span>
+            <span class="seal-text">CAPÍTULO VII</span>
+            <span class="seal-line"></span>
+          </div>
+          <h2 class="chapter-title">EXPANSÃO DE DOMÍNIO</h2>
+          <p class="chapter-lead">
+            O ápice absoluto do poder folclórico: a criação de uma <strong>Área Histórica</strong>, um espaço onde o usuário reescreve a realidade e exerce controle absoluto do campo.
+          </p>
+        </div>
+
+        <div class="prereq-banner">
+          <span class="prereq-badge">PRÉ-REQUISITO OBRIGATÓRIO</span>
+          <p>
+            O caçador precisa ter desbloqueado todas as <strong>7 técnicas</strong>, ter pelo menos <strong>uma técnica no tier Plena</strong> e vivenciar um momento de conexão genuína aprovado pelo mestre (marco narrativo em clímax de campanha).
+          </p>
+        </div>
+
+        <!-- Image Placeholder IMG-05 -->
+        <div class="image-slot-container">
+          <div class="image-slot-card">
+            <div class="slot-badge">
+              <span class="pulse-dot"></span>
+              <span>ESPAÇO PARA ADIÇÃO VISUAL // ID: IMG-05</span>
+            </div>
+            <div class="slot-body">
+              <div class="slot-icon-box">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2L1 21h22L12 2zm0 3.45l8.28 14.3H3.72L12 5.45zM11 10v4h2v-4h-2zm0 6v2h2v-2h-2z"/>
+                </svg>
+              </div>
+              <div class="slot-details">
+                <h3 class="slot-title">{{ imagePlaceholders[4].title }}</h3>
+                <p class="slot-meta">
+                  <strong>Local:</strong> {{ imagePlaceholders[4].location }} · 
+                  <strong>Formato:</strong> {{ imagePlaceholders[4].aspectRatio }}
+                </p>
+                <p class="slot-concept">
+                  <em>Conceito:</em> {{ imagePlaceholders[4].concept }}
+                </p>
+              </div>
+            </div>
+            <div class="slot-actions">
+              <button type="button" class="btn-copy-prompt" (click)="copyPrompt(imagePlaceholders[4])">
+                <span class="btn-icon">{{ copiedPromptId() === imagePlaceholders[4].id ? '✓' : '📋' }}</span>
+                <span>{{ copiedPromptId() === imagePlaceholders[4].id ? 'PROMPT COPIADO!' : 'COPIAR PROMPT DESTA IMAGEM' }}</span>
+              </button>
+              <span class="prompt-preview">{{ imagePlaceholders[4].promptEn }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- The 4 Mandatory Steps -->
+        <div class="domain-steps-container">
+          <h3 class="domain-steps-title">A Estrutura dos 4 Passos Obrigatórios</h3>
+
+          <div class="steps-flow">
+            <div class="step-card">
+              <div class="step-badge">PASSO 1</div>
+              <h4>Identidade (Cerne)</h4>
+              <p>O domínio precisa ser a expansão física e espacial do Cerne. Se o Cerne é Névoa, o espaço vira bruma infinita onde distância e direção deixam de existir.</p>
+              <span class="step-question">“Se meu Cerne fosse um lugar inteiro, como ele seria?”</span>
+            </div>
+
+            <div class="step-card">
+              <div class="step-badge">PASSO 2</div>
+              <h4>A Garantia (Acerto Inevitável)</h4>
+              <p>Todo domínio possui um <strong>único efeito garantido</strong> que não pode ser esquivado pelas regras normais de combate. Deve ser pontual e específico.</p>
+            </div>
+
+            <div class="step-card">
+              <div class="step-badge">PASSO 3</div>
+              <h4>Restrições Severas</h4>
+              <p>Consome quase toda a Energia Folclórica atual; dura de 3 a 5 rodadas; usável apenas 1 vez por arco ou sessão longa; impõe exaustão (-2 em testes até descanso longo).</p>
+            </div>
+
+            <div class="step-card">
+              <div class="step-badge">PASSO 4</div>
+              <h4>Vantagens ao Usuário</h4>
+              <p>Dentro do domínio, o caçador recebe vantagens sensoriais e espaciais totais, e todas as suas técnicas nascem no tier Plena enquanto o espaço durar.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Historical Resonance Feature -->
+        <div class="historical-resonance-card">
+          <div class="resonance-header">
+            <span class="rune-symbol">🏛️</span>
+            <div>
+              <span class="res-tag">RECURSO NARRATIVO SUPREMO</span>
+              <h3>Ligação Histórica no Mundo Real</h3>
+            </div>
+          </div>
+          <p>
+            Se a Área Histórica do domínio for conjurada em um local que genuinamente carrega peso lendário real na história da Terra (o túmulo da lenda, um templo ancestral, ou o chão de um evento mítico comprovado), o domínio deixa de ser pessoal e entra em <strong>ressonância com o próprio planeta</strong>.
+          </p>
+          <div class="resonance-effects">
+            <div class="res-effect-item">
+              <strong>Disparidade Cruel:</strong> A cena deixa de ser combate equilibrado e passa a ser 'caçador contra coelho'.
+            </div>
+            <div class="res-effect-item">
+              <strong>Sem Resistência:</strong> O efeito da Garantia simplesmente acontece, sem teste de resistência ou com CD quase inatingível.
+            </div>
+            <div class="res-effect-item">
+              <strong>Restrições Anuladas:</strong> Custo de energia reduzido e penalidade de exaustão adiada ou cancelada.
+            </div>
+          </div>
+          <p class="res-footer">
+            <em>Uso recomendado pelo mestre: no máximo 1 a 2 vezes por campanha inteira.</em>
+          </p>
+        </div>
+      </section>
+    }
+
+    <!-- =========================================================================
+         CAPÍTULO VIII: CONSTELAÇÕES E PACTOS
+         ========================================================================= -->
+    @if (activeTab() === 'constelacoes') {
+      <section class="chapter-content fade-in" id="cap-constelacoes">
+        <div class="chapter-header">
+          <div class="header-seal">
+            <span class="seal-line"></span>
+            <span class="seal-text">CAPÍTULO VIII</span>
+            <span class="seal-line"></span>
+          </div>
+          <h2 class="chapter-title">CONSTELAÇÕES & PACTOS</h2>
+          <p class="chapter-lead">
+            Lendas caídas ou nunca-nascidas que não se manifestam fisicamente neste mundo — apenas observam do silêncio cósmico. Elas só se aproximam quando um caçador está fraco o bastante para escutar.
+          </p>
+        </div>
+
+        <div class="constellation-intro-grid">
+          <div class="intro-card">
+            <h4>Quando Elas se Manifestam</h4>
+            <p>
+              Cabe exclusivamente ao mestre decidir o momento (nunca ao jogador). Gatilhos típicos: <strong>PV crítico (quase-morte)</strong>, <strong>perda irreparável</strong> ou <strong>desespero manifesto</strong> na mesa.
+            </p>
+          </div>
+          <div class="intro-card">
+            <h4>A Visão da Federação</h4>
+            <p>
+              Como a Federação não julga as lendas, mas as contém, pactos com Constelações são tratados como <strong>traição em potencial</strong>. Caçadores marcados são vigiados, suspeitos e podem ser caçados.
+            </p>
+          </div>
+        </div>
+
+        <!-- Image Placeholder IMG-06 -->
+        <div class="image-slot-container">
+          <div class="image-slot-card">
+            <div class="slot-badge">
+              <span class="pulse-dot"></span>
+              <span>ESPAÇO PARA ADIÇÃO VISUAL // ID: IMG-06</span>
+            </div>
+            <div class="slot-body">
+              <div class="slot-icon-box">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 7.13l.97 2.29.47 1.11 1.2.1 2.47.21-1.88 1.63-.91.79.27 1.18.56 2.41-2.12-1.28-1.03-.64-1.03.62-2.12 1.28.56-2.41.27-1.18-.91-.79-1.88-1.63 2.47-.21 1.2-.1.47-1.11.97-2.27M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2z"/>
+                </svg>
+              </div>
+              <div class="slot-details">
+                <h3 class="slot-title">{{ imagePlaceholders[5].title }}</h3>
+                <p class="slot-meta">
+                  <strong>Local:</strong> {{ imagePlaceholders[5].location }} · 
+                  <strong>Formato:</strong> {{ imagePlaceholders[5].aspectRatio }}
+                </p>
+                <p class="slot-concept">
+                  <em>Conceito:</em> {{ imagePlaceholders[5].concept }}
+                </p>
+              </div>
+            </div>
+            <div class="slot-actions">
+              <button type="button" class="btn-copy-prompt" (click)="copyPrompt(imagePlaceholders[5])">
+                <span class="btn-icon">{{ copiedPromptId() === imagePlaceholders[5].id ? '✓' : '📋' }}</span>
+                <span>{{ copiedPromptId() === imagePlaceholders[5].id ? 'PROMPT COPIADO!' : 'COPIAR PROMPT DESTA IMAGEM' }}</span>
+              </button>
+              <span class="prompt-preview">{{ imagePlaceholders[5].promptEn }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- The Bargain Structure: Gifts vs Prices -->
+        <div class="bargain-table-container">
+          <div class="section-title-wrap">
+            <span class="diamond">❖</span>
+            <h3 class="section-sub">A BARGANHA: DÁDIVAS VS PREÇOS</h3>
+            <span class="diamond">❖</span>
+          </div>
+
+          <div class="bargain-grid">
+            <div class="bargain-card gifts-card">
+              <h4>Dádivas (O Que Elas Oferecem)</h4>
+              <ul>
+                <li><strong>Pequena:</strong> Vantagem pontual em teste decisivo, cura parcial de emergência, +2 em ataque crítico.</li>
+                <li><strong>Média:</strong> Benefício prolongado por uma cena inteira (vantagem em testes, resistência a dano elemental).</li>
+                <li><strong>Grande:</strong> Benefício permanente — uma 8ª técnica além do limite normal ou recurso fixo único.</li>
+              </ul>
+            </div>
+
+            <div class="bargain-card prices-card">
+              <h4>Preços (O Que Elas Cobram)</h4>
+              <ul>
+                <li><strong>De Sangue:</strong> Cicatriz irreversível, perda parcial de sentido, <strong>-1 permanente no PV máximo</strong>.</li>
+                <li><strong>De Vínculo:</strong> Obrigação de afastar-se, romper laços ou trair quem mais ancora sua humanidade.</li>
+                <li><strong>De Memória:</strong> Perda de uma lembrança afetiva formadora específica.</li>
+                <li><strong>De Dívida:</strong> A Constelação cobrará o favor no futuro de forma inegociável.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="golden-rule-box">
+            <span class="rule-icon">⚖️</span>
+            <p>
+              <strong>Regra de Ouro:</strong> Quanto maior a Dádiva, mais cruel e pessoal o Preço. Uma Dádiva Grande nunca é paga com sacrifício pequeno; ela ecoa por toda a campanha.
+            </p>
+          </div>
+        </div>
+
+        <!-- Example: The Unborn -->
+        <div class="unborn-example-card">
+          <div class="unborn-header">
+            <span class="star-icon">🌌</span>
+            <div>
+              <span class="unborn-badge">EXEMPLO DE CONSTELAÇÃO</span>
+              <h3 class="unborn-title">A Não-Nascida</h3>
+              <p class="unborn-subtitle">Constelação do Potencial Perdido · A lenda que nunca chegou a existir</p>
+            </div>
+          </div>
+
+          <blockquote class="unborn-quote">
+            “Eu sei quem você poderia ter sido. Posso te emprestar um pedaço dela.”
+          </blockquote>
+
+          <div class="unborn-lore">
+            <p>
+              Ela não caiu do mundo das lendas; nunca chegou a entrar nele. É a história que esqueceram de terminar de contar. Por isso é atraída especificamente por quem sente que falhou em se tornar quem deveria ser.
+            </p>
+            <div class="unborn-manifestation">
+              <strong>Manifestação Sensorial:</strong> Nunca aparece como figura humana; manifesta-se como <em>atraso temporal</em>. No espelho, seu reflexo se move meio segundo depois de você. Ao falar, uma voz que não é sua termina uma frase que você nem começou a pensar.
+            </div>
+          </div>
+        </div>
+      </section>
+    }
+
+    <!-- =========================================================================
+         CATÁLOGO GERAL DE PROMPTS
+         ========================================================================= -->
+    @if (activeTab() === 'prompts') {
+      <section class="chapter-content fade-in" id="cap-prompts">
+        <div class="chapter-header">
+          <div class="header-seal">
+            <span class="seal-line"></span>
+            <span class="seal-text">CATÁLOGO DE PRODUÇÃO</span>
+            <span class="seal-line"></span>
+          </div>
+          <h2 class="chapter-title">PROMPTS PARA ADIÇÃO FUTURA DE IMAGENS</h2>
+          <p class="chapter-lead">
+            Aqui estão reunidos todos os prompts e diretrizes visuais dos espaços reservados no guia. Você pode copiar o prompt desejado com um clique, gerar a imagem na sua ferramenta de preferência (Midjourney, DALL-E, Flux, Stable Diffusion) e adicioná-la futuramente ao projeto.
+          </p>
+        </div>
+
+        <div class="prompts-list-grid">
+          @for (item of imagePlaceholders; track item.id) {
+            <article class="prompt-catalog-card">
+              <div class="prompt-card-top">
+                <span class="prompt-id-badge">{{ item.id }}</span>
+                <span class="prompt-ratio-badge">{{ item.aspectRatio }}</span>
+              </div>
+              <h3 class="prompt-card-title">{{ item.title }}</h3>
+              <p class="prompt-card-location"><strong>Posicionamento no Guia:</strong> {{ item.location }}</p>
+              <p class="prompt-card-concept"><strong>Conceito Artístico:</strong> {{ item.concept }}</p>
+
+              <div class="prompt-code-box">
+                <div class="code-box-header">
+                  <span>PROMPT EM INGLÊS (RECOMENDADO PARA MIDJOURNEY / FLUX)</span>
+                  <button type="button" class="btn-copy-code" (click)="copyPrompt(item)">
+                    {{ copiedPromptId() === item.id ? 'COPIADO! ✓' : 'COPIAR PROMPT 📋' }}
+                  </button>
+                </div>
+                <pre class="prompt-text">{{ item.promptEn }}</pre>
+              </div>
+
+              <div class="prompt-pt-box">
+                <strong>Descrição Conceitual em Português:</strong>
+                <p>{{ item.promptPt }}</p>
+              </div>
+            </article>
+          }
+        </div>
+      </section>
+    }
+
+    <!-- Footer of the Guide with Navigation Actions -->
+    <footer class="guide-footer-actions">
+      <div class="footer-links">
+        <a routerLink="/" class="btn-guide-back">
+          <span>← VOLTAR AO MENU INICIAL</span>
+        </a>
+        <a routerLink="/arquivo" class="btn-guide-next">
+          <span>EXPLORAR O CÓDICE DA FEDERAÇÃO →</span>
+        </a>
+      </div>
+    </footer>
+  </div>
+</main>
