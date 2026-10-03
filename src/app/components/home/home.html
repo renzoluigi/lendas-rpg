@@ -123,14 +123,14 @@
           <div class="roster-avatar-frame">
             <img [src]="char.imageURI" [alt]="char.name" loading="lazy">
             <div class="roster-avatar-glow"></div>
-            <span class="roster-badge" [class]="getCampaignBadge(char).cssClass">
-              {{ getCampaignBadge(char).text }}
-            </span>
           </div>
           <div class="roster-info">
             <h4 class="roster-codename">{{ char.codename }}</h4>
             <p class="roster-fullname">{{ char.name }}</p>
             <span class="roster-country">{{ char.country }}</span>
+            <span class="roster-campaign" [class]="getCampaignInfo(char).cssClass">
+              {{ getCampaignInfo(char).name }}
+            </span>
           </div>
         </a>
       }

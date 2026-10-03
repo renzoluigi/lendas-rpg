@@ -6,6 +6,8 @@ export interface SessionEvent {
 
 export interface SessionEnemy {
   name: string;
+  image?: string;
+  imagePosition?: string;
   pv: number;
   defesa: number;
   danoMedio: string;

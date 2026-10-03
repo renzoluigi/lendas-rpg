@@ -9,6 +9,7 @@ import { CampaignVidaEMorte } from './components/pages/campaign-vida-e-morte/cam
 import { CampaignInvernoDeOssos } from './components/pages/campaign-inverno-de-ossos/campaign-inverno-de-ossos';
 import { CampaignCalendar } from './components/pages/campaign-calendar/campaign-calendar';
 import { SessionDetail } from './components/pages/session-detail/session-detail';
+import { CampaignMapInverno } from './components/pages/campaign-map-inverno/campaign-map-inverno';
 import { ArchiveCanon } from './components/pages/archive-canon/archive-canon';
 import { Archive } from './components/pages/archive/archive';
 import { Legends } from './components/pages/legends/legends';
@@ -29,6 +30,7 @@ export const routes: Routes = [
   { path: "campanhas/inverno-de-ossos", component: CampaignInvernoDeOssos },
   { path: "campanhas/inverno-de-ossos/diario", component: CampaignCalendar },
   { path: "campanhas/inverno-de-ossos/diario/:day", component: SessionDetail },
+  { path: "campanhas/inverno-de-ossos/mapa", component: CampaignMapInverno },
   { path: "campanhas/inverno-de-ossos/:codename", component: CharacterRecordInvernoDeOssos },
   { path: "campanhas/one-shot", component: Characters },
   { path: "campanhas/one-shot/:codename", component: CharacterRecord },
@@ -73,5 +75,7 @@ export const routes: Routes = [
   { path: "sen", redirectTo: "campanhas/vida-e-morte/Sen", pathMatch: "full" },
   { path: "anubis", redirectTo: "lendas", pathMatch: "full" },
   { path: "exodus", redirectTo: "campanhas/inverno-de-ossos/Exodus", pathMatch: "full" },
-  { path: "yusuf", redirectTo: "campanhas/inverno-de-ossos/Yusuf", pathMatch: "full" }
+  { path: "yusuf", redirectTo: "campanhas/inverno-de-ossos/Fumegant", pathMatch: "full" },
+  { path: "fumegant", redirectTo: "campanhas/inverno-de-ossos/Fumegant", pathMatch: "full" },
+  { path: "fumegante", redirectTo: "campanhas/inverno-de-ossos/Fumegant", pathMatch: "full" }
 ];

@@ -34,15 +34,19 @@ export class CharacterRecordInvernoDeOssos implements OnInit {
     if (!codenameParam) {
       const path = this.route.snapshot.url.map(u => u.path).join('/').toLowerCase();
       if (path.includes('exodus')) codenameParam = 'exodus';
-      else if (path.includes('yusuf') || path.includes('fumegante')) codenameParam = 'yusuf';
+      else if (path.includes('yusuf') || path.includes('fumegante') || path.includes('fumegant')) codenameParam = 'fumegant';
       else if (path.includes('franz')) codenameParam = 'franz';
       else if (path.includes('andri')) codenameParam = 'andri';
       else if (path.includes('pelucido')) codenameParam = 'pelucido';
     }
 
     if (codenameParam) {
-      codenameParam = codenameParam.toLowerCase();
-      this.character = CHARACTERS.find(char => char.codename.toLowerCase() === codenameParam);
+      const code = codenameParam.toLowerCase();
+      this.character = CHARACTERS.find(char => 
+        char.codename.toLowerCase() === code ||
+        ((code === 'yusuf' || code === 'fumegante') && char.codename.toLowerCase() === 'fumegant') ||
+        char.name.toLowerCase().includes(code)
+      );
     }
 
     if (this.character) {

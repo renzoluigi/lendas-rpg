@@ -1,0 +1,149 @@
+<main class="map-page" [class.is-fullscreen-mode]="isFullscreen">
+  @if (!isFullscreen) {
+    <app-header></app-header>
+  }
+
+  <div class="map-page-container">
+    <!-- Top Nav Bar -->
+    <nav class="nav-bar">
+      <div class="nav-left">
+        <button type="button" class="btn-back-frost" (click)="goBack()">
+          <span class="pointer">←</span> VOLTAR PARA INVERNO DE OSSOS
+        </button>
+
+        <div class="campaign-breadcrumb">
+          <a routerLink="/campanhas" class="campaign-link">CAMPANHAS</a>
+          <span class="separator">/</span>
+          <a routerLink="/campanhas/inverno-de-ossos" class="campaign-link">INVERNO DE OSSOS</a>
+          <span class="separator">/</span>
+          <span class="sub-name">MAPA DE VODENHADT</span>
+        </div>
+      </div>
+
+      <div class="nav-classification">
+        <span class="frost-pulse"></span>
+        <span class="tag">CARTOGRAFIA OFICIAL // CORDILHEIRA DOS ESQUECIDOS</span>
+      </div>
+    </nav>
+
+    <!-- Map Header Section -->
+    <section class="map-header">
+      <div class="map-header-badge">
+        <span class="frost-diamond">❖</span>
+        <span>LEVANTAMENTO TOPOGRÁFICO REGIONAL</span>
+        <span class="frost-diamond">❖</span>
+      </div>
+      <h1 class="map-title">MAPA TERRITORIAL DE VODENHADT</h1>
+      <p class="map-subtitle">
+        Representação cartográfica de Vodenhad, das paliçadas fronteiriças e das rotas montanhosas da Cordilheira dos Esquecidos.
+        Utilize os controles abaixo ou arraste com o mouse para navegar pelo relevo.
+      </p>
+    </section>
+
+    <!-- Interactive Map Section -->
+    <section class="map-viewer-wrapper" [class.fullscreen]="isFullscreen">
+      <!-- Toolbar controls -->
+      <div class="map-toolbar">
+        <div class="toolbar-left">
+          <span class="toolbar-label">
+            <span class="frost-diamond">❖</span>
+            <span>VODENHADT // SETOR EXPEDICIONÁRIO</span>
+          </span>
+          <span class="zoom-indicator">ZOOM: {{ (zoom * 100).toFixed(0) }}%</span>
+        </div>
+
+        <div class="toolbar-actions">
+          <button type="button" class="tool-btn" (click)="zoomIn()" title="Aproximar mapa">
+            <span class="btn-icon">+</span>
+            <span class="btn-text">APROXIMAR</span>
+          </button>
+
+          <button type="button" class="tool-btn" (click)="zoomOut()" title="Afastar mapa">
+            <span class="btn-icon">−</span>
+            <span class="btn-text">AFASTAR</span>
+          </button>
+
+          <button type="button" class="tool-btn" (click)="resetView()" title="Centralizar e redefinir zoom">
+            <span class="btn-icon">↺</span>
+            <span class="btn-text">REDEFINIR</span>
+          </button>
+
+          <button type="button" class="tool-btn" (click)="toggleFullscreen()" title="Alternar visualização expandida">
+            <span class="btn-icon">{{ isFullscreen ? '✖' : '⛶' }}</span>
+            <span class="btn-text">{{ isFullscreen ? 'FECHAR EXPANSÃO' : 'EXPANDIR' }}</span>
+          </button>
+
+          <a href="/mapa-vodenhadt.avif" target="_blank" rel="noopener noreferrer" class="tool-btn highlight" title="Abrir imagem original em resolução total">
+            <span class="btn-icon">↗</span>
+            <span class="btn-text">ARQUIVO ORIGINAL</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Map Viewport -->
+      <div class="map-viewport"
+           [class.grabbing]="isDragging"
+           (mousedown)="onMouseDown($event)"
+           (wheel)="onWheel($event)"
+           (dblclick)="onDoubleClick()">
+        
+        <div class="map-canvas"
+             [style.transform]="'translate(' + panX + 'px, ' + panY + 'px) scale(' + zoom + ')'">
+          <img src="/mapa-vodenhadt.avif"
+               alt="Mapa Territorial de Vodenhadt"
+               class="map-image"
+               draggable="false">
+        </div>
+
+        <!-- Ambient overlay cues -->
+        <div class="map-vignette"></div>
+        <div class="map-hint">
+          <span>Arraste para mover • Roda do mouse para zoom • Duplo clique para alternar</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Regional Cartographic Lore Cards -->
+    <section class="region-briefings">
+      <div class="briefing-card">
+        <div class="briefing-header">
+          <span class="frost-diamond">❖</span>
+          <h3>OS PORTÕES & PALIÇADAS</h3>
+        </div>
+        <p>
+          Barreiras monumentais de madeira rúnica e ligas de ferro que marcam a entrada de Vodenhad. 
+          Projetadas para conter as bestas do permafrost e impedir que invasores ou anomalias alcancem os refúgios civis.
+        </p>
+      </div>
+
+      <div class="briefing-card">
+        <div class="briefing-header">
+          <span class="frost-diamond">❖</span>
+          <h3>CORDILHEIRA DOS ESQUECIDOS</h3>
+        </div>
+        <p>
+          Relevo implacável sob neves perpétuas. Fendas glaciais, tempestades repentinas e vestígios de uma cidadela ancestral 
+          sepultada há séculos compõem a área externa do vilarejo.
+        </p>
+      </div>
+
+      <div class="briefing-card">
+        <div class="briefing-header">
+          <span class="frost-diamond">❖</span>
+          <h3>PERÍMETRO DA EXPEDIÇÃO</h3>
+        </div>
+        <p>
+          Área de busca primária designada pela Federação para os 30 dias de investigação. 
+          Qualquer rota fora do perímetro registrado no mapa é considerada zona proibida de alto risco folclórico.
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer Back Button -->
+    <div class="bottom-nav">
+      <button type="button" class="btn-back-frost" (click)="goBack()">
+        <span class="pointer">←</span> VOLTAR PARA A PÁGINA DA CAMPANHA
+      </button>
+    </div>
+  </div>
+</main>

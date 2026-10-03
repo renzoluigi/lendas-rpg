@@ -36,31 +36,21 @@
           Agora, uma expedição de caçadores de elite foi mobilizada para desbravar o permafrost antes que as abominações do frio tomem o mundo da superfície.
         </p>
 
-        <div class="campaign-stats-strip">
-          <div class="stat-pill">
-            <span class="stat-label">OPERAÇÃO</span>
-            <span class="stat-val">Campanha #03</span>
-          </div>
-          <div class="stat-pill">
-            <span class="stat-label">STATUS</span>
-            <span class="stat-val highlight-frost">Em Andamento</span>
-          </div>
-          <div class="stat-pill">
-            <span class="stat-label">TERRITÓRIO</span>
-            <span class="stat-val">Cordilheira dos Esquecidos</span>
-          </div>
-          <div class="stat-pill">
-            <span class="stat-label">EFETIVO</span>
-            <span class="stat-val">{{ characters.length }} {{ characters.length === 1 ? 'Caçador' : 'Caçadores' }}</span>
-          </div>
-        </div>
+        <div class="hero-actions">
+          <a routerLink="/campanhas/inverno-de-ossos/diario" class="diary-link">
+            <span class="diary-icon frost-diamond">❖</span>
+            <span class="diary-text">DIÁRIO DA EXPEDIÇÃO</span>
+            <span class="diary-badge">30 DIAS</span>
+            <span class="diary-arrow">→</span>
+          </a>
 
-        <a routerLink="/campanhas/inverno-de-ossos/diario" class="diary-link">
-          <span class="diary-icon frost-diamond">❖</span>
-          <span class="diary-text">DIÁRIO DA EXPEDIÇÃO</span>
-          <span class="diary-badge">30 DIAS</span>
-          <span class="diary-arrow">→</span>
-        </a>
+          <a routerLink="/campanhas/inverno-de-ossos/mapa" class="diary-link map-link">
+            <span class="diary-icon frost-diamond">❖</span>
+            <span class="diary-text">MAPA DE VODENHADT</span>
+            <span class="diary-badge">CARTOGRAFIA</span>
+            <span class="diary-arrow">→</span>
+          </a>
+        </div>
       </div>
     </section>
 

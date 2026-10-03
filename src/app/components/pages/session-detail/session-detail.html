@@ -59,12 +59,6 @@
                         <span class="party-role">{{ member.role }}</span>
                       </div>
                       <p class="party-details">{{ member.details }}</p>
-                      @if (member.quirk) {
-                        <div class="party-quirk">
-                          <span class="quirk-icon">❖</span>
-                          <span>{{ member.quirk }}</span>
-                        </div>
-                      }
                     </div>
                   </div>
                 }
@@ -156,33 +150,45 @@
 
             <div class="enemies-grid">
               @for (enemy of session.enemies; track enemy.name) {
-                <div class="enemy-card">
-                  <h3 class="enemy-name">{{ enemy.name }}</h3>
-                  <div class="enemy-stats">
-                    <div class="enemy-stat">
-                      <span class="enemy-stat-label">PV</span>
-                      <span class="enemy-stat-value">{{ enemy.pv }}</span>
+                <div class="enemy-card" [class.enemy-card--has-image]="!!enemy.image">
+                  @if (enemy.image) {
+                    <div class="enemy-portrait-wrap">
+                      <img [src]="enemy.image"
+                           [alt]="enemy.name"
+                           class="enemy-portrait"
+                           [style.objectPosition]="enemy.imagePosition || 'top center'"
+                           loading="lazy">
+                      <div class="enemy-portrait-overlay"></div>
                     </div>
-                    <div class="enemy-stat">
-                      <span class="enemy-stat-label">DEF</span>
-                      <span class="enemy-stat-value">{{ enemy.defesa }}</span>
+                  }
+                  <div class="enemy-body">
+                    <h3 class="enemy-name">{{ enemy.name }}</h3>
+                    <div class="enemy-stats">
+                      <div class="enemy-stat">
+                        <span class="enemy-stat-label">PV</span>
+                        <span class="enemy-stat-value">{{ enemy.pv }}</span>
+                      </div>
+                      <div class="enemy-stat">
+                        <span class="enemy-stat-label">DEF</span>
+                        <span class="enemy-stat-value">{{ enemy.defesa }}</span>
+                      </div>
+                      <div class="enemy-stat">
+                        <span class="enemy-stat-label">DANO</span>
+                        <span class="enemy-stat-value">{{ enemy.danoMedio }}</span>
+                      </div>
                     </div>
-                    <div class="enemy-stat">
-                      <span class="enemy-stat-label">DANO</span>
-                      <span class="enemy-stat-value">{{ enemy.danoMedio }}</span>
-                    </div>
+                    @if (enemy.papel) {
+                      <p class="enemy-role">{{ enemy.papel }}</p>
+                    }
+                    @if (enemy.habilidades && enemy.habilidades.length > 0) {
+                      <div class="enemy-abilities">
+                        <span class="abilities-label">HABILIDADES</span>
+                        @for (ability of enemy.habilidades; track ability) {
+                          <p class="ability-item">• {{ ability }}</p>
+                        }
+                      </div>
+                    }
                   </div>
-                  @if (enemy.papel) {
-                    <p class="enemy-role">{{ enemy.papel }}</p>
-                  }
-                  @if (enemy.habilidades && enemy.habilidades.length > 0) {
-                    <div class="enemy-abilities">
-                      <span class="abilities-label">HABILIDADES</span>
-                      @for (ability of enemy.habilidades; track ability) {
-                        <p class="ability-item">• {{ ability }}</p>
-                      }
-                    </div>
-                  }
                 </div>
               }
             </div>

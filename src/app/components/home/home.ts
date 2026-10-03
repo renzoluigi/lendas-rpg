@@ -31,14 +31,14 @@ export class Home {
     return ['/campanhas/one-shot', char.codename];
   }
 
-  getCampaignBadge(char: Character): { text: string; cssClass: string } {
+  getCampaignInfo(char: Character): { name: string; cssClass: string } {
     if (char.campaign === 'inverno-de-ossos') {
-      return { text: 'INVERNO', cssClass: 'badge-inverno' };
+      return { name: 'Inverno de Ossos', cssClass: 'campaign-inverno' };
     }
     if (char.campaign === 'vida-e-morte') {
-      return { text: 'VIDA & MORTE', cssClass: 'badge-vida-morte' };
+      return { name: 'Vida & Morte', cssClass: 'campaign-vida-morte' };
     }
-    return { text: 'ONE-SHOT', cssClass: 'badge-oneshot' };
+    return { name: 'One-Shot', cssClass: 'campaign-oneshot' };
   }
 
   constructor() {

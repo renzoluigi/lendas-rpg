@@ -7,49 +7,44 @@ export const INVERNO_SESSIONS: CampaignDay[] = [
     subtitle: 'Episódio 1 — O Batismo de Sangue',
     status: 'disponivel',
     episode: 1,
-    sections: [
+    sections: [ 
       {
         id: 'comitiva',
         title: 'A Comitiva e as Primeiras Fricções',
         tagline: 'OS CAÇADORES DE VODENHAD',
         content: [
-          'O grupo é recém-formado e convocado pela Federação dos Caçadores. Composto por cinco aventureiros portadores de diferentes manifestações da enigmática "Energia Folclórica", a jornada inicial foi marcada por egos inflados, desconfiança mútua e uma quase total ausência de entrosamento em combate.'
+          'O grupo foi convocado pela Federação dos Caçadores para uma operação em território hostil. Composto por cinco especialistas portadores de diferentes linhagens da enigmática "Energia Folclórica", a comitiva iniciou sua marcha marcada por desconfiança mútua, contraste agudo de métodos e ausência de entrosamento em combate.'
         ],
         partyMembers: [
           {
             name: 'Pelúcido Petrov',
             role: 'Curandeiro & Manipulador de Mana',
             avatar: '/pelucido.webp',
-            details: 'Portador de vasta reserva de energia folclórica. Conjurador de magias de suporte ("Fortificar", "Cura") e ataque mental/espinhos. Sério, obcecado por conhecimento e avesso a contato físico ("não me tocas, verme inútil").',
-            quirk: 'Tornou-se o alvo primordial dos bárbaros pela intensa aura mágica que irradia.'
+            details: 'Portador de vasta reserva de energia folclórica. Conjurador de magias de suporte ("Fortificar", "Cura") e ataque mental e espinhos. Calculista, sério e profundamente avesso ao contato físico com aliados ou adversários.'
           },
           {
             name: 'Franz Blackwood',
             role: 'Duelista & Postura de Combate',
             avatar: '/Franz.webp',
-            details: 'Nobre espadachim focado em técnica e controle de postura. Extremamente arrogante e sádico, demonstrou desequilíbrio ao mutilar um inimigo caído, causando repulsa imediata na comitiva.',
-            quirk: 'Passou boa parte do combate travado na lama tentando executar floreios acrobáticos.'
+            details: 'Nobre espadachim focado em técnica refinada e controle rigoroso de postura. Frio e implacável em batalha, demonstra instabilidade ao desferir golpes cruéis contra oponentes já neutralizados.'
           },
           {
-            name: 'Yusuf "Caliil" ibn Khalil',
+            name: 'Yusuf ibn Khalil, "Fumegant"',
             role: 'Guardião das Brumas Alquímicas',
             avatar: '/yassuf.webp',
-            details: 'Guerreiro do deserto armado com um pesado narguilé ancestral. Manipula vapores folclóricos de veneno e aromas tranquilizantes para debilitar adversários.',
-            quirk: 'Alívio cômico involuntário: despencou da carroça e ficou imóvel como uma tartaruga emborcada pelo peso do narguilé.'
+            details: 'Guerreiro do deserto armado com um pesado narguilé ancestral. Manipula vapores folclóricos de toxinas e essências tranquilizantes para controlar terreno e debilitar investidas inimigas.'
           },
           {
             name: 'Andri Ásgeirsson',
             role: 'Espadachim dos Ventos',
             avatar: '/andri.webp',
-            details: 'Nórdico honrado que controla o fluxo do ar ("Impulso Aerodinâmico", "Leitura dos Ventos"). Tenta conduzir discursos solenes sobre honra de batalha, sendo solenemente ignorado pelo pragmatismo do grupo.',
-            quirk: 'Sofreu para lidar com a montaria e quase teve a mão mordida pelos cavalos de guerra.'
+            details: 'Guerreiro nórdico que canaliza o fluxo aerodinâmico em cortes velozes ("Impulso Aerodinâmico", "Leitura dos Ventos"). Empenha-se em manter postura marcial honrada diante dos métodos rudes do grupo.'
           },
           {
             name: 'Amenhotep II, "Exodus"',
             role: 'Lâmina Necrótica & Carrasco',
             avatar: '/exodus.webp',
-            details: 'Assassino coberto por linho funerário e resina de betume. Empunha uma Khopesh enegrecida e evoca a necrose do "Nilo Fervente". Pragmático, letal e sem paciência para palavras.',
-            quirk: 'Protagonizou uma falha crítica ao tentar esgueirar-se, tropeçando nas vestes e ferindo o próprio braço.'
+            details: 'Assassino coberto por linho funerário e resina de betume. Empunha uma Khopesh enegrecida e canaliza a necrose corrosiva do "Nilo Fervente". Silencioso, letal e estritamente pragmático.'
           }
         ]
       },
@@ -58,8 +53,8 @@ export const INVERNO_SESSIONS: CampaignDay[] = [
         title: 'O Chamado de Hurik & A Partida Noturna',
         tagline: 'O CONTRATO DA FEDERAÇÃO',
         content: [
-          'Contratados por Hurik — um veterano calejado da Federação dos Caçadores, a missão oficial parecia uma diretriz comum: investigar o sumiço de mais de 10 mulheres e crianças em Vodenhad, um povoado remoto na serra fria, sob a suspeita burocrática de "atividade folclórica de baixo nível".',
-          'Contudo, a intuição aguçada de Exodus e Franz expôs as entrelinhas. Hurik demonstrou nervosismo atípico e sequer entregou o documento em mãos: atirou a carta com o selo da Associação diretamente ao chão com desprezo e tensão, ocultando a verdadeira escala do perigo que os aguardava.',
+          'Contratados por Hurik — um veterano calejado da Federação dos Caçadores —, a missão oficial designada ao grupo previa a investigação do desaparecimento de mais de 10 mulheres e crianças em Vodenhad, povoado remoto na serra fria, sob a classificação burocrática de "atividade folclórica de baixo nível".',
+          'Contudo, a intuição aguçada de Exodus e Franz expôs contradições no encargo. Hurik demonstrou nervosismo atípico e sequer entregou o documento em mãos: atirou a carta com o selo da Associação diretamente ao chão com desprezo e tensão contida, ocultando a verdadeira escala do perigo que os aguardava.',
           'Com 30 dias de prazo para solucionar a crise, broches de autoridade no peito e uma carroça de carga coberta por lona militar puxada por cavalos de guerra, a comitiva partiu às 18h00, adentrando a névoa noturna.'
         ],
         imageSlot: {
@@ -75,9 +70,9 @@ export const INVERNO_SESSIONS: CampaignDay[] = [
         title: 'A Emboscada na Estrada Deserta (20h15)',
         tagline: 'INCIDENTE NA FLORESTA',
         content: [
-          'Por volta das 20h15, entre os pinheiros negros da serra, Exodus freou bruscamente a carroça: destroços bloqueavam a passagem. Uma carroça comercial desmantelada jazia no centro da trilha, caixas de maçãs e grãos espalhadas pela lama, e um suposto cadáver inerte estirado na vala.',
-          'Era uma isca armada com frieza. Antes que pudessem descer, três bárbaros renegados com rostos cobertos por tatuagens rúnicas saltaram da escuridão empunhando machados.',
-          'O falso morto ergueu-se de supetão para desferir um golpe fatal, mas Andri reagiu em fração de segundo: com um salto acrobático impulsionado pelos ventos, decepou a ameaça em um único arco cortante. Todavia, um segundo salteador conseguiu romper a lona da carroça, encurralando Pelúcido e Caliil em um combate claustrofóbico.'
+          'Por volta das 20h15, entre os pinheiros negros da serra, Exodus freou bruscamente a carroça: destroços bloqueavam a passagem estreita. Uma carroça comercial desmantelada jazia no centro da trilha, caixas de maçãs e grãos espalhadas pela lama, e um suposto cadáver inerte estirado na vala.',
+          'Era uma emboscada calculada com frieza. Três guerreiros renegados com rostos cobertos por tatuagens rúnicas surgiram das sombras empunhando machados de guerra.',
+          'O falso morto ergueu-se para desferir um golpe surpresa, mas Andri reagiu no primeiro instante: com um salto acrobático impulsionado pelos ventos, decepou a ameaça em um único arco cortante. Todavia, um segundo invasor conseguiu romper a lona da carroça, encurralando Pelúcido e Fumegant em combate fechado.'
         ],
         imageSlot: {
           title: 'A Emboscada na Estrada Noturna',
@@ -92,9 +87,9 @@ export const INVERNO_SESSIONS: CampaignDay[] = [
         title: 'O Colosso da Floresta & A Execução no Sangue',
         tagline: 'O CONFRONTO BRUTAL',
         content: [
-          'O chão estremeceu quando emergiu da mata fechada o Colosso: um guerreiro bárbaro titânico de três metros de altura, dotado de runas purulentas entalhadas na fronte. Atraído pela densa assinatura folclórica de Pelúcido, o monstro ignorou os golpes dos combatentes na vanguarda e avançou em fúria cega para esmagar a carroça.',
-          'O combate transformou-se em um pandemônio frenético: Franz ficou preso ao solo em meio a tentativas frustradas de finalização; Caliil foi ejetado pela lateral da lona com o peso de seu narguilé; e Exodus, tentando uma manobra furtiva pela vegetação, cortou o próprio braço.',
-          'A virada decisiva veio das alturas: aproveitando a obsessão do gigante em pulverizar o refúgio do mago, Exodus escalou sorrateiramente a carcaça da carruagem e saltou sobre o crânio do titã. Cravando a Khopesh curva com ambas as mãos, liberou o "Nilo Fervente" — necrosando o cérebro da criatura e derretendo seus órgãos internos com ácido folclórico.'
+          'O solo tremeu quando emergiu da mata fechada o Colosso: um combatente bárbaro titânico de três metros de altura, marcado por runas purulentas entalhadas na fronte. Atraído pela densa assinatura folclórica de Pelúcido, o monstro ignorou os combatentes na vanguarda e avançou em fúria contínua para estraçalhar a carroça.',
+          'O embate tornou-se violento e caótico: a investida brutal do titã rachou a estrutura da carruagem e forçou a comitiva a uma contenção desesperada na lama escorregadia da serra. Fumegant ergueu densas névoas de contenção enquanto Franz e Andri tentavam conter a investida do colosso.',
+          'A virada decisiva veio das sombras: aproveitando o foco cego da criatura em esmagar o refúgio do mago, Exodus escalou sorrateiramente a carcaça da carruagem e saltou sobre o crânio do titã. Cravando a Khopesh curva com ambas as mãos, liberou o "Nilo Fervente" — necrosando o cérebro da criatura e dissolvendo seus órgãos internos com ácido folclórico.'
         ],
         imageSlot: {
           title: 'O Duelo Contra o Colosso Rúnico',
@@ -109,8 +104,8 @@ export const INVERNO_SESSIONS: CampaignDay[] = [
         title: 'As Pistas nos Destroços & O Contrato de Sangue',
         tagline: 'INVESTIGAÇÃO E ESPÓLIOS',
         content: [
-          'Com o colosso abatido e os renegados restantes neutralizados, a comitiva passou à coleta de informações. Enquanto Andri tentava declamar sobre a coragem da vitória, Exodus já saqueava metodicamente as bolsas dos mortos.',
-          'Pelúcido canalizou magia de Conhecimento sobre as marcas rúnicas na cabeça do gigante e sentiu uma presença de comando externo — o colosso agia sob coação ritualística para caçar conjuradores. No casaco da criatura, encontrou um Contrato de Sangue selado, redigido em um dialeto antigo.',
+          'Com o colosso abatido e os renegados restantes neutralizados, a comitiva estabeleceu perímetro e procedeu à busca detalhada no campo do confronto.',
+          'Pelúcido canalizou magia de Conhecimento sobre as marcas rúnicas na cabeça do gigante e identificou resquícios de coação mental — a criatura agia sob encantamento direcionado para eliminar conjuradores folclóricos. No casaco do líder abatido, encontrou um Contrato de Sangue selado, redigido em um dialeto ancestral.',
           'A inspeção na carroça destruída aprofundou o enigma: as caixas continham maçãs, cevada e trigo de comerciantes comuns, mas não havia corpos nem poças de sangue humano. As vítimas não foram executadas ali — os colonos e viajantes estão sendo sequestrados vivos por cultistas da energia folclórica.'
         ],
         callout: {
@@ -131,11 +126,13 @@ export const INVERNO_SESSIONS: CampaignDay[] = [
         title: 'Sob a Névoa Noturna: Os Portões de Vodenhad',
         tagline: 'CONCLUSÃO DO PRIMEIRO DIA',
         content: [
-          'Quarenta e cinco minutos após o término do confronto, remendando as lonas rasgadas e limpando o sangue espesso das armas, a carroça avistou os limites de Vodenhad.',
-          'O vilarejo repousa sob um silêncio tumular, cercado por paliçadas de madeira escura e névoa gelada. Com recursos gastos, ferimentos abertos e a certeza de que a Federação ocultou os verdadeiros horrores da região, a comitiva transpõe os portões. Os 30 dias de investigação acabaram de começar.'
+          'Quarenta e cinco minutos após o término do confronto, contendo os ferimentos e assegurando a carruagem danificada, a comitiva alcançou os limites de Vodenhad.',
+          'O vilarejo repousa sob um silêncio tumular, cercado por paliçadas de madeira escura e névoa gelada. Com a certeza de que a Federação ocultou os verdadeiros horrores que assolam a região, os caçadores transpõem os portões. Os 30 dias de investigação acabaram de começar.'
         ],
         imageSlot: {
           title: 'Os Portões de Vodenhad na Névoa',
+          src: '/chegada-vodenhadt.png',
+          alt: 'Os Portões de Vodenhad na Névoa',
           description: 'A carruagem desgastada dos caçadores chegando diante dos portões maciços de Vodenhad sob a névoa fria da meia-noite.',
           prompt: 'Dark fantasy environment art, 16:9 panoramic shot. The ominous, towering wooden and iron-reinforced palisade gates of a remote, gothic mountain village called Vodenhad at midnight. Dense cold fog blankets the muddy ground and creeping bare pine trees. A single battered horse-drawn wagon approaches the closed gate under the pale glow of hanging iron lanterns. Dark silhouettes, eerie quiet, oppressive mystery, high detailed cinematic digital painting in the style of Bloodborne and Elden Ring.'
         }
@@ -144,6 +141,7 @@ export const INVERNO_SESSIONS: CampaignDay[] = [
     enemies: [
       {
         name: 'Renegado Corrompido',
+        image: '/barbaro-normal-ficha.png',
         pv: 16,
         defesa: 12,
         danoMedio: '~5.5',
@@ -151,6 +149,8 @@ export const INVERNO_SESSIONS: CampaignDay[] = [
       },
       {
         name: 'Corvo Rachado (Líder)',
+        image: '/gigante-ficha.avif',
+        imagePosition: 'center 24%',
         pv: 42,
         defesa: 14,
         danoMedio: '~8.5',

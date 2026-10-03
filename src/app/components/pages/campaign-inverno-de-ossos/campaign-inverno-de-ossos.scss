@@ -217,48 +217,25 @@
   }
 }
 
-.campaign-stats-strip {
+
+/* Hero Actions Group */
+.hero-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  align-items: center;
+  gap: 14px;
+  margin-top: 18px;
 
-  .stat-pill {
-    display: flex;
-    flex-direction: column;
-    padding: 8px 14px;
-    background: rgba(15, 23, 42, 0.7);
-    border: 1px solid rgba(125, 211, 252, 0.25);
-    border-radius: 3px;
-
-    .stat-label {
-      font-family: 'Cinzel', serif;
-      font-size: 0.65rem;
-      letter-spacing: 1.5px;
-      color: #94a3b8;
-      text-transform: uppercase;
-      margin-bottom: 2px;
-    }
-
-    .stat-val {
-      font-family: 'Cinzel', serif;
-      font-size: 0.88rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      color: #e2e8f0;
-
-      &.highlight-frost {
-        color: #38bdf8;
-      }
-    }
+  .diary-link {
+    margin-top: 0;
   }
 }
 
-/* Diary Link */
+/* Diary & Map Links */
 .diary-link {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-top: 18px;
   padding: 12px 22px;
   background: linear-gradient(145deg, rgba(8, 30, 50, 0.9) 0%, rgba(6, 18, 32, 0.9) 100%);
   border: 1px solid rgba(56, 189, 248, 0.5);
@@ -321,6 +298,31 @@
 
     .diary-badge {
       background: rgba(56, 189, 248, 0.25);
+    }
+  }
+
+  &.map-link {
+    background: linear-gradient(145deg, rgba(12, 28, 48, 0.9) 0%, rgba(7, 16, 28, 0.9) 100%);
+    border-color: rgba(125, 211, 252, 0.45);
+    color: #e0f2fe;
+
+    .diary-badge {
+      background: rgba(14, 165, 233, 0.15);
+      border-color: rgba(56, 189, 248, 0.35);
+      color: #7dd3fc;
+    }
+
+    &:hover {
+      border-color: #7dd3fc;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7), 0 0 24px rgba(125, 211, 252, 0.35);
+
+      .diary-arrow {
+        transform: translate(3px, -3px);
+      }
+
+      .diary-badge {
+        background: rgba(14, 165, 233, 0.25);
+      }
     }
   }
 }
@@ -686,7 +688,7 @@
         border-left: none;
       }
 
-      .campaign-stats-strip {
+      .hero-actions {
         justify-content: center;
       }
     }
@@ -701,6 +703,16 @@
   .campaign-hero {
     .campaign-main-title {
       font-size: 2rem;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+      width: 100%;
+
+      .diary-link {
+        width: 100%;
+        justify-content: center;
+      }
     }
   }
 
