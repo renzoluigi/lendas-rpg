@@ -7,6 +7,8 @@ import { CharacterRecordVidaEMorte } from './components/pages/character-record-v
 import { CharacterRecordInvernoDeOssos } from './components/pages/character-record-inverno-de-ossos/character-record-inverno-de-ossos';
 import { CampaignVidaEMorte } from './components/pages/campaign-vida-e-morte/campaign-vida-e-morte';
 import { CampaignInvernoDeOssos } from './components/pages/campaign-inverno-de-ossos/campaign-inverno-de-ossos';
+import { CampaignCalendar } from './components/pages/campaign-calendar/campaign-calendar';
+import { SessionDetail } from './components/pages/session-detail/session-detail';
 import { ArchiveCanon } from './components/pages/archive-canon/archive-canon';
 import { Archive } from './components/pages/archive/archive';
 import { Legends } from './components/pages/legends/legends';
@@ -25,6 +27,8 @@ export const routes: Routes = [
   { path: "campanhas/vida-e-morte", component: CampaignVidaEMorte },
   { path: "campanhas/vida-e-morte/:codename", component: CharacterRecordVidaEMorte },
   { path: "campanhas/inverno-de-ossos", component: CampaignInvernoDeOssos },
+  { path: "campanhas/inverno-de-ossos/diario", component: CampaignCalendar },
+  { path: "campanhas/inverno-de-ossos/diario/:day", component: SessionDetail },
   { path: "campanhas/inverno-de-ossos/:codename", component: CharacterRecordInvernoDeOssos },
   { path: "campanhas/one-shot", component: Characters },
   { path: "campanhas/one-shot/:codename", component: CharacterRecord },

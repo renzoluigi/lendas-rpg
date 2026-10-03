@@ -30,6 +30,15 @@ export const serverRoutes: ServerRoute[] = [
     }
   },
   {
+    path: 'campanhas/inverno-de-ossos/diario/:day',
+    renderMode: RenderMode.Prerender,
+    getPrerenderParams: async () => {
+      return Array.from({ length: 30 }, (_, i) => ({
+        day: String(i + 1)
+      }));
+    }
+  },
+  {
     path: 'campanhas/inverno-de-ossos/:codename',
     renderMode: RenderMode.Prerender,
     getPrerenderParams: async () => {

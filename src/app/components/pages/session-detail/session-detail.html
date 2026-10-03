@@ -1,0 +1,267 @@
+<main class="session-page">
+  <app-header></app-header>
+
+  @if (session && session.status === 'disponivel') {
+    <div class="session-container">
+      <div class="nav-bar">
+        <div class="campaign-breadcrumb">
+          <a routerLink="/campanhas" class="campaign-link">CAMPANHAS</a>
+          <span class="separator">/</span>
+          <a routerLink="/campanhas/inverno-de-ossos" class="campaign-link">INVERNO DE OSSOS</a>
+          <span class="separator">/</span>
+          <a routerLink="/campanhas/inverno-de-ossos/diario" class="campaign-link">DIÁRIO</a>
+          <span class="separator">/</span>
+          <span class="sub-name">DIA {{ session.day < 10 ? '0' + session.day : session.day }}</span>
+        </div>
+      </div>
+
+      <!-- Session Hero -->
+      <section class="session-hero">
+        <div class="hero-day-badge">
+          <span class="day-number">{{ session.day < 10 ? '0' + session.day : session.day }}</span>
+          <span class="day-label">DIA</span>
+        </div>
+        <div class="hero-info">
+          <div class="hero-tagline-badge">
+            <span class="frost-diamond">❖</span>
+            <span>{{ session.subtitle }}</span>
+            <span class="frost-diamond">❖</span>
+          </div>
+          <h1 class="session-title">{{ session.title }}</h1>
+        </div>
+      </section>
+
+      <!-- Session Sections -->
+      <div class="session-content">
+        @for (section of session.sections; track section.title) {
+          <section class="session-block" [id]="section.id || ''">
+            <div class="block-header">
+              @if (section.tagline) {
+                <div class="block-tagline">
+                  <span class="frost-diamond">❖</span>
+                  <span>{{ section.tagline }}</span>
+                </div>
+              }
+              <h2 class="block-title">{{ section.title }}</h2>
+            </div>
+
+            <!-- Party Members if available -->
+            @if (section.partyMembers && section.partyMembers.length > 0) {
+              <div class="party-grid">
+                @for (member of section.partyMembers; track member.name) {
+                  <div class="party-card">
+                    <div class="party-avatar-wrap">
+                      <img [src]="member.avatar" [alt]="member.name" class="party-avatar" loading="lazy">
+                    </div>
+                    <div class="party-info">
+                      <div class="party-name-row">
+                        <h3 class="party-name">{{ member.name }}</h3>
+                        <span class="party-role">{{ member.role }}</span>
+                      </div>
+                      <p class="party-details">{{ member.details }}</p>
+                      @if (member.quirk) {
+                        <div class="party-quirk">
+                          <span class="quirk-icon">❖</span>
+                          <span>{{ member.quirk }}</span>
+                        </div>
+                      }
+                    </div>
+                  </div>
+                }
+              </div>
+            }
+
+            <div class="block-body">
+              @for (paragraph of section.content; track paragraph) {
+                <p class="block-paragraph">{{ paragraph }}</p>
+              }
+            </div>
+
+            <!-- Callout if available -->
+            @if (section.callout) {
+              <div class="block-callout block-callout--{{ section.callout.type }}">
+                <div class="callout-header">
+                  <span class="callout-icon">❖</span>
+                  <span class="callout-title">{{ section.callout.title }}</span>
+                </div>
+                <p class="callout-text">{{ section.callout.text }}</p>
+              </div>
+            }
+
+            <!-- Image Slot / Suggested Art Space -->
+            @if (section.imageSlot) {
+              <div class="image-slot-wrapper">
+                @if (section.imageSlot.src) {
+                  <figure class="image-frame">
+                    <div class="image-header-strip">
+                      <span class="frost-diamond">❖</span>
+                      <span class="image-title-text">{{ section.imageSlot.title }}</span>
+                    </div>
+                    <div class="image-container">
+                      <img [src]="section.imageSlot.src" [alt]="section.imageSlot.alt || section.imageSlot.title" class="slot-image" loading="lazy">
+                    </div>
+                    <figcaption class="image-caption">
+                      <span class="caption-diamond">❖</span>
+                      <span>{{ section.imageSlot.description }}</span>
+                    </figcaption>
+                  </figure>
+                } @else {
+                  <div class="image-placeholder-slot">
+                    <div class="slot-top-bar">
+                      <div class="slot-badge">
+                        <span class="frost-diamond">❖</span>
+                        <span>ESPAÇO PARA ILUSTRAÇÃO</span>
+                        <span class="frost-diamond">❖</span>
+                      </div>
+                      <span class="slot-ratio-badge">16:9 CINEMÁTICO</span>
+                    </div>
+
+                    <div class="slot-scene-header">
+                      <h3 class="slot-scene-title">{{ section.imageSlot.title }}</h3>
+                      <p class="slot-scene-desc">{{ section.imageSlot.description }}</p>
+                    </div>
+
+                    <div class="slot-prompt-box">
+                      <div class="prompt-header">
+                        <span class="prompt-label">PROMPT DE GERAÇÃO:</span>
+                        <button type="button"
+                                class="copy-prompt-btn"
+                                (click)="copyPrompt(section.imageSlot.title, section.imageSlot.prompt)"
+                                [title]="'Copiar prompt para geração de ' + section.imageSlot.title">
+                          @if (copiedPromptTitle === section.imageSlot.title) {
+                            <span class="copied-indicator">✓ COPIADO!</span>
+                          } @else {
+                            <span>COPIAR PROMPT</span>
+                          }
+                        </button>
+                      </div>
+                      <code class="prompt-code">{{ section.imageSlot.prompt }}</code>
+                    </div>
+                  </div>
+                }
+              </div>
+            }
+          </section>
+        }
+
+        <!-- Enemies -->
+        @if (session.enemies && session.enemies.length > 0) {
+          <section class="enemies-section">
+            <div class="section-divider">
+              <span class="divider-line"></span>
+              <span class="divider-icon frost-diamond">❖</span>
+              <span class="divider-line"></span>
+            </div>
+            <h2 class="enemies-title">FICHAS DE INIMIGOS</h2>
+
+            <div class="enemies-grid">
+              @for (enemy of session.enemies; track enemy.name) {
+                <div class="enemy-card">
+                  <h3 class="enemy-name">{{ enemy.name }}</h3>
+                  <div class="enemy-stats">
+                    <div class="enemy-stat">
+                      <span class="enemy-stat-label">PV</span>
+                      <span class="enemy-stat-value">{{ enemy.pv }}</span>
+                    </div>
+                    <div class="enemy-stat">
+                      <span class="enemy-stat-label">DEF</span>
+                      <span class="enemy-stat-value">{{ enemy.defesa }}</span>
+                    </div>
+                    <div class="enemy-stat">
+                      <span class="enemy-stat-label">DANO</span>
+                      <span class="enemy-stat-value">{{ enemy.danoMedio }}</span>
+                    </div>
+                  </div>
+                  @if (enemy.papel) {
+                    <p class="enemy-role">{{ enemy.papel }}</p>
+                  }
+                  @if (enemy.habilidades && enemy.habilidades.length > 0) {
+                    <div class="enemy-abilities">
+                      <span class="abilities-label">HABILIDADES</span>
+                      @for (ability of enemy.habilidades; track ability) {
+                        <p class="ability-item">• {{ ability }}</p>
+                      }
+                    </div>
+                  }
+                </div>
+              }
+            </div>
+          </section>
+        }
+
+        <!-- Loot -->
+        @if (session.loot && session.loot.length > 0) {
+          <section class="loot-section">
+            <div class="section-divider">
+              <span class="divider-line"></span>
+              <span class="divider-icon frost-diamond">❖</span>
+              <span class="divider-line"></span>
+            </div>
+            <h2 class="loot-title">ESPÓLIOS</h2>
+            <div class="loot-grid">
+              @for (item of session.loot; track item) {
+                <div class="loot-item">
+                  <span class="loot-dot">◆</span>
+                  {{ item }}
+                </div>
+              }
+            </div>
+          </section>
+        }
+
+        <!-- Level Up -->
+        @if (session.levelUp) {
+          <section class="levelup-section">
+            <div class="section-divider">
+              <span class="divider-line"></span>
+              <span class="divider-icon frost-diamond">❖</span>
+              <span class="divider-line"></span>
+            </div>
+            <h2 class="levelup-title">PROGRESSÃO</h2>
+            <div class="levelup-card">
+              <div class="levelup-badge">NÍVEL {{ session.levelUp.newLevel }}</div>
+              <div class="levelup-stats">
+                <div class="levelup-stat">
+                  <span class="levelup-label">HP</span>
+                  <span class="levelup-value">+{{ session.levelUp.hpDice }}</span>
+                </div>
+                <div class="levelup-stat">
+                  <span class="levelup-label">EF</span>
+                  <span class="levelup-value">+{{ session.levelUp.efDice }}</span>
+                </div>
+              </div>
+              @if (session.levelUp.notes) {
+                <p class="levelup-notes">{{ session.levelUp.notes }}</p>
+              }
+            </div>
+          </section>
+        }
+      </div>
+
+      <!-- Navigation -->
+      <div class="session-nav">
+        <a routerLink="/campanhas/inverno-de-ossos/diario" class="nav-btn nav-btn--back">
+          <span class="nav-arrow">←</span>
+          VOLTAR AO DIÁRIO
+        </a>
+      </div>
+    </div>
+  } @else {
+    <div class="session-container">
+      <div class="nav-bar">
+        <div class="campaign-breadcrumb">
+          <a routerLink="/campanhas/inverno-de-ossos/diario" class="campaign-link">← VOLTAR AO DIÁRIO</a>
+        </div>
+      </div>
+      <div class="session-empty">
+        <div class="empty-icon-wrap">
+          <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor">
+            <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+          </svg>
+        </div>
+        <h2 class="empty-title">SESSÃO NÃO DISPONÍVEL</h2>
+        <p class="empty-desc">Este dia ainda não foi registrado nos arquivos da expedição.</p>
+      </div>
+    </div>
+  }
+</main>
